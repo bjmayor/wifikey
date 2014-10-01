@@ -84,7 +84,6 @@ public class SplashActiviy extends BaseActivity implements ResponseHandler {
 	protected void processLogic() {
 		postDelay();
 
-		hasUpgreatOfApp();
 		RequestFactory.getRecommendApps(this, this);
 		RequestFactory.getDiscoverList(this, this);
 
@@ -187,10 +186,6 @@ public class SplashActiviy extends BaseActivity implements ResponseHandler {
 
 	}
 
-	private void hasUpgreatOfApp() {
-		// TODO 检查更新
-		RequestFactory.checkAppUpGrade(this, this);
-	}
 
 	@Override
 	public void onStart(RequestTag tag, Code code) {

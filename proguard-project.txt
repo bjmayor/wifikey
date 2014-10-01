@@ -51,6 +51,7 @@
 -keep class com.nostra13.universalimageloader.**{*;}
 -keep class com.nineoldandroids.**{*;}
 -keep class sdk.**{*;}
+-keep class org.adver.score.**{*;}
 
 -libraryjars libs/locSDK_4.2.jar
 #-libraryjars libs/baidumapapi_v2_4_1.jar

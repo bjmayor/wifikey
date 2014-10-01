@@ -52,6 +52,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.seo.wifikey.R;
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.update.UmengUpdateAgent;
 
 /**
  * @filename ConnectFragment.java
@@ -142,7 +143,7 @@ public class SettingFragment extends Fragment implements OnClickListener,
 			RequestFactory.getUserInfo(getActivity(), this);
 		}
 		updateView();
-		RequestFactory.checkAppUpGrade(getActivity(), this);
+		UmengUpdateAgent.update(Gl.Ct());
 	}
 	
 	@Override
@@ -207,17 +208,7 @@ public class SettingFragment extends Fragment implements OnClickListener,
 			}
 			break;
 		case R.id.ll_version:
-			if (ClientInfo.shareInstance().appNeedUpdate()) {
-				Intent upgrate = new Intent();
-				upgrate.setAction("android.intent.action.VIEW");
-				Uri content_url = Uri.parse(RequestConstant
-						.getUrl(RequestTag.URL_APP_DOWNLOAD));
-				upgrate.setData(content_url);
-				startActivity(upgrate);
-			} else {
-				RequestFactory.checkAppUpGrade(getActivity(), this);
-			}
-
+			UmengUpdateAgent.update(Gl.Ct());
 			break;
 		case R.id.ll_about:
 			intent.setClass(getActivity(), AboutAppActivity.class);
