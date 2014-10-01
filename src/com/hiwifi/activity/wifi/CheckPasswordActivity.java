@@ -4,7 +4,8 @@ import java.math.BigDecimal;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import org.json.JSONObject;
+import org.adver.score.scorewall.ScoreWallSDK;
+import org.adver.score.sdk.widget.UpdateScordNotifier;
 
 import android.content.Intent;
 import android.net.NetworkInfo;
@@ -35,16 +36,11 @@ import cn.sharesdk.wechat.friends.Wechat;
 import cn.sharesdk.wechat.moments.WechatMoments;
 
 import com.hiwifi.activity.base.BaseActivity;
-import com.hiwifi.activity.user.UserLoginActivity;
 import com.hiwifi.app.receiver.HiwifiBroadcastReceiver;
 import com.hiwifi.app.receiver.HiwifiBroadcastReceiver.WifiEventHandler;
 import com.hiwifi.constant.ConfigConstant;
-import com.hiwifi.constant.RequestConstant.RequestTag;
 import com.hiwifi.model.User;
 import com.hiwifi.model.log.LogUtil;
-import com.hiwifi.model.request.RequestFactory;
-import com.hiwifi.model.request.RequestManager.ResponseHandler;
-import com.hiwifi.model.request.ServerResponseParser;
 import com.hiwifi.model.wifi.AccessPoint;
 import com.hiwifi.model.wifi.AccessPoint.WifiConnectState;
 import com.hiwifi.model.wifi.WifiAdmin;
@@ -54,7 +50,7 @@ import com.seo.wifikey.R;
 import com.umeng.analytics.MobclickAgent;
 
 public class CheckPasswordActivity extends BaseActivity implements
-		OnClickListener, ResponseHandler {
+		OnClickListener, UpdateScordNotifier {
 
 	private LinearLayout unloginView, loginedView, showPwdView, shareContainer;
 	private ImageView backWifilist, stateImage, shareToWechat, shareToMoments,
@@ -162,7 +158,7 @@ public class CheckPasswordActivity extends BaseActivity implements
 	private void setRemainChance() {
 		int color = getResources().getColor(R.color.text_blue);
 		String shit = "今日还可以查看";
-		String times = String.valueOf(leftTimes);// "12";
+		String times = String.valueOf(leftTimes / 5);// "12";
 		SpannableString shitshit = new SpannableString(shit + times + "次");
 		shitshit.setSpan(new ForegroundColorSpan(color), shit.length(),
 				shit.length() + times.length(),
@@ -263,9 +259,9 @@ public class CheckPasswordActivity extends BaseActivity implements
 
 	public void onResume() {
 		startCheckCurrentFlow();
-		// if (User.shareInstance().hasLogin()) {
-		// requestServerRemainChance();
-		// }
+		showMyDialog("正在加载...");
+		ScoreWallSDK.getInstance(CheckPasswordActivity.this).getScore(
+				CheckPasswordActivity.this, CheckPasswordActivity.this);
 		HiwifiBroadcastReceiver.addListener(wifiEventHandler);
 		super.onResume();
 	}
@@ -420,91 +416,29 @@ public class CheckPasswordActivity extends BaseActivity implements
 
 	private void requestServerRemainChance() {
 		// 获取查看次数
-		if (User.shareInstance().hasLogin()) {
-			RequestFactory.getPasswordViewTimes(this, this);
-		}
+		ScoreWallSDK.getInstance(CheckPasswordActivity.this).getScore(
+				CheckPasswordActivity.this, CheckPasswordActivity.this);
 	}
 
-	private void requestServerReduceChance(String bssid) {
-		// 减少查看次数
-		RequestFactory.sendPasswordHasViewed(this, bssid, this);
-
-	}
-
-	@Override
-	public void onStart(RequestTag tag, Code code) {
-		if (tag == RequestTag.HIWIFI_PWD_VIEWTIMES_GET) {
-			if (code == Code.ok) {
-				showMyDialog("正在加载...");
-			}
-		}
-	}
-
-	@Override
-	public void onSuccess(RequestTag tag, ServerResponseParser responseParser) {
-		// {"left_times":2,"msg":"ok","code":"0"}
-		if (RequestTag.HIWIFI_PWD_VIEWTIMES_GET == tag) {
-			LogUtil.d("hehe", responseParser.toString());
-			JSONObject jsonObject = responseParser.originResponse;
-			leftTimes = jsonObject.optInt("left_times", 0);
-			String msg = jsonObject.optString("msg", "");
-			String code = jsonObject.optString("code", "");
-			if ("0".equals(code)) {
-				setRemainChance();
-			} else {
-				Toast.makeText(this, msg, 0).show();
-			}
-
-		}
-		// {"left_times":11,"msg":"ok","pwd":1,"code":"0"}
-		// {"left_times":2,"msg":"ok","pwd":"88888888","code":"0"}
-
-		if (RequestTag.HIWIFI_PWD_VIEWD_SET == tag) {
-			LogUtil.d("hehe", responseParser.toString());
-			JSONObject jsonObject = responseParser.originResponse;
-			String msg = jsonObject.optString("msg", "");
-			String code = jsonObject.optString("code", "");
-			String pwd = jsonObject.optString("pwd", "");
-			leftTimes = jsonObject.optInt("left_times", 0);
-			//
-			if ("0".equals(code)) {
-				if (!TextUtils.isEmpty(pwd) && !pwd.equals(wifiPwd)) {
-					wifiPwd = pwd;
-					password.setText(pwd);
-					shareTitleView.setVisibility(View.VISIBLE);
-					shareContainer.setVisibility(View.VISIBLE);
-				}
-				setRemainChance();
-			} else {
-				Toast.makeText(this, msg, 0).show();
-			}
-		}
-
-	}
-
-	@Override
-	public void onFailure(RequestTag tag, Throwable error) {
-	}
-
-	@Override
-	public void onFinish(RequestTag tag) {
-		closeMyDialog();
+	private void comsume() {
+		ScoreWallSDK.getInstance(CheckPasswordActivity.this).consumeScore(
+				CheckPasswordActivity.this, CheckPasswordActivity.this, 5);
 	}
 
 	@Override
 	protected void onClickEvent(View v) {
 		switch (v.getId()) {
 		case R.id.login:
-			MobclickAgent.onEvent(this, "click_user_login", "viewPassword");
-			Intent intent = new Intent(this, UserLoginActivity.class);
-			startActivityForResult(intent, REQUEST_LOGIN);
+			// 引导赚取积分
+			ScoreWallSDK.getInstance(CheckPasswordActivity.this)
+					.showScoreWall();
 			break;
 		case R.id.check_pwd:
 			MobclickAgent
 					.onEvent(this, "click_password_in_detail", getResources()
 							.getString(R.string.click_password_in_detail));
 			if (leftTimes <= 0) {
-				Toast.makeText(this, "今天的查看次数已经用完啦，明天再试", 0).show();
+				Toast.makeText(this, "积分不够了，明天再试", 0).show();
 				return;
 			}
 			unloginView.setVisibility(View.GONE);
@@ -513,7 +447,12 @@ public class CheckPasswordActivity extends BaseActivity implements
 			// TOOD 获取密码~~~
 			if (mAttempAccessPoint != null) {
 				wifiPwd = mAttempAccessPoint.getDataModel().getPassword(false);
-				requestServerReduceChance(mAttempAccessPoint.getScanResult().BSSID);
+				comsume();
+				if (!TextUtils.isEmpty(wifiPwd) && !wifiPwd.equals("*")) {
+					password.setText(wifiPwd);
+					shareTitleView.setVisibility(View.VISIBLE);
+					shareContainer.setVisibility(View.VISIBLE);
+				}
 			}
 			if (!TextUtils.isEmpty(wifiPwd)) {
 				password.setText(wifiPwd);
@@ -681,5 +620,42 @@ public class CheckPasswordActivity extends BaseActivity implements
 	@Override
 	protected void updateView() {
 		hasLoginedView();
+	}
+
+	@Override
+	public void updateScoreFailed(int arg0, int arg1, String arg2) {
+		closeMyDialog();
+	}
+
+	/**
+	 * 积分回调
+	 * 
+	 * @param arg0
+	 *            接口类型
+	 * @param arg1
+	 *            当前可用积分
+	 * @param arg2
+	 *            当前增加/减少的积分数
+	 * @param arg3
+	 *            积分单位
+	 */
+	@Override
+	public void updateScoreSuccess(int arg0, int arg1, int arg2, String arg3) {
+		switch (arg0) {
+		case 1:// 查询
+			leftTimes = arg1;
+			break;
+		case 2:// 消费
+
+			break;
+		case 3:// 增加
+
+			break;
+
+		default:
+			break;
+		}
+		closeMyDialog();
+		setRemainChance();
 	}
 }

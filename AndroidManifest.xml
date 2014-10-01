@@ -85,6 +85,44 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
 
+    <!-- Allows access to the Download Manager -->
+    <permission
+        android:name="com.hiwifi.permission.ACCESS_DOWNLOAD_MANAGER"
+        android:description="@string/permdesc_downloadManager"
+        android:label="@string/permlab_downloadManager"
+        android:protectionLevel="normal" />
+
+    <!-- Allows advanced access to the Download Manager -->
+    <permission
+        android:name="com.hiwifi.permission.ACCESS_DOWNLOAD_MANAGER_ADVANCED"
+        android:description="@string/permdesc_downloadManagerAdvanced"
+        android:label="@string/permlab_downloadManagerAdvanced"
+        android:protectionLevel="normal" />
+
+    <!-- Allows to send broadcasts on download completion -->
+    <permission
+        android:name="com.hiwifi.permission.SEND_DOWNLOAD_COMPLETED_INTENTS"
+        android:description="@string/permdesc_downloadCompletedIntent"
+        android:label="@string/permlab_downloadCompletedIntent"
+        android:protectionLevel="normal" />
+
+    <uses-permission android:name="com.hiwifi.permission.ACCESS_DOWNLOAD_MANAGER" />
+    <uses-permission android:name="com.hiwifi.permission.ACCESS_DOWNLOAD_MANAGER_ADVANCED" />
+    <uses-permission android:name="com.hiwifi.permission.SEND_DOWNLOAD_COMPLETED_INTENTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <permission
+        android:name="getui.permission.GetuiService"
+        android:protectionLevel="normal" >
+    </permission>
+
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" >
+    </uses-permission>
+    <!-- 允许应用读取低级别的系统日志文件 -->
+    <uses-permission android:name="android.permission.READ_LOGS" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
     <supports-screens
         android:anyDensity="true"
         android:largeScreens="true"
@@ -336,14 +374,14 @@
 
 
         <!-- Umeng -->
-        
-         <meta-data
+
+        <meta-data
             android:name="UMENG_APPKEY"
-            android:value="53564ab156240b2f8401c6c6" >
+            android:value="542c0899fd98c5483b034f96" >
         </meta-data>
-        
-       
-<meta-data android:name="UMENG_CHANNEL" android:value="m91" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="m91" />
         <!-- 正式版用release 开发版用develope -->
 
         <service
@@ -411,7 +449,6 @@
             android:name="com.hiwifi.activity.setting.TermsOfServiceActivity"
             android:screenOrientation="portrait" >
         </activity>
-     
         <activity
             android:name="com.hiwifi.activity.setting.AboutAppActivity"
             android:screenOrientation="portrait" >
@@ -503,44 +540,18 @@
             android:screenOrientation="portrait" >
         </activity>
 
+        <!-- 注册积分墙、推荐墙Activity（开发者勾选了积分墙或推荐墙广告形式则必填） -->
+        <activity
+            android:name="org.adver.score.sdk.view.WallActivity"
+            android:configChanges="keyboardHidden|orientation" >
+        </activity>
+        <activity
+            android:name="org.adver.score.sdk.view.DetailActivity"
+            android:configChanges="keyboardHidden|orientation" />
+        <!-- 注册网页Activity -->
+        <activity
+            android:name="org.adver.score.sdk.view.WebActivity"
+            android:configChanges="keyboardHidden|orientation" />
     </application>
-
-    <!-- Allows access to the Download Manager -->
-    <permission
-        android:name="com.hiwifi.permission.ACCESS_DOWNLOAD_MANAGER"
-        android:description="@string/permdesc_downloadManager"
-        android:label="@string/permlab_downloadManager"
-        android:protectionLevel="normal" />
-
-    <!-- Allows advanced access to the Download Manager -->
-    <permission
-        android:name="com.hiwifi.permission.ACCESS_DOWNLOAD_MANAGER_ADVANCED"
-        android:description="@string/permdesc_downloadManagerAdvanced"
-        android:label="@string/permlab_downloadManagerAdvanced"
-        android:protectionLevel="normal" />
-
-    <!-- Allows to send broadcasts on download completion -->
-    <permission
-        android:name="com.hiwifi.permission.SEND_DOWNLOAD_COMPLETED_INTENTS"
-        android:description="@string/permdesc_downloadCompletedIntent"
-        android:label="@string/permlab_downloadCompletedIntent"
-        android:protectionLevel="normal" />
-
-    <uses-permission android:name="com.hiwifi.permission.ACCESS_DOWNLOAD_MANAGER" />
-    <uses-permission android:name="com.hiwifi.permission.ACCESS_DOWNLOAD_MANAGER_ADVANCED" />
-    <uses-permission android:name="com.hiwifi.permission.SEND_DOWNLOAD_COMPLETED_INTENTS" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-
-    <permission
-        android:name="getui.permission.GetuiService"
-        android:protectionLevel="normal" >
-    </permission>
-
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" >
-    </uses-permission>
-    <!-- 允许应用读取低级别的系统日志文件 -->
-    <uses-permission android:name="android.permission.READ_LOGS" >
-    </uses-permission>
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
 </manifest>

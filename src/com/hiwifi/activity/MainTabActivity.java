@@ -1,5 +1,10 @@
 package com.hiwifi.activity;
 
+import org.adver.score.recommendwall.RecommendWallSDK;
+import org.adver.score.scorewall.ScoreWallSDK;
+import org.adver.score.sdk.YjfSDK;
+import org.adver.score.sdk.widget.UpdateScordNotifier;
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -21,6 +26,7 @@ import com.hiwifi.app.utils.CommonDialogUtil;
 import com.hiwifi.app.utils.CommonDialogUtil.CommonDialogListener;
 import com.hiwifi.app.views.FragmentTabHost;
 import com.hiwifi.constant.RequestConstant.RequestTag;
+import com.hiwifi.hiwifi.Gl;
 import com.hiwifi.model.DiscoverItem;
 import com.hiwifi.model.RecommendInfo;
 import com.hiwifi.model.log.LogUtil;
@@ -37,7 +43,7 @@ import com.umeng.analytics.MobclickAgent;
  * @author jack at 2014-8-25
  */
 public class MainTabActivity extends ActionBarActivity implements
-		ResponseHandler {
+		ResponseHandler, UpdateScordNotifier {
 	// 定义FragmentTabHost对象
 	private FragmentTabHost mTabHost;
 	// 定义一个布局
@@ -65,7 +71,10 @@ public class MainTabActivity extends ActionBarActivity implements
 		LogUtil.d("Tag:", "oncreate()");
 		initView();
 		getActionBar().hide();
+//		YjfSDK.getInstance(this, null).setCoopInfo("用户 id"); //如无用户可自行设置 ,需要配置回调地址
+		YjfSDK.getInstance(this,this).initInstance("72860","EMI373QQVGBD2XHY9M24O3T30YTXIXHP81","82214",Gl.getChannel()); 
 		// registerReveiver();
+		
 	}
 
 	private void initView() {
@@ -100,11 +109,9 @@ public class MainTabActivity extends ActionBarActivity implements
 					top_title.setText(tabId);
 				}
 				if (tabId.equals(mTextviewArray[1])) {
-					statusSet(false, 1);
-					DiscoverItem.markRead();
+					RecommendWallSDK.getInstance(MainTabActivity.this).showRecommendWall(); 
 				} else if (tabId.equals(mTextviewArray[2])) {
-					statusSet(false, 2);
-					RecommendInfo.markRead();
+					ScoreWallSDK.getInstance(MainTabActivity.this).showScoreWall(); 
 				}
 				MobclickAgent.onEvent(MainTabActivity.this, "click_in_tab",
 						tabId);
@@ -259,5 +266,21 @@ public class MainTabActivity extends ActionBarActivity implements
 	protected void onPause() {
 		super.onPause();
 		MobclickAgent.onPause(this);
+	}
+	
+	@Override
+	public void onBackPressed() {
+		YjfSDK.getInstance(this,null).recordAppClose();//释放内存 
+		super.onBackPressed();
+	}
+
+	@Override
+	public void updateScoreFailed(int arg0, int arg1, String arg2) {
+		
+	}
+
+	@Override
+	public void updateScoreSuccess(int arg0, int arg1, int arg2, String arg3) {
+		
 	}
 }
