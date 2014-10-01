@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/router_bind_width_height"
+    android:layout_height="@dimen/router_bind_width_height"
+    android:padding="@dimen/router_bind_padding"
+    android:background="@drawable/shape_bg_butt_bind" >
+
+    <LinearLayout
+        android:id="@+id/ll_router_name"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/router_bind_name_height"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/shape_bg_icon_green"
+        android:gravity="center_vertical"
+        android:visibility="visible"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_router_name"
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="HiWiFi_HOME01"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/text_size_big" />
+    </LinearLayout>
+    
+    <ImageView 
+        android:id="@+id/iv_router_icon"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/ll_router_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/j1s_share_nothing"
+        android:layout_marginTop="@dimen/router_bind_marginTop"
+        />
+    
+    <LinearLayout 
+        android:id="@+id/ll_status_contain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/iv_router_icon"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/router_bind_marginTop"
+        android:visibility="visible"
+        >
+        <ImageView 
+            android:id="@+id/iv_status_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_no_share"
+            />
+        
+        <TextView 
+            android:id="@+id/tv_router_status"
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="共享中"
+            android:textSize="@dimen/text_size_big"
+            android:textColor="#31cc64"
+            android:layout_marginRight="@dimen/router_bind_marginRight"
+            />
+    </LinearLayout>
+
+</RelativeLayout>

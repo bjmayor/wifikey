@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.hiwifi.app.views.SildingFinishLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/find_wifi_sildingFinishLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/radar_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00c5c5" >
+       
+
+        <com.hiwifi.app.views.RadarShadow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignTop="@+id/adapter" />
+
+        <com.hiwifi.app.views.Radar
+            android:id="@+id/cycle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/adapter" />
+
+        <com.hiwifi.app.views.RadarXmlAdapter
+            android:id="@+id/adapter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/sound_btn" />
+
+        <com.hiwifi.app.views.RadarButton
+            android:id="@+id/sound_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:contentDescription="@string/app_name" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/cycle" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="#1a000000" >
+
+                <TextView
+                    android:id="@+id/find_ssid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/center_view"
+                    android:layout_centerHorizontal="true"
+                    android:textAlignment="center"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="20dp" />
+
+                <View
+                    android:id="@+id/center_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="7dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <TextView
+                    android:id="@+id/find_rssi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/center_view"
+                    android:layout_centerHorizontal="true"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="20dp" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</com.hiwifi.app.views.SildingFinishLayout>

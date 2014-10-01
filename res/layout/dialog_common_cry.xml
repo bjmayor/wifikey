@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="@dimen/quit_bg_margin"
+        android:layout_marginRight="@dimen/quit_bg_margin"
+        android:background="@drawable/close_dialog_bg"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/iv_icon_dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dialog_margin15"
+            android:src="@drawable/anim_sorrow"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_text_comtent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dialog_margin25"
+            android:gravity="center"
+            android:text="再次打开共享即开启"
+            android:textColor="@color/text_color_black"
+            android:textSize="@dimen/quit_content_size" >
+        </TextView>
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/top_container"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dialog_margin15"
+            android:background="#dbdbdb"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/line"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/quit_margin"
+            android:layout_marginTop="@dimen/dialog_margin25"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/dialog_surebtn"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal" >
+
+                <Button
+                    android:id="@+id/btn_sure"
+                    style="@style/btn_minor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/quit_btn_height"
+                    android:layout_gravity="left|center_vertical"
+                    android:layout_marginLeft="@dimen/quit_margin"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="关闭共享"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/quit_btn_size" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="0.1px"
+                android:layout_height="fill_parent"
+                android:background="#b4b4b4"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/dialog_ancelbtn"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal" >
+
+                <Button
+                    android:id="@+id/btn_cancel"
+                    style="@style/btn_major"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/quit_btn_height"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_marginRight="@dimen/quit_margin"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="@string/quit_msg_ok"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/quit_btn_size" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

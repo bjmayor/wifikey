@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.hiwifi.hiwifi"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.hiwifi.app.views.UINavigationView
+        android:id="@+id/nav"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nav_height"
+        android:background="@color/nav_background_color"
+        app:left_drawable="@drawable/icon_back"
+        app:tv_title="@string/service_deal_title" >
+    </com.hiwifi.app.views.UINavigationView>
+
+    <ScrollView
+        android:id="@+id/sv_terms_conteiner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nav"
+        android:background="@color/setting_background_color"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/service_deal_marginLeft"
+            android:layout_marginRight="@dimen/service_deal_marginRight"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_service_terms_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="@string/service_terms_1"
+                android:textSize="@dimen/service_deal_text_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_service_terms_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/service_terms_2"
+                android:textSize="@dimen/service_deal_text_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/item_one"
+                android:textSize="@dimen/service_deal_text_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_item_one_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/item_one_content"
+                android:textSize="@dimen/service_deal_text_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/item_two"
+                android:textSize="@dimen/service_deal_text_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/item_two_content"
+                android:textSize="@dimen/service_deal_text_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/item_three"
+                android:textSize="@dimen/service_deal_text_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/item_three_content"
+                android:textSize="@dimen/service_deal_text_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/item_four"
+                android:textSize="@dimen/service_deal_text_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/item_four_content"
+                android:textSize="@dimen/service_deal_text_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/item_five"
+                android:textSize="@dimen/service_deal_text_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/item_five_content"
+                android:textSize="@dimen/service_deal_text_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/item_six"
+                android:textSize="@dimen/service_deal_text_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/item_six_content"
+                android:textSize="@dimen/service_deal_text_size" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

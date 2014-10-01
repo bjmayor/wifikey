@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="60dp"
+    android:background="@android:color/transparent" >
+
+    <RelativeLayout
+        android:id="@+id/home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp" >
+
+        <ImageView
+            android:id="@+id/home_icon"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/top_bar_logo_" />
+
+        <TextView
+            android:id="@+id/login_tx"
+            android:visibility="gone"
+            android:layout_toRightOf="@id/home_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:textSize="20sp" />
+
+        <!--
+             <TextView
+            android:id="@+id/share_tx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/login_tx"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:textSize="15sp" />
+        -->
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true" >
+
+        <ImageView
+            android:id="@+id/rank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/iv_refresh"
+            android:padding="5dp"
+            android:src="@drawable/rank_frequency_selector" >
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/iv_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:paddingLeft="15dp"
+            android:layout_centerVertical="true"
+            android:paddingRight="25dp"
+            android:src="@drawable/menu_refresh_selector" >
+
+        </ImageView>
+    </RelativeLayout>
+
+</RelativeLayout>

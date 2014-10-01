@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <include
+                android:id="@+id/top"
+                android:layout_width="fill_parent"
+                android:layout_height="68dp"
+                layout="@layout/new_success_online_time" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="0.35"
+                android:orientation="horizontal" >
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0.26" >
+
+                    <com.hiwifi.app.views.GradualBackground
+                        android:id="@+id/gradual_bg"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:visibility="visible" >
+                    </com.hiwifi.app.views.GradualBackground>
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent" >
+
+                        <LinearLayout
+                            android:id="@+id/success_container"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:visibility="visible" >
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center_horizontal"
+                                android:visibility="visible" >
+
+                                <TextView
+                                    android:id="@+id/forever_free_tx_container"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:layout_gravity="center_horizontal"
+                                    android:gravity="center"
+                                    android:text="永久免费"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/forever_free_text_size"
+                                    android:visibility="gone" />
+
+                                <ImageView
+                                    android:id="@+id/normal_success_online"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/sexy_right"
+                                    android:visibility="visible" />
+
+                                <LinearLayout
+                                    android:id="@+id/free_time_release_container"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:orientation="horizontal"
+                                    android:visibility="gone" >
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="bottom"
+                                        android:layout_marginRight="10dp"
+                                        android:gravity="center"
+                                        android:text="免费上网"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/top_left_textsize" />
+
+                                    <TextView
+                                        android:id="@+id/minute_tx"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="bottom"
+                                        android:gravity="center"
+                                        android:paddingTop="10dp"
+                                        android:text="00"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/time_text_size" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="bottom"
+                                        android:gravity="center"
+                                        android:text="分"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/success_result" />
+
+                                    <TextView
+                                        android:id="@+id/second_tx"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="bottom"
+                                        android:gravity="center"
+                                        android:paddingTop="10dp"
+                                        android:text="00"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/time_text_size" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="bottom"
+                                        android:gravity="center"
+                                        android:text="秒"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/success_result" />
+                                </LinearLayout>
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/common_center_container"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp" >
+
+                                <TextView
+                                    android:id="@+id/speed_title"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginRight="10dp"
+                                    android:drawableLeft="@drawable/sexy_right_small"
+                                    android:drawablePadding="5dp"
+                                    android:gravity="center"
+                                    android:text="网速:"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/top_left_textsize" />
+
+                                <TextView
+                                    android:id="@+id/speed"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_toRightOf="@+id/speed_title"
+                                    android:text="0Kb/s"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/top_left_textsize"
+                                    android:visibility="gone" />
+
+                                <ImageView
+                                    android:id="@+id/progressing"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginRight="5dp"
+                                    android:layout_toRightOf="@id/speed"
+                                    android:src="@drawable/loading_small" />
+
+                                <TextView
+                                    android:id="@+id/level"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toRightOf="@+id/progressing"
+                                    android:ellipsize="end"
+                                    android:singleLine="true"
+                                    android:text="测速中.."
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/top_left_textsize" />
+                            </RelativeLayout>
+
+                            <LinearLayout
+                                android:id="@+id/star_container"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:visibility="visible" >
+
+                                <ImageView
+                                    android:id="@+id/star1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginRight="3dp"
+                                    android:src="@drawable/rocket_empty" />
+
+                                <ImageView
+                                    android:id="@+id/star2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginRight="3dp"
+                                    android:src="@drawable/rocket_empty" />
+
+                                <ImageView
+                                    android:id="@+id/star3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginRight="3dp"
+                                    android:src="@drawable/rocket_empty" />
+
+                                <ImageView
+                                    android:id="@+id/star4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginRight="3dp"
+                                    android:src="@drawable/rocket_empty" />
+
+                                <ImageView
+                                    android:id="@+id/star5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginRight="3dp"
+                                    android:src="@drawable/rocket_empty" />
+
+                                <!-- <ImageView
+                                    android:id="@+id/star6"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginRight="3dp"
+                                    android:src="@drawable/rocket_empty" /> -->
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/click_common_tx"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:gravity="center"
+                                android:text="@string/click_detail"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/valing_text_size"
+                                android:visibility="gone" />
+                        </LinearLayout>
+
+                        <!-- </com.hiwifi.app.views.GradualBackground> -->
+
+                        <LinearLayout
+                            android:id="@+id/need_val_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:orientation="horizontal"
+                            android:visibility="gone" >
+
+                            <LinearLayout
+                                android:id="@+id/begin_val_container"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:visibility="gone" >
+
+                                <ImageView
+                                    android:id="@+id/progress"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_margin="5dp"
+                                    android:src="@drawable/loading_small" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="认证中.."
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/valing_text_size" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/end_val_container"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:visibility="gone" >
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:drawablePadding="5dp"
+                                    android:drawableTop="@drawable/icon_attest"
+                                    android:gravity="center"
+                                    android:text="此网络需要认证"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/success_result" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:gravity="center"
+                                    android:text="点击认证>>"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/click_action_replay" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/cmcc_val_failure_container"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:visibility="gone" >
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:drawablePadding="5dp"
+                                    android:drawableTop="@drawable/icon_attest"
+                                    android:gravity="center"
+                                    android:text="认证失败"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/success_result" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:gravity="center"
+                                    android:text="点击再次认证"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/click_action_replay" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/net_offline"
+                                android:layout_width="match_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="@string/net_offline"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/valing_text_size"
+                                android:visibility="gone" />
+
+                            <LinearLayout
+                                android:id="@+id/net_exception"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:visibility="gone" >
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:drawablePadding="5dp"
+                                    android:drawableTop="@drawable/icon_attest"
+                                    android:gravity="center"
+                                    android:text="网络异常"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/success_result" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:gravity="center"
+                                    android:text="点击进入极路由诊断页>>"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/click_action_replay" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </RelativeLayout>
+                </FrameLayout>
+                <!-- asdafs -->
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0.74"
+                    android:orientation="vertical" >
+
+                    <RelativeLayout
+                        android:id="@+id/break_wifi_container"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1.0"
+                        android:background="@drawable/break_press_seletor"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/break_wifi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:background="@null"
+                            android:drawablePadding="5dp"
+                            android:drawableTop="@drawable/radar_icon"
+                            android:gravity="center"
+                            android:text="@string/wifi_single"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/success_btn" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/speed_test_container"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1.0"
+                        android:background="@drawable/speed_test_press_seletor"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/speed_test"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:background="@null"
+                            android:drawablePadding="5dp"
+                            android:drawableTop="@drawable/icon_speed"
+                            android:gravity="center"
+                            android:text="测速"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/success_btn" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

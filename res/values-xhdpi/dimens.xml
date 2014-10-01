@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- radar -->
+    <dimen name="radar_value_textsize">14dp</dimen>
+
+    <!-- prepare -->
+    <dimen name="prepare_slogan_textsize">14dp</dimen>
+    <dimen name="wifilist_item_master_textsize">18dp</dimen>
+    <dimen name="wifilist_item_name_margin">5dp</dimen>
+    <dimen name="wifilist_item_slave_textsize">13dp</dimen>
+    <dimen name="wifilist_menu_sort_textsize">14dp</dimen>
+    <dimen name="wifilist_time_text_size">13dp</dimen>
+    <dimen name="wifilist_nav_slave_text_size">15dp</dimen>
+    <dimen name="wifilist_nav_master_text_size">15dp</dimen>
+    <dimen name="wifilist_test_testing_textsize">32dp</dimen>
+    <dimen name="wifilist_test_speed_textsize">36dp</dimen>
+    <dimen name="wifilist_test_total_textsize">10dp</dimen>
+    <dimen name="wifilist_test_result_ask_textsize">20dp</dimen>
+    <dimen name="wifilist_test_result_fast_textsize">17dp</dimen>
+    <dimen name="wifilist_dialog_switch_height">80dp</dimen>
+    <dimen name="wifilist_item_5g_marginleft">3dp</dimen>
+    <dimen name="wifilist_item_margin">12dp</dimen>
+    <dimen name="wifilist_item_title_marginleft">28dp</dimen>
+    <dimen name="wifilist_item_height">59.5dp</dimen>
+    <dimen name="wifilist_title_height">35dp</dimen>
+
+    <!-- success online -->
+    <dimen name="success_time_release_textsize">12dp</dimen>
+    <dimen name="success_btn">13dp</dimen>
+    <dimen name="grid_item_size">10dp</dimen>
+    <dimen name="grid_title_size">18dp</dimen>
+    <dimen name="grid_img_item_size">99dp</dimen>
+    <dimen name="no_more">21dp</dimen>
+    <dimen name="banner">12dp</dimen>
+    <dimen name="success_bssid">14dp</dimen>
+    <dimen name="signal_persent">8dp</dimen>
+
+    <!-- nowifi -->
+    <dimen name="nowifi_eye_top">72dp</dimen>
+    <dimen name="nowifi_sorry_top">22dp</dimen>
+    <dimen name="nowifi_refresh_top">34dp</dimen>
+
+    <!--
+         <dimen name="setting_size">18dp</dimen>
+    <dimen name="setting_item_height">60dp</dimen>
+    <dimen name="tcp_ip_size">17dp</dimen>
+    <dimen name="tcp_ip_size_big">25dp</dimen>
+    <dimen name="nav_title_size">18dp</dimen>
+    <dimen name="nav_right_title_size">12dp</dimen>
+    <dimen name="nav_left_title_size">12dp</dimen>
+    <dimen name="input_title_error">14dp</dimen>
+    <dimen name="input_edit">12dp</dimen>
+    <dimen name="input_btn">14dp</dimen>
+    <dimen name="input_eidt_height">32dp</dimen>
+    <dimen name="input_btn_height">26.5dp</dimen>
+    <dimen name="show_info_size">12dp</dimen>
+    <dimen name="show_info_bg_height">36dp</dimen>
+
+    common text size setting
+    <dimen name="text_size_main">12dp</dimen>
+    <dimen name="text_size_big">14dp</dimen>
+    <dimen name="text_size_bigest">18dp</dimen>
+    <dimen name="text_size_small">10dp</dimen>
+    -->
+
+    <dimen name="setting_size">18dp</dimen>
+    <dimen name="setting_item_height">60dp</dimen>
+    <dimen name="tcp_ip_size">17dp</dimen>
+    <dimen name="tcp_ip_size_big">25dp</dimen>
+    <dimen name="nav_title_size">18dp</dimen>
+    <dimen name="nav_right_title_size">12dp</dimen>
+    <dimen name="nav_left_title_size">12dp</dimen>
+    <dimen name="input_title_error">12dp</dimen>
+    <dimen name="input_edit">14dp</dimen>
+    <dimen name="input_btn">14dp</dimen>
+    <dimen name="input_eidt_height">40dp</dimen>
+    <dimen name="show_info_size">12dp</dimen>
+    <dimen name="show_info_bg_height">36dp</dimen>
+
+    <!-- common text size setting -->
+    <dimen name="text_size_main">12dp</dimen>
+    <dimen name="text_size_big">14dp</dimen>
+    <dimen name="text_size_bigest">18dp</dimen>
+    <dimen name="text_size_small">10dp</dimen>
+    <dimen name="text_size_smallest">6dp</dimen>
+
+    <!-- text field setting -->
+    <dimen name="setting_content_padding_top">20dp</dimen>
+    <dimen name="text_field_height">40dp</dimen>
+    <dimen name="text_img_padding">5dp</dimen>
+    <dimen name="text_field_size">14dp</dimen>
+    <dimen name="text_field_margin_top">5dp</dimen>
+
+    <!-- button size -->
+    <dimen name="btn_size_height_big">40dp</dimen>
+    <dimen name="btn_size_height_middle">30dp</dimen>
+    <dimen name="btn_size_height_small">30dp</dimen>
+    <dimen name="btn_padding_left_small">18dp</dimen>
+    <dimen name="btn_padding_left_middle">18dp</dimen>
+    <dimen name="btn_big_margin_left">40dp</dimen>
+    <dimen name="btn_big_padding_top">5dp</dimen>
+
+    <!-- quit -->
+    <!--
+    <dimen name="quit_content_size">12dp</dimen>
+    <dimen name="quit_btn_size">14dp</dimen>
+    <dimen name="quit_margin">18dp</dimen>
+    <dimen name="quit_bg_margin">45dp</dimen>
+    <dimen name="quit_btn_height">30dp</dimen>
+    -->
+    <!-- success online -->
+    <dimen name="tab_item_size">12dp</dimen>
+    <dimen name="suc_small_sep">0.1dp</dimen>
+    <dimen name="suc_status_text_margin_right">3dp</dimen>
+    <dimen name="suc_status_img_margin_right">18dp</dimen>
+
+    <!-- check pwd -->
+    <dimen name="check_pop_content_padding_bottom">10dp</dimen>
+    <dimen name="check_pop_content_padding_top">20dp</dimen>
+    <dimen name="check_pop_password_margin_right">40dp</dimen>
+    <dimen name="check_pop_password_margin_top">10dp</dimen>
+    <dimen name="check_pop_btn_margin_bottom">20dp</dimen>
+    <dimen name="check_text_onesize">12dp</dimen>
+    <dimen name="check_text_twosize">14dp</dimen>
+    <dimen name="check_text_threesize">18dp</dimen>
+    <dimen name="check_pwd_bghight">32dp</dimen>
+    <dimen name="check_margin_top">10dp</dimen>
+    <dimen name="check_popup_pwdsize">32dp</dimen>
+    <dimen name="edit_space">5dp</dimen>
+    <dimen name="password_left_margin">45dp</dimen>
+    <dimen name="password_ssid_margin">20dp</dimen>
+    <dimen name="password_content_padding">15dp</dimen>
+    <dimen name="password_right_margin">45dp</dimen>
+    <dimen name="password_eye_margin_right">5dp</dimen>
+    <dimen name="password_text_margintop">10dp</dimen>
+    <dimen name="tab_left_right_margin">25dp</dimen>
+    <dimen name="pwd_btn_container_margin_top">17.5dp</dimen>
+    <dimen name="pwd_btn_container_margin_bottom">10dp</dimen>
+    <dimen name="share_item_margin">26dp</dimen>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="shadow_width">3dp</dimen>
+    <dimen name="slidingmenu_offset">50dp</dimen>
+    <dimen name="workspace_title_height">46dp</dimen>
+    <dimen name="workspace_foot_height">50dp</dimen>
+    <dimen name="workspace_title_pading_left">5dp</dimen>
+    <dimen name="workspace_forecast_height">280dp</dimen>
+    <dimen name="weather_current_city_name">18sp</dimen>
+    <dimen name="workspace_update_time_bottome">-3dp</dimen>
+    <dimen name="menu_sort_height">50dp</dimen>
+    <dimen name="menu_sort_widht">148dp</dimen>
+    <dimen name="main_text_size">20sp</dimen>
+    <dimen name="menu_sort_radio">5dp</dimen>
+    <dimen name="menu_font_size">15sp</dimen>
+    <dimen name="nav_title_text_size">25sp</dimen>
+    <dimen name="nav_btn_text_size">10sp</dimen>
+    <dimen name="common_radius">90dp</dimen>
+
+    <!-- Setting -->
+    <dimen name="setting_list_height">45dp</dimen>
+    <dimen name="setting_text_size">14sp</dimen>
+    <dimen name="setting_text_padding_left">7dp</dimen>
+    <dimen name="setting_padding_top">0.5dp</dimen>
+    <dimen name="setting_padding_left">12dp</dimen>
+    <dimen name="setting_padding_right">12dp</dimen>
+    <dimen name="setting_padding_bottom">2dp</dimen>
+    <dimen name="setting_margin_top">1dp</dimen>
+    <dimen name="setting_margin_bottom">0.5dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="setting_divide_height">10dp</dimen>
+    <dimen name="avatar_container_height">70dp</dimen>
+    <dimen name="avatar_size">50dp</dimen>
+    <dimen name="setting_name_margin_left">15dp</dimen>
+    <dimen name="setting_small_margin">1dp</dimen>
+
+    <!-- login -->
+    <dimen name="login_regist_top">15dp</dimen>
+    <dimen name="share_wifi_interval">20dp</dimen>
+
+    <!-- leftmenu -->
+    <dimen name="item_height">60dp</dimen>
+    <dimen name="privilege_explain_size">14sp</dimen>
+    <dimen name="privilege_gap">15dp</dimen>
+    <dimen name="share_bt_margin_top">30dp</dimen>
+    <dimen name="left_textsize">16dp</dimen>
+    <dimen name="right_textsize">12dp</dimen>
+    <dimen name="sub_left_textsize">12dp</dimen>
+    <dimen name="share_have_router">60dp</dimen>
+    <dimen name="freetime_hight">160dp</dimen>
+    <dimen name="share_btn_width">140dp</dimen>
+    <dimen name="vertical_spacing">10dp</dimen>
+    <dimen name="share_marging_top">8dp</dimen>
+    <dimen name="slide_left_layout_width">240dp</dimen>
+    <!-- success online -->
+
+    <dimen name="top_left_textsize">15dp</dimen>
+    <dimen name="success_result">15dp</dimen>
+    <dimen name="valing_text_size">17dp</dimen>
+    <dimen name="forever_free_text_size">27dp</dimen>
+    <dimen name="click_action_replay">13dp</dimen>
+    <dimen name="time_text_size">40dp</dimen>
+    <dimen name="top_left_textsize_big">18dp</dimen>
+    <dimen name="textview_padding_top">5dip</dimen>
+    <dimen name="textview_padding_bottom">5dip</dimen>
+    <dimen name="bottom_menu">50dip</dimen>
+    <dimen name="nav_height">40dp</dimen>
+    <dimen name="setting_content_padding_right">60dp</dimen>
+    <dimen name="setting_content_padding_left">60dp</dimen>
+    <dimen name="setting_content_padding_bottom">27dp</dimen>
+
+    <!-- wifi list text size -->
+    <dimen name="fourteen_size">14sp</dimen>
+
+    <!-- splash -->
+    <dimen name="map_margin_bottom">60dp</dimen>
+    <dimen name="quit_content_size">12dp</dimen>
+    <dimen name="quit_btn_size">14dp</dimen>
+    <dimen name="quit_margin">18dp</dimen>
+    <dimen name="quit_bg_margin">30dp</dimen>
+    <dimen name="quit_btn_height">30dp</dimen>
+
+    <!-- reg -->
+    <dimen name="reg_margin_top">20dp</dimen>
+    <dimen name="reg_textview_padding_top">12dp</dimen>
+    <dimen name="setting_space_margin_top">5dp</dimen>
+
+    <!-- userinfo -->
+    <dimen name="user_info_photo_width">50dp</dimen>
+    <dimen name="user_info_photo_height">50dp</dimen>
+    <dimen name="user_info_photo_margin">20dp</dimen>
+    <dimen name="user_info_drawable_padding">5dp</dimen>
+    <dimen name="user_info_text_padding">5dp</dimen>
+    <dimen name="user_info_edittext_margin_top">2dp</dimen>
+    <dimen name="user_info_showpic_padding_top">5dp</dimen>
+
+    <!-- common -->
+    <dimen name="edittext_height">40dp</dimen>
+    <dimen name="edittext_margin_top">5dp</dimen>
+    <dimen name="setting_border_height">1dp</dimen>
+    <dimen name="drawable_padding">5dp</dimen>
+    <dimen name="text_padding">5dp</dimen>
+    <dimen name="width_zero">0dp</dimen>
+
+    <!-- user login -->
+    <dimen name="user_login_margin_top">35dp</dimen>
+    <dimen name="user_login_cancel_margin_right">5dp</dimen>
+    <dimen name="user_login_autotext_margin_right">35dp</dimen>
+    <dimen name="user_login_tips_margin_right">10dp</dimen>
+    <dimen name="user_login_tips_padding_top">17.5dp</dimen>
+
+    <!-- very phone -->
+    <dimen name="user_very_btn_padding">10dp</dimen>
+    <dimen name="user_very_number_padding">5dp</dimen>
+
+    <!-- modify password -->
+    <dimen name="user_modify_pwd_padding_top">20dp</dimen>
+    <dimen name="user_modify_pwd_btn_padding_top">12dp</dimen>
+
+    <!-- tab box -->
+    <dimen name="tab_box_spacing_width">2dp</dimen>
+    <dimen name="error_padding_top">60dp</dimen>
+    <dimen name="error_tip1_top">15dp</dimen>
+    <dimen name="error_tip2_top">5dp</dimen>
+    <dimen name="toast_notify">12dp</dimen>
+
+    <!-- pic_choose -->
+    <dimen name="pic_choose_padding_top">15dp</dimen>
+
+    <!-- pull to refresh -->
+    <dimen name="pull_to_refresh_content_paddingleft">30dp</dimen>
+
+    <!-- bind router -->
+    <dimen name="router_add_padding">5dp</dimen>
+    <dimen name="router_bind_padding">5dp</dimen>
+    <dimen name="router_bind_width_height">140dp</dimen>
+    <dimen name="router_bind_name_height">30dp</dimen>
+    <dimen name="router_bind_marginTop">10dp</dimen>
+    <dimen name="router_bind_marginRight">10dp</dimen>
+    <dimen name="pull_to_refreshheader_content_paddingtop">10dp</dimen>
+    <dimen name="pull_to_refreshheader_content_paddingbottom">15dp</dimen>
+
+    <!-- discover -->
+    <dimen name="discover_item_height">160dp</dimen>
+    <dimen name="discover_item_shadow_height">40dp</dimen>
+    <dimen name="discover_item_title_paddingLeft">15dp</dimen>
+    <dimen name="discover_item_date_paddingRight">15dp</dimen>
+
+    <!-- wifi list -->
+    <dimen name="connect_splite_line_height">1dp</dimen>
+    <dimen name="connect_left_available_bg_width">5dp</dimen>
+    <dimen name="connect_nofree_paddingTop">10dp</dimen>
+    <dimen name="connect_nofree_paddingBottom">10dp</dimen>
+    <dimen name="connnect_single_icon_paddingLeft">5dp</dimen>
+    <dimen name="connect_item_paddingRight">10dp</dimen>
+    <dimen name="connect_item_wifi_list_title_marginRight">20dp</dimen>
+    <dimen name="common_height_0">0dp</dimen>
+
+    <!-- notification -->
+    <dimen name="notification_wifi_open_height">64dp</dimen>
+    <dimen name="notification_wifi_open_icon_marginLeft">10dp</dimen>
+    <dimen name="notification_wifi_open_marginLeft">20dp</dimen>
+    <dimen name="notification_wifi_open_marginRight">10dp</dimen>
+    <dimen name="notification_wifi_open_content_size">17dp</dimen>
+    <dimen name="notificaiont_btn_paddingLeft">10dp</dimen>
+    <dimen name="notificaiont_btn_paddingRight">8dp</dimen>
+    <dimen name="notification_wifi_noconnect_content_size">15dp</dimen>
+
+    <!-- text size -->
+    <dimen name="text_fourteen">14dp</dimen>
+    <dimen name="text_size_nine">9dp</dimen>
+    <dimen name="text_size_eight">8dp</dimen>
+
+    <!-- check wifipassword -->
+    <dimen name="check_wpd_padding">5dp</dimen>
+    <dimen name="check_wpd_marginLeft12">12dp</dimen>
+    <dimen name="check_wpd_margin15">15dp</dimen>
+    <dimen name="check_wpd_marginTop10">10dp</dimen>
+    <dimen name="check_wpd_margin20">20dp</dimen>
+    <dimen name="check_wpd_margin30">30dp</dimen>
+    <dimen name="check_wpd_margin40">40dp</dimen>
+    <dimen name="check_wpd_margin5">5dp</dimen>
+    <dimen name="check_wpd_line_height">0.1dp</dimen>
+    <dimen name="check_wpd_stat_height">60dp</dimen>
+    <dimen name="check_wpd_connected_height">50dp</dimen>
+     <dimen name="check_wpd_text_padding">2dp</dimen>
+
+    <!-- feedback -->
+    <dimen name="feedback_padding">5dp</dimen>
+    <dimen name="feedback_marginLeft">20dp</dimen>
+    <dimen name="feedback_marginTop">10dp</dimen>
+    <dimen name="feedback_container_padding">30dp</dimen>
+    <dimen name="feedback_septal_line">1dp</dimen>
+
+    <!-- splash -->
+    <dimen name="splash_marginTop">2dp</dimen>
+    <dimen name="splash_logo_marginTop">100dp</dimen>
+
+    <!-- share menu -->
+    <dimen name="share_menu_text_margintop">10dp</dimen>
+    <dimen name="share_menu_content_margintop">15dp</dimen>
+    <dimen name="share_menu_content_paddingleft">5dp</dimen>
+    <dimen name="share_menu_content_divide_height">20dp</dimen>
+
+    <!-- service  deal -->
+    <dimen name="service_deal_marginLeft">16dp</dimen>
+    <dimen name="service_deal_marginRight">10dp</dimen>
+    <dimen name="service_deal_text_size">14dp</dimen>
+    <!-- update app -->
+    <dimen name="update_app_marginTop100">100dp</dimen>
+    <dimen name="update_app_marginTop20">20dp</dimen>
+    <dimen name="update_app_marginTop8">8dp</dimen>
+    <!-- about -->
+    <dimen name="about_icon_size">90dp</dimen>
+    <dimen name="about_appname_text_size">14dp</dimen>
+    <dimen name="about_btn_height">36dp</dimen>
+    <dimen name="about_marginTop20">20dp</dimen>
+    <dimen name="about_margin10">10dp</dimen>
+    <dimen name="about_padding1">1dp</dimen>
+    <dimen name="height0">0dp</dimen>
+
+    <!-- phone register -->
+    <dimen name="register_editText_height">32dp</dimen>
+    <dimen name="register_margin2">2dp</dimen>
+    <dimen name="register_margin1">1dp</dimen>
+
+    <!-- auth page -->
+    <dimen name="auth_item_height">50dp</dimen>
+    <dimen name="auth_icon_size">30dp</dimen>
+    <dimen name="auth_text_size">20dp</dimen>
+    <dimen name="auth_margin10">10dp</dimen>
+
+    <!-- box -->
+    <dimen name="box_padding">10dp</dimen>
+    <dimen name="box_marginTop">5dp</dimen>
+    <dimen name="box_item_height">182dp</dimen>
+    <dimen name="box_open_btn_height">18dp</dimen>
+    <dimen name="box_minHeight">5dp</dimen>
+
+    <!-- dialog -->
+    <dimen name="dialog_loading_icon_size">30dp</dimen>
+    <dimen name="dialog_margin5">5dp</dimen>
+    <dimen name="dialog_margin10">10dp</dimen>
+    <dimen name="dialog_margin15">15dp</dimen>
+    <dimen name="dialog_margin20">20dp</dimen>
+    <dimen name="dialog_margin25">25dp</dimen>
+
+    <!-- wifioperate -->
+    <dimen name="wifioperate_text_margintop">20dp</dimen>
+
+    <!-- tab -->
+    <dimen name="tab_img_padding">3dp</dimen>
+    <dimen name="tab_text_margin_bottom">3dp</dimen>
+    <dimen name="tab_img_margin_bottom">15dp</dimen>
+    <dimen name="tab_dot_margin_right">10dp</dimen>
+    <!-- connect wifi list -->
+    <dimen name="wifi_status_top_height">80dp</dimen>
+    <dimen name="wifi_status_top_text_space">8dp</dimen>
+    <dimen name="wifi_status_connected_bg_height">60dp</dimen>
+    <dimen name="wifi_status_statechange_text_size">12dp</dimen>
+    <dimen name="wifi_list_item_space">5dp</dimen>
+    <dimen name="wifi_list_item_maxwidth">150dp</dimen>
+    <dimen name="wifi_status_connecter_cate">12dp</dimen>
+    <dimen name="wifi_list_item_height">59.5dp</dimen>
+
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_id"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#dadee7"
+    android:orientation="horizontal" >
+
+    <com.hiwifi.app.views.HorizontalScroller
+        android:id="@+id/view_group_id"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+    </com.hiwifi.app.views.HorizontalScroller>
+
+</LinearLayout>

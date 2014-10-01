@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- test js in webview -->
+    <string name="get_js">refresh view</string>
+    <string name="test_js">星巴克联网测试</string>
+    <string name="protal_close">退出认证</string>
+    <!-- hehe -->
+    <string name="refresh">刷新</string>
+    <string name="search">搜索</string>
+    <string name="sliding_title">SlidingMenu Demo</string>
+    <string name="desc_list_item_icon">SlidingMenu</string>
+
+    <!-- hehehe -->
+    <string name="title_box">百宝箱</string>
+    <string name="title_discover">发现</string>
+    <string name="app_name">小极WiFi钥匙</string>
+    <string name="app_slogan">让上网更痛快</string>
+    <string name="action_settings_next">下一步</string>
+    <string name="action_settings">settings</string>
+    <string name="action_settings_logout">注销</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="moreTitle">more activity!</string>
+    <string name="mapTitle">map activity!</string>
+    <string name="title_activity_wifi_result_list">WifiResultList</string>
+    <string name="title_activity_message_acitivity">MessageAcitivity</string>
+
+    <!-- copyright -->
+    <string name="copyright">Copyright © 2014 Beijing Geek-Geek Technology Co.,Ltd.</string>
+    <string name="rights">All Rights Reserved.</string>
+    <!-- wifi status -->
+    <string name="netcard_connecting">网卡正在打开</string>
+    <string name="netcard_connected">网卡已经打开</string>
+    <string name="netcard_disconnecting">网卡正在断开</string>
+    <string name="netcard_disconnected">网卡已经断开</string>
+    <string name="netcard_unkonw">网卡状态未知</string>
+    <string name="network_disconnected">wifi已经断开</string>
+    <string name="network_connected">wifi已经连接</string>
+
+    <!-- tab bar -->
+    <string name="bottom_tab_wifi">无线管理</string>
+    <string name="bottom_tab_map">WiFi地图</string>
+    <string name="bottom_tab_onekey">一键上网</string>
+    <string name="bottom_tab_more">更多</string>
+    <string name="title_activity_map">MapActivity</string>
+    <string name="title_activity_more">MoreActivity</string>
+    <string name="title_activity_wifi_list">WifiListActivity</string>
+
+    <!-- navigationbar -->
+    <string name="nav_back">返回</string>
+    <string name="nav_done">完成</string>
+    <string name="nav_clean">清理</string>
+    <string name="nav_sort">排序</string>
+    <string name="nav_menu">菜单</string>
+    <string name="nav_start">开始</string>
+    <string name="nav_locating">定位</string>
+    <string name="nav_title_wifi">无线管理</string>
+    <string name="nav_title_map">WIFI地图</string>
+    <string name="nav_title_connect">一键上网</string>
+    <string name="nav_title_more">更多</string>
+
+    <!-- wifi list -->
+    <string name="wifiswitch">无线开关</string>
+    <string name="menu_sort_signal">信号最强</string>
+    <string name="menu_sort_password">无需密码</string>
+    <string name="menu_sort_name">首字母</string>
+    <string name="menu_sort_best">智能排序</string>
+    <string name="menu_sort_frequency">使用频次</string>
+    <string name="test_connect_speed">联网速度:</string>
+    <string name="test_testing">测速中..</string>
+    <string name="test_already_tested">已测速</string>
+    <string name="test_cancel">关闭</string>
+    <string name="test_is_the_fast">连接速度最快</string>
+    <string name="test_would_like_to_connect_this">您是否连接此网络?</string>
+    <string name="test_alread_connect_this">已为您连接此网络</string>
+    <string name="test_connect_best">连接</string>
+    <string name="test_connect_unit">秒</string>
+    <string name="list_not_in_range">不在范围内，请刷新列表</string>
+    <string name="list_no_avaible_wifi">没有可用的wifi</string>
+    <string name="ap_password_error">连接失败</string>
+
+    <!-- ap share -->
+    <string name="ap_share_switch">热点开关</string>
+    <string name="ap_share_ssid">热点名称</string>
+    <string name="ap_share_password">密  码</string>
+
+    <!-- dialog -->
+    <string name="first_run_dlg_title">提示信息</string>
+    <string name="btn_ok">确定</string>
+    <string name="btn_no">取消</string>
+    <string name="btn_cancel">取 消</string>
+    <string name="btn_connect">连 接</string>
+    <string name="btn_connecting">连接中..</string>
+    <string name="btn_ap">热点</string>
+    <string name="btn_sync">同步</string>
+    <string name="btn_about">关于</string>
+    <string name="btn_log">log</string>
+
+    <!-- tips -->
+    <string name="please_input_username">账号</string>
+    <string name="please_input_password">密码</string>
+    <string name="show_password">显示</string>
+    <string name="remenber_password">记住</string>
+    <string name="hide_password">隐藏</string>
+    <string name="title_activity_ap_share">ApShareActivity</string>
+
+    <!-- ap default -->
+    <string name="ap_default_ssid">hiwifi-ap</string>
+    <string name="ap_default_password">11335577</string>
+    <string name="title_activity_wifi_password">WifiPassword</string>
+    <string name="title_activity_auto_connect_wifi">AutoConnectWifi</string>
+    <string name="log_title_time">Time</string>
+    <string name="log_title_text">Message</string>
+
+    <!-- wifi dialog -->
+    <string name="wifi_dialog_connecting">拼命连接中</string>
+    <string name="wifi_dialog_tryagain">再连一次</string>
+    <string name="wifi_dialog_password">换个密码</string>
+    <string name="wifi_dialog_cancel">取消连接</string>
+
+    <!-- wifi status -->
+    <string name="wifi_detailstatus_scanning">正在扫描</string>
+    <string name="wifi_detailstatus_connecting">正在建立连接</string>
+    <string name="wifi_detailstatus_authenticating">正在认证</string>
+    <string name="wifi_detailstatus_obtaining_ipaddr">正在获取ip地址</string>
+    <string name="wifi_detailstatus_connected">获取ip成功</string>
+    <string name="wifi_detailstatus_suspended">ip挂起</string>
+    <string name="wifi_detailstatus_disconnecting">正在断开连接</string>
+    <string name="wifi_detailstatus_disconnected">已经断开连接</string>
+    <string name="wifi_detailstatus_failed">连接失败</string>
+    <string name="wifi_detailstatus_blocked">访问阻塞</string>
+    <string name="wifi_detailstatus_verifying_poor_link">验证联通性</string>
+    <string name="wifi_detailstatus_captive_portal_check">检查网络是否需要web认证</string>
+
+    <!-- nofitication -->
+    <string name="notification_wifi_open_helper">未开启WiFi</string>
+    <string name="notification_wifi_connect_show">天天WiFi 已帮您连接到</string>
+    <string name="notification_wifi_no_connected">未连接WiFi</string>
+    <string name="notification_wifi_open">打开WiFi</string>
+
+    <!-- login -->
+    <string name="email_163">\@163.com</string>
+    <string name="email_126">\@126.com</string>
+    <string name="email_139">\@139.com</string>
+    <string name="email_189">\@189.com</string>
+    <string name="email_qq">\@qq.com</string>
+    <string name="email_vip_sina">\@vip.sina.com</string>
+    <string name="email_sina">\@sina.com</string>
+    <string name="email_sina_1">\@sina.cn</string>
+    <string name="email_hotmail">\@hotmail.com</string>
+    <string name="email_hiwifi">\@hiwifi.tw</string>
+    <string name="email_gmail">\@gmail.com</string>
+    <string name="email_sohu">\@sohu.com</string>
+    <string name="email_21cn">\@21cn.com</string>
+    <string name="title_activity_prepare">PrepareActivity</string>
+    <string name="title_activity_wifi_detail">WifiDetailActivity</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <!-- quit tip -->
+    <string name="quit_msg_tip">退出？将无法智能搜索优质免费WiFi </string>
+    <string name="quit_msg_ok">退 出</string>
+    <string name="quit_msg_cancel">继续使用</string>
+    <string name="auth_msg_tip">自动认证失败，是否手动认证</string>
+    <string name="auth_msg_ok">是</string>
+    <string name="auth_msg_cancel">否</string>
+    <!-- prepare -->
+    <string name="prepare_open_wifi">正在帮您开启wifi</string>
+    <string name="prepare_checking_wifi">正在侦测WiFi</string>
+    <string name="prepare_connecting_wifi">正在连接&#8230;</string>
+    <string name="prepare_scan_wifi_failed">扫描wifi失败</string>
+
+    <!--
+         <string-array name="prepare_tips">
+        <item>自动连接附近优质网络，您可在网络列表中自行切换</item>
+        <item>连接成功的网络密码将会自动备份到本地并同步到云</item>
+        <item>完成日常分享任务可以帮您赚取付费网络使用时长</item>
+        <item>当您拥有一台极路由后，您可以享受付费网络永久免费</item>
+        <item>若关闭极路由WiFi共享，付费网络永久免费将暂时关闭</item>
+        <item>您可以给搜索到的网络测测速</item>
+        <item>选择您需要的网络排序方式来提高效率</item>
+    </string-array>
+    -->
+
+    <string-array name="prepare_tips">
+        <item>自动连接附近优质网络，您可在网络列表中自行切换</item>
+        <item>连接成功的网络密码将会自动备份到本地并同步到云</item>
+        <item>您可以给搜索到的网络测测速</item>
+        <item>选择您需要的网络排序方式来提高效率</item>
+    </string-array>
+    <string-array name="prepare_hippy">
+        <item>正在跟各路WiFi打招呼</item>
+        <item>正冲过去一把抓住这个WiFi</item>
+        <item>正在跟这个WiFi讨价还价</item>
+        <item>正在拉拢这个WiFi</item>
+        <item>正在跟这个WiFi打情骂俏</item>
+        <item>正在把这个WiFi变成自己人</item>
+    </string-array>
+
+    <!-- wifilist -->
+    <string name="wifi_state_canconnect">无密码</string>
+    <string name="wifi_state_connecting">连接中</string>
+    <string name="wifi_state_unkown"></string>
+    <!-- <string name="wifi_state_connected">已连接</string> -->
+    <string name="wifi_state_netok">已连通</string>
+    <string name="wifi_state_disconnect">断开连接</string>
+    <string name="wifi_state_passworderror">连接失败</string>
+    <string name="wifi_state_wifiauthfailed">认证失败</string>
+    <string name="wifi_state_needpassword">需要密码</string>
+    <string name="wifi_state_needusercount">需要用户名密码</string>
+    <string name="wifi_state_needauth">需要认证</string>
+    <string name="wifi_state_netexception">网络异常</string>
+    <string name="wifi_state_localrestore">本地密码</string>
+    <string name="wifi_state_hasremotepass_unlock">小极分享</string>
+    <string name="wifi_state_chinaUnicom">中国联通热点</string>
+    <string name="wifi_state_chinaNet">中国电信热点</string>
+    <string name="wifi_state_chinaCmcc">中国移动热点</string>
+    <string name="wifi_state_chinaCmcc_edu">中国移动热点</string>
+    <string name="wifi_state_chinaCmcc_auto">中国移动热点</string>
+    <string name="wifi_state_portal">需网页登录</string>
+    <string name="add">add</string>
+    <string name="delete">delete</string>
+    <string name="remain">剩余</string>
+    <string name="free_forever">永久免费</string>
+    <string name="open_error">WiFi自动开启失败   请您进入手机系统设置打开WiFi</string>
+
+    <!-- leftmenu -->
+    <string name="wifi_single_share">免费上网</string>
+    <string name="message_center">消息中心</string>
+    <string name="net_pass_syn">WiFi密码备份</string>
+    <string name="oauth_share">分享授权</string>
+    <string name="share_app">分享给好友</string>
+    <string name="setting">设置</string>
+    <string name="tcp_ip_title">IP地址</string>
+    <string name="already_new">已是最新</string>
+    <string name="protocol">上传log</string>
+    <string name="ignore_all_wifi">忽略所有wifi</string>
+    <string name="share_content">WiFi随处免费连，走到哪儿都有网！内置千万公共热点密码，不断更新，最大程度为我节省流量。根本停不下来。</string>
+    <string name="not_yet_authorized">未绑定</string>
+    <string name="refresh_down_text">下拉可刷新</string>
+    <string name="refresh_release_text">松开可刷新</string>
+    <string name="toast_text">ScrollView下拉刷新完毕</string>
+    <string name="pull_to_refresh_pull_label">下拉刷新WiFi列表</string>
+    <string name="pull_to_refresh_release_label">松开后刷新WiFi列表</string>
+    <string name="pull_to_refresh_refreshing_label">正在尝试获取WiFi及密码\u2026</string>
+    <string name="pull_to_refresh_footer_release_label">松开后加载</string>
+    <string name="pull_to_refresh_footer_pull_label">上拉加载更多</string>
+    <string name="pull_to_refresh_footer_refreshing_label">加载中\u2026</string>
+    <string name="xlistview_header_hint_normal">下拉刷新</string>
+    <string name="xlistview_header_hint_ready">松开刷新数据</string>
+    <string name="xlistview_header_hint_loading">正在加载&#8230;</string>
+    <string name="xlistview_header_last_time">上次更新时间：</string>
+    <string name="xlistview_footer_hint_normal">查看更多</string>
+    <string name="xlistview_footer_hint_ready">松开载入更多</string>
+
+    <!-- success online -->
+    <string name="click_detail">点击查看详情</string>
+    <string name="click_get_more_time">点击获取更多时间</string>
+    <string name="net_offline">联网失败</string>
+    <string name="net_exception">网络异常，点击进入极路由诊断页</string>
+
+    <!-- 1.0.3 -->
+    <string name="wifi_status_connectting">连接WiFi网络中</string>
+    <string name="wifi_status_pull_password">连接WiFi网络中</string>
+    <string name="wifi_status_success">已成功连网</string>
+    <string name="wifi_status_failure">连接WiFi失败</string>
+    <string name="wifi_statue_success_portal">需网页登录</string>
+    <string name="wifi_status_failure_unlock">连接WiFi失败</string>
+    <string name="wifi_status_no_connect">无WiFi连接</string>
+    <!-- privilege explain -->
+
+    <string name="refresh_database">Refresh DB</string>
+    <string name="quit_prompt"><html><p style="line-height:20px">您的WiFi共享和永久免费将暂停<br />您确定要退出登录？</p></html></string>
+    <string name="connect">连接此网络</string>
+    <string name="know_password">我知道密码</string>
+    <string name="wifi_single">信号雷达</string>
+    <string name="cancel_connect">禁用自动连接</string>
+    <string name="tcp_ip">IP地址</string>
+    <string name="cancel">取消</string>
+    <string name="disconnect">断开此网络</string>
+    <string name="wifi_detail">查看详情</string>
+
+    <!-- setting -->
+    <string name="auto_share_password">自动分享WiFi密码</string>
+    <string name="sina">新浪微博</string>
+    <string name="app_version">APP版本</string>
+    <string name="user_protocal">服务协议</string>
+    <string name="about_hiwifi">关于</string>
+
+    <!-- umeng -->
+    <string name="feedback">用户反馈</string>
+    <string name="ip_address">IP地址:</string>
+    <string name="gateway">网关:</string>
+    <string name="subnet_mask">子网掩码:</string>
+    <string name="dns1">DNS1:</string>
+    <string name="dns2">DNS2:</string>
+    <string name="title_activity_very_phone">VeryPhoneActivity</string>
+    <string name="title_activity_user_info">我的信息</string>
+
+    <!-- 1.0.3 -->
+    <string name="wifi_not_open">您的手机尚未开启WiFi</string>
+    <string name="title_activity_reset_password">ResetPasswordActivity</string>
+    <!-- 2.0 -->
+
+    <string name="share_moments_content">上http://www.hiwifi.com/app可以下载最新版的小极WiFi钥匙，2000万免费WiFi任你连</string>
+    <string name="share_qq_moments_content">上www.hiwifi.com/app可以下载最新版的小极WiFi钥匙，2000万免费WiFi任你连</string>
+    <!-- error info -->
+    <string name="empty_username">用户名为空</string>
+    <string name="empty_pass">密码为空</string>
+    <string name="invalid_count">用户名密码错误</string>
+    <string name="invalid_pass">密码格式错误</string>
+
+    <!-- check wdp text -->
+    <string name="check_text_check_pwd">查看密码</string>
+    <string name="check_text_check_premise">该功能需要登录后才可以使用</string>
+    <string name="check_text_user_login">用户登录</string>
+    <string name="check_text_title_save">安全连接，可查看密码</string>
+    <string name="check_text_check">点击查看</string>
+    <string name="check_text_wpd">密码</string>
+    <string name="check_text_share_title">分享给身边的iPhone好友，\n让他们也能免费上网吧！</string>
+    <string name="check_text_break_link">断开连接</string>
+    <string name="check_text_wechat">微信</string>
+    <string name="check_text_moments">朋友圈</string>
+    <string name="check_text_qq">QQ</string>
+    <string name="check_text_weibo">新浪微博</string>
+    <string name="splash_hiwifi_publish">极路由出品</string>
+    <string name="splash_text_version">v2.0</string>
+    <string name="wifi_list_nofree">本区域未发现可以免费的共享WiFi</string>
+    <string name="wifi_list_nofree_notify">(在较繁华的商业区会有更多机会刷到免费的WiFi)</string>
+    <string name="service_deal_title">服务协议</string>
+    <string name="update_app">开始升级</string>
+    <string name="un_update_app">暂不更新</string>
+    <string name="app_have_update">小极WiFi钥匙有更新了</string>
+    <string name="about_hiwifi_title">关于小极WiFi钥匙</string>
+    <string name="about_version">版本介绍</string>
+    <string name="about_offi_website">访问官网</string>
+
+</resources>

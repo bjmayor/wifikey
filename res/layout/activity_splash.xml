@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/main_content"
+    android:layout_height="match_parent"
+    android:background="@color/splash_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/splash_logo_marginTop" >
+
+        <ImageView
+            android:id="@+id/splash_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/startup_logo" />
+
+        <TextView
+            android:layout_marginTop="@dimen/splash_marginTop"
+            android:id="@+id/version"
+            android:layout_alignRight="@id/splash_logo"
+            android:paddingRight="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/splash_logo"
+            android:text="@string/splash_text_version"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_nine" />
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/splash_bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/feedback_marginLeft" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/splash_hiwifi_publish"
+            android:textColor="@color/splash_hiwifi_publish"
+            android:textSize="@dimen/text_size_nine" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/splash_marginTop"
+            android:text="@string/copyright"
+            android:textColor="@color/content_border_color"
+            android:textSize="@dimen/text_size_eight" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/splash_marginTop"
+            android:text="@string/rights"
+            android:textColor="@color/content_border_color"
+            android:textSize="@dimen/text_size_eight" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/splash_map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/splash_bottom"
+        android:scaleType="centerCrop"
+        android:layout_marginBottom="@dimen/map_margin_bottom"
+        android:src="@drawable/startup_map" />
+
+</RelativeLayout>

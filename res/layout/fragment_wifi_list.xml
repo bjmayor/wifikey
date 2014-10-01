@@ -1,0 +1,148 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <!--
+         <ViewSwitcher
+        android:id="@+id/viewswitcher"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <ImageView
+                android:id="@+id/eye_imageview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/nowifi_eye_top"
+                android:background="@drawable/nowifi_eye_center" />
+
+            <ImageView
+                android:id="@+id/searching"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/nowifi_sorry_top"
+                android:background="@drawable/nowifi_sorry" />
+
+            <ImageButton
+                android:id="@+id/refresh_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/nowifi_refresh_top"
+                android:background="@drawable/selector_nowifi_refresh" />
+        </LinearLayout>
+    -->
+
+    <LinearLayout
+        android:id="@+id/parent_layout"
+        style="@style/top_tab"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/wifilist_bg"
+        android:orientation="vertical"
+        android:visibility="visible" >
+
+        <include
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/wifi_status" />
+
+        <LinearLayout
+            android:id="@+id/connected_wifi"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/content_border_color"
+            android:orientation="vertical"
+            android:paddingBottom="0.5dp"
+            android:visibility="gone" >
+
+            <include
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/success_online" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/top"
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/mask"
+            android:visibility="gone" />
+
+        <com.hiwifi.app.views.PullToRefreshView
+            android:id="@+id/refresh"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <com.hiwifi.app.views.MyScrollView
+                android:id="@+id/myscrollview"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+               >
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent" >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:orientation="vertical" >
+
+                        <!--
+                     <Button
+                    android:text="safjkahkfj"  
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                        -->
+
+                        <com.hiwifi.app.views.MyListView
+                            android:id="@+id/listView"
+                            android:layout_width="match_parent"
+                            android:layout_height="fill_parent"
+                            android:background="@color/transparent"
+                            android:divider="@null"
+                            android:dividerHeight="0dp"
+                            android:footerDividersEnabled="false"
+                            android:paddingBottom="2.5dp"
+                            android:paddingTop="0.5dp"
+                            android:visibility="visible" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/top_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/mask" />
+                </FrameLayout>
+            </com.hiwifi.app.views.MyScrollView>
+        </com.hiwifi.app.views.PullToRefreshView>
+    </LinearLayout>
+    <!-- </ViewSwitcher> -->
+
+    <include layout="@layout/alpha_layout" />
+
+    <TextView
+        android:id="@+id/info_show_tx"
+        android:gravity="center"
+        android:textSize="@dimen/show_info_size"
+        android:paddingTop="5dp"
+        android:visibility="gone"
+        android:paddingBottom="5dp"
+        android:textColor="@color/white"
+        android:alpha="0.8"
+        android:background="@color/info_show_bg"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/show_info_bg_height" />
+
+</FrameLayout>

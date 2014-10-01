@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    android:background="@android:color/transparent"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/notification_wifi_open_height"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/iv_notifi_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/notification_wifi_open_icon_marginLeft"
+            android:background="@drawable/noticebar_logo" />
+
+        <LinearLayout
+            android:layout_width="@dimen/common_height_0"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/notification_wifi_open_marginLeft"
+            android:layout_weight="1"
+            android:gravity="center_vertical|left"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_context_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:text="@string/notification_wifi_connect_show"
+                android:textColor="@color/notifi_title_color"
+                android:textSize="@dimen/notification_wifi_noconnect_content_size" />
+
+            <TextView
+                android:id="@+id/notification_ssid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:textColor="#5dc52d"
+                android:textSize="@dimen/text_size_main" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="0.01dp"
+            android:layout_height="fill_parent"
+            android:background="@drawable/vline_notifi" />
+
+        <LinearLayout
+            android:id="@+id/btn_change"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:background="@android:color/transparent"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/notificaiont_btn_paddingLeft"
+            android:paddingRight="@dimen/notificaiont_btn_paddingRight" >
+
+            <ImageView
+                android:id="@+id/close_wifi_top_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/noticebar_on" />
+
+            <TextView
+                android:id="@+id/close_wifi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="关闭WiFi"
+                android:textColor="@color/notifi_title_color"
+                android:textSize="@dimen/text_size_main" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

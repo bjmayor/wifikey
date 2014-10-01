@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <!-- <com.hiwifi.app.views.PullDoorView
+        android:id="@+id/mypull_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff" > -->
+
+        <ImageView
+            android:id="@+id/ad_image"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/share_pic" />
+
+        <ImageView
+            android:id="@+id/btn_close_ad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/ad_icon_up"
+            android:visibility="gone"
+            android:clickable="true"
+            android:focusable="true" />
+   <!--  </com.hiwifi.app.views.PullDoorView> -->
+
+</RelativeLayout>

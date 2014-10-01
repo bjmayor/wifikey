@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/text_js_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_height"
+                    android:background="@drawable/item_click_selector"
+                     >
+
+                    <ImageView
+                        android:id="@+id/icon_protocol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="5dp"
+                        android:src="@drawable/icon_p" />
+
+                    <TextView
+                        android:id="@+id/debug_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/icon_protocol"
+                        android:gravity="center"
+                        android:text=""
+                        android:textColor="@color/item_text_color"
+                        android:textSize="@dimen/left_textsize" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="20dip"
+                        android:src="@drawable/bar_arrow" />
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="0.01dip"
+                        android:background="@color/line" />
+                </RelativeLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="share_wifi_interval">20dp</dimen>
+    <dimen name="share_bt_margin_top">30dp</dimen>
+    <dimen name="freetime_container_hight">130dp</dimen>
+    <dimen name="freetime_hight">160dp</dimen>
+    <!-- left menu -->
+    <dimen name="left_textsize">14dp</dimen>
+    <dimen name="right_textsize">9dp</dimen>
+    <dimen name="sub_left_textsize">9dp</dimen>
+    <dimen name="share_have_router">50dp</dimen>
+    <dimen name="share_btn_width">130dp</dimen>
+    <dimen name="share_marging_top">8dp</dimen>
+    <dimen name="top_left_textsize">13dp</dimen>
+    <dimen name="success_result">13dp</dimen>
+    <dimen name="valing_text_size">15dp</dimen>
+    <dimen name="forever_free_text_size">25dp</dimen>
+    <dimen name="click_action_replay">11dp</dimen>
+    <dimen name="time_text_size">38dp</dimen>
+    <dimen name="top_left_textsize_big">16dp</dimen>
+    <!-- splash -->
+    <dimen name="map_margin_bottom">30dp</dimen>
+
+</resources>

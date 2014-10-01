@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>error</title>
+	<style>
+		html,body,p{ margin: 0; padding: 0;}
+		body{ font-family: "HeiTi",Helvetica,Arial,sans-serif; text-align: center;}
+		.error{ padding-top: 30%;}
+		.error .icon{ margin: 0 auto 18px; display: block; width: 24px; height: 24px; background: url(./img/icon_error.png) no-repeat; background-size: auto 100%;}
+		.error p{ line-height: 160%; color: #999;}
+	</style>
+</head>
+<body>
+	<div class="error">
+		<span class="icon"></span>
+		<p>网络暂时无法访问<br>
+		请检查您的网络连接</p>
+	</div>
+	<script>
+		document.addEventListener("click",function(){
+			window.location.href = "http:\/\/www.hiwifi.com";
+		},false)	
+
+		function setUrl(url)
+		{
+			document.addEventListener("click",function(){
+			window.location.href = url;
+		},false)
+		}	
+
+	</script>
+</body>
+</html>

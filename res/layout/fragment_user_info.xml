@@ -1,0 +1,148 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.hiwifi.hiwifi"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/setting_background_color"
+    tools:context="com.hiwifi.activity.user.UserInfoActivity$PlaceholderFragment" >
+
+    <com.hiwifi.app.views.UINavigationView
+        android:id="@+id/nav"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nav_height"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/nav_background_color"
+        app:btn_rightText="退出登录"
+        app:left_drawable="@drawable/icon_back"
+        app:tv_title="我的信息" >
+    </com.hiwifi.app.views.UINavigationView>
+
+    <RelativeLayout
+        android:id="@+id/ll_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nav"
+        android:background="@color/setting_content_background_color"
+        android:paddingBottom="@dimen/setting_content_padding_bottom"
+        android:paddingLeft="@dimen/setting_content_padding_left"
+        android:paddingRight="@dimen/setting_content_padding_right" >
+
+        <com.hiwifi.app.views.CircleImageView
+            android:id="@+id/iv_user_photo"
+            android:layout_width="@dimen/user_info_photo_width"
+            android:layout_height="@dimen/user_info_photo_height"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/user_info_photo_margin"
+            android:background="@drawable/avatar_default"
+            android:clickable="true"
+            android:scaleType="fitXY" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_user_photo"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/et_user_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:drawableLeft="@drawable/login_icon_mobile"
+                android:drawablePadding="@dimen/user_info_drawable_padding"
+                android:enabled="false"
+                android:hint="手机号码"
+                android:padding="@dimen/user_info_text_padding"
+                android:singleLine="true"
+                android:textSize="@dimen/text_size_big" />
+
+            <com.hiwifi.app.views.CancelableEditText
+                android:id="@+id/et_user_nick"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/text_field_height"
+                android:layout_marginTop="@dimen/text_field_margin_top"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                app:cancelabelEditText_hint="昵称"
+                app:cancelabelEditText_left_drawable="@drawable/login_icon_user" >
+            </com.hiwifi.app.views.CancelableEditText>
+
+            <ViewSwitcher
+                android:id="@+id/vs_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/tv_reset_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:text="重设密码"
+                    android:textSize="@dimen/text_size_big"
+                    android:textColor="@color/nav_background_color" />
+
+                <com.hiwifi.app.views.CancelableEditText
+                    android:id="@+id/et_user_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/text_field_height"
+                    android:layout_marginTop="@dimen/text_field_margin_top"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    app:cancelabelEditText_hint="设置密码"
+                    app:cancelabelEditText_left_drawable="@drawable/login_icon_password" >
+                </com.hiwifi.app.views.CancelableEditText>
+            </ViewSwitcher>
+
+            <LinearLayout
+                android:id="@+id/show_pic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/user_info_showpic_padding_top"
+                android:paddingBottom="@dimen/user_info_showpic_padding_top"
+                 >
+
+                <TextView
+                    android:id="@+id/tv_error_tip"
+                    style="@style/text_error"
+                    android:layout_width="@dimen/width_zero"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/text_padding"
+                    android:gravity="left"
+                    android:text="" />
+
+                <Button
+                    android:id="@+id/btn_user_save"
+                    style="@style/btn_minor"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:text="保 存" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/setting_border_height"
+        android:layout_below="@id/ll_content"
+        android:background="@color/setting_border_color" />
+
+    <RelativeLayout
+        android:id="@+id/shadow"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/nav"
+        android:alpha="0.8"
+        android:background="@color/popup_main_background"
+        android:visibility="invisible" >
+    </RelativeLayout>
+
+</RelativeLayout>

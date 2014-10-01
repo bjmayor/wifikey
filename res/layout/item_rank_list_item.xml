@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/sortmeun_item_click_selector"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/sort_text_item"
+        style="@style/menu_sort"
+        android:drawableLeft="@drawable/menu_sort_best"
+        android:contentDescription="@string/btn_ok"
+        android:text="@string/menu_sort_best"
+        android:textColor="@color/wifilist_normal_color" />
+
+    <ImageView
+        android:id="@+id/sort_image_sep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+         android:contentDescription="@string/btn_ok"
+        android:src="@drawable/menu_sort_sep" />
+
+</LinearLayout>

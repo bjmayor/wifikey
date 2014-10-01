@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/success_online_header_hehe"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    android:background="@drawable/selector_wifilist_successbg"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/success_online_wifi"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/wifi_status_connected_bg_height"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="@dimen/text_padding"
+        android:paddingTop="@dimen/text_padding" >
+
+        <ImageView
+            android:id="@+id/wifi_icon_anim"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/wifilist_item_margin"
+            android:src="@anim/wifi_anim_icon"
+            android:visibility="visible" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/wifilist_item_margin"
+            android:layout_toRightOf="@+id/wifi_icon_anim"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/right_container"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/joined_wifi_bssid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="left"
+                    android:singleLine="true"
+                    android:text="SSID"
+                    android:textColor="@color/wifilist_status_black"
+                    android:textSize="@dimen/success_bssid" />
+
+                <TextView
+                    android:id="@+id/joined_wifi_state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/joined_wifi_bssid"
+                    android:layout_gravity="left"
+                    android:text="小极分享"
+                    android:layout_marginTop="@dimen/wifi_list_item_space"
+                    android:textColor="@color/wifilist_itembg_detecting"
+                    android:textSize="@dimen/wifi_status_connecter_cate" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/right_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/current_net_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/suc_status_text_margin_right"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="@color/wifilist_itembg_detecting"
+                    android:textSize="@dimen/wifi_status_statechange_text_size" />
+
+                <ImageView
+                    android:id="@+id/joined_state_imageview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/suc_status_img_margin_right"
+                    android:contentDescription="@string/btn_ok" />
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/sub_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/wifi_status_connected_bg_height"
+        android:orientation="vertical"
+        android:visibility="visible" >
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/suc_small_sep"
+            android:background="@color/content_border_color" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="visible" >
+
+            <LinearLayout
+                android:id="@+id/check_password_container"
+                android:layout_width="@dimen/width_zero"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/text_padding"
+                android:paddingTop="@dimen/text_padding" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/pulldown_view_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="查看密码"
+                    android:textColor="@color/wifilist_status_black"
+                    android:textSize="@dimen/tab_item_size" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="@dimen/suc_small_sep"
+                android:layout_height="fill_parent"
+                android:background="@color/content_border_color" />
+
+            <LinearLayout
+                android:id="@+id/current_traffic_container"
+                android:layout_width="@dimen/width_zero"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/text_padding"
+                android:paddingTop="@dimen/text_padding" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/pulldown_speed_icon" />
+
+                <TextView
+                    android:id="@+id/current_traffic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="实时 33k/s"
+                    android:textColor="@color/wifilist_status_black"
+                    android:textSize="@dimen/tab_item_size" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="@dimen/suc_small_sep"
+                android:layout_height="fill_parent"
+                android:background="@color/content_border_color" />
+
+            <LinearLayout
+                android:layout_width="@dimen/width_zero"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/text_padding"
+                android:paddingTop="@dimen/text_padding" >
+
+                <ImageView
+                    android:id="@+id/signal_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/pulldown_signal_icon" />
+
+                <TextView
+                    android:id="@+id/current_signal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="信号 96%"
+                    android:textColor="@color/wifilist_status_black"
+                    android:textSize="@dimen/tab_item_size" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

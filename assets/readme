@@ -1,0 +1,78 @@
+ <Wechat
+        Id="1"
+        SortId="1"
+        AppId="wx04317dd6d8892ad7"
+        ShortLinkConversationEnable="true"
+        Enable="true" />
+        
+     <QQ
+        Id="4"
+        SortId="4"
+        AppId="100549536"
+        AppKey="98cd009b259c45e927038cdaf4444717"
+        ShortLinkConversationEnable="true"
+        Enable="true" />
+        
+     <QZone
+        Id="5"
+        SortId="5"
+        AppId="100549536"
+        AppKey="98cd009b259c45e927038cdaf4444717"
+        ShortLinkConversationEnable="true"
+        Enable="true" />
+        
+ 	<TencentWeibo
+        Id="6" 
+        SortId="6"
+        AppKey="801442376"
+        AppSecret="ceb50fece79b43556ae0233430e97562"
+        RedirectUri="https://itunes.apple.com/cn/app/ji-lu-you/id598232355?mt=8"
+        ShortLinkConversationEnable="true"
+        Enable="true" />
+        
+        <ShareSDK 
+        AppKey = "1a659902d5fa"/> <!-- 修改成你在sharesdk后台注册的应用的appkey"-->
+    
+    
+    <!-- ShareByAppClient标识是否使用微博客户端分享，默认是false -->
+    <SinaWeibo
+        Id="1"
+        SortId="1"
+        AppKey="151313623"
+        AppSecret="9511b52c3f55296f1b822bcd1f00e37f"
+        RedirectUrl="http://www.hiwifi.com"
+        ShareByAppClient="false"
+        Enable="true" />
+
+ 	<WechatMoments
+        Id="2"
+        SortId="2"
+        AppId="wx04317dd6d8892ad7"
+        BypassApproval="false"
+        Enable="true" />
+        
+        
+        <?xml version="1.0" encoding="utf-8"?>
+<DevInfor>
+   
+    <ShareSDK 
+        AppKey = "bff8741049b"/> <!-- AppKey="104972cdd48" "23a9371d3a8"-->
+ 	
+    <SinaWeibo
+        Id="1"
+        SortId="1"
+        AppKey="151313623"
+        AppSecret="9511b52c3f55296f1b822bcd1f00e37f"
+        RedirectUrl="http://www.hiwifi.com/"
+        ShortLinkConversationEnable="false"
+        Enable="true" />
+        
+	<WechatMoments
+        Id="2"
+        SortId="2"
+        AppId="wx362bbd4e380eb05c"
+        BypassApproval="false"
+        Enable="true" />
+	
+</DevInfor>
+    

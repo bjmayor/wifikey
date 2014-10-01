@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/shape_bg_common_corner"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <!--
+            <ProgressBar
+            android:id="@+id/progressBar1"
+            style="@style/myProgressBarConnection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:indeterminateBehavior="repeat"
+             android:indeterminate="true"
+             />
+        -->
+
+        <ImageView
+            android:id="@+id/iv_loading_pro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
+           />
+
+        <TextView
+            android:id="@+id/wifi_dialog_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/wifi_dialog_connecting"
+            android:textSize="17dp" />
+        <Button
+            android:id="@+id/try_again"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:background="@drawable/meun_item_click_selector"
+            android:text="@string/wifi_dialog_tryagain"
+            android:textColor="@drawable/dialog_btn_text_color"
+            android:textSize="17dp" />
+        <Button
+            android:id="@+id/try_another_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:background="@drawable/meun_item_click_selector"
+            android:text="@string/wifi_dialog_password"
+            android:textColor="@drawable/dialog_btn_text_color"
+            android:textSize="17dp" />
+        <Button
+            android:id="@+id/cancal_connect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:background="@drawable/selector_btn_dialog_one"
+            android:text="@string/wifi_dialog_cancel"
+            android:textColor="@drawable/dialog_btn_text_color"
+            android:textSize="17dp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

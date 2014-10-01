@@ -1,0 +1,182 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.hiwifi.hiwifi"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/setting_background_color" >
+
+    <com.hiwifi.app.views.InputMethodRelativeLayout
+        android:id="@+id/login_root_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/setting_content_background_color" >
+
+        <com.hiwifi.app.views.UINavigationView
+            android:id="@+id/nav"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/nav_height"
+            android:background="@color/nav_background_color"
+            app:btn_leftText="取消"
+            app:btn_rightText=""
+            app:tv_title="小极帐号登录" >
+        </com.hiwifi.app.views.UINavigationView>
+
+        <FrameLayout
+            android:id="@+id/fl_content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nav" >
+
+            <ScrollView
+                android:id="@+id/login_sv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none" >
+
+                <LinearLayout
+                    android:id="@+id/login_container"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal|top"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/setting_content_padding_bottom"
+                    android:paddingLeft="@dimen/setting_content_padding_left"
+                    android:paddingRight="@dimen/setting_content_padding_right" >
+
+                    <RelativeLayout
+                        android:id="@+id/loginLayout"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="@dimen/setting_content_padding_top"
+                        android:orientation="vertical"
+                        android:visibility="visible" >
+
+                        <RelativeLayout
+                            android:id="@+id/nameLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/text_field_height"
+                            android:background="@color/white"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:gravity="center_vertical" >
+
+                            <AutoCompleteTextView
+                                android:id="@+id/login_et_user"
+                                style="@style/myAutoCompleteTextView"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/user_login_autotext_margin_right"
+                                android:background="@color/white"
+                                android:drawableLeft="@drawable/login_icon_mobile"
+                                android:drawablePadding="@dimen/drawable_padding"
+                                android:gravity="center_vertical"
+                                android:hint="请输入手机号"
+                                android:inputType="text"
+                                android:paddingLeft="@dimen/text_padding"
+                                android:singleLine="true"
+                                android:textColor="#000000"
+                                android:textColorHighlight="@color/text_color_gray"
+                                android:textColorHint="@color/text_color_gray"
+                                android:textSize="@dimen/text_field_size" />
+
+                            <ImageView
+                                android:id="@+id/name_cancel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/user_login_cancel_margin_right"
+                                android:background="@drawable/icon_clear"
+                                android:visibility="invisible" />
+                        </RelativeLayout>
+
+                        <com.hiwifi.app.views.CancelableEditText
+                            android:id="@+id/login_et_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/edittext_height"
+                            android:layout_below="@id/nameLayout"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="@dimen/edittext_margin_top"
+                            android:background="@color/white"
+                            android:gravity="center_vertical"
+                            android:inputType="textPassword"
+                            android:singleLine="true"
+                            app:cancelabelEditText_hint="请输入密码"
+                            app:cancelabelEditText_inputType="textPassword"
+                            app:cancelabelEditText_left_drawable="@drawable/login_icon_password"
+                            app:cancelabelEditText_text_size="@dimen/text_field_size" >
+                        </com.hiwifi.app.views.CancelableEditText>
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:orientation="horizontal"
+                        android:paddingTop="@dimen/user_login_tips_padding_top" >
+
+                        <TextView
+                            android:id="@+id/tv_error_tip"
+                            style="@style/text_error"
+                            android:layout_width="@dimen/width_zero"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="@dimen/user_login_tips_margin_right"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:text=""
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/forget_password"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="@dimen/user_login_tips_margin_right"
+                            android:gravity="center"
+                            android:text="忘记密码?"
+                            android:textColor="@color/text_color_black"
+                            android:textSize="@dimen/text_size_main" />
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/relativeLayout1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/forget_password"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/login_regist_top" >
+
+                        <Button
+                            android:id="@+id/reg_btn"
+                            style="@style/btn_specail"
+                            android:layout_width="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerHorizontal="true"
+                            android:text="注 册"
+                            android:textColor="@color/white" />
+
+                        <Button
+                            android:id="@+id/login_btn"
+                            style="@style/btn_major"
+                            android:layout_width="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerHorizontal="true"
+                            android:text="登 录"
+                            android:textColor="@color/white" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </ScrollView>
+            <!-- </com.hiwifi.helper.view.InputMethodRelativeLayout> -->
+
+        </FrameLayout>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/setting_border_height"
+            android:layout_below="@id/fl_content"
+            android:background="@color/setting_border_color" />
+    </com.hiwifi.app.views.InputMethodRelativeLayout>
+
+</FrameLayout>

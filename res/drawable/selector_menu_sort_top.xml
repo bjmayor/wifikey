@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_checked="true"><shape android:shape="rectangle">
+            <solid android:color="@color/nav_bar_main_dark_color" />
+
+            <corners android:bottomLeftRadius="1dp" android:bottomRightRadius="1dp" android:topLeftRadius="@dimen/menu_sort_radio" android:topRightRadius="@dimen/menu_sort_radio" />
+        </shape></item>
+    <item android:state_checked="false"><shape android:shape="rectangle">
+            <solid android:color="@color/nav_bar_main_color" />
+
+            <corners android:bottomLeftRadius="1dp" android:bottomRightRadius="1dp" android:topLeftRadius="@dimen/menu_sort_radio" android:topRightRadius="@dimen/menu_sort_radio" />
+        </shape></item>
+
+</selector>

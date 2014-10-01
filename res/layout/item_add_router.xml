@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/share_btn_width"
+    android:layout_height="@dimen/share_btn_width"
+    android:padding="@dimen/router_add_padding"
+    android:background="@drawable/shape_bg_butt_bind" >
+    <ImageView 
+        android:id="@+id/iv_router_icon"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/icon_add"
+        />
+
+</RelativeLayout>

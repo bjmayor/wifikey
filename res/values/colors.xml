@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="list_item_title">#fff</color>
+    <color name="list_background">#303030</color>
+    <color name="list_background_pressed">#992416</color>
+    <color name="list_divider">#272727</color>
+    <color name="counter_text_bg">#626262</color>
+    <color name="counter_text_color">#c5c4c4</color>
+    <color name="transparent">#00000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="green">#00ff66</color>
+    <color name="red">#ff0000</color>
+    <color name="logo_background_blue">#51c4d4</color>
+
+    <drawable name="translucent">#bb000000</drawable>
+
+    <color name="textColorHint">#bcc0cf</color>
+
+    <!-- Setting -->
+    <color name="setting_pressed_start">#e5e5e5</color>
+    <color name="setting_pressed_end">#e5e5e5</color>
+    <color name="rc_title_bkg">#ffffff</color>
+    <color name="rc_background">#FFEBF1FE</color>
+    <color name="rc_detailtitle">#40434e</color>
+    <color name="rc_detailcontent">#8c93aa</color>
+    <color name="setting_detail">#2374b1</color>
+
+    <!-- nav bar -->
+    <color name="nav_bar_main_color">#00AEFB</color>
+    <color name="nav_bar_main_dark_color">#0085D5</color>
+    <!-- tab bar -->
+    <color name="tab_bar_main_color">#262C35</color>
+    <!-- content -->
+    <color name="content_bg_color">#EEEEEE</color>
+    <color name="content_border_color">#DDDDDD</color>
+    <color name="text_gray_color">#999999</color>
+    <color name="wifilist_item_action">#DEE2E7</color>
+
+    <!-- dialog -->
+    <color name="dialog_ok_color">#EEEEEE</color>
+    <color name="dialog_cancel_color">#EEEEEE</color>
+
+    <!-- wifilist -->
+    <color name="wifilist_normal_color">#41c4d6</color>
+    <color name="wifilist_emphasize_color">#5dc62e</color>
+    <color name="wifilist_ignore_color">#d9d9d9</color>
+    <color name="wifilist_disable_color">#BDBDBD</color>
+    <color name="wifilist_itembg_well">#33cb65</color>
+    <color name="wifilist_itembg_bad">#ff0000</color>
+    <color name="wifilist_itembg_normal">#ffcc00</color>
+    <color name="wifilist_itembg_unavaiable">#b5b5b6</color>
+    <color name="wifilist_itembg_detecting">#999999</color>
+    <color name="wifilist_itembg_unkown">#FFFFFF</color>
+    <color name="wifilist_status_black">#333333</color>
+    <color name="wifilist_wifi_status">#00c2fb</color>
+    <color name="wifilist_signal_percent">#7f8692</color>
+    <color name="wifilist_successbg">#F0F4F8</color>
+    <color name="wifilist_successbg_action">#DEE2E7</color>
+
+    <!-- share -->
+    <color name="today_shared">#7E7E7E</color>
+    <color name="line">#D0D0D0</color>
+
+    <!-- left menu -->
+    <color name="normal">#F0F0F0</color>
+    <color name="press">#EAEAEA</color>
+    <color name="item_text_color">#606366</color>
+    <color name="app_version_color">#9FA0A0</color>
+    <color name="login">#8BD761</color>
+    <color name="had_login">#fe1801</color>
+    <color name="privilege_explain_yellow">#fce50d</color>
+
+    <!-- main login -->
+    <color name="unlogin">#9FA0A0</color>
+    <color name="allogin">#5cc8d5</color>
+    <color name="login_hint_color">#C9CACA</color>
+
+    <!-- success online -->
+    <color name="success_bg">#33CC66</color>
+    <color name="speed_test_bg">#FDAA47</color>
+    <color name="break_wifi_bg">#FE4D4D</color>
+    <color name="need_val">#ffcc31</color>
+    <color name="unable_color">#DDDEDC</color>
+    <color name="text_color_yellow">#ffcc00</color>
+    <color name="text_color_green">#31cc64</color>
+    <color name="break_press_bg">#f87272</color>
+    <color name="speed_test_press_bg">#fcba6d</color>
+    <color name="blue_press_bg">#b4bcbd</color>
+    <color name="yellow_press_bg">#fed967</color>
+    <color name="common_green">#57c3d0</color>
+    <color name="grid_item_color">#9FA0A0</color>
+    <color name="notifi_bg_action">#51c4d4</color>
+    <color name="notifi_bg_color">#e1e5e6</color>
+    <color name="notifi_text_color">#5c6066</color>
+    <color name="notifi_bssid_color">#4bb5c4</color>
+    <color name="menu_line_color">#ededed</color>
+    <color name="menu_color">#4D4D4D</color>
+    <color name="gray">#EAEAEA</color>
+    <color name="tcp_ip_font_color">#7E7E7E</color>
+    <color name="tcp_ip_font_cllor_right">#C0C0C0</color>
+    <color name="share_btn_gray">#EFEFEF</color>
+    <color name="tab_color_unselect">#9FA0A0</color>
+    <color name="tab_color_selected">#5cc8d5</color>
+    <!-- long click dialog -->
+    <color name="dialog_gray">#666666</color>
+    <color name="dialog_blue">#39C4D7</color>
+    <color name="dialog_item_bg">#DDDDDD</color>
+    <color name="dialog_red">#FF0000</color>
+
+    <!-- V1.01 -->
+    <color name="notifi_title_connected">#00C1FE</color>
+    <color name="notifi_content_connected">#2EDD5B</color>
+    <color name="notifi_unconn_net">#999999</color>
+    <!--  -->
+
+    <color name="tab_text_active">#0DADFE</color>
+    <color name="tab_text_unactive">#ffffff</color>
+
+    <!-- nav -->
+    <color name="nav_background_color">#0DADFE</color>
+    <color name="nav_title_color">#ffffff</color>
+
+    <!-- settings -->
+    <color name="setting_content_background_color">#f0f4f8</color>
+    <color name="setting_background_color">#eeeeee</color>
+    <color name="setting_border_color">#dddddd</color>
+    <color name="user_btn_reg_bg_color">#1adf53</color>
+    <color name="user_btn_login_bg_color">#00c1fe</color>
+    <color name="common_btn_color">#8db8d5</color>
+    <color name="setting_gray_color">#e5e5e5</color>
+    <color name="popup_main_background">#000000</color>
+    <color name="text_blue">#22C3F8</color>
+    <color name="bg_color">#EEEEEE</color>
+    <color name="connect_sure">#00C2FB</color>
+    <color name="connect_cancel">#DDDDDD</color>
+    <color name="info_show_bg">#323a45</color>
+    <color name="input_title_color">#333333</color>
+    <color name="input_btn_cancel_color">#8bb8d6</color>
+    <color name="input_btn_connect_color">#00c1fe</color>
+    <color name="input_error_color">#FF0000</color>
+
+    <!-- commom color setting -->
+    <color name="major_color">#00c0ff</color>
+    <color name="major_color_active">#00aaeb</color>
+    <color name="minor_color">#89b8d7</color>
+    <color name="minor_color_active">#7aa3be</color>
+    <color name="sepecail_color">#1adf53</color>
+    <color name="sepecail_color_active">#00cd43</color>
+    <color name="tab_bg_color">#323a45</color>
+
+    <!-- text color -->
+    <color name="text_color_black">#333333</color>
+    <color name="text_color_gray">#999999</color>
+    <color name="text_color_light">#0CACFE</color>
+    <color name="text_color_error">#FF0000</color>
+    <color name="text_color_white_light">#DDDDDD</color>
+
+    <!-- notifi -->
+    <color name="notifi_title_color">#00C1FE</color>
+    <color name="notifi_content_color">#2EDD5B</color>
+    <color name="notifi_gray_color">#999999</color>
+    <color name="btn_cant_click">#B2EDFE</color>
+    
+    <color name="splash_bg">#00abff</color>
+    <color name="splash_hiwifi_publish">#083e53</color>
+    <color name="wifi_password_bg">#f99b4a</color>
+
+    <!-- input password -->
+    <color name="edit_text_color">#333333</color>
+    <color name="eidt_text_hint_color">#999999</color>
+</resources>

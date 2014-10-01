@@ -1,0 +1,147 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.hiwifi.hiwifi"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/setting_background_color"
+    android:orientation="vertical"
+    tools:context="com.hiwifi.hiwifi.VeryPhoneActivity$PlaceholderFragment" >
+
+    <com.hiwifi.app.views.UINavigationView
+        android:id="@+id/nav"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nav_height"
+        android:background="@color/nav_background_color"
+        app:btn_rightText="下一步"
+        app:left_drawable="@drawable/icon_back"
+        app:tv_title="小极帐号注册" >
+    </com.hiwifi.app.views.UINavigationView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/setting_content_background_color"
+        android:paddingBottom="@dimen/setting_content_padding_bottom"
+        android:paddingLeft="@dimen/setting_content_padding_left"
+        android:paddingRight="@dimen/setting_content_padding_right"
+        android:paddingTop="@dimen/activity_vertical_margin" >
+
+        <LinearLayout
+            android:id="@+id/ll_verycode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <com.hiwifi.app.views.CancelableEditText
+                android:id="@+id/et_verycode"
+                android:layout_width="@dimen/width_zero"
+                android:layout_height="@dimen/edittext_height"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                app:cancelabelEditText_hint="请输入验证码"
+                app:cancelabelEditText_left_drawable="@drawable/login_icon_code" >
+            </com.hiwifi.app.views.CancelableEditText>
+
+            <Button
+                android:id="@+id/btn_resend"
+                style="@style/btn_minor"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/user_very_btn_padding"
+                android:background="@drawable/selector_btn_minor"
+                android:minHeight="@dimen/width_zero"
+                android:minWidth="@dimen/width_zero"
+                android:paddingLeft="@dimen/user_login_tips_padding_top"
+                android:paddingRight="@dimen/user_login_tips_padding_top"
+                android:text="再次发送"
+                android:visibility="visible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_tips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll_verycode"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/setting_space_margin_top"
+                android:paddingTop="@dimen/reg_textview_padding_top" >
+
+                <TextView
+                    style="@style/text_big"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="验证码已经发送到" />
+
+                <TextView
+                    android:id="@+id/tv_phone_tip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="xxxxxxx"
+                    android:textColor="@color/nav_background_color" />
+            </LinearLayout>
+
+            <ViewSwitcher
+                android:id="@+id/vs_process"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/reg_textview_padding_top" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        style="@style/text_big"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="接收短信大约需要" />
+
+                    <TextView
+                        android:id="@+id/tv_time_tip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/user_very_number_padding"
+                        android:paddingRight="@dimen/user_very_number_padding"
+                        android:text="5"
+                        android:textColor="@color/nav_background_color" />
+
+                    <TextView
+                        style="@style/text_big"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="秒" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_process_tip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                     style="@style/text_big"
+                    android:text="没有收到验证码" />
+            </ViewSwitcher>
+
+            <TextView
+                android:id="@+id/tv_error_tip"
+                style="@style/text_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/textview_padding_top"
+                android:text="错误提示区"
+                android:visibility="invisible" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/setting_border_height"
+        android:background="@color/setting_border_color" />
+
+</LinearLayout>

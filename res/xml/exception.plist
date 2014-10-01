@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+
+	<key>-2</key>
+	<string>再点一次退出应用程序</string>
+	<key>-1</key>
+	<string>网络不畅</string>
+	<key>0</key>
+	<string>登录成功</string>
+	<key>110</key>
+	<string>网络不通</string>
+
+	<key>301</key>
+	<string>请输入邮箱</string>
+	<key>302</key>
+	<string>请输入密码</string>
+	<key>303</key>
+	<string>您还未登录</string>
+	<key>304</key>
+	<string>rid为空</string>
+	<key>305</key>
+	<string>mac地址为空</string>
+	<key>306</key>
+	<string>状态错误</string>
+	<key>307</key>
+	<string>app开关为空</string>
+	<key>308</key>
+	<string>服务id为空</string>
+	<key>309</key>
+	<string>已经是最新版本</string>
+	<key>310</key>
+	<string>path为空</string>
+	<key>311</key>
+	<string>请输入路由器名称</string>
+	<key>312</key>
+	<string>推送token为空</string>
+	
+	<key>401</key>
+	<string>邮箱格式错误</string>
+	<key>402</key>
+	<string>用户不存在</string>
+	<key>403</key>
+	<string>密码输入错误</string>
+	<key>404</key>
+	<string>用户被禁止</string>
+	<key>405</key>
+	<string>用户需要激活</string>
+	<key>406</key>
+	<string>很久未登录了，请重新登录</string>
+	<key>407</key>
+	<string>登录错误，请重新登录</string>
+	<key>408</key>
+	<string>rid错误，查找不到相关记录</string>
+	<key>409</key>
+	<string>您还未绑定此路由</string>
+	<key>410</key>
+	<string>数据没有准备好</string>
+	<key>411</key>
+	<string>路由器不在线</string>
+	<key>412</key>
+	<string>列表过期，请刷新</string>
+	<key>413</key>
+	<string>设备mac地址错误</string>
+	<key>414</key>
+	<string>用户已经绑定5台路由器，无法再绑定</string>
+	<key>415</key>
+	<string>路由器已被 xxx 绑定</string>
+	<key>416</key>
+	<string>您已绑过了这台路由器</string>
+	<key>417</key>
+	<string>服务查询错误</string>
+	<key>418</key>
+	<string>插件未安装</string>
+	<key>419</key>
+	<string>操作已经完成</string>
+	<key>420</key>
+	<string>不支持开关</string>
+	<key>421</key>
+	<string>path不允许或者固件版本不支持</string>
+	<key>422</key>
+	<string>名字过长</string>
+	<key>423</key>
+	<string>名字格式不正确</string>
+	<key>424</key>
+	<string>版本错误</string>
+	
+	
+	<key>501</key>
+	<string>系统超时</string>
+	<key>502</key>
+	<string>未知错误</string>
+	<key>503</key>
+	<string>发送重启失败</string>
+	<key>504</key>
+	<string>断开wifi设备失败</string>
+	<key>505</key>
+	<string>关闭mac地址过滤失败</string>
+	<key>507</key>
+	<string>路由器升级检查更新错误</string>
+	<key>508</key>
+	<string>路由器升级错误</string>
+	<key>509</key>
+	<string>获取面板灯状态错误</string>
+	<key>510</key>
+	<string>设置面板灯状态错误</string>
+	<key>511</key>
+	<string>开关设置错误</string>
+	<key>512</key>
+	<string>MAC地址获取错误</string>
+	<key>513</key>
+	<string>获取穿墙模式状态错误</string>
+	<key>514</key>
+	<string>设置穿墙模式出错</string>
+	<key>547</key>
+	<string>此功能需要更新路由器固件</string>
+	<key>548</key>
+	<string>服务器接口调用错误</string>
+	
+	<key>640</key>
+	<string>已取消注册</string>
+	<key>645</key>
+	<string>请使用刚才注册的邮箱登录</string>
+	
+</dict>
+</plist>

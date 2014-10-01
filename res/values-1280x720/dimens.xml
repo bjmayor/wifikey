@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="share_wifi_interval">20dp</dimen>
+    <dimen name="share_have_router">60dp</dimen>
+    <dimen name="freetime_container_hight">160dp</dimen>
+    <dimen name="wifilist_item_master_textsize">18dp</dimen>
+    <dimen name="wifilist_item_slave_textsize">13dp</dimen>
+    <dimen name="wifilist_menu_sort_textsize">14dp</dimen>
+    <dimen name="wifilist_time_text_size">13dp</dimen>
+    <dimen name="wifilist_nav_slave_text_size">15dp</dimen>
+    <dimen name="wifilist_nav_master_text_size">15dp</dimen>
+
+    <!-- share to blog -->
+    <dimen name="share_bt_margin_top">30dp</dimen>
+
+    <!-- left menu -->
+    <dimen name="left_textsize">16dp</dimen>
+    <dimen name="right_textsize">12dp</dimen>
+    <dimen name="sub_left_textsize">12dp</dimen>
+    <dimen name="freetime_hight">160dp</dimen>
+    <dimen name="share_btn_width">140dp</dimen>
+    <dimen name="vertical_spacing">20dp</dimen>
+    <dimen name="share_marging_top">10dp</dimen>
+
+    <!-- success online -->
+    <dimen name="top_left_textsize">15dp</dimen>
+    <dimen name="success_result">15dp</dimen>
+    <dimen name="valing_text_size">17dp</dimen>
+    <dimen name="forever_free_text_size">27dp</dimen>
+    <dimen name="click_action_replay">13dp</dimen>
+    <dimen name="time_text_size">40dp</dimen>
+    <dimen name="top_left_textsize_big">18dp</dimen>
+    <!-- splash -->
+    <dimen name="map_margin_bottom">80dp</dimen>
+
+</resources>

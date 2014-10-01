@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:clickable="true"
+    android:focusable="true" >
+
+    <TextView
+        android:id="@+id/top_title"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/nav_height"
+        android:background="@color/nav_background_color"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="@dimen/nav_title_size" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/top_title"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/width_zero"
+            android:background="@color/transparent"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/width_zero"
+            android:layout_weight="3"
+            android:gravity="center_horizontal" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/icon_wifioff" />
+
+            <TextView
+                style="@style/text_big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/wifioperate_text_margintop"
+                android:layout_marginTop="@dimen/wifioperate_text_margintop"
+                android:gravity="center"
+                android:text="@string/wifi_not_open" />
+
+            <Button
+                android:id="@+id/open_btn_wifi"
+                style="@style/btn_major"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/btn_size_height_big"
+                android:text="开启WiFi扫描热点" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

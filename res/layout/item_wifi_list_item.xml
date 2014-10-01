@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/category_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/wifilist_title_height"
+        android:background="@color/content_bg_color"
+        android:clickable="false"
+        android:focusable="false"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:visibility="visible" >
+
+        <ImageView
+            android:id="@+id/item_titile_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/wifilist_item_title_marginleft"
+            android:src="@drawable/list_key_icon" />
+
+        <TextView
+            android:id="@+id/item_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/wifilist_item_title_marginleft"
+            android:textColor="@color/wifilist_status_black"
+            android:textSize="@dimen/success_bssid" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/connect_splite_line_height"
+        android:background="@color/content_bg_color" />
+
+    <LinearLayout
+        android:id="@+id/basic_info"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/wifi_list_item_height"
+        android:background="@drawable/selector_wifi_item"
+        android:orientation="horizontal" >
+
+        <View
+            android:id="@+id/availability_bg"
+            android:layout_width="@dimen/connect_left_available_bg_width"
+            android:layout_height="match_parent"
+            android:background="@color/wifilist_itembg_unkown"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/lockerImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/wifilist_item_margin"
+            android:src="@drawable/wifi_list_icon" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="@dimen/wifilist_item_margin"
+            android:layout_marginRight="@dimen/wifilist_item_name_margin"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxWidth="@dimen/wifi_list_item_maxwidth"
+                android:gravity="left|bottom|center_horizontal"
+                android:singleLine="true"
+                android:text="textview111111111111"
+                android:textColor="@color/wifilist_status_black"
+                android:textSize="@dimen/success_bssid" />
+
+            <TextView
+                android:id="@+id/wifi_state_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left|top|center_horizontal"
+                android:text="111111111"
+                android:layout_marginTop="@dimen/wifi_list_item_space"
+                android:textColor="@color/wifilist_itembg_detecting"
+                android:textSize="@dimen/wifi_status_connecter_cate" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/iv_lock_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/wifi_unlock" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/wifilist_item_margin"
+                android:paddingRight="@dimen/connect_item_paddingRight" >
+
+                <ImageView
+                    android:id="@+id/iv_action_more"
+                    android:paddingLeft="@dimen/connnect_single_icon_paddingLeft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/wifi_signal_1" />
+
+                <TextView
+                    android:id="@+id/signal_strength"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@id/iv_action_more"
+                    android:layout_below="@id/iv_action_more"
+                    android:text="96%"
+                    android:textColor="#7f8692"
+                    android:textSize="@dimen/signal_persent" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/no_free_contain"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/wifi_list_item_height"
+        android:clickable="false"
+        android:focusable="false"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/connect_nofree_paddingBottom"
+        android:paddingTop="@dimen/connect_nofree_paddingTop"
+        android:visibility="gone" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wifi_list_nofree"
+            android:textColor="@color/wifilist_status_black"
+            android:textSize="@dimen/wifi_status_connecter_cate" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wifi_list_nofree_notify"
+            android:textColor="@color/wifilist_itembg_detecting"
+            android:textSize="@dimen/wifi_status_connecter_cate" />
+    </LinearLayout>
+
+</LinearLayout>

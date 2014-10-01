@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/top_title"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/nav_height"
+        android:background="@color/nav_background_color"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/nav_title_size" />
+
+    <FrameLayout
+        android:id="@+id/realtabcontent"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/common_height_0"
+        android:layout_weight="1" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/tab_bg_color" >
+
+        <com.hiwifi.app.views.FragmentTabHost
+            android:id="@android:id/tabhost"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/tab_left_right_margin"
+            android:layout_marginRight="@dimen/tab_left_right_margin" >
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="@dimen/common_height_0"
+                android:layout_height="@dimen/common_height_0"
+                android:layout_weight="0" />
+        </com.hiwifi.app.views.FragmentTabHost>
+    </RelativeLayout>
+
+</LinearLayout>

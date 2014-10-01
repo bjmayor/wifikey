@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.hiwifi.hiwifi"
+    android:id="@+id/about_sildingFinishLayou"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.hiwifi.app.views.UINavigationView
+        android:id="@+id/nav"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nav_height"
+        android:background="@color/nav_background_color"
+        app:left_drawable="@drawable/icon_back"
+        app:tv_title="" >
+    </com.hiwifi.app.views.UINavigationView>
+
+    <com.hiwifi.activity.protalpage.MockRedirectWebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/nav" />
+
+</RelativeLayout>

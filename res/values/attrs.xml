@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <declare-styleable name="UpMoveBar">
+        <attr name="round_r" format="dimension" />
+        <attr name="move_speed" format="float" />
+        <attr name="UpMoveBar_background_color" format="color" />
+        <attr name="UpMoveBar_mask_color" format="color" />
+        <attr name="UpMoveBar_bar_color" format="color" />
+    </declare-styleable>
+    <declare-styleable name="LogoPageV2">
+        <attr name="cycle_count" format="integer" />
+        <attr name="delay_time_ms" format="integer" />
+        <attr name="start_r" format="dimension" />
+        <attr name="r_interval" format="dimension" />
+        <attr name="r_speed" format="dimension" />
+        <attr name="x_error_from_center" format="dimension" />
+        <attr name="y_error_from_center" format="dimension" />
+        <attr name="background_color" format="color" />
+        <attr name="center_color" format="color" />
+        <attr name="bar_color" format="color" />
+    </declare-styleable>
+    <declare-styleable name="TextViewAdvance">
+        <attr name="text" format="string" />
+        <attr name="text_size" format="dimension" />
+        <attr name="text_color" format="color" />
+        <attr name="text_in_center" format="boolean" />
+        <attr name="text_same_time_load" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="WifiEncryptionState">
+        <attr name="state_encrypted" format="boolean" />
+    </declare-styleable>
+    <!--
+    <declare-styleable name="IconPreferenceScreen">
+        <attr name="icon" format="reference" />
+    </declare-styleable>
+    -->
+    <declare-styleable name="ImitateListPreference">
+        <attr name="more" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="HorizontalScroller">
+        <attr name="pageWidth" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="ScrollerControl">
+        <attr name="barColor" format="color" />
+        <attr name="highlightColor" format="color" />
+        <attr name="fadeDelay" format="integer" />
+        <attr name="fadeDuration" format="integer" />
+        <attr name="roundRectRadius" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="ViewfinderView"></declare-styleable>
+    <declare-styleable name="SettingSwitchView">
+        <attr name="WhichSwtich" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="navigation">
+        <attr name="btn_leftText" format="string" />
+        <attr name="btn_rightText" format="string" />
+        <attr name="tv_title" format="string" />
+        <attr name="left_drawable" format="reference"></attr>
+        <attr name="right_drawable" format="reference"></attr>
+    </declare-styleable>
+    
+     <declare-styleable name="cancelabelEditText" >
+        <attr name="cancelabelEditText_hint" format="string" />
+        <attr name="cancelabelEditText_text_size" format="dimension" />
+        <attr name="cancelabelEditText_text_color" format="color" />
+        <attr name="cancelabelEditText_left_drawable" format="reference"></attr>
+        <attr name="cancelabelEditText_cancel_drawable" format="reference"></attr>
+        <attr name="cancelabelEditText_inputType" format="string"></attr>
+    </declare-styleable>
+    
+    <declare-styleable name="SlidingMenu">
+        <attr name="mode">
+            <enum name="left" value="0" />
+            <enum name="right" value="1" />
+        </attr>
+        <attr name="viewAbove" format="reference" />
+        <attr name="viewBehind" format="reference" />
+        <attr name="behindOffset" format="dimension" />
+        <attr name="behindWidth" format="dimension" />
+        <attr name="behindScrollScale" format="float" />
+        <attr name="touchModeAbove">
+            <enum name="margin" value="0" />
+            <enum name="fullscreen" value="1" />
+        </attr>
+        <attr name="touchModeBehind">
+            <enum name="margin" value="0" />
+            <enum name="fullscreen" value="1" />
+        </attr>
+        <attr name="shadowDrawable" format="reference" />
+        <attr name="shadowWidth" format="dimension" />
+        <attr name="fadeEnabled" format="boolean" />
+        <attr name="fadeDegree" format="float" />
+        <attr name="selectorEnabled" format="boolean" />
+        <attr name="selectorDrawable" format="reference" />
+    </declare-styleable>
+</resources>

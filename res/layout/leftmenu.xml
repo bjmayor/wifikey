@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_bar" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="80dp"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:id="@+id/rl_user_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_height"
+                    android:background="@drawable/item_click_selector" >
+
+                    <ImageView
+                        android:id="@+id/icon_login"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="5dp"
+                        android:src="@drawable/icon_user" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/item_height"
+                        android:layout_toRightOf="@id/icon_login" >
+
+                        <TextView
+                            android:id="@+id/tx_login"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="5dp"
+                            android:layout_toLeftOf="@+id/login_flag"
+                            android:ellipsize="end"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:text="未登录"
+                            android:textColor="@color/item_text_color"
+                            android:textSize="@dimen/left_textsize" />
+
+                        <TextView
+                            android:id="@+id/login_flag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="20dip"
+                            android:drawableLeft="@drawable/i_enter"
+                            android:drawablePadding="4dp"
+                            android:gravity="center"
+                            android:text="立即登录"
+                            android:textColor="@color/login"
+                            android:textSize="@dimen/right_textsize" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+               <!--  <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.01dip"
+                    android:background="@color/line" /> -->
+
+                <!-- <RelativeLayout
+                    android:id="@+id/wifishare_tab"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_height"
+                    android:background="@drawable/item_click_selector" >
+
+                    <ImageView
+                        android:id="@+id/icon_wifishare"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="5dp"
+                        android:src="@drawable/icon_wifi" />
+
+                    <TextView
+                        android:id="@+id/wifi_share_tx"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/icon_wifishare"
+                        android:gravity="center"
+                        android:text="@string/wifi_single_share"
+                        android:textColor="@color/item_text_color"
+                        android:textSize="@dimen/left_textsize" />
+
+                    <ImageView
+                        android:id="@+id/hiwifi_share_alert"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dip"
+                        android:layout_toLeftOf="@+id/arrow_right"
+                        android:visibility="visible" />
+
+                    <ImageView
+                        android:id="@+id/arrow_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="20dip"
+                        android:src="@drawable/bar_arrow" />
+                </RelativeLayout> -->
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.01dip"
+                    android:background="@color/line" />
+
+                <RelativeLayout
+                    android:id="@+id/test_switch"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_height"
+                    android:background="@drawable/item_click_selector" >
+
+                    <ImageView
+                        android:id="@+id/icon_syn_pass"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="5dp"
+                        android:src="@drawable/icon_cloud" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/icon_syn_pass"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/syn_pass_tx"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:gravity="center"
+                            android:text="@string/net_pass_syn"
+                            android:textColor="@color/item_text_color"
+                            android:textSize="@dimen/left_textsize" />
+
+                        <TextView
+                            android:id="@+id/syn_pass_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:singleLine="true"
+                            android:text="77"
+                            android:textColor="@color/wifilist_emphasize_color"
+                            android:textSize="@dimen/sub_left_textsize" />
+                    </LinearLayout>
+
+                    <CheckBox
+                        android:id="@+id/asy_state"
+                        style="@style/myCheckBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="20dip"
+                        android:checked="true" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.01dip"
+                    android:background="@color/line" />
+
+                <View
+                    android:id="@+id/hehehe"
+                    android:layout_width="fill_parent"
+                    android:layout_height="30dp"
+                    android:background="#ffffff" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.01dip"
+                    android:visibility="gone"
+                    android:background="@color/line" />
+
+                <RelativeLayout
+                    android:id="@+id/app_upgrade_tab"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_height"
+                    android:background="@drawable/item_click_selector"
+                    android:visibility="gone" >
+
+                    <ImageView
+                        android:id="@+id/icon_appversion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="5dp"
+                        android:src="@drawable/icon_ask" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/icon_appversion"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/tx_app"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:gravity="center"
+                            android:text="@string/app_version"
+                            android:textColor="@color/item_text_color"
+                            android:textSize="@dimen/left_textsize" />
+
+                        <TextView
+                            android:id="@+id/app_version"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:text="ver 1.0.3"
+                            android:textColor="@color/app_version_color"
+                            android:textSize="@dimen/sub_left_textsize" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/app_version_flag"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="20dip"
+                        android:text="已是最新"
+                        android:textColor="@color/app_version_color"
+                        android:textSize="@dimen/right_textsize" />
+
+                    <ImageView
+                        android:id="@+id/app_version_flag_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="20dip"
+                        android:src="@drawable/i_alert"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.01dip"
+                    android:background="@color/line"
+                    android:visibility="gone" />
+
+                <RelativeLayout
+                    android:id="@+id/oauth_tab"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_height"
+                    android:background="@drawable/item_click_selector"
+                    android:visibility="gone" >
+
+                    <ImageView
+                        android:id="@+id/icon_oauth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="5dp"
+                        android:src="@drawable/icon_share" />
+
+                    <TextView
+                        android:id="@+id/tx_oauth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/icon_oauth"
+                        android:gravity="center"
+                        android:text="@string/oauth_share"
+                        android:textColor="@color/item_text_color"
+                        android:textSize="@dimen/left_textsize" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="20dip"
+                        android:src="@drawable/bar_arrow" />
+                </RelativeLayout>
+
+                <!-- new -->
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.01dip"
+                    android:background="@color/line" />
+
+                <RelativeLayout
+                    android:id="@+id/share_app_tab"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_height"
+                    android:background="@drawable/item_click_selector" >
+
+                    <ImageView
+                        android:id="@+id/icon_shareapp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="5dp"
+                        android:src="@drawable/icon_share" />
+
+                    <TextView
+                        android:id="@+id/tx_shareapp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/icon_shareapp"
+                        android:gravity="center"
+                        android:text="@string/share_app"
+                        android:textColor="@color/item_text_color"
+                        android:textSize="@dimen/left_textsize" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="20dip"
+                        android:src="@drawable/bar_arrow" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.01dip"
+                    android:background="@color/line" />
+
+                <RelativeLayout
+                    android:id="@+id/setting_tab"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_height"
+                    android:background="@drawable/item_click_selector" >
+
+                    <ImageView
+                        android:id="@+id/icon_setting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="5dp"
+                        android:src="@drawable/gearicon" />
+
+                    <TextView
+                        android:id="@+id/tx_setting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/icon_setting"
+                        android:gravity="center"
+                        android:text="@string/setting"
+                        android:textColor="@color/item_text_color"
+                        android:textSize="@dimen/left_textsize" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="20dip"
+                        android:src="@drawable/bar_arrow" />
+                </RelativeLayout>
+                <!--
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.01dip"
+                    android:background="@color/line" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_height"
+                    android:background="@drawable/item_click_selector" >
+
+                    <ImageView
+                        android:id="@+id/icon_about"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="5dp"
+                        android:src="@drawable/icon__" />
+
+                    <TextView
+                        android:id="@+id/tx_about"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/icon_about"
+                        android:text="@string/about_hiwifi"
+                        android:textColor="@color/item_text_color" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="20dip"
+                        android:src="@drawable/bar_arrow" />
+                </RelativeLayout>
+                -->
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.01dip"
+                    android:background="@color/line" />
+
+                <ListView
+                    android:id="@+id/debug_listview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" >
+                </ListView>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

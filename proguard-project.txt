@@ -1,0 +1,88 @@
+-optimizationpasses 5
+-dontusemixedcaseclassnames
+-dontskipnonpubliclibraryclasses
+-dontskipnonpubliclibraryclassmembers
+-dontpreverify
+-ignorewarnings
+
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.app.View
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.app.backup.BackupAgentHelper
+-keep public class * extends android.preference.Preference
+
+
+-libraryjars libs/android-support-v4.jar
+
+-verbose
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+
+-dontwarn android.support.v4.**
+
+-keep class android.support.v4.app.** { *; }
+
+-keep interface android.support.v4.app.** { *; }
+
+-keep class com.actionbarsherlock.** { *; }
+
+-keep interface com.actionbarsherlock.** { *; }
+
+-keepattributes *Annotation*
+
+-keep public class * extends android.app.Activity
+
+-keep public class * extends android.support.v4.app.Fragment
+
+-keep public class * extends android.support.v4.app.FragmentActivity
+
+-keep class android.net.http.SslError
+-keep class android.webkit.**{*;}
+-keep class cn.sharesdk.**{*;}
+-keep class com.sina.**{*;}
+-keep class m.framework.**{*;}
+-keep class com.umeng.** {*;}
+-keep class com.alibaba.fastjson.**{*;}
+-keep class com.igexin.**{*;}
+-keep class cn.jpush.android.**{*;}
+-keep class javax.servlet.**{*;}
+-keep class com.nostra13.universalimageloader.**{*;}
+-keep class com.nineoldandroids.**{*;}
+-keep class sdk.**{*;}
+
+-libraryjars libs/locSDK_4.2.jar
+#-libraryjars libs/baidumapapi_v2_4_1.jar
+
+-keepclassmembers class * {
+   public <init>(org.json.JSONObject);
+}
+
+-keepclasseswithmembers class * {
+    native <methods>;
+}
+
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet);
+}
+
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+}
+
+
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+-keep class **.R$* {   
+*;   
+}
+
+-keep class * implements android.os.Parcelable {
+  public static final android.os.Parcelable$Creator *;
+}
+
+

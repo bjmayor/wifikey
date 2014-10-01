@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="email">
+        <item>@string/email_163</item>
+        <item>@string/email_qq</item>
+        <item>@string/email_sina</item>
+        <item>@string/email_vip_sina</item>
+        <item>@string/email_126</item>
+        <item>@string/email_139</item>
+        <item>@string/email_189</item>
+        <item>@string/email_21cn</item>
+        <item>@string/email_gmail</item>
+        <item>@string/email_hotmail</item>
+        <item>@string/email_hiwifi</item>
+        <item>@string/email_sohu</item>
+        <item>@string/email_sina_1</item>
+    </string-array>
+
+</resources>
