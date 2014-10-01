@@ -26,7 +26,6 @@ import android.text.TextUtils;
 
 import com.hiwifi.app.utils.RegUtil;
 import com.hiwifi.hiwifi.Gl;
-import com.hiwifi.hiwifi.R;
 import com.hiwifi.model.log.HWFLog;
 import com.hiwifi.model.log.LogUtil;
 import com.hiwifi.model.speedtest.WebPageTester;
@@ -37,6 +36,7 @@ import com.hiwifi.store.AccessPointModel;
 import com.hiwifi.store.AccessPointModel.PasswordSource;
 import com.hiwifi.store.AccessPointModel.PasswordStatus;
 import com.hiwifi.utils.FileUtil;
+import com.seo.wifikey.R;
 
 @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
 public class AccessPoint extends Observable implements Parcelable, Observer {

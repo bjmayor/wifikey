@@ -1,13 +1,8 @@
 package com.hiwifi.activity.test;
 
 import java.net.MalformedURLException;
-import java.util.HashMap;
-import java.util.Map;
 
 import android.annotation.SuppressLint;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -21,7 +16,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hiwifi.constant.RequestConstant.RequestTag;
-import com.hiwifi.hiwifi.R;
 import com.hiwifi.model.log.LogUtil;
 import com.hiwifi.model.request.RequestFactory;
 import com.hiwifi.model.request.RequestManager;
@@ -32,6 +26,7 @@ import com.hiwifi.model.router.WifiInfo.SignalMode;
 import com.hiwifi.model.wifi.WifiAdmin;
 import com.hiwifi.store.AccessPointDbMgr;
 import com.hiwifi.support.http.RequestParams;
+import com.seo.wifikey.R;
 
 public class UrlTestActivity extends FragmentActivity {
 

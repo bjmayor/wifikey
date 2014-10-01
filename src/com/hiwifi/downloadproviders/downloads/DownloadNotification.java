@@ -29,7 +29,7 @@ import android.os.SparseLongArray;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 
-import com.hiwifi.hiwifi.R;
+import com.seo.wifikey.R;
 
 /**
  * This class handles the updating of the Notification Manager for the cases

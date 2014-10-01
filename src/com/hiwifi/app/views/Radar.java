@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import com.hiwifi.hiwifi.R;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
@@ -21,8 +19,10 @@ import android.graphics.Path;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-//import android.view.MotionEvent;
 import android.view.View;
+
+import com.seo.wifikey.R;
+//import android.view.MotionEvent;
 
 /**
  * 

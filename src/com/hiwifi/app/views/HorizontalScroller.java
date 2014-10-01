@@ -22,7 +22,7 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.widget.Scroller;
 
-import com.hiwifi.hiwifi.R;
+import com.seo.wifikey.R;
 
 
 public class HorizontalScroller extends ViewGroup

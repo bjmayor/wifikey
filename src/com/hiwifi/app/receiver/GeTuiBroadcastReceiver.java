@@ -22,10 +22,10 @@ import android.util.Log;
 
 import com.hiwifi.activity.CommonWebviewActivity;
 import com.hiwifi.app.views.CustomDialog;
-import com.hiwifi.hiwifi.R;
 import com.hiwifi.support.http.AsyncHttpClient;
 import com.hiwifi.utils.ApplicationUtil;
 import com.igexin.sdk.PushConsts;
+import com.seo.wifikey.R;
 
 public class GeTuiBroadcastReceiver extends BroadcastReceiver {
 

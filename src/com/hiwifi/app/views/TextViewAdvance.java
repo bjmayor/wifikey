@@ -3,8 +3,6 @@ package com.hiwifi.app.views;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import com.hiwifi.hiwifi.R;
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -16,6 +14,8 @@ import android.graphics.Paint.Style;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.seo.wifikey.R;
 
 public class TextViewAdvance extends View {
 

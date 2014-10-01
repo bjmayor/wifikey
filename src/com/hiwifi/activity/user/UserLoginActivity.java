@@ -36,17 +36,15 @@ import com.hiwifi.app.views.InputMethodRelativeLayout.OnSizeChangedListener;
 import com.hiwifi.app.views.UINavigationView;
 import com.hiwifi.constant.ConfigConstant;
 import com.hiwifi.constant.RequestConstant.RequestTag;
-import com.hiwifi.hiwifi.R;
 import com.hiwifi.model.AppSession;
-import com.hiwifi.model.EventDispatcher;
 import com.hiwifi.model.User;
-import com.hiwifi.model.log.HWFLog;
 import com.hiwifi.model.log.LogUtil;
 import com.hiwifi.model.request.RequestFactory;
 import com.hiwifi.model.request.RequestManager.ResponseHandler;
 import com.hiwifi.model.request.ServerResponseParser;
 import com.hiwifi.model.request.ServerResponseParser.ServerCode;
 import com.hiwifi.utils.ViewUtil;
+import com.seo.wifikey.R;
 
 public class UserLoginActivity extends BaseActivity implements
 		OnSizeChangedListener, ResponseHandler {

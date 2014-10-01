@@ -6,13 +6,9 @@
  */
 package com.hiwifi.app.views;
 
-import com.hiwifi.hiwifi.R;
-import com.hiwifi.utils.ViewUtil;
-
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.DialogFragment;
-import android.app.FragmentManager;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -23,6 +19,9 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.hiwifi.utils.ViewUtil;
+import com.seo.wifikey.R;
 
 /**
  * @author shunping.liu@hiwifi.tw

@@ -17,12 +17,12 @@ import android.widget.ViewSwitcher;
 
 import com.hiwifi.app.adapter.DiscoverAdapter;
 import com.hiwifi.constant.RequestConstant.RequestTag;
-import com.hiwifi.hiwifi.R;
 import com.hiwifi.model.DiscoverItem;
 import com.hiwifi.model.log.HWFLog;
 import com.hiwifi.model.request.RequestFactory;
 import com.hiwifi.model.request.RequestManager.ResponseHandler;
 import com.hiwifi.model.request.ServerResponseParser;
+import com.seo.wifikey.R;
 import com.umeng.analytics.MobclickAgent;
 
 /**

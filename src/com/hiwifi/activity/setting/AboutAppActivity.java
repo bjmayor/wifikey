@@ -10,7 +10,7 @@ import com.hiwifi.activity.base.BaseActivity;
 import com.hiwifi.app.views.UINavigationView;
 import com.hiwifi.constant.RequestConstant;
 import com.hiwifi.constant.RequestConstant.RequestTag;
-import com.hiwifi.hiwifi.R;
+import com.seo.wifikey.R;
 
 public class AboutAppActivity extends BaseActivity {
 

@@ -19,8 +19,8 @@ import android.view.ViewConfiguration;
 import android.view.ViewParent;
 import android.widget.CheckBox;
 
-import com.hiwifi.hiwifi.R;
 import com.hiwifi.model.log.HWFLog;
+import com.seo.wifikey.R;
 
 public class SwitchButton extends CheckBox {
 

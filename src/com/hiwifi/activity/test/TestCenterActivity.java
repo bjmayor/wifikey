@@ -24,12 +24,11 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.hiwifi.constant.RequestConstant;
 import com.hiwifi.constant.RequestConstant.RequestTag;
-import com.hiwifi.hiwifi.R;
 import com.hiwifi.model.User;
+import com.seo.wifikey.R;
 
 public class TestCenterActivity extends FragmentActivity {
 

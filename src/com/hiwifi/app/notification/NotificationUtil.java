@@ -8,7 +8,7 @@ import android.content.Intent;
 import android.widget.RemoteViews;
 
 import com.hiwifi.app.services.DaemonService;
-import com.hiwifi.hiwifi.R;
+import com.seo.wifikey.R;
 
 public class NotificationUtil {
 

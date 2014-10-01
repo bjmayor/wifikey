@@ -5,8 +5,6 @@ import java.util.ListIterator;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import com.hiwifi.hiwifi.R;
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -16,6 +14,8 @@ import android.graphics.Paint.Style;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.seo.wifikey.R;
 
 public class LogoPageV2 extends View {// SurfaceView implements
 										// SurfaceHolder.Callback {

@@ -11,21 +11,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.hiwifi.activity.wifi.WiFiOperateActivity;
 import com.hiwifi.app.views.HorizontalScroller;
-import com.hiwifi.hiwifi.R;
 import com.hiwifi.model.ClientInfo;
 import com.hiwifi.model.DiscoverItem;
 import com.hiwifi.model.wifi.WifiAdmin;
-import com.hiwifi.utils.ActivitySplitAnimationUtil;
-import com.hiwifi.utils.NetworkUtil;
 import com.hiwifi.utils.ResUtil;
 import com.hiwifi.utils.SmartBarUtils;
-import com.hiwifi.utils.ViewUtil;
+import com.seo.wifikey.R;
 import com.umeng.analytics.MobclickAgent;
 
 public class TutorialActivity extends Activity {

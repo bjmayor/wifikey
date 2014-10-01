@@ -1,7 +1,5 @@
 package com.hiwifi.app.views;
 
-import com.hiwifi.hiwifi.R;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -10,6 +8,8 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.seo.wifikey.R;
 
 public class RadarShadow extends View {
 

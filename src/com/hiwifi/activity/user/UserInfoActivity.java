@@ -11,7 +11,6 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -31,7 +30,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewSwitcher;
 
-import com.hiwifi.activity.FeedbackActivity;
 import com.hiwifi.activity.MainTabActivity;
 import com.hiwifi.activity.base.BaseActivity;
 import com.hiwifi.activity.user.VeryPhoneActivity.Source;
@@ -42,7 +40,6 @@ import com.hiwifi.app.views.UINavigationView;
 import com.hiwifi.constant.ConfigConstant;
 import com.hiwifi.constant.RequestConstant.RequestTag;
 import com.hiwifi.hiwifi.Gl;
-import com.hiwifi.hiwifi.R;
 import com.hiwifi.model.AppSession;
 import com.hiwifi.model.EventDispatcher;
 import com.hiwifi.model.User;
@@ -54,6 +51,7 @@ import com.hiwifi.model.request.ServerResponseParser.ServerCode;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
+import com.seo.wifikey.R;
 import com.umeng.analytics.MobclickAgent;
 
 public class UserInfoActivity extends BaseActivity implements ResponseHandler {

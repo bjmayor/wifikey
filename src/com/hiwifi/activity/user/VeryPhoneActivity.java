@@ -22,13 +22,13 @@ import android.widget.ViewSwitcher;
 import com.hiwifi.app.views.CancelableEditText;
 import com.hiwifi.app.views.UINavigationView;
 import com.hiwifi.constant.RequestConstant.RequestTag;
-import com.hiwifi.hiwifi.R;
 import com.hiwifi.model.AppSession;
 import com.hiwifi.model.User;
 import com.hiwifi.model.request.RequestFactory;
 import com.hiwifi.model.request.RequestManager.ResponseHandler;
 import com.hiwifi.model.request.ServerResponseParser;
 import com.hiwifi.model.request.ServerResponseParser.ServerCode;
+import com.seo.wifikey.R;
 
 public class VeryPhoneActivity extends ActionBarActivity {
 	public static String SourceIsFindPWD = "findpassword";

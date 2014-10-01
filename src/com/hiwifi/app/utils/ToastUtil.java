@@ -3,7 +3,6 @@ package com.hiwifi.app.utils;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
@@ -12,12 +11,11 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.hiwifi.hiwifi.R;
 import com.hiwifi.model.log.LogUtil;
+import com.seo.wifikey.R;
 
 public class ToastUtil extends Toast {
 

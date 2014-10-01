@@ -1,6 +1,5 @@
 package com.hiwifi.app.views;
 
-import junit.runner.Version;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -15,13 +14,10 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.hiwifi.hiwifi.R;
-import com.hiwifi.model.log.HWFLog;
-import com.hiwifi.utils.ResUtil;
+import com.seo.wifikey.R;
 
 public class UINavigationView extends RelativeLayout {
 

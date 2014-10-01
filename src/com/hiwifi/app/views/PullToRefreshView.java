@@ -22,7 +22,7 @@ import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.hiwifi.hiwifi.R;
+import com.seo.wifikey.R;
 
 public class PullToRefreshView extends LinearLayout {
 	private static final String TAG = "PullToRefreshView";

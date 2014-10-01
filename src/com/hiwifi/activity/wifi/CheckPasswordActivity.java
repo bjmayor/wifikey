@@ -6,7 +6,6 @@ import java.util.TimerTask;
 
 import org.json.JSONObject;
 
-import android.R.bool;
 import android.content.Intent;
 import android.net.NetworkInfo;
 import android.net.TrafficStats;
@@ -41,7 +40,6 @@ import com.hiwifi.app.receiver.HiwifiBroadcastReceiver;
 import com.hiwifi.app.receiver.HiwifiBroadcastReceiver.WifiEventHandler;
 import com.hiwifi.constant.ConfigConstant;
 import com.hiwifi.constant.RequestConstant.RequestTag;
-import com.hiwifi.hiwifi.R;
 import com.hiwifi.model.User;
 import com.hiwifi.model.log.LogUtil;
 import com.hiwifi.model.request.RequestFactory;
@@ -52,6 +50,7 @@ import com.hiwifi.model.wifi.AccessPoint.WifiConnectState;
 import com.hiwifi.model.wifi.WifiAdmin;
 import com.hiwifi.shareSdk.ShareUtil;
 import com.hiwifi.utils.ViewUtil;
+import com.seo.wifikey.R;
 import com.umeng.analytics.MobclickAgent;
 
 public class CheckPasswordActivity extends BaseActivity implements

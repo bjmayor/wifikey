@@ -8,13 +8,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup.LayoutParams;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.Animation.AnimationListener;
 import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
 
-import com.hiwifi.hiwifi.R;
+import com.seo.wifikey.R;
 
 public class SelectPicPopupWindow extends PopupWindow {
 

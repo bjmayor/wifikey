@@ -21,13 +21,13 @@ import com.hiwifi.app.utils.CommonDialogUtil;
 import com.hiwifi.app.utils.CommonDialogUtil.CommonDialogListener;
 import com.hiwifi.app.views.FragmentTabHost;
 import com.hiwifi.constant.RequestConstant.RequestTag;
-import com.hiwifi.hiwifi.R;
 import com.hiwifi.model.DiscoverItem;
 import com.hiwifi.model.RecommendInfo;
 import com.hiwifi.model.log.LogUtil;
 import com.hiwifi.model.request.RequestFactory;
 import com.hiwifi.model.request.RequestManager.ResponseHandler;
 import com.hiwifi.model.request.ServerResponseParser;
+import com.seo.wifikey.R;
 import com.umeng.analytics.MobclickAgent;
 
 /**

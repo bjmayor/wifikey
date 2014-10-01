@@ -1,15 +1,6 @@
 package com.hiwifi.app.adapter;
 
-import java.net.URI;
 import java.util.ArrayList;
-
-import com.hiwifi.activity.SettingFragment.RouterAdapter.ViewHolder;
-import com.hiwifi.hiwifi.R;
-import com.hiwifi.model.DiscoverItem;
-import com.hiwifi.utils.ViewUtil;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -22,6 +13,13 @@ import android.widget.AbsListView.LayoutParams;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.hiwifi.model.DiscoverItem;
+import com.hiwifi.utils.ViewUtil;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
+import com.seo.wifikey.R;
 
 public class DiscoverAdapter extends BaseAdapter {
 	private ArrayList<DiscoverItem> data;

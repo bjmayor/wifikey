@@ -18,10 +18,10 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.CompoundButton;
-import android.widget.Toast;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hiwifi.activity.setting.AboutAppActivity;
 import com.hiwifi.activity.setting.TermsOfServiceActivity;
@@ -38,7 +38,6 @@ import com.hiwifi.constant.ReleaseConstant;
 import com.hiwifi.constant.RequestConstant;
 import com.hiwifi.constant.RequestConstant.RequestTag;
 import com.hiwifi.hiwifi.Gl;
-import com.hiwifi.hiwifi.R;
 import com.hiwifi.model.AppSession;
 import com.hiwifi.model.ClientInfo;
 import com.hiwifi.model.User;
@@ -51,6 +50,7 @@ import com.hiwifi.model.router.RouterManager;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
+import com.seo.wifikey.R;
 import com.umeng.analytics.MobclickAgent;
 
 /**

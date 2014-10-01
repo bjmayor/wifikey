@@ -6,7 +6,7 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Window;
 
-import com.hiwifi.hiwifi.R;
+import com.seo.wifikey.R;
 
 public class HintDialog {
 

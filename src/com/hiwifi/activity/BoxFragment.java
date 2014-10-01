@@ -23,7 +23,6 @@ import com.hiwifi.app.utils.RecentApplicatonUtil;
 import com.hiwifi.app.utils.ToastUtil;
 import com.hiwifi.constant.RequestConstant.RequestTag;
 import com.hiwifi.hiwifi.Gl;
-import com.hiwifi.hiwifi.R;
 import com.hiwifi.model.RecommendInfo;
 import com.hiwifi.model.request.RequestFactory;
 import com.hiwifi.model.request.RequestManager.ResponseHandler;
@@ -32,6 +31,7 @@ import com.hiwifi.model.request.ServerResponseParser.ServerCode;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
+import com.seo.wifikey.R;
 import com.umeng.analytics.MobclickAgent;
 
 /**

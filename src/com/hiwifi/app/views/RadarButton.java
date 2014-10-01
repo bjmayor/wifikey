@@ -1,9 +1,5 @@
 package com.hiwifi.app.views;
 
-import com.hiwifi.hiwifi.Gl;
-import com.hiwifi.hiwifi.R;
-import com.umeng.analytics.MobclickAgent;
-
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -14,6 +10,8 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+
+import com.seo.wifikey.R;
 
 public class RadarButton extends View {
 

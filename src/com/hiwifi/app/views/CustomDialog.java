@@ -17,10 +17,10 @@ import android.widget.TextView;
 
 import com.hiwifi.app.views.CustomDialog.AlertParams.ButtonType;
 import com.hiwifi.constant.ConfigConstant;
-import com.hiwifi.hiwifi.R;
 import com.hiwifi.model.log.HWFLog;
 import com.hiwifi.utils.ResUtil;
 import com.hiwifi.utils.ViewUtil;
+import com.seo.wifikey.R;
 
 /**
  * 自定义dialog

@@ -14,7 +14,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiConfiguration;
-import android.net.wifi.WifiEnterpriseConfig;
 import android.net.wifi.WifiConfiguration.Status;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
@@ -25,11 +24,11 @@ import android.util.Log;
 
 import com.hiwifi.constant.ReleaseConstant;
 import com.hiwifi.hiwifi.Gl;
-import com.hiwifi.hiwifi.R;
 import com.hiwifi.model.log.HWFLog;
 import com.hiwifi.model.log.LogUtil;
 import com.hiwifi.model.wifi.AccessPoint.SECURITY_TYPE;
 import com.hiwifi.utils.ResUtil;
+import com.seo.wifikey.R;
 
 public class WifiAdmin {
 	private final static String TAG = "WifiAdmin";

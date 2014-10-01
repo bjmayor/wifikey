@@ -34,10 +34,10 @@ import cn.sharesdk.onekeyshare.ShareCore;
 
 import com.hiwifi.app.views.SildingFinishLayout;
 import com.hiwifi.app.views.SildingFinishLayout.OnSildingFinishListener;
-import com.hiwifi.hiwifi.R;
 import com.hiwifi.model.log.LogUtil;
 import com.hiwifi.utils.NetworkUtil;
 import com.hiwifi.utils.Utils;
+import com.seo.wifikey.R;
 import com.umeng.analytics.MobclickAgent;
 
 public class AuthPageActivity extends Activity implements OnClickListener,

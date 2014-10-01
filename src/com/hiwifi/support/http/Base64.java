@@ -18,7 +18,7 @@ package com.hiwifi.support.http;
 
 import java.io.UnsupportedEncodingException;
 
-import com.hiwifi.hiwifi.BuildConfig;
+import com.seo.wifikey.BuildConfig;
 
 /**
  * Utilities for encoding and decoding the Base64 representation of binary data.  See RFCs <a

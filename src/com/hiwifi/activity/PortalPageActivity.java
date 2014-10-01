@@ -11,7 +11,7 @@ import android.webkit.WebViewClient;
 import com.hiwifi.activity.base.BaseActivity;
 import com.hiwifi.activity.protalpage.MockRedirectWebView;
 import com.hiwifi.app.views.UINavigationView;
-import com.hiwifi.hiwifi.R;
+import com.seo.wifikey.R;
 
 /**
  * @filename PortalPageActivity.java

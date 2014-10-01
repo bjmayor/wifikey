@@ -39,7 +39,7 @@ import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TabWidget;
 
-import com.hiwifi.hiwifi.R;
+import com.seo.wifikey.R;
 
 /**
  * Special TabHost that allows the use of {@link Fragment} objects for its tab

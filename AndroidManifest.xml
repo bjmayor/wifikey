@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.hiwifi.hiwifi"
+    package="com.seo.wifikey"
     android:installLocation="auto"
     android:versionCode="020100"
     android:versionName="2.01" >
@@ -304,7 +304,7 @@
 
         <provider
             android:name="com.igexin.download.DownloadProvider"
-            android:authorities="downloads.com.hiwifi.hiwifi"
+            android:authorities="downloads.com.seo.wifikey"
             android:process=":pushservice" />
         <!-- android:authorities="downloads.第三方包名" -->
 
@@ -427,7 +427,7 @@
 
         <provider
             android:name="com.hiwifi.downloadproviders.downloads.DownloadProvider"
-            android:authorities="com.hiwifi.downloads" />
+            android:authorities="mydownloads.com.seo.wifikey" />
 
         <service android:name="com.hiwifi.downloadproviders.downloads.DownloadService" />
 

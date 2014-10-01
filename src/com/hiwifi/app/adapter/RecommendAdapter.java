@@ -11,12 +11,12 @@ import android.widget.TextView;
 
 import com.hiwifi.app.utils.RecentApplicatonUtil;
 import com.hiwifi.hiwifi.Gl;
-import com.hiwifi.hiwifi.R;
 import com.hiwifi.model.RecommendInfo;
 import com.hiwifi.model.log.HWFLog;
 import com.hiwifi.utils.ViewUtil;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.seo.wifikey.R;
 
 public class RecommendAdapter extends ArrayListAdapter<RecommendInfo> {
 	protected static ImageLoader imageLoader;

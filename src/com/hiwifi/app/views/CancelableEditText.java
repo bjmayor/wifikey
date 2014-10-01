@@ -17,8 +17,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-import com.hiwifi.hiwifi.R;
 import com.hiwifi.utils.DensityUtil;
+import com.seo.wifikey.R;
 
 public class CancelableEditText extends RelativeLayout implements
 		OnClickListener, OnFocusChangeListener, TextWatcher {

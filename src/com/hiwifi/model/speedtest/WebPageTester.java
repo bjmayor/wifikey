@@ -8,11 +8,11 @@ import android.os.Message;
 
 import com.hiwifi.hiwifi.Gl;
 import com.hiwifi.hiwifi.Gl.GlConf;
-import com.hiwifi.hiwifi.R;
 import com.hiwifi.model.log.HWFLog;
 import com.hiwifi.model.log.LogUtil;
 import com.hiwifi.support.http.AsyncHttpResponseHandler;
 import com.hiwifi.support.http.SyncHttpClient;
+import com.seo.wifikey.R;
 import com.umeng.analytics.MobclickAgent;
 
 public class WebPageTester implements Runnable {

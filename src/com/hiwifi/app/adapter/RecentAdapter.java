@@ -2,10 +2,8 @@ package com.hiwifi.app.adapter;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
-import android.content.pm.ComponentInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,8 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.hiwifi.hiwifi.R;
 import com.hiwifi.store.AppInfoModel;
+import com.seo.wifikey.R;
 
 public class RecentAdapter extends ArrayListAdapter<AppInfoModel> {
 

@@ -2,14 +2,9 @@ package com.hiwifi.activity.user;
 
 import android.content.Context;
 import android.content.Intent;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.view.View;
-import android.view.View.OnFocusChangeListener;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.hiwifi.activity.base.BaseActivity;
@@ -19,12 +14,12 @@ import com.hiwifi.app.views.CancelableEditText;
 import com.hiwifi.app.views.InputMethodRelativeLayout.OnSizeChangedListener;
 import com.hiwifi.app.views.UINavigationView;
 import com.hiwifi.constant.RequestConstant.RequestTag;
-import com.hiwifi.hiwifi.R;
 import com.hiwifi.model.AppSession;
 import com.hiwifi.model.request.RequestFactory;
 import com.hiwifi.model.request.RequestManager.ResponseHandler;
 import com.hiwifi.model.request.ServerResponseParser;
 import com.hiwifi.model.request.ServerResponseParser.ServerCode;
+import com.seo.wifikey.R;
 
 public class UserPhoneGetActivity extends BaseActivity implements
 		OnSizeChangedListener, ResponseHandler {

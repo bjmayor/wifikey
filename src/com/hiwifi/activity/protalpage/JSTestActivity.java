@@ -34,12 +34,12 @@ import android.widget.Toast;
 import com.hiwifi.app.task.UpdateConfRunnable;
 import com.hiwifi.app.utils.RegUtil;
 import com.hiwifi.app.views.TextViewAdvance;
-import com.hiwifi.hiwifi.R;
 import com.hiwifi.model.User;
 import com.hiwifi.store.jsdatabase.JSDataBaseManager;
 import com.hiwifi.utils.PhoneNumberCapturer;
 import com.hiwifi.utils.encode.Security;
 import com.hiwifi.utils.jsdownloader.JS_downloader.DownloadFinishListener;
+import com.seo.wifikey.R;
 import com.umeng.analytics.MobclickAgent;
 
 public class JSTestActivity extends Activity implements OnClickListener,

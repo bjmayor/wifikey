@@ -13,7 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.hiwifi.hiwifi.R;
+import com.seo.wifikey.R;
 
 public class GradualBackground extends LinearLayout {
 

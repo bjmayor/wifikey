@@ -14,7 +14,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Handler;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -27,20 +26,17 @@ import com.hiwifi.activity.base.BaseActivity;
 import com.hiwifi.activity.wifi.WiFiOperateActivity;
 import com.hiwifi.constant.RequestConstant.RequestTag;
 import com.hiwifi.hiwifi.Gl;
-import com.hiwifi.hiwifi.R;
 import com.hiwifi.model.ClientInfo;
 import com.hiwifi.model.DiscoverItem;
 import com.hiwifi.model.RecommendInfo;
 import com.hiwifi.model.User;
 import com.hiwifi.model.log.LogUtil;
 import com.hiwifi.model.request.RequestFactory;
-import com.hiwifi.model.request.RequestManager;
 import com.hiwifi.model.request.RequestManager.ResponseHandler;
 import com.hiwifi.model.request.ServerResponseParser;
 import com.hiwifi.model.wifi.WifiAdmin;
 import com.hiwifi.utils.ImageUtil;
-import com.hiwifi.utils.NetworkUtil;
-import com.hiwifi.utils.ViewUtil;
+import com.seo.wifikey.R;
 
 public class SplashActiviy extends BaseActivity implements ResponseHandler {
 

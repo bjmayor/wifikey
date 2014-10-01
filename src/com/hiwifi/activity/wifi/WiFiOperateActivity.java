@@ -15,8 +15,8 @@ import com.hiwifi.activity.MainTabActivity;
 import com.hiwifi.activity.base.BaseActivity;
 import com.hiwifi.app.receiver.HiwifiBroadcastReceiver;
 import com.hiwifi.app.receiver.HiwifiBroadcastReceiver.WifiEventHandler;
-import com.hiwifi.hiwifi.R;
 import com.hiwifi.model.wifi.WifiAdmin;
+import com.seo.wifikey.R;
 
 /**
  * @filename WiFiOperateActivity.java

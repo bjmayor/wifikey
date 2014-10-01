@@ -10,10 +10,10 @@ import android.view.View.OnClickListener;
 import com.hiwifi.activity.wifi.WiFiOperateActivity;
 import com.hiwifi.constant.RequestConstant;
 import com.hiwifi.constant.RequestConstant.RequestTag;
-import com.hiwifi.hiwifi.R;
 import com.hiwifi.model.ClientInfo;
 import com.hiwifi.model.DiscoverItem;
 import com.hiwifi.model.wifi.WifiAdmin;
+import com.seo.wifikey.R;
 import com.umeng.analytics.MobclickAgent;
 
 public class UpgradeAppActivity extends Activity implements OnClickListener {

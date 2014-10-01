@@ -5,17 +5,14 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewTreeObserver.OnWindowAttachListener;
-import android.view.inputmethod.InputMethodManager;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.hiwifi.activity.base.BaseActivity;
@@ -24,12 +21,12 @@ import com.hiwifi.app.views.CancelableEditText;
 import com.hiwifi.app.views.UINavigationView;
 import com.hiwifi.constant.RequestConstant.RequestTag;
 import com.hiwifi.hiwifi.Gl;
-import com.hiwifi.hiwifi.R;
 import com.hiwifi.model.User;
 import com.hiwifi.model.request.RequestFactory;
 import com.hiwifi.model.request.RequestManager.ResponseHandler;
 import com.hiwifi.model.request.ServerResponseParser;
 import com.hiwifi.model.request.ServerResponseParser.ServerCode;
+import com.seo.wifikey.R;
 
 public class ResetPasswordActivity extends BaseActivity {
 

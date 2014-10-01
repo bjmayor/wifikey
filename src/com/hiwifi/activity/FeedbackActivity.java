@@ -17,8 +17,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.hiwifi.app.views.UINavigationView;
-import com.hiwifi.hiwifi.R;
 import com.hiwifi.model.ClientInfo;
+import com.seo.wifikey.R;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.fb.FeedbackAgent;
 import com.umeng.fb.model.Conversation;

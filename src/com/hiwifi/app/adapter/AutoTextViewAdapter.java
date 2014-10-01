@@ -11,7 +11,7 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
 
-import com.hiwifi.hiwifi.R;
+import com.seo.wifikey.R;
 
 
 public class AutoTextViewAdapter extends BaseAdapter implements Filterable {  

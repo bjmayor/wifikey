@@ -30,7 +30,7 @@ import android.net.Uri;
 import android.text.format.Formatter;
 import android.util.Log;
 
-import com.hiwifi.hiwifi.R;
+import com.seo.wifikey.R;
 
 
 /**

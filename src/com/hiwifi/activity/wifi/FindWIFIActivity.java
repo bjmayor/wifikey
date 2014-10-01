@@ -28,7 +28,7 @@ import com.hiwifi.app.views.RadarButton;
 import com.hiwifi.app.views.SildingFinishLayout;
 import com.hiwifi.app.views.SildingFinishLayout.OnSildingFinishListener;
 import com.hiwifi.hiwifi.Gl;
-import com.hiwifi.hiwifi.R;
+import com.seo.wifikey.R;
 import com.umeng.analytics.MobclickAgent;
 
 public class FindWIFIActivity extends Activity implements

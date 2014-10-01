@@ -4,7 +4,7 @@ import android.view.View;
 
 import com.hiwifi.activity.base.BaseActivity;
 import com.hiwifi.app.views.UINavigationView;
-import com.hiwifi.hiwifi.R;
+import com.seo.wifikey.R;
 
 public class TermsOfServiceActivity extends BaseActivity{
 

@@ -55,6 +55,7 @@ import com.hiwifi.utils.ResUtil;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.seo.wifikey.R;
 import com.umeng.analytics.MobclickAgent;
 
 public final class Gl extends Application {

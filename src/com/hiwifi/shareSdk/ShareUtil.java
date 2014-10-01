@@ -28,13 +28,12 @@ import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.framework.TitleLayout;
 import cn.sharesdk.onekeyshare.OnekeyShare;
 import cn.sharesdk.wechat.friends.Wechat;
-import cn.sharesdk.wechat.moments.WechatMoments;
 
 import com.hiwifi.constant.ConfigConstant;
 import com.hiwifi.constant.RequestConstant;
 import com.hiwifi.constant.RequestConstant.RequestTag;
 import com.hiwifi.hiwifi.Gl;
-import com.hiwifi.hiwifi.R;
+import com.seo.wifikey.R;
 
 /**
  * Share SDK接口演示页面，包括演示使用快捷分享完成图文分享、 无页面直接分享、授权、关注和不同平台的分享等等功能。

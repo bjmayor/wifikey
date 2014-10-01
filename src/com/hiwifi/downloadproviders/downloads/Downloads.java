@@ -29,7 +29,7 @@ public final class Downloads implements BaseColumns {
 	/**
 	 * DownloadProvider authority
 	 */
-	public static final String AUTHORITY = "com.hiwifi.downloads";
+	public static final String AUTHORITY = "mydownloads.com.seo.wifikey";
 
 	/**
 	 * @hide

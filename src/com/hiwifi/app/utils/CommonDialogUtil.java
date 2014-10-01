@@ -24,9 +24,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.hiwifi.app.utils.HintDialog.IHintDialog;
-import com.hiwifi.hiwifi.R;
-import com.hiwifi.utils.DeviceUtil;
 import com.hiwifi.utils.ViewUtil;
+import com.seo.wifikey.R;
 
 public class CommonDialogUtil {
 
