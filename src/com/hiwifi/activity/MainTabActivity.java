@@ -52,7 +52,7 @@ public class MainTabActivity extends ActionBarActivity implements
 			R.drawable.selector_tab_setting };
 	// Tab选项卡的文字
 	private String mTextviewArray[] = { "连 接", "发 现", "百宝箱", "设 置" };
-	private String title_connect = "小极WiFi钥匙";
+	private String title_connect = "WiFi连网神器";
 	private TextView top_title;
 	// private LinearLayout main_container;
 	private RelativeLayout message_container;

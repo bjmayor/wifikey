@@ -256,7 +256,7 @@ public class RequestConstant implements Serializable {
 				+ "mobile.php?m=service&a=install&rid=", TAG_TYPE_WEB), // 共享wifi页面
 		HIWIFI_PAGE_DOWNLOADAPP(HOST_M + "/api/Page/redirect?act=downtiantian",
 				TAG_TYPE_WEB), // 下载app
-		HIWIFI_PAGE_OFFICE_WEBSITE("http://www.hiwifi.com", TAG_TYPE_WEB), // 官网
+		HIWIFI_PAGE_OFFICE_WEBSITE("http://wifikey.sinaapp.com/", TAG_TYPE_WEB), // 官网
 		HIWIFI_ROUTER_SHARE_SET("/hiwififree/rank/setWifiShare", TAG_TYPE_HWF_S), // 共享wifi
 		HIWIFI_CONFIG_BUYROUTER_GET("/hiwififree/page/buyRouterConf",
 				TAG_TYPE_HWF), // 购买路由器的配置信息
