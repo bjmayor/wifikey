@@ -552,6 +552,10 @@
         <activity
             android:name="org.adver.score.sdk.view.WebActivity"
             android:configChanges="keyboardHidden|orientation" />
+        <activity
+            android:name="cn.domob.android.ads.DomobActivity"
+            android:theme="@android:style/Theme.Translucent" >
+        </activity>
     </application>
 
 </manifest>
