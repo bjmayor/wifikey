@@ -4,3 +4,6 @@ gen
 .DS_Store
 .classpath
 .settings
+build
+.gradle
+.idea
