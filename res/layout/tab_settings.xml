@@ -6,128 +6,22 @@
     android:background="@color/setting_background_color"
     android:clickable="true"
     android:focusable="true"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:id="@+id/ll_user_status"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/setting_divide_height"
-                android:orientation="vertical" >
-
-                <LinearLayout
-                    android:id="@+id/ll_user_logined"
-                    style="@style/setting_item_clicked"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/avatar_container_height"
-                    android:layout_gravity="center_vertical"
-                    android:orientation="horizontal" >
-
-                    <com.hiwifi.app.views.CircleImageView
-                        android:id="@+id/iv_avatar"
-                        android:layout_width="@dimen/avatar_size"
-                        android:layout_height="@dimen/avatar_size"
-                        android:src="@drawable/avatar_default" />
-
-                    <TextView
-                        android:id="@+id/tv_user_status"
-                        android:layout_width="@dimen/width_zero"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/setting_name_margin_left"
-                        android:layout_weight="1"
-                        android:text="账号管理"
-                        android:textColor="@color/text_color_black"
-                        android:textSize="@dimen/text_size_big" />
-
-                    <TextView
-                        style="@style/text_description"
-                        android:layout_width="@dimen/width_zero"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="right"
-                        android:text="账号管理" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/bar_right_arrow" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/ll_user_unlogin"
-                    style="@style/setting_item_clicked"
-                    android:layout_width="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:orientation="horizontal" 
-                    android:visibility="gone"
-                    >
-
-                    <TextView
-                        style="@style/setting_item_text"
-                        android:layout_width="@dimen/width_zero"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="请登录" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/bar_right_arrow" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/setting_divide_height"
-                android:orientation="vertical" >
-
-                <LinearLayout
-                    android:id="@+id/ll_router"
-                    style="@style/setting_item_clicked"
-                    android:layout_width="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:visibility="visible" >
-
-                    <TextView
-                        android:id="@+id/tv_router_first"
-                        style="@style/setting_item_text"
-                        android:layout_width="@dimen/width_zero"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="绑定极路由让iPhone免费上网" />
-
-                    <ImageView
-                        android:id="@+id/iv_router_arrow"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/bar_right_arrow" />
-                </LinearLayout>
-
-                <com.hiwifi.app.views.MyListView
-                    android:id="@+id/ll_routers"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:divider="@color/transparent"
-                    android:dividerHeight="@dimen/setting_small_margin"
-                    android:visibility="gone" >
-                </com.hiwifi.app.views.MyListView>
-            </LinearLayout>
 
             <LinearLayout
                 style="@style/setting_item"
                 android:layout_width="match_parent"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <TextView
                     style="@style/setting_item_text"
@@ -147,7 +41,7 @@
             <LinearLayout
                 style="@style/setting_item"
                 android:layout_width="match_parent"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <TextView
                     style="@style/setting_item_text"
@@ -168,7 +62,7 @@
                 android:id="@+id/ll_version"
                 style="@style/setting_item_clicked"
                 android:layout_width="match_parent"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <TextView
                     style="@style/setting_item_text"
@@ -198,7 +92,7 @@
                 android:id="@+id/feedback"
                 style="@style/setting_item_clicked"
                 android:layout_width="match_parent"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <TextView
                     style="@style/setting_item_text"
@@ -217,7 +111,7 @@
                 android:id="@+id/ll_agreement"
                 style="@style/setting_item_clicked"
                 android:layout_width="match_parent"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <TextView
                     style="@style/setting_item_text"
@@ -236,7 +130,7 @@
                 android:id="@+id/ll_about"
                 style="@style/setting_item_clicked"
                 android:layout_width="match_parent"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <TextView
                     style="@style/setting_item_text"
@@ -255,7 +149,7 @@
                 android:id="@+id/ll_test"
                 style="@style/setting_item_clicked"
                 android:layout_width="match_parent"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <TextView
                     style="@style/setting_item_text"

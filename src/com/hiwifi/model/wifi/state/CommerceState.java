@@ -70,8 +70,6 @@ public class CommerceState {
 	@SuppressLint("SimpleDateFormat")
 	public static void notifyAccountState(final String code,
 			final String reason, final Account account, final String action) {
-		RequestFactory.sendOpLog(Gl.Ct(), handler, code, reason, account,
-				action);
 		if (action == LOG_ACTION_LOGIN && code.equalsIgnoreCase("0")) {
 			Bundle bundle = new Bundle();
 			ConnectAdapter adapter = new CMCCConnectAdapter(null);

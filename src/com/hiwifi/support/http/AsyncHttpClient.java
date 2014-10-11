@@ -18,20 +18,14 @@
 
 package com.hiwifi.support.http;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.URI;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.WeakHashMap;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.zip.GZIPInputStream;
+import android.content.Context;
+import android.os.Looper;
+import android.text.TextUtils;
+import android.util.Log;
+
+import com.hiwifi.hiwifi.Gl;
+import com.hiwifi.model.ClientInfo;
+import com.hiwifi.model.log.LogUtil;
 
 import org.apache.http.Header;
 import org.apache.http.HeaderElement;
@@ -80,17 +74,20 @@ import org.apache.http.protocol.ExecutionContext;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.protocol.SyncBasicHttpContext;
 
-import android.content.Context;
-import android.os.Looper;
-import android.text.TextUtils;
-import android.util.Log;
-
-import com.hiwifi.constant.ReleaseConstant;
-import com.hiwifi.hiwifi.Gl;
-import com.hiwifi.model.ClientInfo;
-import com.hiwifi.model.User;
-import com.hiwifi.model.log.HWFLog;
-import com.hiwifi.model.log.LogUtil;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.URI;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.WeakHashMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.zip.GZIPInputStream;
 
 /**
  * The AsyncHttpClient can be used to make asynchronous GET, POST, PUT and
@@ -479,7 +476,6 @@ public class AsyncHttpClient {
 	 * 
 	 * @param customRedirectHandler
 	 *            RedirectHandler instance
-	 * @see com.loopj.android.http.MyRedirectHandler
 	 */
 	public void setRedirectHandler(final RedirectHandler customRedirectHandler) {
 		httpClient.setRedirectHandler(customRedirectHandler);
@@ -1562,15 +1558,11 @@ public class AsyncHttpClient {
 	 */
 	private void setHeader(HttpRequest request) {
 		String client_id = ClientInfo.shareInstance().getUUID().toString();
-		String uid = User.shareInstance().getUid();
-		String token = User.shareInstance().getToken();
 		String clientModel = ClientInfo.shareInstance().getModel();
 		// String mac = Utils.getMacAddress(Gl.Ct());
 		if (TextUtils.isEmpty(clientModel)) {
 			clientModel = android.os.Build.BRAND + " " + android.os.Build.MODEL;
 		}
-		LogUtil.d("requestHeader", "client_id==" + client_id + "clientName=="
-				+ clientModel + "uid==" + uid + "token==" + token);
 		request.addHeader("clientid", client_id);
 		request.addHeader("appname", "hiwififree");
 		request.addHeader("appver", Gl.versionCode + "");
@@ -1578,18 +1570,8 @@ public class AsyncHttpClient {
 		request.addHeader("clientmac", Gl.GlConf.getMadAddress());
 		request.addHeader("imei", Gl.GlConf.getDeviceImei());
 		request.addHeader("channel", Gl.getChannel());
-		if (!TextUtils.isEmpty(token)) {
-			request.addHeader("token", token);
-		} else {
-			clientHeaderMap.remove("token");
-			request.removeHeaders("token");
-		}
-		if (!TextUtils.isEmpty(uid)) {
-			request.addHeader("uid", uid);
-		} else {
-			clientHeaderMap.remove("uid");
-			request.removeHeaders("uid");
-		}
+
+
 		if (!TextUtils.isEmpty(clientModel)) {
 			request.addHeader("clientmodel", clientModel);
 		} else {

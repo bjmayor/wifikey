@@ -140,7 +140,7 @@ public class ClientInfo implements ResponseParserInterface {
 	@SuppressLint("DefaultLocale")
 	public synchronized final String getClientId() {
 		return MD5Util
-				.encryptToMD5("Hiapp2014" + User.shareInstance().getUid())
+				.encryptToMD5("Hiapp2014")
 				.toLowerCase();
 	}
 
@@ -190,14 +190,6 @@ public class ClientInfo implements ResponseParserInterface {
 	public void parse(RequestTag tag, ServerResponseParser parser) {
 		if (parser.code == ServerCode.OK.value()) {
 			switch (tag) {
-			case URL_APP_UPDATE_CHECK:
-				appNeedUpdate = parser.originResponse.optInt("need_upgrade", 0) == 1;
-				if (appNeedUpdate) {
-					this.upgradeInfo = parser.originResponse.optString(
-							"upgrade_info", "");
-				}
-				break;
-
 			default:
 				break;
 			}

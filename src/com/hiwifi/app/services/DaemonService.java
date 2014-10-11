@@ -871,7 +871,6 @@ public class DaemonService extends Service implements ResponseHandler {
 		if (!ReleaseConstant.isCommerceOpened) {
 			return;
 		}
-		RequestFactory.getRemainTime(Gl.Ct(), this);
 	}
 
 	@Override

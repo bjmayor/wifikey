@@ -1,7 +1,6 @@
 package com.hiwifi.activity.base;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -17,17 +16,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
-import cn.sharesdk.framework.ShareSDK;
 
-import com.hiwifi.activity.user.UserLoginActivity;
 import com.hiwifi.app.views.LoadingDialogFragment;
-import com.hiwifi.model.EventDispatcher;
-import com.hiwifi.model.User;
-import com.hiwifi.model.log.HWFLog;
 import com.hiwifi.model.log.LogUtil;
-import com.hiwifi.utils.ApplicationUtil;
 import com.hiwifi.utils.ViewUtil;
 import com.umeng.analytics.MobclickAgent;
+
+import cn.sharesdk.framework.ShareSDK;
 
 public abstract class BaseActivity extends ActionBarActivity implements
 		OnClickListener {
@@ -221,12 +216,6 @@ public abstract class BaseActivity extends ActionBarActivity implements
 		super.onResume();
 		MobclickAgent.onPageStart(this.getClass().getSimpleName());
 		MobclickAgent.onResume(this);
-		
-		if (needRedirectToLoginPage() || needRefreshView()) {
-			IntentFilter filter = new IntentFilter();
-			filter.addAction(EventDispatcher.ACTION_USER);
-			registerReceiver(receiver, filter);
-		}
 	}
 
 	@Override
@@ -234,11 +223,6 @@ public abstract class BaseActivity extends ActionBarActivity implements
 		super.onPause();
 		MobclickAgent.onPause(this);
 		MobclickAgent.onPageEnd(this.getClass().getSimpleName());
-		if (needRedirectToLoginPage() || needRefreshView()) {
-			IntentFilter filter = new IntentFilter();
-			filter.addAction(EventDispatcher.ACTION_USER);
-			unregisterReceiver(receiver);
-		}
 	}
 
 	LoadingDialogFragment loadingDialogFragment = null;
@@ -328,46 +312,10 @@ public abstract class BaseActivity extends ActionBarActivity implements
 
 	protected abstract void updateView();
 
-	private final int REQUEST_LOGIN = 0x01;
 
-	protected void redirect2LoginPage() {
-		MobclickAgent.onEvent(this, "click_user_login", this.getClass()
-				.getSimpleName());
-		Intent intent = new Intent(this, UserLoginActivity.class);
-		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-		startActivityForResult(intent, REQUEST_LOGIN);
-	}
 
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if (requestCode == REQUEST_LOGIN && User.shareInstance().hasLogin()) {
 			updateView();
-		}
 	}
 
-	BroadcastReceiver receiver = new BroadcastReceiver() {
-
-		@Override
-		public void onReceive(Context context, Intent intent) {
-			if (intent != null && intent.getAction() != null) {
-				if (ApplicationUtil.isTopActivity(BaseActivity.this)) {
-					String action = intent.getAction();
-					if (action.equalsIgnoreCase(EventDispatcher.ACTION_USER)) {
-						if (User.shareInstance().hasLogin()) {
-							if (needRefreshView()) {
-								updateView();
-							}
-						} else {
-							if (needRedirectToLoginPage()) {
-								redirect2LoginPage();
-							} else if (needRefreshView()) {
-								updateView();
-							}
-						}
-					}
-				}
-
-			}
-
-		}
-	};
 }

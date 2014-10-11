@@ -8,7 +8,6 @@ package com.hiwifi.model.request;
 
 import org.json.JSONObject;
 
-import com.hiwifi.model.User;
 
 
 
@@ -41,24 +40,6 @@ public class ServerResponseParser {
 		message = response.optString("msg", "");
 		app_msg = response.isNull("app_msg") ? "" : response
 				.optString("app_msg");
-		if (!isLoginStatusValid()) {
-			User.shareInstance().onTokenExpired();
-		} else if (!isPlugStatusUpgrade()) {
-			//TODO
-//			User.shareInstance().onPlugsUpgrade();
-		}/*else if(isPlugStatusUpgrade()){
-			User.shareInstance().resetPlugStatus();
-		}*/else {
-			if (!isClientBindSuccess()) {
-				//TODO
-//				User.shareInstance().onClientBind();
-			} /*else {
-				if (HiwifiApplication.getInstance().getRouterInfo() != null) {
-					HiwifiApplication.getInstance().getRouterInfo()
-							.setClientBind(false);
-				}
-			}*/
-		}
 	}
 
 	public Boolean isThrowException() {

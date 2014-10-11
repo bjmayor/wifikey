@@ -405,8 +405,6 @@ public class AccessPoint extends Observable implements Parcelable, Observer {
 					setType(APType.APTyoeChinaNet);
 				}
 			}
-			HWFLog.e(TAG, "bssid:" + mScanResult.SSID + " securityType:"
-					+ securityType);
 		}
 
 	}
@@ -416,7 +414,6 @@ public class AccessPoint extends Observable implements Parcelable, Observer {
 	private void initStatus() {
 		if (!isInited) {
 			calculateWifiConnectState();
-			HWFLog.e(TAG, "init called");
 			isInited = true;
 		}
 	}

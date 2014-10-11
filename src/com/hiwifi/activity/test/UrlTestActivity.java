@@ -21,8 +21,6 @@ import com.hiwifi.model.request.RequestFactory;
 import com.hiwifi.model.request.RequestManager;
 import com.hiwifi.model.request.RequestManager.ResponseHandler;
 import com.hiwifi.model.request.ServerResponseParser;
-import com.hiwifi.model.router.RouterManager;
-import com.hiwifi.model.router.WifiInfo.SignalMode;
 import com.hiwifi.model.wifi.WifiAdmin;
 import com.hiwifi.store.AccessPointDbMgr;
 import com.hiwifi.support.http.RequestParams;
@@ -95,63 +93,7 @@ public class UrlTestActivity extends FragmentActivity {
 		@Override
 		public void onClick(View v) {
 			RequestParams params = new RequestParams();
-			if (tag == RequestTag.URL_USER_LOGIN) {
-				RequestFactory.loginByPhoneOrEmail(getActivity(), this,
-						"blueachaog@hotmail.com", "123!@#");
-			} else if (tag == RequestTag.URL_USER_LOGIN_BY_PHONE) {
-				RequestFactory.loginByPhone(getActivity(), this, "18611370939",
-						"GeekGeek");
-			} else if (tag == RequestTag.URL_USER_VERYCODE_SEND) {
-				RequestFactory.sendVerycode(getActivity(), this, "18611370939");
-			} else if (tag == RequestTag.URL_APP_UPDATE_CHECK) {
-				RequestFactory.checkAppUpGrade(getActivity(), this);
-			} else if (tag == RequestTag.URL_ROUTER_UPGRADE_CHECK) {
-				RequestFactory.checkRomUpgrade(getActivity(), this);
-			} else if (tag == RequestTag.OPENAPI_CLINET_LED_STATUS_SET_OFF) {
-				RequestFactory.setLedStatus(getActivity(), this, false);
-			} else if (tag == RequestTag.OPENAPI_CLINET_LED_STATUS_SET_ON) {
-				RequestFactory.setLedStatus(getActivity(), this, true);
-			} else if (tag == RequestTag.OPENAPI_CLINET_LED_STATUS_GET) {
-				RequestFactory.getLedStatus(getActivity(), this);
-			} else if (tag == RequestTag.OPENAPI_CLIENT_WIFI_SWITCH_GET) {
-				RequestFactory.getWiFiStatus(getActivity(), this);
-			} else if (tag == RequestTag.OPENAPI_CLIENT_WIFI_SWITCH_SET) {
-				RequestFactory.setWiFiStatus(getActivity(), this, false);
-			} else if (tag == RequestTag.URL_PLUGIN_INSTALLED_LIST_GET) {
-				RequestFactory.getIntalledPlugins(getActivity(), this);
-			} else if (tag == RequestTag.URL_ROUTER_NAME_SET) {
-				RequestFactory.setRouterName(getActivity(), this, "测试名字");
-			} else if (tag == RequestTag.PATH_NETWORK_BLOCKED_LIST_GET) {
-				RequestFactory.getBlockedDevices(getActivity(), this);
-			} else if (tag == RequestTag.API_OPEN_BIND_SET) {
-				RequestFactory.bindRouters(getActivity(), this, true);
-			} else if (tag == RequestTag.OPENAPI_WIFI_CHANNEL_GET) {
-				RequestFactory.getChannel(getActivity(), this);
-			} else if (tag == RequestTag.OPENAPI_WIFI_CHANNEL_SET) {
-				RequestFactory.setChannel(getActivity(), this, 4);
-			} else if (tag == RequestTag.OPENAPI_WIFI_CHANNEL_RANK_GET) {
-				RequestFactory.getChannelRank(getActivity(), this);
-			} else if (tag == RequestTag.URL_ROUTER_REBOOT) {
-				RequestFactory.rebootCurrentRouter(getActivity(), this);
-			} else if (tag == RequestTag.OPENAPI_CLIENT_ROUTER_CROSS_STATUS_SET) {
-				RequestFactory.setSignalMode(getActivity(), this,
-						SignalMode.Crossed);
-			} else if (tag == RequestTag.OPENAPI_CLIENT_ROUTER_CROSS_STATUS_GET) {
-				RequestFactory.getSignalMode(getActivity(), this);
-			} else if (tag == RequestTag.OPENAPI_CLIENT_WIFI_SLEEP_GET) {
-				RequestFactory.getSleepTime(getActivity(), this);
-			} else if (tag == RequestTag.OPENAPI_CLIENT_WIFI_SLEEP_SET) {
-				RequestFactory.setSleepTime(getActivity(), this, "2320", "900");
-			} else if (tag == RequestTag.OPENAPI_CLINET_QOS_GET) {
-				RequestFactory.getQos(getActivity(), this);
-			} else if (tag == RequestTag.OPENAPI_CLINET_QOS_SET) {
-				RequestFactory.setQos(getActivity(), this, "abdsfad", "2320",
-						"900", "bb");
-			} else if (tag == RequestTag.API_MESSAGE_VIEW_GET) {
-				RequestFactory.getMessageDetail(getActivity(), this, 11366399);
-			} else if (tag == RequestTag.HIWIFI_APP_RECOMMEND_GET) {
-				RequestFactory.getRecommendApps(getActivity(), this);
-			} else if (tag == RequestTag.HIWIFI_PWD_GET) {
+		   if (tag == RequestTag.HIWIFI_PWD_GET) {
 				RequestFactory.getPasswords(getActivity(), this, WifiAdmin
 						.sharedInstance().getMergedAccessPoints());
 			} else if (tag == RequestTag.HIWIFI_OPONE_GET) {
@@ -181,24 +123,7 @@ public class UrlTestActivity extends FragmentActivity {
 				RequestFactory.sendRecentOpenedAppList(getActivity(), this);
 			} else if (tag == RequestTag.HIWIFI_ALLAPP_SEND) {
 				RequestFactory.sendInstalledAppList(getActivity(), this);
-			} else if (tag == RequestTag.HIWIFI_CRASH_SEND) {
-				RequestFactory.sendCrashLog(getActivity(), this,
-						"test center tested");
-			} else if (tag == RequestTag.HIWIFI_PORTAL_SEND) {
-				Toast.makeText(getActivity(), "未实现", Toast.LENGTH_SHORT).show();
-			} else if (tag == RequestTag.HIWIFI_PWD_VIEWTIMES_GET) {
-				RequestFactory.getPasswordViewTimes(getActivity(), this);
-			} else if (tag == RequestTag.HIWIFI_PWD_VIEWD_SET) {
-				RequestFactory.sendPasswordHasViewed(getActivity(),
-						"aa:ff:ss:bb", this);
-			} else if (tag == RequestTag.URL_USER_INFO_GET) {
-				RequestFactory.getUserInfo(getActivity(), this);
-			} else if (tag == RequestTag.URL_USER_AVATAR_EDIT) {
-				RequestFactory.uploadUserPhoto(getActivity(), this,
-						R.drawable.wifilist_action_refresh_pressed);
-			} else if (tag == RequestTag.URL_USER_NAME_EDIT) {
-				RequestFactory.modifyUserInfo(getActivity(), this, "urltest");
-			} else {
+			} else{
 				RequestManager.requestByTag(getActivity(), tag, params, this);
 			}
 
@@ -225,10 +150,7 @@ public class UrlTestActivity extends FragmentActivity {
 			// responseParser.originResponse.optString("token", "0"),
 			// responseParser.originResponse.optInt("expire", 100));
 			// }
-			if (tag == RequestTag.URL_ROUTER_LIST_GET) {
-				RouterManager.shareInstance().setRouters(
-						responseParser.originResponse);
-			}
+
 		}
 
 		@Override

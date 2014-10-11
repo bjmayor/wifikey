@@ -1,286 +1,152 @@
 package com.hiwifi.activity;
 
-import org.adver.score.recommendwall.RecommendWallSDK;
-import org.adver.score.scorewall.ScoreWallSDK;
-import org.adver.score.sdk.YjfSDK;
-import org.adver.score.sdk.widget.UpdateScordNotifier;
-
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
+import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
+import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TabHost.OnTabChangeListener;
-import android.widget.TabHost.TabSpec;
-import android.widget.TextView;
 
 import com.hiwifi.activity.wifi.WifiListFragment;
-import com.hiwifi.app.utils.CommonDialogUtil;
-import com.hiwifi.app.utils.CommonDialogUtil.CommonDialogListener;
-import com.hiwifi.app.views.FragmentTabHost;
-import com.hiwifi.constant.RequestConstant.RequestTag;
 import com.hiwifi.hiwifi.Gl;
-import com.hiwifi.model.DiscoverItem;
-import com.hiwifi.model.RecommendInfo;
-import com.hiwifi.model.log.LogUtil;
-import com.hiwifi.model.request.RequestFactory;
-import com.hiwifi.model.request.RequestManager.ResponseHandler;
-import com.hiwifi.model.request.ServerResponseParser;
 import com.seo.wifikey.R;
 import com.umeng.analytics.MobclickAgent;
 
+import org.adver.score.sdk.YjfSDK;
+import org.adver.score.sdk.widget.UpdateScordNotifier;
+
 /**
+ * @author jack at 2014-8-25
  * @filename MainTabActivity.java
  * @packagename com.hiwifi.activity
  * @projectname hiwifi1.0.1
- * @author jack at 2014-8-25
  */
 public class MainTabActivity extends ActionBarActivity implements
-		ResponseHandler, UpdateScordNotifier {
-	// 定义FragmentTabHost对象
-	private FragmentTabHost mTabHost;
-	// 定义一个布局
-	private LayoutInflater layoutInflater;
-	// 定义数组来存放Fragment界面
-	private Class fragmentArray[] = { /* ConnectFragment.class, */
-	WifiListFragment.class, DiscoverFragment.class, BoxFragment.class,
-			SettingFragment.class };
-	// 定义数组来存放按钮图片
-	private int mImageViewArray[] = { R.drawable.selector_tab_connect,
-			R.drawable.selector_tab_discover, R.drawable.selector_tab_box,
-			R.drawable.selector_tab_setting };
-	// Tab选项卡的文字
-	private String mTextviewArray[] = { "连 接", "发 现", "百宝箱", "设 置" };
-	private String title_connect = "WiFi连网神器";
-	private TextView top_title;
-	// private LinearLayout main_container;
-	private RelativeLayout message_container;
+        UpdateScordNotifier {
+    private DrawerLayout mDrawerLayout;
+    private ActionBarDrawerToggle mDrawerToggle;
+    private CharSequence mDrawerTitle;
+    private CharSequence mTitle;
 
-	@Override
-	protected void onCreate(Bundle arg0) {
-		// TODO Auto-generated method stub
-		super.onCreate(arg0);
-		setContentView(R.layout.main_tab_layout);
-		LogUtil.d("Tag:", "oncreate()");
-		initView();
-		getActionBar().hide();
+    // 定义一个布局
+    private LayoutInflater layoutInflater;
+    private RelativeLayout message_container;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main_tab_layout);
+
+        if (savedInstanceState == null) {
+            FragmentTransaction transaction = getSupportFragmentManager()
+                    .beginTransaction();
+            transaction.add(R.id.left_drawer, new SettingFragment());
+            transaction.add(R.id.content_frame, new WifiListFragment());
+            transaction.commit();
+        }
+        mTitle = mDrawerTitle = getTitle();
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
+                R.drawable.menu_bg, R.string.drawer_open, R.string.drawer_close) {
+
+            /** Called when a drawer has settled in a completely closed state. */
+            public void onDrawerClosed(View view) {
+                // getSupportActionBar().setTitle(mTitle);
+            }
+
+            /** Called when a drawer has settled in a completely open state. */
+            public void onDrawerOpened(View drawerView) {
+                // getSupportActionBar().setTitle(mDrawerTitle);
+            }
+        };
+        mDrawerLayout.setDrawerListener(mDrawerToggle);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
 //		YjfSDK.getInstance(this, null).setCoopInfo("用户 id"); //如无用户可自行设置 ,需要配置回调地址
-		YjfSDK.getInstance(this,this).initInstance("72860","EMI373QQVGBD2XHY9M24O3T30YTXIXHP81","82214",Gl.getChannel()); 
-		// registerReveiver();
-		
-	}
+        YjfSDK.getInstance(this, this).initInstance("72860", "EMI373QQVGBD2XHY9M24O3T30YTXIXHP81", "82214", Gl.getChannel());
+        // registerReveiver();
 
-	private void initView() {
-		// 实例化布局对象
-		layoutInflater = LayoutInflater.from(this);
-		top_title = (TextView) findViewById(R.id.top_title);
-		// main_container = (LinearLayout)findViewById(R.id.main_container);
+    }
 
-		// 实例化TabHost对象，得到TabHost
-		mTabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
-		mTabHost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
-		// 得到fragment的个数
-		int count = fragmentArray.length;
-		for (int i = 0; i < count; i++) {
-			// 为每一个Tab按钮设置图标、文字和内容
-			TabSpec tabSpec = mTabHost.newTabSpec(mTextviewArray[i])
-					.setIndicator(getTabItemView(i));
-			// 将Tab按钮添加进Tab选项卡中
-			mTabHost.addTab(tabSpec, fragmentArray[i], null);
-			// 设置Tab按钮的背景
-			mTabHost.getTabWidget().getChildAt(i)
-					.setBackgroundResource(android.R.color.transparent);
-		}
-		top_title.setText(title_connect);
-		mTabHost.setOnTabChangedListener(new OnTabChangeListener() {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
 
-			@Override
-			public void onTabChanged(String tabId) {
-				if(tabId.equals(mTextviewArray[0])){
-					top_title.setText(title_connect);
-				}else {
-					top_title.setText(tabId);
-				}
-				if (tabId.equals(mTextviewArray[1])) {
-					RecommendWallSDK.getInstance(MainTabActivity.this).showRecommendWall(); 
-				} else if (tabId.equals(mTextviewArray[2])) {
-					ScoreWallSDK.getInstance(MainTabActivity.this).showScoreWall(); 
-				}
-				MobclickAgent.onEvent(MainTabActivity.this, "click_in_tab",
-						tabId);
-			}
-		});
+        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
 
-		statusSet(RecommendInfo.hasNew(), 2);
-		statusSet(DiscoverItem.hasNew(), 1);
-		if (RecommendInfo.getList().size() == 0) {
-			RequestFactory.getRecommendApps(this, this);
-		}
-		if (DiscoverItem.getList().size() == 0) {
-			RequestFactory.getDiscoverList(this, this);
-		}
-		setListener();
-	}
-	private void statusSet(boolean isSet, int position) {
-		if (isSet) {
-			mTabHost.getTabWidget().getChildTabViewAt(position)
-					.findViewById(R.id.red_dot).setVisibility(View.VISIBLE);
-		} else {
-			mTabHost.getTabWidget().getChildTabViewAt(position)
-					.findViewById(R.id.red_dot).setVisibility(View.GONE);
-		}
-	}
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        // If the nav drawer is open, hide action items related to the content
+        // view
+        // boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
+        // menu.findItem(R.id.action_websearch).setVisible(!drawerOpen);
+        return super.onPrepareOptionsMenu(menu);
+    }
 
-	/**
-	 * 给Tab按钮设置图标和文字
-	 */
-	private View getTabItemView(int index) {
-		View view = layoutInflater.inflate(R.layout.tab_item_view, null);
-		LogUtil.d("Tag:", mTabHost.getTabWidget().getChildCount() + "");
-		ImageView imageView = (ImageView) view.findViewById(R.id.imageview);
-		imageView.setImageResource(mImageViewArray[index]);
-		TextView textView = (TextView) view.findViewById(R.id.textview);
-		textView.setText(mTextviewArray[index].replace(" ", "").trim().toString());
-		// textView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-		// ViewUtil.dip2px(this, 14));
-		return view;
-	}
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        // Sync the toggle state after onRestoreInstanceState has occurred.
+        mDrawerToggle.syncState();
+    }
 
-	private void setListener() {
-		FragmentManager fragmentManager = getSupportFragmentManager();
-		Fragment connect = fragmentManager.findFragmentByTag(mTextviewArray[0]);
-		fragmentManager.beginTransaction().commit();
-		LogUtil.d("Tag:", connect + "");
-	}
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        mDrawerToggle.onConfigurationChanged(newConfig);
+    }
 
-	private Update receiver;
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Pass the event to ActionBarDrawerToggle, if it returns
+        // true, then it has handled the app icon touch event
+        if (mDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        // Handle your other action bar items...
 
-	private void registerReveiver() {
-		IntentFilter filter = new IntentFilter("hiwifi.hiwifi.update");
-		filter.setPriority(0);
-		receiver = new Update();
-		registerReceiver(receiver, filter);
-	}
+        return super.onOptionsItemSelected(item);
+    }
 
-	private void unRegisterReceiver() {
-		if (receiver != null) {
-			unregisterReceiver(receiver);
-		}
-	}
 
-	class Update extends BroadcastReceiver {
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 
-		@Override
-		public void onReceive(Context context, Intent intent) {
-			if (intent != null) {
 
-			}
-		}
-	}
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);          //统计时长
+    }
 
-	@Override
-	protected void onDestroy() {
-		super.onDestroy();
-		// unRegisterReceiver();
-	}
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
+    }
 
-	private void showQuitLoginDialog() {
-		MobclickAgent.onEvent(this, "show_exit_hiwifi_dialog", getResources()
-				.getString(R.string.stat_exit_hiwifi_dialog));
-		String ok = getResources().getString(R.string.quit_msg_ok);
-		String cancel = getResources().getString(R.string.quit_msg_cancel);
-		CommonDialogUtil.ShowAnimDialog(this, CommonDialogUtil.NONE,
-				getResources().getString(R.string.quit_msg_tip), ok, cancel,
-				new CommonDialogListener() {
+    @Override
+    public void onBackPressed() {
+        YjfSDK.getInstance(this, null).recordAppClose();//释放内存
+        super.onBackPressed();
+    }
 
-					@Override
-					public void positiveAction() {
-						MobclickAgent.onEvent(
-								MainTabActivity.this,
-								"click_exit_hiwifi",
-								getResources().getString(
-										R.string.stat_exit_hiwifi));
-						MainTabActivity.this.finish();
-					}
+    @Override
+    public void updateScoreFailed(int arg0, int arg1, String arg2) {
 
-					@Override
-					public void negativeAction() {
-						MobclickAgent.onEvent(
-								MainTabActivity.this,
-								"click_continue_service",
-								getResources().getString(
-										R.string.stat_continue_service));
-					}
-				});
-	}
+    }
 
-//	@Override
-//	public boolean onKeyDown(int keyCode, KeyEvent event) {
-//		if (keyCode == KeyEvent.KEYCODE_BACK) {
-//			showQuitLoginDialog();
-//		}
-//		return super.onKeyDown(keyCode, event);
-//	}
+    @Override
+    public void updateScoreSuccess(int arg0, int arg1, int arg2, String arg3) {
 
-	@Override
-	public void onStart(RequestTag tag, Code code) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void onSuccess(RequestTag tag, ServerResponseParser responseParser) {
-		if (tag == RequestTag.HIWIFI_APP_RECOMMEND_GET) {
-			new RecommendInfo().parse(tag, responseParser);
-			statusSet(RecommendInfo.hasNew(), 2);
-		} else if (tag == RequestTag.HIWIFI_DISCOVER_LIST_GET) {
-			new DiscoverItem().parse(tag, responseParser);
-			statusSet(DiscoverItem.hasNew(), 1);
-		}
-	}
-
-	@Override
-	public void onFailure(RequestTag tag, Throwable error) {
-
-	}
-
-	@Override
-	public void onFinish(RequestTag tag) {
-
-	}
-	
-	@Override
-	protected void onResume() {
-		super.onResume();
-		MobclickAgent.onResume(this);          //统计时长
-	}
-	
-	@Override
-	protected void onPause() {
-		super.onPause();
-		MobclickAgent.onPause(this);
-	}
-	
-	@Override
-	public void onBackPressed() {
-		YjfSDK.getInstance(this,null).recordAppClose();//释放内存 
-		super.onBackPressed();
-	}
-
-	@Override
-	public void updateScoreFailed(int arg0, int arg1, String arg2) {
-		
-	}
-
-	@Override
-	public void updateScoreSuccess(int arg0, int arg1, int arg2, String arg3) {
-		
-	}
+    }
 }

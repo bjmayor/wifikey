@@ -322,7 +322,7 @@
     <string name="check_text_moments">朋友圈</string>
     <string name="check_text_qq">QQ</string>
     <string name="check_text_weibo">新浪微博</string>
-    <string name="splash_hiwifi_publish">极路由出品</string>
+    <string name="splash_hiwifi_publish">演道工作室出品</string>
     <string name="splash_text_version">v2.0</string>
     <string name="wifi_list_nofree">本区域未发现可以免费的共享WiFi</string>
     <string name="wifi_list_nofree_notify">(在较繁华的商业区会有更多机会刷到免费的WiFi)</string>
@@ -334,5 +334,7 @@
     <string name="about_version">版本介绍</string>
     <string name="about_offi_website">访问官网</string>
 
+    <string name="drawer_open">打开抽屉</string>
+    <string name="drawer_close">关闭抽屉</string>
 
 </resources>

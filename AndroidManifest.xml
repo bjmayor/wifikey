@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.seo.wifikey"
     android:installLocation="auto"
-    android:versionCode="010000"
-    android:versionName="1.0" >
+    android:versionCode="010100"
+    android:versionName="1.01" >
 
     <!-- get message content -->
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
@@ -249,18 +249,7 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" >
         </activity>
-        <activity
-            android:name="com.hiwifi.activity.user.UserPhoneGetActivity"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize" >
-        </activity>
-        <activity
-            android:name="com.hiwifi.activity.user.UserLoginActivity"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize" >
-        </activity>
+
         <!--
         <service
             android:name="com.hiwifi.utils.HeartbeatService"
@@ -435,8 +424,7 @@
             android:screenOrientation="portrait" >
         </activity>
 
-        <service android:name="com.hiwifi.app.services.NotifiService" >
-        </service>
+
 
         <activity
             android:name="com.hiwifi.activity.setting.TermsOfServiceActivity"
@@ -446,10 +434,7 @@
             android:name="com.hiwifi.activity.setting.AboutAppActivity"
             android:screenOrientation="portrait" >
         </activity>
-        <activity
-            android:name="com.hiwifi.activity.user.CutPicActivity"
-            android:screenOrientation="portrait" >
-        </activity>
+
         <activity
             android:name="com.hiwifi.activity.UpgradeAppActivity"
             android:screenOrientation="portrait" >
@@ -490,14 +475,7 @@
             </intent-filter>
             -->
         </activity>
-        <activity
-            android:name="com.hiwifi.activity.user.VeryPhoneActivity"
-            android:label="@string/title_activity_very_phone" >
-        </activity>
-        <activity
-            android:name="com.hiwifi.activity.user.UserInfoActivity"
-            android:label="@string/title_activity_user_info" >
-        </activity>
+
         <activity
             android:name="com.hiwifi.activity.wifi.CheckPasswordActivity"
             android:launchMode="singleTop"

@@ -1,18 +1,5 @@
 package com.hiwifi.activity;
 
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.ArrayList;
-
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.http.util.EncodingUtils;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -41,20 +28,13 @@ import android.widget.PopupWindow;
 import android.widget.PopupWindow.OnDismissListener;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
-import cn.sharesdk.sina.weibo.SinaWeibo;
-import cn.sharesdk.tencent.qq.QQ;
-import cn.sharesdk.wechat.friends.Wechat;
-import cn.sharesdk.wechat.moments.WechatMoments;
 
 import com.hiwifi.activity.base.BaseActivity;
 import com.hiwifi.app.views.UINavigationView;
 import com.hiwifi.constant.RequestConstant.RequestTag;
-import com.hiwifi.model.DiscoverItem;
-import com.hiwifi.model.User;
 import com.hiwifi.model.request.RequestFactory;
 import com.hiwifi.model.request.RequestManager.ResponseHandler;
 import com.hiwifi.model.request.ServerResponseParser;
-import com.hiwifi.shareSdk.ShareUtil;
 import com.hiwifi.support.http.AsyncHttpClient;
 import com.hiwifi.support.http.RequestParams;
 import com.hiwifi.utils.HttpRequestParser;
@@ -62,7 +42,18 @@ import com.hiwifi.utils.ImageUtil;
 import com.hiwifi.utils.NetworkUtil;
 import com.hiwifi.utils.ViewUtil;
 import com.seo.wifikey.R;
-import com.umeng.analytics.MobclickAgent;
+
+import org.apache.http.util.EncodingUtils;
+
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.URL;
+import java.net.URLConnection;
+
+import javax.servlet.http.HttpServletRequest;
 
 public class CommonWebviewActivity extends BaseActivity implements
 		ResponseHandler {
@@ -108,91 +99,6 @@ public class CommonWebviewActivity extends BaseActivity implements
 		};
 	};
 
-	@Override
-	protected void onClickEvent(View paramView) {
-		switch (paramView.getId()) {
-		case R.id.share_cancle:
-			popupWindow.dismiss();
-			break;
-
-		case R.id.share_to_weixin:
-			shareToWechat();
-			break;
-
-		case R.id.share_to_moments:
-			shareToMoments();
-			break;
-		case R.id.share_to_qq:
-			shareToQQ();
-			break;
-		case R.id.share_to_weibo:
-			shareToWeibo();
-			break;
-
-		default:
-			break;
-		}
-	}
-
-	private void shareToWeibo() {
-		shareTo(SinaWeibo.NAME);
-	}
-
-	private void shareToQQ() {
-		shareTo(QQ.NAME);
-	}
-
-	private void shareToMoments() {
-		popupWindow.dismiss();
-		ShareUtil share = new ShareUtil(this);
-		if (discover != null) {
-			shareTitle = discover.getTitle();
-			shareText = discover.getShareContent();
-			shareUrl = discover.getShareUrl();
-			String path = discover.getShareImgPath();
-			File file = new File(path);
-			if (file.exists()) {
-				shareIamge = path;
-			}
-			if (TextUtils.isEmpty(shareText)) {
-				shareText = shareTitle;
-			}
-		}
-		share.showShare(WechatMoments.NAME, shareText, shareText, shareUrl, shareIamge);
-//		shareTo(WechatMoments.NAME);
-	}
-
-	private void shareToWechat() {
-		shareTo(Wechat.NAME);
-	}
-
-	String shareTitle = null;
-	String shareText = null;
-	String shareUrl = null;
-	String shareIamge = null;
-
-	private void shareTo(String name) {
-		popupWindow.dismiss();
-		ShareUtil share = new ShareUtil(this);
-		if (discover != null) {
-			shareTitle = discover.getTitle();
-			shareText = discover.getShareContent();
-			shareUrl = discover.getShareUrl();
-			String path = discover.getShareImgPath();
-			File file = new File(path);
-			if (file.exists()) {
-				shareIamge = path;
-			}
-			if (TextUtils.isEmpty(shareText)) {
-				shareText = shareTitle;
-			}
-		}
-//		 System.out.println("shareTitle--==" + shareTitle);
-//		 System.out.println("shareURL--==" + shareUrl);
-//		 System.out.println("discover--==" + discover.toString());
-//		 System.out.println("share--==" + shareIamge);
-		share.showShare(name, shareText, shareTitle, shareUrl, shareIamge);
-	}
 
 	private InputMethodManager im;
 
@@ -203,7 +109,12 @@ public class CommonWebviewActivity extends BaseActivity implements
 		}
 	}
 
-	@Override
+    @Override
+    protected void onClickEvent(View paramView) {
+
+    }
+
+    @Override
 	protected void findViewById() {
 		im = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 		bundle = getIntent().getExtras();
@@ -233,7 +144,6 @@ public class CommonWebviewActivity extends BaseActivity implements
 		shadow = (RelativeLayout) findViewById(R.id.shadow);
 		navigation = (UINavigationView) findViewById(R.id.nav);
 		initLeftButton();
-		initShareButton();
 	}
 
 	private void initLeftButton() {
@@ -264,44 +174,6 @@ public class CommonWebviewActivity extends BaseActivity implements
 		});
 	}
 
-	private void initShareButton() {
-		if ("discover".equals(from)) {
-			int position = bundle.getInt("position");
-			ArrayList<DiscoverItem> list = DiscoverItem.getList();
-			if (list != null && list.size() > position) {
-				discover = list.get(position);
-			}
-			if (discover != null) {
-				shareTitle = discover.getTitle();
-				shareText = discover.getShareContent();
-				shareUrl = discover.getShareUrl();
-				String path = discover.getShareImgPath();
-				shareIamge = path;
-				if (TextUtils.isEmpty(shareTitle)
-						|| TextUtils.isEmpty(shareUrl)
-						|| TextUtils.isEmpty(path)) {
-					navigation.getRightButton().setVisibility(View.GONE);
-				}
-			}
-
-			// navigation.getRightButton().setText("分享");
-			navigation.getRightButton().setOnClickListener(
-					new OnClickListener() {
-
-						@Override
-						public void onClick(View v) {
-							MobclickAgent.onEvent(
-									CommonWebviewActivity.this,
-									"click_share_in_discover",
-									getResources().getString(
-											R.string.click_share_in_discover));
-							showSharePopup();
-						}
-					});
-		} else {
-			navigation.getRightButton().setVisibility(View.GONE);
-		}
-	}
 
 	@Override
 	protected void loadViewLayout() {
@@ -310,31 +182,9 @@ public class CommonWebviewActivity extends BaseActivity implements
 
 	@Override
 	protected void processLogic() {
-		if (type == WebType.buy_router) {// 购买路由器
-			setTitle();
-			setLogoImage();
-			requestLogoAndTitle();
-			byte[] bytes = EncodingUtils.getBytes(postData, "utf-8");
-			mWebView.postUrl(url, bytes);
-		} else if (type == WebType.bindRouter) {// 绑定路由器
-			setTitle("绑定路由器");
-			mWebView.postUrl(url, EncodingUtils.getBytes(postData, "utf-8"));
-		} else if (type == WebType.push) {
-			setTitle();
-			mWebView.loadUrl(url);
-		} else if (type == WebType.webset) {
-			setTitle("官网");
-			mWebView.loadUrl(url);
-		} else if (type == WebType.forget_password) { // 忘记密码
-			setTitle();
-			mWebView.loadUrl(url);
-		} else if (type == WebType.email_register) { // 邮箱注册
-			setTitle();
-			mWebView.loadUrl(url);
-		} else {
+
 			mWebView.loadUrl(url);
 			setTitle();
-		}
 	}
 
 	private Bundle resultBundle = null;
@@ -436,22 +286,6 @@ public class CommonWebviewActivity extends BaseActivity implements
 
 						// app://callback?action=client_bind&code=0&msg=OK&mac=D4EE0703E18C
 
-					} else if (type.equals("bindRouter")) {
-						String code = request.getParameter("code");
-						String msg = request.getParameter("msg");
-						resultBundle.putString("code", code);
-						resultBundle.putString("msg", msg);
-						resultBundle.putString("mac",
-								request.getParameter("mac"));
-						if (!TextUtils.isEmpty(code)
-								&& 0 == Integer.valueOf(code)) {
-							requestRouterListServer(User.shareInstance()
-									.getToken());
-						} else {
-							resultIntent.putExtras(resultBundle);
-							setResult(0, resultIntent);
-							CommonWebviewActivity.this.finish();
-						}
 					} else /* if ("set_app".equalsIgnoreCase(type)) */{
 						String code = request.getParameter("code");
 						String msg = request.getParameter("msg");
@@ -488,13 +322,7 @@ public class CommonWebviewActivity extends BaseActivity implements
 		super.onBackPressed();
 	}
 
-	public void requestRouterListServer(String token) {
-		if (!NetworkUtil.checkConnection(this)) {
-			return;
-		}
 
-		RequestFactory.getRouters(CommonWebviewActivity.this, this);
-	}
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -513,14 +341,6 @@ public class CommonWebviewActivity extends BaseActivity implements
 		return super.onKeyDown(keyCode, event);
 	}
 
-	private void requestLogoAndTitle() {
-		if (!NetworkUtil.checkConnection(this)) {
-			return;
-		}
-		RequestParams params = new RequestParams();
-		asyncHttpClient = new AsyncHttpClient();
-		RequestFactory.getRouterBuyConfig(this, this);
-	}
 
 	private void setLogoImage() {
 		File filesDir = CommonWebviewActivity.this.getFilesDir();
@@ -611,7 +431,6 @@ public class CommonWebviewActivity extends BaseActivity implements
 	}
 
 	private PopupWindow popupWindow;
-	private DiscoverItem discover;
 	private RelativeLayout shadow;
 
 	public void showSharePopup() {

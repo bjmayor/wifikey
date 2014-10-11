@@ -19,11 +19,7 @@ public class EventDispatcher {
 	public static final String ACTION_USER = "user_status_changed";
 	public static final String ACTION_ROUTER = "router_selected_changed";
 
-	public static void dispatchUserStatusChanged() {
-		ClientInfo.shareInstance().setCurrentUserId(
-				User.shareInstance().getUid());
-		Gl.Ct().sendBroadcast(new Intent(ACTION_USER));
-	}
+
 
 	public static void dispatchPluginNeedUpgrade() {
 

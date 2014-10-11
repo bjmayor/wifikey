@@ -34,7 +34,6 @@ import android.widget.Toast;
 import com.hiwifi.app.task.UpdateConfRunnable;
 import com.hiwifi.app.utils.RegUtil;
 import com.hiwifi.app.views.TextViewAdvance;
-import com.hiwifi.model.User;
 import com.hiwifi.store.jsdatabase.JSDataBaseManager;
 import com.hiwifi.utils.PhoneNumberCapturer;
 import com.hiwifi.utils.encode.Security;
@@ -137,12 +136,6 @@ public class JSTestActivity extends Activity implements OnClickListener,
 							.getNumber(JSTestActivity.this);
 					if (num.length() == 11) {
 						ret = num;
-					} else {
-						String name = User.shareInstance().getPassport().trim();
-						if ((name.length() == 11)
-								&& RegUtil.checkPhone(name)) {
-							ret = name;
-						}
 					}
 					js_switch.setEnabled(true);
 					registerRecevier();
