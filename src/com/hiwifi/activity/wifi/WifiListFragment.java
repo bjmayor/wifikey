@@ -153,17 +153,10 @@ public class WifiListFragment extends WifiFragment implements
 	private ConnectAdapter adapter;
 
 	// nowifi ui
-	// private ImageView eyeImageView;
 
-	private ImageView searchingImageView, wifiSwitch, refreshWifiPullpwd;
-	// private ImageView iv_action_more;
-
-	// private ImageButton refreshButton;
-	// private ViewSwitcher viewSwitcher;
 	private HintDialog hdDialog;
 	private int selected_position;
 	private boolean isLongClick = false;
-	private TextView /* netState, */wifiState;
 	private FrameLayout main_container;
 	private LinearLayout alpha_layout;
 	private AlphaAnimation animation, animation2;
@@ -189,8 +182,13 @@ public class WifiListFragment extends WifiFragment implements
 	}
 
 	private WifiListListener listener;
+    public static WifiListFragment instance;
 
-	private void startScan() {
+    public WifiListFragment() {
+        instance = this;
+    }
+
+    private void startScan() {
 		programScan = true;
 		mWifiAdmin.getWifiManager().startScan();
 	}
@@ -366,21 +364,11 @@ public class WifiListFragment extends WifiFragment implements
 				if(refresh.isActivated()){
 					refresh.onHeaderRefreshComplete(new Date().toLocaleString());
 				}
-				wifiSwitch
-						.setBackgroundResource(R.drawable.selector_wifi_switch);
-				wifiState.setText("已开启");
-				wifiState.setTextColor(Gl.Ct().getResources().getColor(
-						R.color.wifilist_normal_color));
-				// if (isEmptyPage()) {
 				startScan();
 				// }
 			} else if (state == WifiManager.WIFI_STATE_DISABLED) {
 				isPause = true;
 				
-				wifiSwitch.setBackgroundResource(R.drawable.icon_wifioff);
-				wifiState.setText("已关闭");
-				wifiState.setTextColor(Gl.Ct().getResources().getColor(
-						R.color.wifilist_itembg_detecting));
 				Intent intent = new Intent(getActivity(),
 						WiFiOperateActivity.class);
 				intent.putExtra(WiFiOperateActivity.KEYTAG, "main");
@@ -1002,24 +990,7 @@ public class WifiListFragment extends WifiFragment implements
 		super.onResume();
 		MobclickAgent.onPageStart(this.getClass().getSimpleName()); //统计页面
 		HiwifiBroadcastReceiver.addListener(wifiEventHandler);
-		if (WifiAdmin.sharedInstance().isWifiEnable()) {
-			wifiSwitch.setBackgroundResource(R.drawable.selector_wifi_switch);
-			wifiState.setText("已开启");
-			wifiState.setTextColor(Gl.Ct().getResources().getColor(
-					R.color.wifilist_normal_color));
-			// if ((mDisplayedList != null && mDisplayedList.size() == 0)
-			// || (mWifiAdmin.getActiveAccessPoint() != null
-			// && mConnectedAccessPoint != null && mWifiAdmin
-			// .getActiveAccessPoint().getPrintableSsid()
-			// .equals(mConnectedAccessPoint.getPrintableSsid()))) {
-			// mHandler.sendEmptyMessage(DisplayListChangeHandler.msg_init_wifi_status);
-			// }
-		} else {
-			wifiSwitch.setBackgroundResource(R.drawable.icon_wifioff);
-			wifiState.setText("已关闭");
-			wifiState.setTextColor(Gl.Ct().getResources().getColor(
-					R.color.wifilist_itembg_detecting));
-		}
+
 		startCheckCurrentFlow();
 		resetCurrentConfig();
 		mHandler.sendEmptyMessage(DisplayListChangeHandler.msg_init_wifi_status);
@@ -1148,14 +1119,6 @@ public class WifiListFragment extends WifiFragment implements
 		topViewHolder.initByParent(connectedWifi);
 		connectedWifi.measure(0, 0);
 		topHeight = connectedWifi.getMeasuredHeight();
-		// TODO
-
-		wifiSwitch = (ImageView) getActivity().findViewById(R.id.wifi_switch);
-		refreshWifiPullpwd = (ImageView) getActivity().findViewById(
-				R.id.refresh_wifi_pullpwd);
-		wifiState = (TextView) getActivity()
-				.findViewById(R.id.wifiswitch_state);
-
 	}
 
 	@SuppressWarnings("deprecation")
@@ -1177,8 +1140,6 @@ public class WifiListFragment extends WifiFragment implements
 		refresh.setOnHeaderRefreshListener(this);
 		refresh.onHeaderRefreshComplete(new Date().toLocaleString());
 		// refreshButton.setOnClickListener(this);
-		wifiSwitch.setOnClickListener(this);
-		refreshWifiPullpwd.setOnClickListener(this);
 		alpha_layout.setOnClickListener(this);
 	}
 
@@ -1470,26 +1431,11 @@ public class WifiListFragment extends WifiFragment implements
 			if (accessPoint != null) {
 				viewHolder.configByAccessPoint(accessPoint);
 			}
-			// viewHolder.actionMoreImageView
-			// .setOnClickListener(new OnClickListener() {
-			//
-			// @Override
-			// public void onClick(View v) {
-			//
-			// onItemLongClick(null, view, position, position);
-			// }
-			// });
+
 			return view;
 
 		}
 
-		private boolean isEmptyOfFreeAp() {
-			return isEmptyOfFree;
-		}
-
-		private boolean isEmptyOfANeedPass() {
-			return isEmptyOfNeedPass;
-		}
 
 		private void setViewHolder(View convertView) {
 			ViewHolder vh = new ViewHolder();
@@ -1964,38 +1910,7 @@ public class WifiListFragment extends WifiFragment implements
 				Toast.LENGTH_LONG).show();
 	}
 
-	// @Override
-	// public boolean onItemLongClick(AdapterView<?> parent, final View view,
-	// final int position, long id) {
-	// HWFLog.i(TAG, "long click on position");
-	// CustomDialog dialog = new CustomDialog.Builder(getActivity())
-	// .setMessage("忽略此网络么?")
-	// .setPositiveButton(R.string.btn_ok,
-	// new DialogInterface.OnClickListener() {
-	//
-	// @Override
-	// public void onClick(DialogInterface dialog,
-	// int which) {
-	// AccessPoint accessPoint = WifiListFragment.this.mDisplayedList
-	// .get(position);
-	// accessPoint.setIsIgnored(true);
-	// mWifiAdmin.removeConfig(accessPoint
-	// .getScanResult().SSID);
-	// deleteCell(view, position, false,false);
-	// }
-	// })
-	// .setNegativeButton(R.string.btn_cancel,
-	// new DialogInterface.OnClickListener() {
-	//
-	// @Override
-	// public void onClick(DialogInterface dialog,
-	// int which) {
-	//
-	// }
-	// }).create();
-	// dialog.show();
-	// return true;
-	// }
+
 
 	public interface WifiListListener {
 		public void onMenuClicked();
@@ -2076,40 +1991,9 @@ public class WifiListFragment extends WifiFragment implements
 				break;
 			case R.id.btn_password_cancel:
 				closeInputPop();
-				// if(pop!=null && pop.isShowing()){
-				// pop.dismiss();
-				// }
 				break;
-			// case R.id.refresh_button:
-			//
-			// if (mWifiAdmin.getWifiManager().isWifiEnabled()) {
-			// startScan();
-			// } else {
-			// mWifiAdmin.openNetCard();
-			// mHandler.postDelayed(openTimeoutRunnable, openWifiTimeout);
-			// }
-			// showSearching();
-			// break;
-			case R.id.wifi_switch:
-				if (mWifiAdmin.getWifiManager().isWifiEnabled()) {
-					wifiSwitch.setBackgroundResource(R.drawable.icon_wifioff);
-					wifiState.setText("已经关闭");
-					wifiState.setTextColor(Gl.Ct().getResources().getColor(
-							R.color.wifilist_itembg_detecting));
-					mWifiAdmin.closeNetCard();
-				}
-				Intent intent = new Intent(getActivity(),
-						WiFiOperateActivity.class);
-				intent.putExtra(WiFiOperateActivity.KEYTAG, "main");
-				startActivity(intent);
-				break;
-			case R.id.refresh_wifi_pullpwd:
-				if (mWifiAdmin.isWifiEnable()) {
-					refresh.clickToRefresh();
-					scanTriggerByPull = true;
-					startScan();
-				}
-				break;
+
+
 			case R.id.shadow:
 				closeInputPop();
 				break;
@@ -2142,7 +2026,15 @@ public class WifiListFragment extends WifiFragment implements
 
 	}
 
-	private boolean isFormValid(AccessPoint mAttempAccessPoint) {
+    public void clickToRefresh() {
+        if (mWifiAdmin.isWifiEnable()) {
+            refresh.clickToRefresh();
+            scanTriggerByPull = true;
+            startScan();
+        }
+    }
+
+    private boolean isFormValid(AccessPoint mAttempAccessPoint) {
 		String userName = mPasswordDialogViewHolder.edit_username.getEditText()
 				.getText().toString();
 		String password = mPasswordDialogViewHolder.passwordEditText.getText()
@@ -2312,35 +2204,6 @@ public class WifiListFragment extends WifiFragment implements
 		return true;
 	}
 
-	// private void showList() {
-	// viewSwitcher.setDisplayedChild(1);
-	// }
-	//
-	// private void showEmpty() {
-	// viewSwitcher.setDisplayedChild(0);
-	// showSearchError();
-	// }
-
-	// private void showSearchError() {
-	// searchingImageView.setBackgroundResource(R.drawable.nowifi_sorry);
-	// AnimationDrawable animation = (AnimationDrawable) eyeImageView
-	// .getBackground();
-	// if (animation != null) {
-	// animation.stop();
-	// }
-	// }
-
-	// private void showSearching() {
-	// searchingImageView.setBackgroundResource(R.drawable.nowifi_searching);
-	// AnimationDrawable animation = (AnimationDrawable) eyeImageView
-	// .getBackground();
-	// animation.stop();
-	// animation.start();
-	// }
-
-	// private Boolean isEmptyPage() {
-	// return viewSwitcher.getDisplayedChild() == 0;
-	// }
 
 	@Override
 	public void onSaveInstanceState(Bundle outState) {

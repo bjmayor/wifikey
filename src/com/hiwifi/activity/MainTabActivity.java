@@ -30,12 +30,7 @@ public class MainTabActivity extends ActionBarActivity implements
         UpdateScordNotifier {
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
-    private CharSequence mDrawerTitle;
-    private CharSequence mTitle;
 
-    // 定义一个布局
-    private LayoutInflater layoutInflater;
-    private RelativeLayout message_container;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,44 +44,41 @@ public class MainTabActivity extends ActionBarActivity implements
             transaction.add(R.id.content_frame, new WifiListFragment());
             transaction.commit();
         }
-        mTitle = mDrawerTitle = getTitle();
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
                 R.drawable.menu_bg, R.string.drawer_open, R.string.drawer_close) {
 
             /** Called when a drawer has settled in a completely closed state. */
             public void onDrawerClosed(View view) {
-                // getSupportActionBar().setTitle(mTitle);
+                mMenu.findItem(R.id.action_refresh).setVisible(true);
             }
 
             /** Called when a drawer has settled in a completely open state. */
             public void onDrawerOpened(View drawerView) {
-                // getSupportActionBar().setTitle(mDrawerTitle);
+                mMenu.findItem(R.id.action_refresh).setVisible(false);
             }
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(false);
         getSupportActionBar().setHomeButtonEnabled(true);
 //		YjfSDK.getInstance(this, null).setCoopInfo("用户 id"); //如无用户可自行设置 ,需要配置回调地址
         YjfSDK.getInstance(this, this).initInstance("72860", "EMI373QQVGBD2XHY9M24O3T30YTXIXHP81", "82214", Gl.getChannel());
-        // registerReveiver();
 
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
-        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+        getMenuInflater().inflate(R.menu.main, menu);
+        mMenu = menu;
+        return super.onCreateOptionsMenu(menu);
     }
 
+    Menu mMenu;
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         // If the nav drawer is open, hide action items related to the content
         // view
-        // boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-        // menu.findItem(R.id.action_websearch).setVisible(!drawerOpen);
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -107,6 +99,12 @@ public class MainTabActivity extends ActionBarActivity implements
     public boolean onOptionsItemSelected(MenuItem item) {
         // Pass the event to ActionBarDrawerToggle, if it returns
         // true, then it has handled the app icon touch event
+        switch (item.getItemId())
+        {
+            case R.id.action_refresh:
+                WifiListFragment.instance.clickToRefresh();
+                break;
+        }
         if (mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
