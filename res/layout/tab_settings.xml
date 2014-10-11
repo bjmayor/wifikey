@@ -6,6 +6,7 @@
     android:background="@color/setting_background_color"
     android:clickable="true"
     android:focusable="true"
+    android:paddingTop="@dimen/setting_divide_height"
     android:orientation="vertical">
 
     <ScrollView
@@ -59,34 +60,27 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_version"
-                style="@style/setting_item_clicked"
+                style="@style/setting_item"
+                android:layout_marginTop="@dimen/setting_divide_height"
                 android:layout_width="match_parent"
                 android:orientation="horizontal">
 
                 <TextView
                     style="@style/setting_item_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="APP版本" />
-
-                <TextView
-                    android:id="@+id/tv_version"
-                    style="@style/setting_item_text"
                     android:layout_width="@dimen/width_zero"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/setting_small_margin"
                     android:layout_weight="1"
-                    android:text="V1.11"
-                    android:textColor="@color/major_color" />
+                    android:text="通知栏开关" />
 
-                <ImageView
-                    android:id="@+id/iv_app_new"
+                <com.hiwifi.app.views.SwitchButton
+                    android:id="@+id/swt_notify"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/icon_new"
-                    android:visibility="invisible" />
+                    android:checked="true"
+                    android:gravity="right" />
             </LinearLayout>
+
+
 
             <LinearLayout
                 android:id="@+id/feedback"
@@ -143,6 +137,36 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/bar_right_arrow" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_version"
+                style="@style/setting_item_clicked"
+                android:layout_width="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/setting_item_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="APP版本" />
+
+                <TextView
+                    android:id="@+id/tv_version"
+                    style="@style/setting_item_text"
+                    android:layout_width="@dimen/width_zero"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/setting_small_margin"
+                    android:layout_weight="1"
+                    android:text="V1.11"
+                    android:textColor="@color/major_color" />
+
+                <ImageView
+                    android:id="@+id/iv_app_new"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_new"
+                    android:visibility="invisible" />
             </LinearLayout>
 
             <LinearLayout

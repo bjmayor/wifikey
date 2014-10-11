@@ -219,7 +219,8 @@
         <service
             android:name="com.hiwifi.app.services.DaemonService"
             android:label="后台服务"
-            android:process=":daemon" />
+            android:process=":daemon"
+            />
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"

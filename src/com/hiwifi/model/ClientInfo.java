@@ -19,6 +19,8 @@ import com.hiwifi.model.log.LogUtil;
 import com.hiwifi.model.request.ResponseParserInterface;
 import com.hiwifi.model.request.ServerResponseParser;
 import com.hiwifi.model.request.ServerResponseParser.ServerCode;
+import com.hiwifi.store.KeyValueDbMgr;
+import com.hiwifi.store.KeyValueModel;
 import com.hiwifi.utils.DeviceUtil;
 import com.hiwifi.utils.encode.MD5Util;
 
@@ -44,6 +46,7 @@ public class ClientInfo implements ResponseParserInterface {
 	private final String key_contact = "feedbacker_contact";
 	private final String key_autoshare = "key_autoshare";
 	private final String key_autobackup = "key_autobackup";
+	private final String key_notify = "key_notify";
 
 	private ClientInfo() {
 		sp = Gl.Ct().getSharedPreferences(spName, 0);
@@ -158,6 +161,7 @@ public class ClientInfo implements ResponseParserInterface {
 
 	private boolean autoShared;
 	private boolean autoBackup;
+	private boolean notifyStatus;
 
 	public synchronized final boolean isAutoShared() {
 		autoShared = sp.getBoolean(key_autoshare, true);
@@ -178,6 +182,16 @@ public class ClientInfo implements ResponseParserInterface {
 		this.autoBackup = autoBackup;
 		sp.edit().putBoolean(key_autobackup, autoBackup).commit();
 	}
+
+    public synchronized final boolean isNotifyOpen() {
+        notifyStatus = KeyValueModel.getBooleanValue(key_notify,true);
+        return notifyStatus;
+    }
+
+    public synchronized final void setNotify(boolean status) {
+        this.notifyStatus = status;
+        KeyValueModel.setBooleanValue(key_notify,status);
+    }
 
 	boolean appNeedUpdate = false;
 	public String upgradeInfo = "";
