@@ -119,7 +119,7 @@
     <color name="tab_text_unactive">#ffffff</color>
 
     <!-- nav -->
-    <color name="nav_background_color">#0DADFE</color>
+    <color name="nav_background_color">#323440</color>
     <color name="nav_title_color">#ffffff</color>
 
     <!-- settings -->
@@ -142,8 +142,8 @@
     <color name="input_error_color">#FF0000</color>
 
     <!-- commom color setting -->
-    <color name="major_color">#00c0ff</color>
-    <color name="major_color_active">#00aaeb</color>
+    <color name="major_color">#28c013</color>
+    <color name="major_color_active">#1df21d</color>
     <color name="minor_color">#89b8d7</color>
     <color name="minor_color_active">#7aa3be</color>
     <color name="sepecail_color">#1adf53</color>

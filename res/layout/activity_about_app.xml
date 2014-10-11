@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res/com.seo.wifikey"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/about_sildingFinishLayou"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
@@ -32,7 +32,8 @@
                 android:layout_width="@dimen/about_icon_size"
                 android:layout_height="@dimen/about_icon_size"
                 android:layout_alignParentBottom="true"
-                android:background="@drawable/ic_about_logo" />
+                android:background="@drawable/ic_about_logo"
+                />
         </RelativeLayout>
 
         <RelativeLayout
@@ -50,11 +51,21 @@
                 android:orientation="vertical" >
 
                 <TextView
+                    android:id="@+id/tv_appname"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
                     android:text="@string/app_name"
                     android:textSize="@dimen/about_appname_text_size" />
+                <TextView
+                    android:id="@+id/tv_app_version"
+                    android:layout_below="@+id/tv_appname"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/app_name"
+                    android:textColor="@color/text_color_gray"
+                    android:textSize="@dimen/text_size_small" />
             </RelativeLayout>
 
             <LinearLayout
@@ -66,15 +77,6 @@
                 android:paddingRight="@dimen/setting_content_padding_right" >
 
                 <Button
-                    android:id="@+id/bt_version"
-                    style="@style/btn_major"
-                    android:layout_width="fill_parent"
-                    android:layout_height="@dimen/btn_size_height_big"
-                    android:padding="@dimen/about_padding1"
-                    android:text="@string/about_version"
-                    android:textColor="@color/white" />
-
-                <Button
                     android:id="@+id/bt_offi_website"
                     style="@style/btn_major"
                     android:layout_width="fill_parent"
@@ -84,6 +86,14 @@
                     android:text="@string/about_offi_website"
                     android:textColor="@color/white" />
             </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:text="@string/copyright"
+                android:layout_marginBottom="10dp"
+                />
 
         </RelativeLayout>
     </LinearLayout>

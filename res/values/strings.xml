@@ -26,7 +26,7 @@
     <string name="title_activity_message_acitivity">MessageAcitivity</string>
 
     <!-- copyright -->
-    <string name="copyright">Copyright © 2014 Beijing Geek-Geek Technology Co.,Ltd.</string>
+    <string name="copyright">演道工作室 Copyright © 2012-2014</string>
     <string name="rights">All Rights Reserved.</string>
     <!-- wifi status -->
     <string name="netcard_connecting">网卡正在打开</string>
@@ -333,5 +333,6 @@
     <string name="about_hiwifi_title">关于小极WiFi钥匙</string>
     <string name="about_version">版本介绍</string>
     <string name="about_offi_website">访问官网</string>
+
 
 </resources>
