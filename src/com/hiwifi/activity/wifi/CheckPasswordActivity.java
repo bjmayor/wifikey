@@ -620,6 +620,7 @@ public class CheckPasswordActivity extends BaseActivity implements
      */
     @Override
     public void updateScoreSuccess(int arg0, int arg1, int arg2, String arg3) {
+        LogUtil.e("updateScoreSuccess","arg0:"+arg0+" arg1:"+arg1+" arg2:"+arg2+" arg3:"+arg3);
         switch (arg0) {
             case 1:// 查询
                 leftTimes = arg1;

@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.seo.wifikey"
     android:installLocation="auto"
-    android:versionCode="010100"
-    android:versionName="1.01" >
+    android:versionCode="010200"
+    android:versionName="1.02" >
 
     <!-- get message content -->
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
@@ -490,14 +490,7 @@
             android:name="com.hiwifi.activity.FeedbackActivity"
             android:screenOrientation="portrait" >
         </activity>
-        <activity
-            android:name="com.hiwifi.activity.AdvertisementActivity"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="com.hiwifi.activity.user.ResetPasswordActivity"
-            android:label="@string/title_activity_reset_password" >
-        </activity>
+
         <activity
             android:name="com.hiwifi.activity.SplashActiviy"
             android:screenOrientation="portrait" >
@@ -524,10 +517,6 @@
         <activity
             android:name="org.adver.score.sdk.view.WebActivity"
             android:configChanges="keyboardHidden|orientation" />
-        <activity
-            android:name="cn.domob.android.ads.DomobActivity"
-            android:theme="@android:style/Theme.Translucent" >
-        </activity>
     </application>
 
 </manifest>
