@@ -102,6 +102,26 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_app_recommend"
+                style="@style/setting_item_clicked"
+                android:layout_width="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/setting_item_text"
+                    android:layout_width="@dimen/width_zero"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="精品推荐" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/bar_right_arrow" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/setting_divide_height"
                 android:id="@+id/ll_agreement"
                 style="@style/setting_item_clicked"
                 android:layout_width="match_parent"

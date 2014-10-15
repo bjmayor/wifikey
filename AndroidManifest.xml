@@ -364,7 +364,7 @@
         </meta-data>
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="m91" />
+            android:value="huawei" />
         <!-- 正式版用release 开发版用develope -->
 
         <service

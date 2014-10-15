@@ -10,10 +10,9 @@ apply plugin: 'android'
 
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
-    compile('com.android.support:appcompat-v7:19.+')
-            {
-                exclude module: 'support-v4'
-            }
+    compile('com.android.support:appcompat-v7:19.+') {
+        exclude module: 'support-v4'
+    }
 }
 
 task copyNativeLibs(type: Copy) {
@@ -28,9 +27,16 @@ tasks.withType(com.android.build.gradle.tasks.PackageApplication) { pkgTask ->
 }
 
 android {
+    signingConfigs {
+        release {
+            keyAlias 'wifikey'
+            keyPassword 'wifikey169147'
+            storeFile file('/Users/maynard/Desktop/wifikey.keystore')
+            storePassword 'wifikey169147'
+        }
+    }
     compileSdkVersion 19
     buildToolsVersion "20.0.0"
-
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
@@ -53,5 +59,16 @@ android {
         // by a similar customization.
         debug.setRoot('build-types/debug')
         release.setRoot('build-types/release')
+    }
+    buildTypes {
+        release {
+            signingConfig  signingConfigs.release
+            runProguard true
+            proguardFile 'proguard-project.txt'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
     }
 }

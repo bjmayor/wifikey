@@ -27,6 +27,8 @@ import com.seo.wifikey.R;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.update.UmengUpdateAgent;
 
+import org.adver.score.recommendwall.RecommendWallSDK;
+
 /**
  * @author jack at 2014-8-25
  * @filename ConnectFragment.java
@@ -67,6 +69,7 @@ public class SettingFragment extends Fragment implements OnClickListener,
         rootView.findViewById(R.id.ll_about).setOnClickListener(this);
         rootView.findViewById(R.id.ll_agreement).setOnClickListener(this);
         rootView.findViewById(R.id.ll_version).setOnClickListener(this);
+        rootView.findViewById(R.id.ll_app_recommend).setOnClickListener(this);
         if (ReleaseConstant.ISDEBUG) {
             rootView.findViewById(R.id.ll_test).setOnClickListener(this);
         } else {
@@ -131,6 +134,10 @@ public class SettingFragment extends Fragment implements OnClickListener,
             case R.id.ll_agreement:
                 intent.setClass(getActivity(), TermsOfServiceActivity.class);
                 getActivity().startActivity(intent);
+                break;
+
+            case R.id.ll_app_recommend:
+                RecommendWallSDK.getInstance(getActivity()).showRecommendWall();
                 break;
 
             case R.id.ll_test:

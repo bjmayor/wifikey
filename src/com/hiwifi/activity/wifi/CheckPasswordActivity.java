@@ -93,17 +93,12 @@ public class CheckPasswordActivity extends BaseActivity implements
 
     private void hasLoginedView() {
         mWifiAdmin = WifiAdmin.sharedInstance();
-        // WifiInfo wifiInfo = mWifiAdmin.getWifiManager().getConnectionInfo();
-        // if (wifiInfo != null && !TextUtils.isEmpty(wifiInfo.getBSSID())) {
-        // mAttempAccessPoint = mWifiAdmin.getAccessPointByBSSID(wifiInfo
-        // .getBSSID());
-        // }
         mAttempAccessPoint = mWifiAdmin.getActiveAccessPoint();
-
-
-        showPwdView.setVisibility(View.GONE);
-        loginedView.setVisibility(View.GONE);
-        unloginView.setVisibility(View.VISIBLE);
+        if (leftTimes > 5) {
+            switchViewStatus(status_can_view_password);
+        } else {
+            switchViewStatus(status_not_enought_score);
+        }
         if (mAttempAccessPoint != null) {
             wifiPwd = mAttempAccessPoint.getDataModel().getPassword(false);
             if (mAttempAccessPoint.getConnectState() == WifiConnectState.connectState_canconnect) {
@@ -148,7 +143,7 @@ public class CheckPasswordActivity extends BaseActivity implements
 
     private void setAchieveTextColor() {
         int color = getResources().getColor(R.color.text_blue);
-        SpannableString prompt = new SpannableString("（每绑定1个极路由可增加3次查看数）");
+        SpannableString prompt = new SpannableString("（做任务赚积分，可获得更多查看次数）");
         prompt.setSpan(new ForegroundColorSpan(color), 12, 13,
                 Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         achieve.setText(prompt);
@@ -236,7 +231,6 @@ public class CheckPasswordActivity extends BaseActivity implements
 
     public void onResume() {
         startCheckCurrentFlow();
-        showMyDialog("正在加载...");
         ScoreWallSDK.getInstance(CheckPasswordActivity.this).getScore(
                 CheckPasswordActivity.this, CheckPasswordActivity.this);
         HiwifiBroadcastReceiver.addListener(wifiEventHandler);
@@ -402,6 +396,30 @@ public class CheckPasswordActivity extends BaseActivity implements
                 CheckPasswordActivity.this, CheckPasswordActivity.this, 5);
     }
 
+    private final int status_not_enought_score = 0;
+    private final int status_can_view_password = 2;
+    private final int status_password_viewed = 3;
+
+    private void switchViewStatus(int status) {
+        switch (status) {
+            case status_not_enought_score:
+                unloginView.setVisibility(View.VISIBLE);
+                loginedView.setVisibility(View.GONE);
+                showPwdView.setVisibility(View.GONE);
+                break;
+            case status_can_view_password:
+                unloginView.setVisibility(View.GONE);
+                loginedView.setVisibility(View.VISIBLE);
+                showPwdView.setVisibility(View.GONE);
+                break;
+            case status_password_viewed:
+                unloginView.setVisibility(View.GONE);
+                loginedView.setVisibility(View.GONE);
+                showPwdView.setVisibility(View.VISIBLE);
+                break;
+        }
+    }
+
     @Override
     protected void onClickEvent(View v) {
         switch (v.getId()) {
@@ -418,10 +436,7 @@ public class CheckPasswordActivity extends BaseActivity implements
                     Toast.makeText(this, "积分不够了，明天再试", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                unloginView.setVisibility(View.GONE);
-                loginedView.setVisibility(View.GONE);
-                showPwdView.setVisibility(View.VISIBLE);
-                // TOOD 获取密码~~~
+                switchViewStatus(status_password_viewed);
                 if (mAttempAccessPoint != null) {
                     wifiPwd = mAttempAccessPoint.getDataModel().getPassword(false);
                     comsume();
@@ -471,7 +486,6 @@ public class CheckPasswordActivity extends BaseActivity implements
                 break;
 
             case R.id.show_pwd:
-                // TODO
                 showPwdPopupWind(mAttempAccessPoint.getDataModel().getPassword(
                         false));
                 break;
@@ -482,14 +496,6 @@ public class CheckPasswordActivity extends BaseActivity implements
 
     }
 
-    private void closePage(boolean overide) {
-        MobclickAgent.onEvent(this, "close_wifi_detail", getResources()
-                .getString(R.string.close_wifi_detail));
-        finish();
-        if (overide) {
-            overridePendingTransition(R.anim.shit, R.anim.activity_downtoup_out);
-        }
-    }
 
     private void closePage() {
         MobclickAgent.onEvent(this, "close_wifi_detail", getResources()
@@ -630,5 +636,6 @@ public class CheckPasswordActivity extends BaseActivity implements
         }
         closeMyDialog();
         setRemainChance();
+        switchViewStatus(status_can_view_password);
     }
 }
