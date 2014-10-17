@@ -62,6 +62,7 @@ public class CheckPasswordActivity extends BaseActivity implements
 
     private final int SET_TRAFFIC = 1;
     private final int REQUEST_LOGIN = 1001;
+    private final int SCORE_PER_VIEW = 5;
     private String wifiPwd = "";
 
     public final String APP_URL = "http://www.hiwifi.com/app";
@@ -94,7 +95,7 @@ public class CheckPasswordActivity extends BaseActivity implements
     private void hasLoginedView() {
         mWifiAdmin = WifiAdmin.sharedInstance();
         mAttempAccessPoint = mWifiAdmin.getActiveAccessPoint();
-        if (leftTimes > 5) {
+        if (leftTimes > SCORE_PER_VIEW) {
             switchViewStatus(status_can_view_password);
         } else {
             switchViewStatus(status_not_enought_score);
@@ -133,7 +134,7 @@ public class CheckPasswordActivity extends BaseActivity implements
     private void setRemainChance() {
         int color = getResources().getColor(R.color.text_blue);
         String shit = "今日还可以查看";
-        String times = String.valueOf(leftTimes / 5);// "12";
+        String times = String.valueOf(leftTimes / SCORE_PER_VIEW);// "12";
         SpannableString shitshit = new SpannableString(shit + times + "次");
         shitshit.setSpan(new ForegroundColorSpan(color), shit.length(),
                 shit.length() + times.length(),
@@ -144,8 +145,6 @@ public class CheckPasswordActivity extends BaseActivity implements
     private void setAchieveTextColor() {
         int color = getResources().getColor(R.color.text_blue);
         SpannableString prompt = new SpannableString("（做任务赚积分，可获得更多查看次数）");
-        prompt.setSpan(new ForegroundColorSpan(color), 12, 13,
-                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         achieve.setText(prompt);
     }
 
@@ -393,7 +392,7 @@ public class CheckPasswordActivity extends BaseActivity implements
 
     private void comsume() {
         ScoreWallSDK.getInstance(CheckPasswordActivity.this).consumeScore(
-                CheckPasswordActivity.this, CheckPasswordActivity.this, 5);
+                CheckPasswordActivity.this, CheckPasswordActivity.this, SCORE_PER_VIEW);
     }
 
     private final int status_not_enought_score = 0;
@@ -439,12 +438,14 @@ public class CheckPasswordActivity extends BaseActivity implements
                 switchViewStatus(status_password_viewed);
                 if (mAttempAccessPoint != null) {
                     wifiPwd = mAttempAccessPoint.getDataModel().getPassword(false);
-                    comsume();
                     if (!TextUtils.isEmpty(wifiPwd) && !wifiPwd.equals("*")) {
                         password.setText(wifiPwd);
                         shareTitleView.setVisibility(View.VISIBLE);
                         shareContainer.setVisibility(View.VISIBLE);
+                    } else {
+                        wifiPwd = WiFiLocalManager.getWifiInfo(mAttempAccessPoint.getPrintableSsid()).password;
                     }
+                    comsume();
                 }
                 if (!TextUtils.isEmpty(wifiPwd)) {
                     password.setText(wifiPwd);
@@ -620,7 +621,7 @@ public class CheckPasswordActivity extends BaseActivity implements
      */
     @Override
     public void updateScoreSuccess(int arg0, int arg1, int arg2, String arg3) {
-        LogUtil.e("updateScoreSuccess","arg0:"+arg0+" arg1:"+arg1+" arg2:"+arg2+" arg3:"+arg3);
+        LogUtil.e("updateScoreSuccess", "arg0:" + arg0 + " arg1:" + arg1 + " arg2:" + arg2 + " arg3:" + arg3);
         switch (arg0) {
             case 1:// 查询
                 leftTimes = arg1;
@@ -637,6 +638,10 @@ public class CheckPasswordActivity extends BaseActivity implements
         }
         closeMyDialog();
         setRemainChance();
+        if (leftTimes >= SCORE_PER_VIEW) {
         switchViewStatus(status_can_view_password);
+        } else {
+            switchViewStatus(status_not_enought_score);
+        }
     }
 }
