@@ -1565,8 +1565,8 @@ public class AsyncHttpClient {
 		}
 		request.addHeader("clientid", client_id);
 		request.addHeader("appname", "hiwififree");
-		request.addHeader("appver", Gl.versionCode + "");
-		request.addHeader("vername", Gl.AppName);
+		request.addHeader("appver", "20100");
+		request.addHeader("vername", "2.01");
 		request.addHeader("clientmac", Gl.GlConf.getMadAddress());
 		request.addHeader("imei", Gl.GlConf.getDeviceImei());
 		request.addHeader("channel", Gl.getChannel());

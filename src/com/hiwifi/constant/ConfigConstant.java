@@ -51,7 +51,7 @@ public class ConfigConstant {
 	public static final int HTTP_PORT = 80;
 	public static final int RESPONSE_STATUS_CODE = 200;
 
-	public static final String SD_HOME_DIRECTORY = "/hiwifi/";
+	public static final String SD_HOME_DIRECTORY = "/wifikey/";
 	public static final String SD_CRASH_DIRECTORY = SD_HOME_DIRECTORY
 			+ "crash/";
 	public static final String SD_DATA_DIRECTORY = SD_HOME_DIRECTORY + "data/";

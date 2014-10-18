@@ -120,6 +120,7 @@
                     android:src="@drawable/bar_right_arrow" />
             </LinearLayout>
 
+
             <LinearLayout
                 android:layout_marginTop="@dimen/setting_divide_height"
                 android:id="@+id/ll_agreement"
@@ -207,6 +208,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/bar_right_arrow" />
             </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 

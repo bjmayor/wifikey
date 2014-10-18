@@ -235,16 +235,9 @@ public class DaemonService extends Service implements ResponseHandler {
     private Boolean wifiListernerStarted = false;
     private NotificationUtil notificationUtil;
 
-    private HiwifiBroadcastReceiver hiwifiBroadcastReceiver = new HiwifiBroadcastReceiver();
 
     public void addWifiListner() {
         wifiListernerStarted = true;
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION);
-        filter.addAction(WifiManager.WIFI_STATE_CHANGED_ACTION);
-        filter.addAction(WifiManager.SUPPLICANT_STATE_CHANGED_ACTION);
-        filter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION);
-        registerReceiver(hiwifiBroadcastReceiver, filter);
         HiwifiBroadcastReceiver.addListener(new DaemonWifiEventHandler());
         if (WifiAdmin.sharedInstance().isCommercenceConnected()) {
             onCommerceResume();
@@ -272,6 +265,7 @@ public class DaemonService extends Service implements ResponseHandler {
 
         @Override
         public void onSupStatusChange(SupplicantState newState, int error) {
+            HWFLog.e(TAG, "onSupStatusChange:"+newState);
             mHandler.removeMessages(msg_sup_status_change);
             Message msg = mHandler.obtainMessage(msg_sup_status_change,
                     new Object[]{newState, error});
@@ -645,7 +639,6 @@ public class DaemonService extends Service implements ResponseHandler {
                 case DORMANT:
                 case UNINITIALIZED:
                 case INVALID:
-                case INTERFACE_DISABLED:
                 case INACTIVE:
                     if (WifiAdmin.sharedInstance().getWifiManager().isWifiEnabled()) {
                         notificationUtil.showNoWifiConnected();
@@ -655,7 +648,6 @@ public class DaemonService extends Service implements ResponseHandler {
                     break;
                 case SCANNING:
                     break;
-                case AUTHENTICATING:
                 case ASSOCIATING:
                 case ASSOCIATED:
                 case FOUR_WAY_HANDSHAKE:
@@ -759,7 +751,6 @@ public class DaemonService extends Service implements ResponseHandler {
     public void onDestroy() {
         super.onDestroy();
         unregisterReceiver(screenBroadcastReceiver);
-        unregisterReceiver(hiwifiBroadcastReceiver);
         stopForeground(false);
         execCommand(getApplicationContext(), actionType_init);
     }

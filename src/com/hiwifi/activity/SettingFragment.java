@@ -46,7 +46,6 @@ public class SettingFragment extends Fragment implements OnClickListener,
     View rootView;
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

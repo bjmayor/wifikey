@@ -215,7 +215,6 @@ public class WifiListFragment extends WifiFragment implements
 
 			@Override
 			public void run() {
-				// TODO Auto-generated method stub
 				mPasswordDialogViewHolder.myscrollview
 						.fullScroll(View.FOCUS_DOWN);
 			}
@@ -472,12 +471,10 @@ public class WifiListFragment extends WifiFragment implements
 			case DORMANT:
 			case UNINITIALIZED:
 			case INVALID:
-			case INTERFACE_DISABLED:
 			case INACTIVE:
 				mHandler.sendEmptyMessage(DisplayListChangeHandler.actiontypeDisConnected);
 				break;
 			case SCANNING:
-			case AUTHENTICATING:
 			case ASSOCIATING:
 			case ASSOCIATED:
 			case FOUR_WAY_HANDSHAKE:
@@ -1007,7 +1004,7 @@ public class WifiListFragment extends WifiFragment implements
 	public void onPause() {
 		super.onPause();
 		MobclickAgent.onPageEnd(this.getClass().getSimpleName());
-		HiwifiBroadcastReceiver.removeListener(wifiEventHandler);
+//		HiwifiBroadcastReceiver.removeListener(wifiEventHandler);
 		stopCheckFlow();
 		mLocationClient.stop();
 		isPause = true;
@@ -1156,6 +1153,15 @@ public class WifiListFragment extends WifiFragment implements
 	private Runnable connectTimeoutRunnable = new Runnable() {
 		@Override
 		public void run() {
+            //在魅族上实际测试，有时候没有接收到
+            if (WifiAdmin.sharedInstance().connectedAccessPoint()!=null)
+            {
+
+            }
+            else
+            {
+
+            }
 			mHandler.sendEmptyMessage(DisplayListChangeHandler.actiontypeConnectTimeout);
 		}
 	};
