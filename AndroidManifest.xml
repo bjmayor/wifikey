@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.seo.wifikey"
     android:installLocation="auto"
-    android:versionCode="010300"
-    android:versionName="1.03">
+    android:versionCode="010400"
+    android:versionName="1.04">
 
 
     <!-- ShareSdk permission -->
