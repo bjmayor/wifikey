@@ -25,7 +25,6 @@ import cn.sharesdk.framework.ShareSDK;
 
 public class SplashActiviy extends BaseActivity  {
 
-    private ImageView map;
     private boolean hasUpgrate = false;
     private boolean isFirstOpen;
 
@@ -39,9 +38,6 @@ public class SplashActiviy extends BaseActivity  {
     @Override
     protected void findViewById() {
         ShareSDK.initSDK(this);
-        map = (ImageView) findViewById(R.id.splash_map);
-        TextView version = (TextView) findViewById(R.id.version);
-        version.setText(Gl.getAppVersionName());
         // initView();
         isFirstOpen = ClientInfo.shareInstance().isFirstStarted();
     }
@@ -51,11 +47,6 @@ public class SplashActiviy extends BaseActivity  {
                 R.drawable.startup_map);
         Bitmap adaptiveW = ImageUtil.adaptiveW(bitmap, screenWidth);
         BitmapDrawable d = new BitmapDrawable(adaptiveW);
-        RelativeLayout.LayoutParams lp = (LayoutParams) map.getLayoutParams();
-        lp.width = adaptiveW.getWidth();
-        lp.height = adaptiveW.getHeight();
-        map.setLayoutParams(lp);
-        map.setBackgroundDrawable(d);
 
     }
 

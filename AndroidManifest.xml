@@ -306,7 +306,7 @@
             android:value="542c0899fd98c5483b034f96"></meta-data>
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="xiaomi" />
+            android:value="others" />
         <!-- 正式版用release 开发版用develope -->
 
         <service
