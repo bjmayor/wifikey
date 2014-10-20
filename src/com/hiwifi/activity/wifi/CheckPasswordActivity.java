@@ -40,6 +40,7 @@ import com.hiwifi.activity.base.BaseActivity;
 import com.hiwifi.app.receiver.HiwifiBroadcastReceiver;
 import com.hiwifi.app.receiver.HiwifiBroadcastReceiver.WifiEventHandler;
 import com.hiwifi.constant.ConfigConstant;
+import com.hiwifi.hiwifi.Gl;
 import com.hiwifi.model.log.LogUtil;
 import com.hiwifi.model.wifi.AccessPoint;
 import com.hiwifi.model.wifi.AccessPoint.WifiConnectState;
@@ -148,7 +149,7 @@ public class CheckPasswordActivity extends BaseActivity implements
         achieve.setText(prompt);
     }
 
-    String title = "小极WiFi钥匙";
+    String title = Gl.Ct().getResources().getString(R.string.app_name);
 
     private void shareToWeibo() {
         // TODO Auto-generated method stub
@@ -185,7 +186,7 @@ public class CheckPasswordActivity extends BaseActivity implements
         share.showShare(QQ.NAME, shareText, title, null, null);
     }
 
-    String shareText = "小极WiFi钥匙今天帮我免费上网了，您也来试试免费上网吧。http://www.hiwifi.com/app";// "我用\"小极WiFi钥匙\"成功免费上网";
+    String shareText = title+"今天帮我免费上网了，您也来试试免费上网吧。http://wifikey.sinaapp.com/";// "我用\"小极WiFi钥匙\"成功免费上网";
 
     private void shareToMoments() {
         // WIFI名字 xxxxxxx ，你要是在附近也可以来试一试。上www.hiwifi.com

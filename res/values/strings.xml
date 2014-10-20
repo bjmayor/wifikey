@@ -210,7 +210,7 @@
     <string name="wifi_state_needauth">需要认证</string>
     <string name="wifi_state_netexception">网络异常</string>
     <string name="wifi_state_localrestore">本地密码</string>
-    <string name="wifi_state_hasremotepass_unlock">小极分享</string>
+    <string name="wifi_state_hasremotepass_unlock">免费WiFi</string>
     <string name="wifi_state_chinaUnicom">中国联通热点</string>
     <string name="wifi_state_chinaNet">中国电信热点</string>
     <string name="wifi_state_chinaCmcc">中国移动热点</string>
@@ -301,8 +301,8 @@
     <string name="title_activity_reset_password">ResetPasswordActivity</string>
     <!-- 2.0 -->
 
-    <string name="share_moments_content">上http://www.hiwifi.com/app可以下载最新版的小极WiFi钥匙，2000万免费WiFi任你连</string>
-    <string name="share_qq_moments_content">上www.hiwifi.com/app可以下载最新版的小极WiFi钥匙，2000万免费WiFi任你连</string>
+    <string name="share_moments_content">上可以下载最新版的WiFi联网神器，2000万免费WiFi任你连</string>
+    <string name="share_qq_moments_content">上wifikey.sinaapp.com/可以下载最新版的WiFi联网神器，2000万免费WiFi任你连</string>
     <!-- error info -->
     <string name="empty_username">用户名为空</string>
     <string name="empty_pass">密码为空</string>
@@ -329,8 +329,8 @@
     <string name="service_deal_title">服务协议</string>
     <string name="update_app">开始升级</string>
     <string name="un_update_app">暂不更新</string>
-    <string name="app_have_update">小极WiFi钥匙有更新了</string>
-    <string name="about_hiwifi_title">关于小极WiFi钥匙</string>
+    <string name="app_have_update">WiFi联网神器有更新了</string>
+    <string name="about_hiwifi_title">关于WiFi联网神器</string>
     <string name="about_version">版本介绍</string>
     <string name="about_offi_website">访问官网</string>
 

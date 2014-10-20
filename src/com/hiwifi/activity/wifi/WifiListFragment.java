@@ -2344,8 +2344,8 @@ public class WifiListFragment extends WifiFragment implements
 					if (length == 0) {
 						refresh.setMessage("要更多密码？换地方刷刷");
 					} else {
-						refresh.setMessage("获取了" + length + "个小极共享WiFi");
-						info_show_tx.setText("获取了" + length + "个小极共享WiFi");
+						refresh.setMessage("获取了" + length + "个免费WiFi");
+						info_show_tx.setText("获取了" + length + "个免费WiFi");
 						info_show_tx.startAnimation(anim_in);
 					}
 				}

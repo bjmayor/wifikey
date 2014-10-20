@@ -246,7 +246,7 @@ public class ShareUtil extends OnekeyShare implements OnClickListener,
 
 		// oks.setFilePath(ConfigConstant.IMAGE_PATH);// 分享应用的本地路径--微信好友可用
 		oks.setComment("让上网更痛快");// 对分享的评价，在QQ空间可用
-		oks.setSite("小极WiFi钥匙");// 分享内容的网站名称--QQ空间可用
+		oks.setSite(Gl.Ct().getResources().getString(R.string.app_name));// 分享内容的网站名称--QQ空间可用
 		oks.setSiteUrl("http://www.hiwifi.com/mobile");// QQ空间使用
 		oks.setSilent(true);// 是否直接分享--false
 		if (platform != null) {
