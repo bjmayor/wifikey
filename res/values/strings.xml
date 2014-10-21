@@ -209,7 +209,7 @@
     <string name="wifi_state_needusercount">需要用户名密码</string>
     <string name="wifi_state_needauth">需要认证</string>
     <string name="wifi_state_netexception">网络异常</string>
-    <string name="wifi_state_localrestore">本地密码</string>
+    <string name="wifi_state_localrestore">已保存密码</string>
     <string name="wifi_state_hasremotepass_unlock">免费WiFi</string>
     <string name="wifi_state_chinaUnicom">中国联通热点</string>
     <string name="wifi_state_chinaNet">中国电信热点</string>
