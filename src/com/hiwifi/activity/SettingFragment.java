@@ -78,9 +78,15 @@ public class SettingFragment extends Fragment implements OnClickListener,
         return rootView;
     }
 
+    private static boolean checkUpdated = false;
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        if (!checkUpdated) {
+            UmengUpdateAgent.update(Gl.Ct());
+            checkUpdated = true;
+        }
     }
 
     @Override
@@ -89,7 +95,7 @@ public class SettingFragment extends Fragment implements OnClickListener,
         versionTextView.setText("v" + Gl.getAppVersionName());
         MobclickAgent.onPageStart(this.getClass().getSimpleName()); //统计页面
         updateView();
-        UmengUpdateAgent.update(Gl.Ct());
+
     }
 
     @Override
@@ -166,8 +172,7 @@ public class SettingFragment extends Fragment implements OnClickListener,
 
             case R.id.swt_notify:
                 ClientInfo.shareInstance().setNotify(isChecked);
-                if (!isChecked)
-                {
+                if (!isChecked) {
                     NotificationUtil.sendCancelMessage();
                 }
                 break;
