@@ -315,7 +315,7 @@ public class ShareUtil extends OnekeyShare implements OnClickListener,
 		return false;
 	}
 
-	public void initImagePath(int path) {
+	public static void initImagePath(int path) {
 		try {
 			if (Environment.MEDIA_MOUNTED.equals(Environment
 					.getExternalStorageState())
@@ -324,14 +324,14 @@ public class ShareUtil extends OnekeyShare implements OnClickListener,
 						.getExternalStorageDirectory().getAbsolutePath()
 						+ ConfigConstant.FILE_NAME;
 			} else {
-				ConfigConstant.IMAGE_PATH = context.getFilesDir()
+				ConfigConstant.IMAGE_PATH = Gl.Ct().getFilesDir()
 						.getAbsolutePath() + ConfigConstant.FILE_NAME;
 			}
 			File file = new File(ConfigConstant.IMAGE_PATH);
 			if (!file.exists()) {
 				file.createNewFile();
 				Bitmap pic = BitmapFactory.decodeResource(
-						context.getResources(), path);
+                        Gl.Ct().getResources(), path);
 				FileOutputStream fos = new FileOutputStream(file);
 				pic.compress(CompressFormat.JPEG, 100, fos);
 				fos.flush();

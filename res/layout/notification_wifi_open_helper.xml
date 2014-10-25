@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center_vertical"
-    android:background="@android:color/transparent"
+    android:background="@android:color/background_dark"
     android:orientation="horizontal" >
 
     <LinearLayout
@@ -37,7 +37,7 @@
                 android:gravity="center_vertical"
                 android:singleLine="true"
                 android:text="@string/notification_wifi_open_helper"
-                android:textColor="@color/wifilist_itembg_detecting"
+                android:textColor="@android:color/primary_text_dark"
                 android:textSize="@dimen/notification_wifi_open_content_size" />
         </LinearLayout>
 
@@ -58,16 +58,12 @@
             android:paddingLeft="@dimen/notificaiont_btn_paddingLeft"
             android:paddingRight="@dimen/notificaiont_btn_paddingRight" >
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/noticebar_off" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/notification_wifi_open"
-                android:textColor="#999999"
+                android:textColor="@android:color/secondary_text_light_nodisable"
                 android:textSize="@dimen/text_size_main" />
         </LinearLayout>
     </LinearLayout>

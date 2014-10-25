@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center_vertical"
-    android:background="@android:color/transparent"
+    android:background="@android:color/background_dark"
     android:orientation="horizontal" >
 
     <LinearLayout
@@ -36,7 +36,7 @@
                 android:gravity="center_vertical"
                 android:singleLine="true"
                 android:text="@string/notification_wifi_connect_show"
-                android:textColor="@color/notifi_title_color"
+                android:textColor="@android:color/primary_text_dark"
                 android:textSize="@dimen/notification_wifi_noconnect_content_size" />
 
             <TextView
@@ -46,7 +46,7 @@
                 android:ellipsize="end"
                 android:gravity="center_vertical"
                 android:singleLine="true"
-                android:textColor="#5dc52d"
+                android:textColor="@android:color/secondary_text_light_nodisable"
                 android:textSize="@dimen/text_size_main" />
         </LinearLayout>
 
@@ -67,18 +67,14 @@
             android:paddingLeft="@dimen/notificaiont_btn_paddingLeft"
             android:paddingRight="@dimen/notificaiont_btn_paddingRight" >
 
-            <ImageView
-                android:id="@+id/close_wifi_top_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/noticebar_on" />
+
 
             <TextView
                 android:id="@+id/close_wifi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="关闭WiFi"
-                android:textColor="@color/notifi_title_color"
+                android:textColor="@android:color/secondary_text_light_nodisable"
                 android:textSize="@dimen/text_size_main" />
         </LinearLayout>
     </LinearLayout>

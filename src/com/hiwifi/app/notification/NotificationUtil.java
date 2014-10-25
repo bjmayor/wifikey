@@ -39,7 +39,6 @@ public class NotificationUtil {
         this.notificaion.icon = R.drawable.hiwifilogo288;
         this.notificaion.flags = Notification.FLAG_FOREGROUND_SERVICE | Notification.FLAG_ONGOING_EVENT;
         Intent localIntent1 = new Intent(this.mContext, com.hiwifi.activity.MainTabActivity.class);
-        localIntent1.setAction("com.hiwifi.hiwifi.main");
         localIntent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(mContext, 2, localIntent1, PendingIntent.FLAG_UPDATE_CURRENT);
         this.notificaion.contentIntent = pendingIntent;
@@ -54,13 +53,7 @@ public class NotificationUtil {
         RemoteViews expandedView = new RemoteViews(mContext.getPackageName(),
                 R.layout.notification_wifi_connect_show);
         expandedView.setTextViewText(R.id.notification_ssid, "WiFi已连接但不能上网");
-        int color = mContext.getResources().getColor(R.color.notifi_unconn_net);
-        int titlecolor = mContext.getResources().getColor(R.color.notifi_title_color);
-        expandedView.setTextColor(R.id.notification_ssid, color);
         expandedView.setTextViewText(R.id.tv_context_title, SSID + " 不能上网");
-        expandedView.setTextColor(R.id.tv_context_title, titlecolor);
-        expandedView.setTextColor(R.id.close_wifi, titlecolor);
-        expandedView.setImageViewResource(R.id.close_wifi_top_icon, R.drawable.barwifi_light);
 
         Intent intentOpener = new Intent(mContext, DaemonService.class);
         intentOpener.putExtra(DaemonService.EXTRA_COMMAND,
@@ -97,13 +90,7 @@ public class NotificationUtil {
         RemoteViews expandedView = new RemoteViews(mContext.getPackageName(),
                 R.layout.notification_wifi_connect_show);
         expandedView.setTextViewText(R.id.notification_ssid, contentText);
-        int content = mContext.getResources().getColor(R.color.notifi_content_color);
-        int title = mContext.getResources().getColor(R.color.notifi_title_color);
-        expandedView.setTextColor(R.id.notification_ssid, content);
         expandedView.setTextViewText(R.id.tv_context_title, titleText);
-        expandedView.setTextColor(R.id.tv_context_title, title);
-        expandedView.setTextColor(R.id.close_wifi, title);
-        expandedView.setImageViewResource(R.id.close_wifi_top_icon, R.drawable.noticebar_on);
 
         Intent intentOpener = new Intent(mContext, DaemonService.class);
         intentOpener.putExtra(DaemonService.EXTRA_COMMAND,

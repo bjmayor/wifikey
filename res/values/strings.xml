@@ -10,11 +10,12 @@
     <string name="search">搜索</string>
     <string name="sliding_title">SlidingMenu Demo</string>
     <string name="desc_list_item_icon">SlidingMenu</string>
+    <string name="share_to_friends">分享给好友</string>
 
     <!-- hehehe -->
     <string name="title_box">百宝箱</string>
     <string name="title_discover">发现</string>
-    <string name="app_name">WiFi联网神器</string>
+    <string name="app_name">WiFi上网神器</string>
     <string name="app_slogan">让上网更痛快</string>
     <string name="action_settings_next">下一步</string>
     <string name="action_settings">settings</string>
@@ -134,7 +135,7 @@
 
     <!-- nofitication -->
     <string name="notification_wifi_open_helper">未开启WiFi</string>
-    <string name="notification_wifi_connect_show">天天WiFi 已帮您连接到</string>
+    <string name="notification_wifi_connect_show">WiFi上网神器 已帮您连接到</string>
     <string name="notification_wifi_no_connected">未连接WiFi</string>
     <string name="notification_wifi_open">打开WiFi</string>
 
