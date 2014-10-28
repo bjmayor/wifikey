@@ -31,6 +31,8 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.onekeyshare.OnekeyShare;
 import cn.sharesdk.sina.weibo.SinaWeibo;
 import cn.sharesdk.tencent.qq.QQ;
 import cn.sharesdk.wechat.friends.Wechat;
@@ -40,6 +42,7 @@ import com.seo.activity.base.BaseActivity;
 import com.seo.app.receiver.HiwifiBroadcastReceiver;
 import com.seo.app.receiver.HiwifiBroadcastReceiver.WifiEventHandler;
 import com.seo.constant.ConfigConstant;
+import com.seo.constant.RequestConstant;
 import com.seo.hiwifi.Gl;
 import com.seo.model.log.LogUtil;
 import com.seo.model.wifi.AccessPoint;
@@ -54,8 +57,7 @@ public class CheckPasswordActivity extends BaseActivity implements
         OnClickListener, UpdateScordNotifier {
 
     private LinearLayout unloginView, loginedView, showPwdView, shareContainer;
-    private ImageView backWifilist, stateImage, shareToWechat, shareToMoments,
-            shareToQQ, shareToWeibo;
+    private ImageView backWifilist, stateImage;
     private TextView currentSignal, currentTraffic, joinedBssid, joinedState,
             password, remain, achieve, title_save, shareTitleView, sharePrompt,
             unloginSharePrompt;
@@ -149,56 +151,35 @@ public class CheckPasswordActivity extends BaseActivity implements
         achieve.setText(prompt);
     }
 
-    String title = Gl.Ct().getResources().getString(R.string.app_name);
 
-    private void shareToWeibo() {
-        // TODO Auto-generated method stub
-        ShareUtil share = new ShareUtil(this);
-        String ssid = mAttempAccessPoint.getScanResult().SSID;
-        // String shareText = "小极WIFI钥匙告诉你，" + ssid + "的连接密码为" + wifiPwd + "。"
-        // + getResources().getString(R.string.share_moments_content);
-        share.initImagePath(R.drawable.wifikey_icon_share);
-        // oks.setImagePath(ConfigConstant.IMAGE_PATH);
-        share.showShare(SinaWeibo.NAME, shareText, title, APP_URL,
-                ConfigConstant.IMAGE_PATH);
-    }
+    private void showShare() {
+        ShareSDK.initSDK(this);
+        OnekeyShare oks = new OnekeyShare();
+        //关闭sso授权
+        oks.disableSSOWhenAuthorize();
 
-    private void shareToWechat() {
-        if (TextUtils.isEmpty(wifiPwd)) {
-            return;
-        }
-        ShareUtil share = new ShareUtil(this);
-        String ssid = mAttempAccessPoint.getScanResult().SSID;
-        String shareText = ssid + "的连接密码为" + wifiPwd + "。"
-                + getResources().getString(R.string.share_moments_content);
-        share.showShare(Wechat.NAME, shareText, title, null, null);
-    }
+        // 分享时Notification的图标和文字
+        oks.setNotification(R.drawable.hiwifi_launcher, getString(R.string.app_name));
+        // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间使用
+        oks.setTitle(getString(R.string.share));
+        // titleUrl是标题的网络链接，仅在人人网和QQ空间使用
+        oks.setTitleUrl(RequestConstant.getUrl(RequestConstant.RequestTag.URL_APP_DOWNLOAD));
+        // text是分享文本，所有平台都需要这个字段
+        oks.setText("绝逼好用的上网神器，不仅自动连接，还可查看密码。再不用就out了。");
+        // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
+        ShareUtil.initImagePath(R.drawable.wifikey_icon_share);
+//			oks.setImagePath(ConfigConstant.IMAGE_PATH);// 本地文件路径
+        // url仅在微信（包括好友和朋友圈）中使用
+        oks.setUrl(RequestConstant.getUrl(RequestConstant.RequestTag.URL_APP_DOWNLOAD));
+        // comment是我对这条分享的评论，仅在人人网和QQ空间使用
+        oks.setComment("用了次，太牛了。别人还在问服务员，我就自动连上了。小伙伴们都惊呆了。");
+        // site是分享此内容的网站名称，仅在QQ空间使用
+        oks.setSite(getString(R.string.app_name));
+        // siteUrl是分享此内容的网站地址，仅在QQ空间使用
+        oks.setSiteUrl(RequestConstant.getUrl(RequestConstant.RequestTag.URL_APP_DOWNLOAD));
 
-    private void shareToQQ() {
-        ShareUtil share = new ShareUtil(this);
-        String ssid = mAttempAccessPoint.getScanResult().SSID;
-        // String shareText = "小极WiFi钥匙今天帮我连上了" + ssid + "，这个WiFi的连接密码为" +
-        // wifiPwd
-        // + "，你要是在附近也可以来试一试。"
-        // + getResources().getString(R.string.share_moments_content);
-        String shareText = ssid + "的连接密码为" + wifiPwd + "。"
-                + getResources().getString(R.string.share_qq_moments_content);
-        share.showShare(QQ.NAME, shareText, title, null, null);
-    }
-
-    String shareText = title+"今天帮我免费上网了，您也来试试免费上网吧。http://wifikey.sinaapp.com/";// "我用\"小极WiFi钥匙\"成功免费上网";
-
-    private void shareToMoments() {
-        // WIFI名字 xxxxxxx ，你要是在附近也可以来试一试。上www.hiwifi.com
-        ShareUtil share = new ShareUtil(this);
-        // String ssid = mAttempAccessPoint.getScanResult().SSID;
-        // String shareText = "极WIFI钥匙今天帮我连上了" + ssid + "，这个WIFI的连接密码为" +
-        // wifiPwd
-        // + "，你要是在附近也可以来试一试。"
-        // + getResources().getString(R.string.share_moments_content);
-        share.initImagePath(R.drawable.wifikey_icon_share);
-        share.showShare(WechatMoments.NAME, shareText, shareText, APP_URL,
-                ConfigConstant.IMAGE_PATH);
+        // 启动分享GUI
+        oks.show(this);
     }
 
     @Override
@@ -470,22 +451,10 @@ public class CheckPasswordActivity extends BaseActivity implements
             case R.id.back_wifilist:
                 closePage();
                 break;
-            case R.id.share_to_weixin:
-                shareToWechat();
+            case R.id.btn_share_to_friends:
+                showShare();
                 break;
 
-            case R.id.share_to_moments:
-                shareToMoments();
-
-                break;
-            case R.id.share_to_qq:
-                shareToQQ();
-
-                break;
-            case R.id.share_to_weibo:
-                shareToWeibo();
-
-                break;
 
             case R.id.show_pwd:
                 showPwdPopupWind(mAttempAccessPoint.getDataModel().getPassword(
@@ -512,10 +481,6 @@ public class CheckPasswordActivity extends BaseActivity implements
             unloginView = (LinearLayout) findViewById(R.id.user_unlogin);
             loginedView = (LinearLayout) findViewById(R.id.user_logined);
             showPwdView = (LinearLayout) findViewById(R.id.user_check_pwd);
-            shareToWechat = (ImageView) findViewById(R.id.share_to_weixin);
-            shareToMoments = (ImageView) findViewById(R.id.share_to_moments);
-            shareToQQ = (ImageView) findViewById(R.id.share_to_qq);
-            shareToWeibo = (ImageView) findViewById(R.id.share_to_weibo);
 
             breakConnect = (Button) findViewById(R.id.break_connection);
             backWifilist = (ImageView) findViewById(R.id.back_wifilist);
@@ -559,12 +524,9 @@ public class CheckPasswordActivity extends BaseActivity implements
         breakConnect.setOnClickListener(this);
         backWifilist.setOnClickListener(this);
         login.setOnClickListener(this);
-        shareToWechat.setOnClickListener(this);
-        shareToMoments.setOnClickListener(this);
         checkPassword.setOnClickListener(this);
-        shareToQQ.setOnClickListener(this);
-        shareToWeibo.setOnClickListener(this);
         password.setOnClickListener(this);
+        this.findViewById(R.id.btn_share_to_friends).setOnClickListener(this);
     }
 
     private PopupWindow popupWindow;
