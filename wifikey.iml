@@ -77,24 +77,24 @@
     <orderEntry type="jdk" jdkName="Android API 19 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="android-support-v4" level="project" />
+    <orderEntry type="library" exported="" name="ShareSDK-Wechat-Core-2.4.2" level="project" />
     <orderEntry type="library" exported="" name="servlet-api" level="project" />
     <orderEntry type="library" exported="" name="umeng-fb-v4.3.2" level="project" />
+    <orderEntry type="library" exported="" name="ShareSDK-Core-2.4.2" level="project" />
     <orderEntry type="library" exported="" name="yjfsdk_00" level="project" />
-    <orderEntry type="library" exported="" name="ShareSDK-Wechat-2.3.8" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-19.1.0" level="project" />
     <orderEntry type="library" exported="" name="umeng-update-v2.4.2" level="project" />
-    <orderEntry type="library" exported="" name="ShareSDK-Core-2.3.8" level="project" />
     <orderEntry type="library" exported="" name="mframework" level="project" />
-    <orderEntry type="library" exported="" name="ShareSDK-QQ-2.3.8" level="project" />
+    <orderEntry type="library" exported="" name="ShareSDK-QQ-2.4.2" level="project" />
     <orderEntry type="library" exported="" name="umeng-analytics-v5.2.4" level="project" />
-    <orderEntry type="library" exported="" name="ShareSDK-Wechat-Core-2.3.8" level="project" />
-    <orderEntry type="library" exported="" name="ShareSDK-Wechat-Moments-2.3.8" level="project" />
     <orderEntry type="library" exported="" name="universal-image-loader-1.8.4-with-sources" level="project" />
     <orderEntry type="library" exported="" name="locSDK_4.2" level="project" />
+    <orderEntry type="library" exported="" name="ShareSDK-Wechat-2.4.2" level="project" />
     <orderEntry type="library" exported="" name="GetuiSdk-2.2.1.0" level="project" />
-    <orderEntry type="library" exported="" name="ShareSDK-SinaWeibo-2.3.8" level="project" />
     <orderEntry type="library" exported="" name="GetuiExt-1.2.2" level="project" />
+    <orderEntry type="library" exported="" name="ShareSDK-Wechat-Moments-2.4.2" level="project" />
     <orderEntry type="library" exported="" name="httpmime-4.2.3" level="project" />
+    <orderEntry type="library" exported="" name="ShareSDK-SinaWeibo-2.4.2" level="project" />
   </component>
 </module>
 

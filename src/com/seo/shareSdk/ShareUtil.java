@@ -161,7 +161,7 @@ public class ShareUtil extends OnekeyShare implements OnClickListener,
 		if (TextUtils.isEmpty(ConfigConstant.IMAGE_PATH)) {
 			initImagePath(resourceId);
 		}
-		final OnekeyShare oks = new OnekeyShare(handler);
+		final OnekeyShare oks = new OnekeyShare();
 		oks.setNotification(R.drawable.hiwifi_launcher, Gl.Ct().getResources()
 				.getString(R.string.app_name));// 分享时Notification的图标和文字
 		// oks.setAddress("12345678901");//接收人的地址--信息和邮件
@@ -216,7 +216,7 @@ public class ShareUtil extends OnekeyShare implements OnClickListener,
 	}
 
 	public void showShare(String platform, String text, String title,String url,String imagePath) {
-		final OnekeyShare oks = new OnekeyShare(handler);
+		final OnekeyShare oks = new OnekeyShare();
 		oks.setNotification(R.drawable.hiwifi_launcher, Gl.Ct().getResources()
 				.getString(R.string.app_name));// 分享时Notification的图标和文字
 		if (!TextUtils.isEmpty(title)) {
