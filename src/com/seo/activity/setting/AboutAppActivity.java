@@ -29,6 +29,7 @@ public class AboutAppActivity extends BaseActivity {
 		case R.id.bt_offi_website:
 			Intent website = new Intent(this, CommonWebviewActivity.class);
 			website.putExtra("type", "webset");
+			website.putExtra("title", "官方网站");
 			website.putExtra("url", RequestConstant
 					.getUrl(RequestTag.HIWIFI_PAGE_OFFICE_WEBSITE));
 			startActivity(website);

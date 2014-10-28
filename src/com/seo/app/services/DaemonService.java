@@ -55,7 +55,7 @@ import com.seo.model.wifi.state.CommerceState;
 import com.seo.store.AccessPointModel;
 import com.seo.utils.NetWorkConnectivity;
 
-public class DaemonService extends Service implements ResponseHandler {
+public class DaemonService extends Service {
 
     public final static String EXTRA_COMMAND = "com.hiwifi.hiwifi.command";
     private final String TAG = "DaemonService";
@@ -192,18 +192,13 @@ public class DaemonService extends Service implements ResponseHandler {
                 case actionType_cmccLogin:
                     adapter = (ConnectAdapter) intent.getBundleExtra(EXTRA_BUNDLE)
                             .getSerializable(EXTRA_Adapter);
-                    if (!cmccTimerStarted()) {
-                        startCmccTimer();
-                    }
                     break;
                 case actionType_cmccLogout:
-                    stopCmccTimer();
                     break;
                 case actionType_openWifi:
                     WifiAdmin.sharedInstance().openNetCard();
                     break;
                 case actionType_refreshCmccTimer:
-                    refreshCmcc();
                     break;
                 case actionType_closeWifi:
                     WifiAdmin.sharedInstance().closeNetCard();
@@ -237,9 +232,7 @@ public class DaemonService extends Service implements ResponseHandler {
     public void addWifiListner() {
         wifiListernerStarted = true;
         HiwifiBroadcastReceiver.addListener(new DaemonWifiEventHandler());
-        if (WifiAdmin.sharedInstance().isCommercenceConnected()) {
-            onCommerceResume();
-        }
+
     }
 
     public class DaemonWifiEventHandler extends WifiEventHandler {
@@ -302,73 +295,6 @@ public class DaemonService extends Service implements ResponseHandler {
         return adapter == null ? null : adapter.getAccount();
     }
 
-    private synchronized Boolean cmccTimerStarted() {
-        return mTimer != null;
-    }
-
-    private synchronized void stopCmccTimer() {
-        if (mTimer != null) {
-            mTimer.cancel();
-            mTimer = null;
-        }
-        HWFLog.e(TAG, "stop cmcc timer");
-    }
-
-    private synchronized void startCmccTimerAfterPingSucess() {
-        final int reportTimeInterval = 60 * 1000;
-        final int clickTimeInterval = 1000;
-        stopCmccTimer();
-        mTimer = new Timer();
-        HWFLog.e(TAG, "schedule cmcc timer, delay" + reportTimeInterval);
-        mTimer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                if (WifiAdmin.sharedInstance().isCommercenceConnected()) {
-                    HWFLog.e(TAG, "current ap is commerce, keep");
-                    if (NetWorkConnectivity.isWifi(Gl.Ct())) {
-                        CommerceState.notifyAccountState("0", "", getAccount(),
-                                CommerceState.LOG_ACTION_KEEPLIVE);
-                    }
-                    if (!Gl.GlConf.cmccIsVip() && !Gl.cmccHasLeftTime()
-                            && adapter != null) {
-                        HWFLog.e(TAG,
-                                "current ap is commerce, no more time, logout");
-                        mHandler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                adapter.logout();
-                            }
-                        });
-                    }
-                } else {
-                    HWFLog.e(TAG,
-                            "current ap is not commerce, disconnect  & cancel timer");
-                    CommerceState.notifyAccountState("0", "", getAccount(),
-                            CommerceState.LOG_ACTION_DISCONNECT);
-                    stopCmccTimer();
-                }
-            }
-        }, reportTimeInterval, reportTimeInterval);
-        mTimer.schedule(new TimerTask() {
-
-            @Override
-            public void run() {
-                if (WifiAdmin.sharedInstance().isCommercenceConnected()
-                        && WifiAdmin.sharedInstance().isConnected()
-                        && !Gl.GlConf.cmccIsVip()) {
-                    int lefttime = Gl.GlConf.getLeftTime();
-                    if (lefttime > 0) {
-                        lefttime--;
-                        if (lefttime >= 0) {
-                            CommerceState.sendBroadcast(
-                                    CommerceState.ACTION_CLICK, lefttime);
-
-                        }
-                    }
-                }
-            }
-        }, clickTimeInterval, clickTimeInterval);
-    }
 
     private Boolean testFinished = true;
     private Runnable pingRunnable = new Runnable() {
@@ -443,7 +369,6 @@ public class DaemonService extends Service implements ResponseHandler {
             @Override
             public void webpage_finish_download(long avgTime) {
                 testFinished = true;
-                startCmccTimerAfterPingSucess();
                 AccessPoint accessPoint = WifiAdmin.sharedInstance()
                         .connectedAccessPoint();
                 if (accessPoint != null) {
@@ -465,7 +390,6 @@ public class DaemonService extends Service implements ResponseHandler {
             @Override
             public void webpage_error_download(int errorCode, String message) {
                 testFinished = true;
-                stopCmccTimer();
                 AccessPoint accessPoint = WifiAdmin.sharedInstance()
                         .connectedAccessPoint();
                 if (accessPoint != null) {
@@ -689,9 +613,6 @@ public class DaemonService extends Service implements ResponseHandler {
                     startPingPageService();
                 }
                 accessPoint.getDataModel().useTimes += 1;
-                if (WifiAdmin.sharedInstance().isCommercenceConnected()) {
-                    onCommerceResume();
-                }
 
                 if (accessPoint.needPassword()) {
                     accessPoint.resetConfigFlag();
@@ -711,12 +632,6 @@ public class DaemonService extends Service implements ResponseHandler {
                             String password = accessPoint.configedPassword();
                             if (!TextUtils.isEmpty(password)
                                     && !password.equals("*")) {
-//								accessPoint
-//										.getDataModel()
-//										.setPassword(
-//												password,
-//												false,
-//												AccessPointModel.PasswordSource.PasswordSourceLocal);
                                 accessPoint.getDataModel().setUserCount("", password, false, AccessPointModel.PasswordSource.PasswordSourceLocal);
                             }
                         }
@@ -734,16 +649,6 @@ public class DaemonService extends Service implements ResponseHandler {
         }
     }
 
-    //
-    public void onCommerceResume() {
-        HWFLog.e(TAG, "onCommerceResume");
-        if (!WifiAdmin.sharedInstance().isConnected()) {
-            return;
-        }
-        if (!cmccTimerStarted()) {
-            refreshCmcc();
-        }
-    }
 
     @Override
     public void onDestroy() {
@@ -865,63 +770,6 @@ public class DaemonService extends Service implements ResponseHandler {
         }
     }
 
-    public void refreshCmcc() {
-        if (!ReleaseConstant.isCommerceOpened) {
-            return;
-        }
-    }
-
-    @Override
-    public void onStart(RequestTag tag, Code code) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void onSuccess(RequestTag tag, ServerResponseParser responseParser) {
-        switch (tag) {
-            case HIWIFI_TIME_GET:
-                try {
-                    if (0 == responseParser.originResponse.getInt("code")
-                            && !responseParser.originResponse.isNull("time")) {
-                        CommerceState.sendBroadcast(CommerceState.ACTION_CLICK,
-                                responseParser.originResponse.getInt("time"));
-                        if (WifiAdmin.sharedInstance().isCommercenceConnected()
-                                && !cmccTimerStarted()) {
-                            startCmccTimer();
-                        }
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                break;
-
-            default:
-                break;
-        }
-
-    }
-
-    @Override
-    public void onFailure(RequestTag tag, Throwable error) {
-        switch (tag) {
-            case HIWIFI_TIME_GET:
-                if (WifiAdmin.sharedInstance().isCommercenceConnected()
-                        && !cmccTimerStarted()) {
-                    startCmccTimer();
-                }
-                break;
-
-            default:
-                break;
-        }
-
-    }
-
-    @Override
-    public void onFinish(RequestTag tag) {
-
-    }
 
 
 }
