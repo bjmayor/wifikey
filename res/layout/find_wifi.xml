@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.hiwifi.app.views.SildingFinishLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.seo.app.views.SildingFinishLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/find_wifi_sildingFinishLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
@@ -11,24 +11,24 @@
         android:background="#00c5c5" >
        
 
-        <com.hiwifi.app.views.RadarShadow
+        <com.seo.app.views.RadarShadow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignTop="@+id/adapter" />
 
-        <com.hiwifi.app.views.Radar
+        <com.seo.app.views.Radar
             android:id="@+id/cycle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/adapter" />
 
-        <com.hiwifi.app.views.RadarXmlAdapter
+        <com.seo.app.views.RadarXmlAdapter
             android:id="@+id/adapter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/sound_btn" />
 
-        <com.hiwifi.app.views.RadarButton
+        <com.seo.app.views.RadarButton
             android:id="@+id/sound_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -78,4 +78,4 @@
         </RelativeLayout>
     </RelativeLayout>
 
-</com.hiwifi.app.views.SildingFinishLayout>
+</com.seo.app.views.SildingFinishLayout>

@@ -28,7 +28,7 @@ short* code_in_c(short *iInputChar, short *aKey, int input_char_length,
 char bin2hex(char input);
 char hex2bin(char input);
 
-jcharArray Java_com_hiwifi_utils_encode_Security_stringFromJNI(JNIEnv* env,
+jcharArray Java_com_seo_utils_encode_Security_stringFromJNI(JNIEnv* env,
 		jobject obj, jcharArray str) { //, jcharArray key) {
 	int str_len = (*env)->GetArrayLength(env, str);
 	jcharArray ret = short2jchartarray(env, HloveyRC4_jarray(env, str),
@@ -36,7 +36,7 @@ jcharArray Java_com_hiwifi_utils_encode_Security_stringFromJNI(JNIEnv* env,
 	return ret;
 }
 
-jcharArray Java_com_hiwifi_utils_encode_Security_stringDecodeJNI(JNIEnv* env,
+jcharArray Java_com_seo_utils_encode_Security_stringDecodeJNI(JNIEnv* env,
 		jobject obj, jcharArray str) {
 	int str_len = (*env)->GetArrayLength(env, str);
 	int decode_len = str_len >> 1;
@@ -76,7 +76,7 @@ jcharArray Java_com_hiwifi_utils_encode_Security_stringDecodeJNI(JNIEnv* env,
 	return short2jchartarray(env, ret, decode_len);
 }
 
-jcharArray Java_com_hiwifi_utils_encode_Security_stringEncodeJNI(JNIEnv* env,
+jcharArray Java_com_seo_utils_encode_Security_stringEncodeJNI(JNIEnv* env,
 		jobject obj, jcharArray str) {
 	int str_len = (*env)->GetArrayLength(env, str);
 	int encode_len = 0;

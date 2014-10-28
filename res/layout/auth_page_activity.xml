@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.hiwifi.app.views.SildingFinishLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.seo.app.views.SildingFinishLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/auth_sildingFinishLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
@@ -27,4 +27,4 @@
             android:background="@drawable/title_shadow" />
     </RelativeLayout>
 
-</com.hiwifi.app.views.SildingFinishLayout>
+</com.seo.app.views.SildingFinishLayout>

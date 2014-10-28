@@ -31,7 +31,6 @@
 
     <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE"></uses-permission>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_GPS" />
 
     <uses-feature android:name="android.hardware.wifi" />
@@ -50,21 +49,21 @@
 
     <!-- Allows access to the Download Manager -->
     <permission
-        android:name="com.hiwifi.permission.ACCESS_DOWNLOAD_MANAGER"
+        android:name="com.seo.permission.ACCESS_DOWNLOAD_MANAGER"
         android:description="@string/permdesc_downloadManager"
         android:label="@string/permlab_downloadManager"
         android:protectionLevel="normal" />
 
     <!-- Allows advanced access to the Download Manager -->
     <permission
-        android:name="com.hiwifi.permission.ACCESS_DOWNLOAD_MANAGER_ADVANCED"
+        android:name="com.seo.permission.ACCESS_DOWNLOAD_MANAGER_ADVANCED"
         android:description="@string/permdesc_downloadManagerAdvanced"
         android:label="@string/permlab_downloadManagerAdvanced"
         android:protectionLevel="normal" />
 
     <!-- Allows to send broadcasts on download completion -->
     <permission
-        android:name="com.hiwifi.permission.SEND_DOWNLOAD_COMPLETED_INTENTS"
+        android:name="com.seo.permission.SEND_DOWNLOAD_COMPLETED_INTENTS"
         android:description="@string/permdesc_downloadCompletedIntent"
         android:label="@string/permlab_downloadCompletedIntent"
         android:protectionLevel="normal" />
@@ -97,7 +96,7 @@
     <!-- <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" /> -->
 
     <application
-        android:name="com.hiwifi.hiwifi.Gl"
+        android:name="com.seo.hiwifi.Gl"
         android:allowBackup="true"
         android:icon="@drawable/hiwifi_launcher"
         android:label="@string/app_name"
@@ -168,7 +167,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.hiwifi.hiwifi.wxapi.WXEntryActivity"
+            android:name="com.seo.hiwifi.wxapi.WXEntryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
             android:screenOrientation="portrait"
@@ -176,7 +175,7 @@
         <!-- ShareSdk -->
 
         <service
-            android:name="com.hiwifi.app.services.DaemonService"
+            android:name="com.seo.app.services.DaemonService"
             android:label="后台服务"
             android:process=":daemon" />
         <service
@@ -184,14 +183,14 @@
             android:enabled="true"
             android:process=":remote"></service>
 
-        <receiver android:name="com.hiwifi.app.receiver.GetSMSReceiver">
+        <receiver android:name="com.seo.app.receiver.GetSMSReceiver">
             <intent-filter android:priority="1024">
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
 
         <activity
-            android:name="com.hiwifi.activity.CommonWebviewActivity"
+            android:name="com.seo.activity.CommonWebviewActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"></activity>
@@ -225,7 +224,7 @@
 
         <!-- 配置第三方Receiver -->
         <receiver
-            android:name="com.hiwifi.app.receiver.GeTuiBroadcastReceiver"
+            android:name="com.seo.app.receiver.GeTuiBroadcastReceiver"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.igexin.sdk.action.6rIksTq4Qm8KRtq1kNyxY1" />
@@ -340,46 +339,46 @@
             android:screenOrientation="portrait" />
         -->
         <activity
-            android:name="com.hiwifi.activity.setting.AuthPageActivity"
+            android:name="com.seo.activity.setting.AuthPageActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.hiwifi.activity.protalpage.JSTestActivity"
+            android:name="com.seo.activity.protalpage.JSTestActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.hiwifi.activity.test.TestCenterActivity"
+            android:name="com.seo.activity.test.TestCenterActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.hiwifi.activity.test.UrlTestActivity"
+            android:name="com.seo.activity.test.UrlTestActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.hiwifi.activity.wifi.FindWIFIActivity"
+            android:name="com.seo.activity.wifi.FindWIFIActivity"
             android:hardwareAccelerated="true"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"></activity>
 
 
         <activity
-            android:name="com.hiwifi.activity.setting.TermsOfServiceActivity"
+            android:name="com.seo.activity.setting.TermsOfServiceActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.hiwifi.activity.setting.AboutAppActivity"
+            android:name="com.seo.activity.setting.AboutAppActivity"
             android:screenOrientation="portrait"></activity>
 
         <activity
-            android:name="com.hiwifi.activity.UpgradeAppActivity"
+            android:name="com.seo.activity.UpgradeAppActivity"
             android:screenOrientation="portrait"></activity>
 
         <provider
-            android:name="com.hiwifi.downloadproviders.downloads.DownloadProvider"
+            android:name="com.seo.downloadproviders.downloads.DownloadProvider"
             android:authorities="mydownloads.com.seo.wifikey" />
 
-        <service android:name="com.hiwifi.downloadproviders.downloads.DownloadService" />
+        <service android:name="com.seo.downloadproviders.downloads.DownloadService" />
 
         <receiver
-            android:name="com.hiwifi.downloadproviders.downloads.DownloadReceiver"
+            android:name="com.seo.downloadproviders.downloads.DownloadReceiver"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -388,12 +387,22 @@
         </receiver>
 
         <activity
-            android:name="com.hiwifi.activity.MainTabActivity"
+            android:name="com.seo.activity.MainTabActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustNothing"></activity>
+            android:windowSoftInputMode="adjustNothing">
+
+            <intent-filter>
+                <action android:name="android.settings.WIFI_SETTINGS" />
+                <action android:name="android.net.wifi.PICK_WIFI_NETWORK" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.VOICE_LAUNCH" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+            </activity>
         <activity
-            android:name="com.hiwifi.activity.TutorialActivity"
+            android:name="com.seo.activity.TutorialActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustNothing">
@@ -408,18 +417,18 @@
         </activity>
 
         <activity
-            android:name="com.hiwifi.activity.wifi.CheckPasswordActivity"
+            android:name="com.seo.activity.wifi.CheckPasswordActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.hiwifi.activity.wifi.WiFiOperateActivity"
+            android:name="com.seo.activity.wifi.WiFiOperateActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.hiwifi.activity.FeedbackActivity"
+            android:name="com.seo.activity.FeedbackActivity"
             android:screenOrientation="portrait"></activity>
 
         <activity
-            android:name="com.hiwifi.activity.SplashActiviy"
+            android:name="com.seo.activity.SplashActiviy"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -428,7 +437,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.hiwifi.activity.PortalPageActivity"
+            android:name="com.seo.activity.PortalPageActivity"
             android:screenOrientation="portrait"></activity>
 
         <!-- 注册积分墙、推荐墙Activity（开发者勾选了积分墙或推荐墙广告形式则必填） -->

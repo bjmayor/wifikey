@@ -36,13 +36,13 @@
             android:src="@drawable/mask"
             android:visibility="gone" />
 
-        <com.hiwifi.app.views.PullToRefreshView
+        <com.seo.app.views.PullToRefreshView
             android:id="@+id/refresh"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:orientation="vertical" >
 
-            <com.hiwifi.app.views.MyScrollView
+            <com.seo.app.views.MyScrollView
                 android:id="@+id/myscrollview"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
@@ -64,7 +64,7 @@
                     android:layout_height="wrap_content"/>
                         -->
 
-                        <com.hiwifi.app.views.MyListView
+                        <com.seo.app.views.MyListView
                             android:id="@+id/listView"
                             android:layout_width="match_parent"
                             android:layout_height="fill_parent"
@@ -84,8 +84,8 @@
                         android:scaleType="fitXY"
                         android:src="@drawable/mask" />
                 </FrameLayout>
-            </com.hiwifi.app.views.MyScrollView>
-        </com.hiwifi.app.views.PullToRefreshView>
+            </com.seo.app.views.MyScrollView>
+        </com.seo.app.views.PullToRefreshView>
     </LinearLayout>
     <!-- </ViewSwitcher> -->
 

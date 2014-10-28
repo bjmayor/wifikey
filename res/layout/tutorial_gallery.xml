@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
 
-    <com.hiwifi.app.views.TutorialImage
+    <com.seo.app.views.TutorialImage
         android:id="@+id/ImageView_content"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"

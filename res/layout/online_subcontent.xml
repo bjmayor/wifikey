@@ -30,14 +30,14 @@
                     android:layout_height="fill_parent"
                     android:layout_weight="0.26" >
 
-                    <com.hiwifi.app.views.GradualBackground
+                    <com.seo.app.views.GradualBackground
                         android:id="@+id/gradual_bg"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:gravity="center"
                         android:orientation="vertical"
                         android:visibility="visible" >
-                    </com.hiwifi.app.views.GradualBackground>
+                    </com.seo.app.views.GradualBackground>
 
                     <RelativeLayout
                         android:layout_width="fill_parent"

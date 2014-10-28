@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
-        <com.hiwifi.app.views.UINavigationView
+        <com.seo.app.views.UINavigationView
             android:id="@+id/nav"
             android:layout_width="match_parent"
             android:layout_height="@dimen/nav_height"
@@ -18,7 +18,7 @@
             app:right_drawable="@drawable/wap_share_icon"
             app:left_drawable="@drawable/icon_back"
             app:tv_title="SHIT" >
-        </com.hiwifi.app.views.UINavigationView>
+        </com.seo.app.views.UINavigationView>
 
         <WebView
             android:id="@+id/webView"
