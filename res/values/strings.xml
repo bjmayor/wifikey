@@ -312,8 +312,8 @@
 
     <!-- check wdp text -->
     <string name="check_text_check_pwd">查看密码</string>
-    <string name="check_text_check_premise">该功能需要积分才可以使用</string>
-    <string name="check_text_user_login">赚取积分</string>
+    <string name="check_text_check_premise">该功能需要查看资格</string>
+    <string name="check_text_user_login">获取查看资格</string>
     <string name="check_text_title_save">安全连接，可查看密码</string>
     <string name="check_text_check">点击查看</string>
     <string name="check_text_wpd">密码</string>

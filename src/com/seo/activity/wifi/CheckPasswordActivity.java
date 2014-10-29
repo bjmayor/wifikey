@@ -147,7 +147,7 @@ public class CheckPasswordActivity extends BaseActivity implements
 
     private void setAchieveTextColor() {
         int color = getResources().getColor(R.color.text_blue);
-        SpannableString prompt = new SpannableString("（做任务赚积分，可获得更多查看次数）");
+        SpannableString prompt = new SpannableString("（分享给好友，可获得更多查看次数）");
         achieve.setText(prompt);
     }
 
