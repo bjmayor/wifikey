@@ -63,7 +63,7 @@
         AppSecret="38a4f8204cc784f81f9f0daaf31e02e3"
         RedirectUrl="http://www.sharesdk.cn"
         ShareByAppClient="false"
-        Enable="true" />
+        Enable="false" />
 
     <TencentWeibo
         Id="2" 
@@ -71,7 +71,7 @@
         AppKey="801307650"
         AppSecret="ae36f4ee3946e1cbb98d6965b0b2ff5c"
         RedirectUri="http://sharesdk.cn"
-        Enable="true" />
+        Enable="false" />
 
     <!-- ShareByAppClient标识是否使用微博客户端分享，默认是false -->
     <QZone
@@ -80,7 +80,7 @@
         AppId="100371282"
         AppKey="aed9b0303e3ed1e27bae87c33761161d"
         ShareByAppClient="true"
-        Enable="true" />
+        Enable="false" />
     
     <!-- 
     	Wechat微信和WechatMoments微信朋友圈的appid是一样的；
@@ -107,7 +107,7 @@
         SortId="5"
         AppId="wx375ab23ce2dc8ca1"
         AppSecret="7798140c598c17a897b78dac78380331"
-        BypassApproval="true"
+        BypassApproval="false"
         Enable="true" />
         
 	<WechatFavorite
@@ -124,7 +124,7 @@
         AppId="100371282"
         AppKey="aed9b0303e3ed1e27bae87c33761161d"
         ShareByAppClient="true"
-        Enable="true" />
+        Enable="false" />
     
     <Facebook
         Id="8"
