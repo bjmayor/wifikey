@@ -20,17 +20,18 @@ import com.seo.activity.setting.TermsOfServiceActivity;
 import com.seo.activity.test.TestCenterActivity;
 import com.seo.app.notification.NotificationUtil;
 import com.seo.app.views.SwitchButton;
+import com.seo.constant.ConfigConstant;
 import com.seo.constant.ReleaseConstant;
 import com.seo.constant.RequestConstant;
-import com.seo.hiwifi.Gl;
 import com.seo.model.ClientInfo;
-import com.seo.shareSdk.ShareUtil;
+import com.seo.wifikey.Gl;
 import com.seo.wifikey.R;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.update.UmengUpdateAgent;
 
 import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.onekeyshare.OnekeyShare;
+
 
 /**
  * @author jack at 2014-8-25
@@ -203,17 +204,14 @@ public class SettingFragment extends Fragment implements OnClickListener,
         oks.setNotification(R.drawable.hiwifi_launcher, getString(R.string.app_name));
         // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间使用
         oks.setTitle(getString(R.string.share));
-        // titleUrl是标题的网络链接，仅在人人网和QQ空间使用
-        oks.setTitleUrl(RequestConstant.getUrl(RequestConstant.RequestTag.URL_APP_DOWNLOAD));
         // text是分享文本，所有平台都需要这个字段
-        oks.setText("绝逼好用的上网神器，不仅自动连接，还可查看密码。再不用就out了。");
+        oks.setText("在外面也能连上免费wifi了，这软件还行！我真是一会儿都离不开网啊，推荐你也试试："+RequestConstant.getUrl(RequestConstant.RequestTag.URL_APP_DOWNLOAD));
         // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
-        ShareUtil.initImagePath(R.drawable.wifikey_icon_share);
-//			oks.setImagePath(ConfigConstant.IMAGE_PATH);// 本地文件路径
+//        oks.setImagePath("/sdcard/test.jpg");
         // url仅在微信（包括好友和朋友圈）中使用
         oks.setUrl(RequestConstant.getUrl(RequestConstant.RequestTag.URL_APP_DOWNLOAD));
         // comment是我对这条分享的评论，仅在人人网和QQ空间使用
-        oks.setComment("用了次，太牛了。别人还在问服务员，我就自动连上了。小伙伴们都惊呆了。");
+        oks.setComment("真的很赞!");
         // site是分享此内容的网站名称，仅在QQ空间使用
         oks.setSite(getString(R.string.app_name));
         // siteUrl是分享此内容的网站地址，仅在QQ空间使用

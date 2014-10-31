@@ -8,8 +8,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.seo.constant.RequestConstant.RequestTag;
-import com.seo.hiwifi.Gl;
-import com.seo.hiwifi.Gl.GlConf;
+import com.seo.wifikey.Gl;
+import com.seo.wifikey.Gl.GlConf;
 import com.seo.model.request.RequestFactory;
 import com.seo.model.request.RequestManager;
 import com.seo.model.request.RequestManager.ResponseHandler;

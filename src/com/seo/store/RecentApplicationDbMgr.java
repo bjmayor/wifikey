@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteStatement;
 import android.util.Log;
 
 import com.seo.app.utils.RecentApplicatonUtil;
-import com.seo.hiwifi.Gl;
+import com.seo.wifikey.Gl;
 import com.seo.model.log.HWFLog;
 import com.seo.store.jsdatabase.base.Table;
 

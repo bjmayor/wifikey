@@ -22,7 +22,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.seo.downloadproviders.DownloadManager;
-import com.seo.hiwifi.Gl;
+import com.seo.wifikey.Gl;
 import com.seo.model.log.HWFLog;
 import com.seo.store.AppInfoModel;
 import com.seo.store.RecentApplicationDbMgr;

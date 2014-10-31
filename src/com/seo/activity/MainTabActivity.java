@@ -11,12 +11,16 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.seo.activity.wifi.WifiListFragment;
-import com.seo.hiwifi.Gl;
+import com.seo.constant.ConfigConstant;
+import com.seo.constant.ReleaseConstant;
+import com.seo.wifikey.Gl;
 import com.seo.wifikey.R;
 import com.umeng.analytics.MobclickAgent;
 
 import org.adver.score.sdk.YjfSDK;
 import org.adver.score.sdk.widget.UpdateScordNotifier;
+
+import cn.waps.AppConnect;
 
 /**
  * @author jack at 2014-8-25
@@ -34,7 +38,13 @@ public class MainTabActivity extends ActionBarActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_tab_layout);
-
+        if (ReleaseConstant.getAdPlatform() == ReleaseConstant.ADPLATFORM.ADPLATFORM_WANPU) {
+            AppConnect.getInstance(this);
+        }
+        if (ReleaseConstant.getAdPlatform() == ReleaseConstant.ADPLATFORM.ADPLATFORM_WANPU) {
+            AppConnect.getInstance(this).setWeixinAppId(ConfigConstant.WX_KEY, this);
+            AppConnect.getInstance(this).initUninstallAd(this);
+        }
         if (savedInstanceState == null) {
             FragmentTransaction transaction = getSupportFragmentManager()
                     .beginTransaction();
@@ -73,6 +83,7 @@ public class MainTabActivity extends ActionBarActivity implements
     }
 
     Menu mMenu;
+
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         // If the nav drawer is open, hide action items related to the content
@@ -97,8 +108,7 @@ public class MainTabActivity extends ActionBarActivity implements
     public boolean onOptionsItemSelected(MenuItem item) {
         // Pass the event to ActionBarDrawerToggle, if it returns
         // true, then it has handled the app icon touch event
-        switch (item.getItemId())
-        {
+        switch (item.getItemId()) {
             case R.id.action_refresh:
                 WifiListFragment.instance.clickToRefresh();
                 break;

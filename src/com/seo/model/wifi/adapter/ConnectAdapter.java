@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 import android.content.Context;
 
-import com.seo.hiwifi.Gl;
+import com.seo.wifikey.Gl;
 import com.seo.model.log.HWFLog;
 import com.seo.model.wifi.state.Account;
 import com.seo.support.http.AsyncHttpClient;

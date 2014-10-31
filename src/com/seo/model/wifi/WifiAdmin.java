@@ -23,7 +23,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.seo.constant.ReleaseConstant;
-import com.seo.hiwifi.Gl;
+import com.seo.wifikey.Gl;
 import com.seo.model.log.HWFLog;
 import com.seo.model.log.LogUtil;
 import com.seo.model.wifi.AccessPoint.SECURITY_TYPE;

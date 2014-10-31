@@ -21,7 +21,7 @@ import android.text.TextUtils;
 import com.seo.app.services.DaemonService;
 import com.seo.constant.ConfigConstant;
 import com.seo.constant.RequestConstant;
-import com.seo.hiwifi.Gl;
+import com.seo.wifikey.Gl;
 import com.seo.model.log.HWFLog;
 import com.seo.model.wifi.AccessPoint.WebpageTestListener;
 import com.seo.model.wifi.WifiAdmin;

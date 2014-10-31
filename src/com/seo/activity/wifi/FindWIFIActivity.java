@@ -27,7 +27,7 @@ import com.seo.app.views.Radar;
 import com.seo.app.views.RadarButton;
 import com.seo.app.views.SildingFinishLayout;
 import com.seo.app.views.SildingFinishLayout.OnSildingFinishListener;
-import com.seo.hiwifi.Gl;
+import com.seo.wifikey.Gl;
 import com.seo.wifikey.R;
 import com.umeng.analytics.MobclickAgent;
 

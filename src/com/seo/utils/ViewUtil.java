@@ -19,7 +19,7 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.inputmethod.InputMethodManager;
 
-import com.seo.hiwifi.Gl;
+import com.seo.wifikey.Gl;
 
 public class ViewUtil {
 	/**

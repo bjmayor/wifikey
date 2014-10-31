@@ -10,7 +10,7 @@ import com.seo.activity.base.BaseActivity;
 import com.seo.app.views.UINavigationView;
 import com.seo.constant.RequestConstant;
 import com.seo.constant.RequestConstant.RequestTag;
-import com.seo.hiwifi.Gl;
+import com.seo.wifikey.Gl;
 import com.seo.wifikey.R;
 
 public class AboutAppActivity extends BaseActivity {

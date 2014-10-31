@@ -15,7 +15,6 @@ import com.seo.model.wifi.WifiAdmin;
 import com.seo.utils.ImageUtil;
 import com.seo.wifikey.R;
 
-import cn.sharesdk.framework.ShareSDK;
 
 public class SplashActiviy extends BaseActivity  {
 
@@ -31,7 +30,6 @@ public class SplashActiviy extends BaseActivity  {
 
     @Override
     protected void findViewById() {
-        ShareSDK.initSDK(this);
         // initView();
         isFirstOpen = ClientInfo.shareInstance().isFirstStarted();
     }

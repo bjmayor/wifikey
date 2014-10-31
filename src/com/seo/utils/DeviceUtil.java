@@ -1,6 +1,6 @@
 package com.seo.utils;
 
-import com.seo.hiwifi.Gl;
+import com.seo.wifikey.Gl;
 
 import android.content.Context;
 import android.net.wifi.WifiManager;

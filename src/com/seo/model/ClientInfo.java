@@ -13,13 +13,13 @@ import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 
 import com.seo.constant.RequestConstant.RequestTag;
-import com.seo.hiwifi.Gl;
 import com.seo.model.request.ResponseParserInterface;
 import com.seo.model.request.ServerResponseParser;
 import com.seo.model.request.ServerResponseParser.ServerCode;
 import com.seo.store.KeyValueModel;
 import com.seo.utils.DeviceUtil;
 import com.seo.utils.encode.MD5Util;
+import com.seo.wifikey.Gl;
 
 /**
  * @description 设备唯一的信息都在这里管理

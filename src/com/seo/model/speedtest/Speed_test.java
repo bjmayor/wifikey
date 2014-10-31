@@ -6,7 +6,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeoutException;
 
-import com.seo.hiwifi.Gl;
+import com.seo.wifikey.Gl;
 
 import android.annotation.SuppressLint;
 import android.net.TrafficStats;

@@ -15,8 +15,7 @@
     <!-- hehehe -->
     <string name="title_box">百宝箱</string>
     <string name="title_discover">发现</string>
-    <string name="app_name">WiFi上网神器</string>
-    <string name="app_slogan">让上网更痛快</string>
+    <string name="app_name">WiFi联网神器</string>
     <string name="action_settings_next">下一步</string>
     <string name="action_settings">settings</string>
     <string name="action_settings_logout">注销</string>
@@ -135,7 +134,7 @@
 
     <!-- nofitication -->
     <string name="notification_wifi_open_helper">未开启WiFi</string>
-    <string name="notification_wifi_connect_show">WiFi上网神器 已帮您连接到</string>
+    <string name="notification_wifi_connect_show">WiFi联网神器 已帮您连接到</string>
     <string name="notification_wifi_no_connected">未连接WiFi</string>
     <string name="notification_wifi_open">打开WiFi</string>
 
@@ -302,8 +301,8 @@
     <string name="title_activity_reset_password">ResetPasswordActivity</string>
     <!-- 2.0 -->
 
-    <string name="share_moments_content">上可以下载最新版的WiFi上网神器，2000万免费WiFi任你连</string>
-    <string name="share_qq_moments_content">上wifikey.sinaapp.com/可以下载最新版的WiFi上网神器，2000万免费WiFi任你连</string>
+    <string name="share_moments_content">上可以下载最新版的WiFi联网神器，50,000,000免费WiFi任你连</string>
+    <string name="share_qq_moments_content">上wifikey.sinaapp.com/可以下载最新版的WiFi联网神器，50,000,000免费WiFi任你连</string>
     <!-- error info -->
     <string name="empty_username">用户名为空</string>
     <string name="empty_pass">密码为空</string>
@@ -325,13 +324,13 @@
     <string name="check_text_weibo">新浪微博</string>
     <string name="splash_hiwifi_publish">演道工作室出品</string>
     <string name="splash_text_version">v2.0</string>
-    <string name="wifi_list_nofree">本区域未发现可以免费的共享WiFi</string>
-    <string name="wifi_list_nofree_notify">(在较繁华的商业区会有更多机会刷到免费的WiFi)</string>
+    <string name="wifi_list_nofree">附近未发现免费共享的WIFI</string>
+    <string name="wifi_list_nofree_notify">在咖啡馆、大商场等公共商业场所附近更容易刷到免费WIFI</string>
     <string name="service_deal_title">服务协议</string>
     <string name="update_app">开始升级</string>
     <string name="un_update_app">暂不更新</string>
-    <string name="app_have_update">WiFi上网神器有更新了</string>
-    <string name="about_hiwifi_title">关于WiFi上网神器</string>
+    <string name="app_have_update">WiFi联网神器有更新了</string>
+    <string name="about_hiwifi_title">关于WiFi联网神器</string>
     <string name="about_version">版本介绍</string>
     <string name="about_offi_website">访问官网</string>
 

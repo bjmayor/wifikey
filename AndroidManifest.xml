@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.seo.wifikey"
     android:installLocation="auto"
-    android:versionCode="010600"
-    android:versionName="1.06">
+    android:versionCode="010700"
+    android:versionName="1.07">
 
 
     <!-- ShareSdk permission -->
@@ -96,7 +96,7 @@
     <!-- <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" /> -->
 
     <application
-        android:name="com.seo.hiwifi.Gl"
+        android:name="com.seo.wifikey.Gl"
         android:allowBackup="true"
         android:icon="@drawable/hiwifi_launcher"
         android:label="@string/app_name"
@@ -113,28 +113,6 @@
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="R133KR7GeZNupLlBR4698Duc"></meta-data>
 
-        <!-- sharesdk begin-->
-        <activity
-            android:name="cn.sharesdk.framework.ShareSDKUIShell"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustResize" >
-            <intent-filter>
-                <data android:scheme="tencent100371282" />
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".wxapi.WXEntryActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-        <!-- ShareSdk end-->
 
         <service
             android:name="com.seo.app.services.DaemonService"
@@ -267,13 +245,11 @@
             android:value="542c0899fd98c5483b034f96"></meta-data>
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="others" />
+            android:value="xiaomi" />
         <!-- 正式版用release 开发版用develope -->
 
-        <service
-            android:name="com.umeng.common.net.DownloadingService"
-            android:exported="true"
-            android:process=":DownloadingService"></service>
+        <meta-data android:name="APP_ID" android:value="1477ffcec00db92a7a1c7c5c404fb68b"/>
+        <meta-data android:name="APP_PID" android:value="default"/>
         <!-- 下载服务 -->
         <service
             android:name="com.umeng.update.net.DownloadingService"
@@ -301,8 +277,26 @@
             android:screenOrientation="portrait" />
         -->
         <activity
-            android:name="com.seo.activity.setting.AuthPageActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name="cn.sharesdk.framework.ShareSDKUIShell"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" >
+            <intent-filter>
+                <data android:scheme="tencent100371282" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+
         <activity
             android:name="com.seo.activity.protalpage.JSTestActivity"
             android:launchMode="singleTop"

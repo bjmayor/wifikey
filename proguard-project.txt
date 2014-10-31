@@ -4,6 +4,7 @@
 -dontskipnonpubliclibraryclassmembers
 -dontpreverify
 -ignorewarnings
+-dontwarn cn.waps.**
 
 -keep public class * extends android.app.Activity
 -keep public class * extends android.app.Application
@@ -91,6 +92,8 @@
 
 -keep class com.taobao.** {*; }
 -keep class android.taobao.** {*; }
+-keep public class cn.waps.** {*;}
+-keep public interface cn.waps.** {*;}
 
 -keep public class com.seo.wifikey.R$*{
     *;

@@ -9,7 +9,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
 
-import com.seo.hiwifi.Gl;
+import com.seo.wifikey.Gl;
 import com.seo.model.wifi.AccessPoint;
 import com.seo.support.http.AsyncHttpClient;
 import com.seo.utils.NetWorkConnectivity;

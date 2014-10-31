@@ -7,7 +7,7 @@ import org.apache.http.entity.StringEntity;
 import org.json.JSONObject;
 
 import com.seo.constant.RequestConstant;
-import com.seo.hiwifi.Gl;
+import com.seo.wifikey.Gl;
 import com.seo.store.RequestDbMgr;
 import com.seo.store.RequestModel;
 import com.seo.support.http.JsonHttpResponseHandler;

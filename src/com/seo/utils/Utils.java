@@ -11,7 +11,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.seo.app.utils.ToastUtil;
-import com.seo.hiwifi.Gl;
+import com.seo.wifikey.Gl;
 
 public class Utils {
 	public enum Level {

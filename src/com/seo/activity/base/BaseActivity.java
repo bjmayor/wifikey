@@ -19,7 +19,6 @@ import com.seo.model.log.LogUtil;
 import com.seo.utils.ViewUtil;
 import com.umeng.analytics.MobclickAgent;
 
-import cn.sharesdk.framework.ShareSDK;
 
 public abstract class BaseActivity extends ActionBarActivity implements
 		OnClickListener {
@@ -48,7 +47,6 @@ public abstract class BaseActivity extends ActionBarActivity implements
 		if (bar != null) {
 			bar.setDisplayHomeAsUpEnabled(true);
 		}
-		ShareSDK.initSDK(this);
 		// HiwifiApplication.context = this;
 		// HiwifiApplication hiwifiApplication =
 		// HiwifiApplication.getInstance();

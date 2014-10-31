@@ -13,12 +13,8 @@ dependencies {
     compile('com.android.support:appcompat-v7:19.+') {
         exclude module: 'support-v4'
     }
-    compile files('libs/ShareSDK-Core-2.4.2.jar')
-    compile files('libs/ShareSDK-QQ-2.4.2.jar')
-    compile files('libs/ShareSDK-SinaWeibo-2.4.2.jar')
-    compile files('libs/ShareSDK-Wechat-2.4.2.jar')
-    compile files('libs/ShareSDK-Wechat-Core-2.4.2.jar')
-    compile files('libs/ShareSDK-Wechat-Moments-2.4.2.jar')
+    compile files('libs/AppOffer_2.3.1.jar')
+    compile files('libs/libammsdk.jar')
 }
 
 task copyNativeLibs(type: Copy) {
@@ -69,7 +65,7 @@ android {
     buildTypes {
         release {
             signingConfig  signingConfigs.release
-            runProguard true
+            runProguard false
             proguardFile 'proguard-project.txt'
         }
     }

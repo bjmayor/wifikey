@@ -39,7 +39,7 @@ import com.seo.app.task.UpdateConfRunnable;
 import com.seo.app.task.WifiConfigToDBRunnable;
 import com.seo.constant.ReleaseConstant;
 import com.seo.constant.RequestConstant.RequestTag;
-import com.seo.hiwifi.Gl;
+import com.seo.wifikey.Gl;
 import com.seo.model.log.HWFLog;
 import com.seo.model.request.RequestManager.ResponseHandler;
 import com.seo.model.request.ServerResponseParser;

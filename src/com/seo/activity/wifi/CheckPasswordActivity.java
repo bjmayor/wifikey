@@ -31,30 +31,30 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import cn.sharesdk.framework.ShareSDK;
-import cn.sharesdk.onekeyshare.OnekeyShare;
-import cn.sharesdk.sina.weibo.SinaWeibo;
-import cn.sharesdk.tencent.qq.QQ;
-import cn.sharesdk.wechat.friends.Wechat;
-import cn.sharesdk.wechat.moments.WechatMoments;
 
 import com.seo.activity.base.BaseActivity;
 import com.seo.app.receiver.HiwifiBroadcastReceiver;
 import com.seo.app.receiver.HiwifiBroadcastReceiver.WifiEventHandler;
 import com.seo.constant.ConfigConstant;
+import com.seo.constant.ReleaseConstant;
 import com.seo.constant.RequestConstant;
-import com.seo.hiwifi.Gl;
 import com.seo.model.log.LogUtil;
 import com.seo.model.wifi.AccessPoint;
 import com.seo.model.wifi.AccessPoint.WifiConnectState;
 import com.seo.model.wifi.WifiAdmin;
-import com.seo.shareSdk.ShareUtil;
 import com.seo.utils.ViewUtil;
 import com.seo.wifikey.R;
 import com.umeng.analytics.MobclickAgent;
 
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.onekeyshare.OnekeyShare;
+import cn.waps.AppConnect;
+import cn.waps.AppListener;
+import cn.waps.UpdatePointsNotifier;
+
+
 public class CheckPasswordActivity extends BaseActivity implements
-        OnClickListener, UpdateScordNotifier {
+        OnClickListener, UpdateScordNotifier, UpdatePointsNotifier {
 
     private LinearLayout unloginView, loginedView, showPwdView, shareContainer;
     private ImageView backWifilist, stateImage;
@@ -65,10 +65,10 @@ public class CheckPasswordActivity extends BaseActivity implements
 
     private final int SET_TRAFFIC = 1;
     private final int REQUEST_LOGIN = 1001;
-    private final int SCORE_PER_VIEW = 5;
+    private final int SCORE_PER_VIEW = 10;
     private String wifiPwd = "";
 
-    public final String APP_URL = "http://www.hiwifi.com/app";
+    public final String APP_URL = "http://wifikey.sinaapp.com";
 
     private Handler handler = new Handler() {
         public void handleMessage(android.os.Message msg) {
@@ -81,9 +81,8 @@ public class CheckPasswordActivity extends BaseActivity implements
     };
 
     private void initView() {
-        setRemainChance();
-        setAchieveTextColor();
-        hasLoginedView();
+
+        setStatus();
         if (mAttempAccessPoint != null) {
             this.joinedBssid.setText(mAttempAccessPoint.getScanResult().SSID);
             this.joinedState
@@ -95,44 +94,6 @@ public class CheckPasswordActivity extends BaseActivity implements
 
     }
 
-    private void hasLoginedView() {
-        mWifiAdmin = WifiAdmin.sharedInstance();
-        mAttempAccessPoint = mWifiAdmin.getActiveAccessPoint();
-        if (leftTimes > SCORE_PER_VIEW) {
-            switchViewStatus(status_can_view_password);
-        } else {
-            switchViewStatus(status_not_enought_score);
-        }
-        if (mAttempAccessPoint != null) {
-            wifiPwd = mAttempAccessPoint.getDataModel().getPassword(false);
-            if (mAttempAccessPoint.getConnectState() == WifiConnectState.connectState_canconnect) {
-                unloginSharePrompt.setVisibility(View.INVISIBLE);
-            } else if (mAttempAccessPoint.getConnectState() == WifiConnectState.connectState_local_restore) {
-                unloginSharePrompt.setVisibility(View.INVISIBLE);
-            }
-        }
-
-    }
-
-    private void noWifiPwd() {
-        remain.setVisibility(View.GONE);
-        achieve.setVisibility(View.GONE);
-        sharePrompt.setVisibility(View.GONE);
-        checkPassword.setClickable(false);
-        checkPassword.setEnabled(false);
-        checkPassword.setBackgroundResource(R.drawable.selector_btn_gray);
-        title_save.setText("无密码");
-        if (mAttempAccessPoint != null) {
-            if (mAttempAccessPoint.getConnectState() == WifiConnectState.connectState_canconnect) {
-                title_save.setText("无密码");
-            } else if (mAttempAccessPoint.getConnectState() == WifiConnectState.connectState_local_restore) {
-                title_save.setText("本地密码，无法查看");
-            }
-        } else {
-            closePage();
-        }
-
-    }
 
     private void setRemainChance() {
         int color = getResources().getColor(R.color.text_blue);
@@ -151,6 +112,9 @@ public class CheckPasswordActivity extends BaseActivity implements
         achieve.setText(prompt);
     }
 
+    private void showShareByWp() {
+        AppConnect.getInstance(this).showShareOffers(this);
+    }
 
     private void showShare() {
         ShareSDK.initSDK(this);
@@ -162,17 +126,14 @@ public class CheckPasswordActivity extends BaseActivity implements
         oks.setNotification(R.drawable.hiwifi_launcher, getString(R.string.app_name));
         // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间使用
         oks.setTitle(getString(R.string.share));
-        // titleUrl是标题的网络链接，仅在人人网和QQ空间使用
-        oks.setTitleUrl(RequestConstant.getUrl(RequestConstant.RequestTag.URL_APP_DOWNLOAD));
         // text是分享文本，所有平台都需要这个字段
-        oks.setText("绝逼好用的上网神器，不仅自动连接，还可查看密码。再不用就out了。");
+        oks.setText("在外面也能连上免费wifi了，这软件还行！我真是一会儿都离不开网啊，推荐你也试试：" + RequestConstant.getUrl(RequestConstant.RequestTag.URL_APP_DOWNLOAD));
         // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
-        ShareUtil.initImagePath(R.drawable.wifikey_icon_share);
-//			oks.setImagePath(ConfigConstant.IMAGE_PATH);// 本地文件路径
+//        oks.setImagePath("/sdcard/test.jpg");
         // url仅在微信（包括好友和朋友圈）中使用
         oks.setUrl(RequestConstant.getUrl(RequestConstant.RequestTag.URL_APP_DOWNLOAD));
         // comment是我对这条分享的评论，仅在人人网和QQ空间使用
-        oks.setComment("用了次，太牛了。别人还在问服务员，我就自动连上了。小伙伴们都惊呆了。");
+        oks.setComment("真的很赞!");
         // site是分享此内容的网站名称，仅在QQ空间使用
         oks.setSite(getString(R.string.app_name));
         // siteUrl是分享此内容的网站地址，仅在QQ空间使用
@@ -210,12 +171,28 @@ public class CheckPasswordActivity extends BaseActivity implements
         super.onDestroy();
     }
 
+    private static boolean showAd = false;
+
+    private boolean showAd() {
+        return showAd;
+    }
+
     public void onResume() {
+        super.onResume();
         startCheckCurrentFlow();
         ScoreWallSDK.getInstance(CheckPasswordActivity.this).getScore(
                 CheckPasswordActivity.this, CheckPasswordActivity.this);
         HiwifiBroadcastReceiver.addListener(wifiEventHandler);
-        super.onResume();
+        AppConnect.getInstance(this).getConfig("showad", "no", new AppListener() {
+            @Override
+            public void onGetConfig(String value) {
+                if (value.equals("no")) {
+                    showAd = false;
+                } else {
+                    showAd = true;
+                }
+            }
+        });
     }
 
     @Override
@@ -264,7 +241,7 @@ public class CheckPasswordActivity extends BaseActivity implements
     private long last_flow, last_mobile_flow;
     private long currentFlow;
     private boolean isMobile;
-    private AccessPoint mAttempAccessPoint = null;
+    private AccessPoint mAttempAccessPoint = WifiAdmin.sharedInstance().getActiveAccessPoint();
 
     public void startCheckCurrentFlow() {
         if (flowTimer == null) {
@@ -316,7 +293,6 @@ public class CheckPasswordActivity extends BaseActivity implements
                 // mAttempAccessPoint =
                 // mWifiAdmin.getAccessPointByBSSID(wifiInfo
                 // .getBSSID());
-                hasLoginedView();
                 if (mAttempAccessPoint != null) {
                     joinedBssid
                             .setText(mAttempAccessPoint.getScanResult().SSID);
@@ -368,13 +344,24 @@ public class CheckPasswordActivity extends BaseActivity implements
 
     private void requestServerRemainChance() {
         // 获取查看次数
-        ScoreWallSDK.getInstance(CheckPasswordActivity.this).getScore(
-                CheckPasswordActivity.this, CheckPasswordActivity.this);
+        if (ReleaseConstant.getAdPlatform() == ReleaseConstant.ADPLATFORM.ADPLATFORM_YJF) {
+            ScoreWallSDK.getInstance(CheckPasswordActivity.this).getScore(
+                    CheckPasswordActivity.this, CheckPasswordActivity.this);
+        } else {
+            AppConnect.getInstance(this).getPoints(this);
+        }
+
+
     }
 
     private void comsume() {
-        ScoreWallSDK.getInstance(CheckPasswordActivity.this).consumeScore(
-                CheckPasswordActivity.this, CheckPasswordActivity.this, SCORE_PER_VIEW);
+        if (ReleaseConstant.getAdPlatform() == ReleaseConstant.ADPLATFORM.ADPLATFORM_YJF) {
+            ScoreWallSDK.getInstance(CheckPasswordActivity.this).consumeScore(
+                    CheckPasswordActivity.this, CheckPasswordActivity.this, SCORE_PER_VIEW);
+        } else {
+            AppConnect.getInstance(this).spendPoints(SCORE_PER_VIEW, this);
+        }
+
     }
 
     private final int status_not_enought_score = 0;
@@ -406,8 +393,13 @@ public class CheckPasswordActivity extends BaseActivity implements
         switch (v.getId()) {
             case R.id.login:
                 // 引导赚取积分
-                ScoreWallSDK.getInstance(CheckPasswordActivity.this)
-                        .showScoreWall();
+                if (ReleaseConstant.getAdPlatform() == ReleaseConstant.ADPLATFORM.ADPLATFORM_YJF) {
+                    ScoreWallSDK.getInstance(CheckPasswordActivity.this)
+                            .showScoreWall();
+                } else {
+                    AppConnect.getInstance(this).showOffers(this);
+                }
+
                 break;
             case R.id.check_pwd:
                 MobclickAgent
@@ -428,13 +420,13 @@ public class CheckPasswordActivity extends BaseActivity implements
                         wifiPwd = WiFiLocalManager.getWifiInfo(mAttempAccessPoint.getPrintableSsid()).password;
                     }
                     comsume();
-                }
-                if (!TextUtils.isEmpty(wifiPwd)) {
-                    password.setText(wifiPwd);
+                    if (!TextUtils.isEmpty(wifiPwd)) {
+                        password.setText(wifiPwd);
+                    } else {
+                        password.setText("请重新进入页面");
+                    }
                 } else {
-                    // 不可分享
-                    shareTitleView.setVisibility(View.INVISIBLE);
-                    shareContainer.setVisibility(View.INVISIBLE);
+                    password.setText("当前没有连接WiFi,请连接WiFi后再查看");
                 }
 
                 break;
@@ -452,7 +444,7 @@ public class CheckPasswordActivity extends BaseActivity implements
                 closePage();
                 break;
             case R.id.btn_share_to_friends:
-                showShare();
+                showShareByWp();
                 break;
 
 
@@ -566,9 +558,12 @@ public class CheckPasswordActivity extends BaseActivity implements
 
     @Override
     protected void updateView() {
-        hasLoginedView();
+        setStatus();
     }
 
+    /**
+     * **********易积分广告回调**********
+     */
     @Override
     public void updateScoreFailed(int arg0, int arg1, String arg2) {
         closeMyDialog();
@@ -600,11 +595,31 @@ public class CheckPasswordActivity extends BaseActivity implements
                 break;
         }
         closeMyDialog();
+        setStatus();
+    }
+
+    private void setStatus() {
         setRemainChance();
-        if (leftTimes >= SCORE_PER_VIEW) {
-        switchViewStatus(status_can_view_password);
+        setAchieveTextColor();
+        if (leftTimes >= SCORE_PER_VIEW || !showAd()) {
+            switchViewStatus(status_can_view_password);
         } else {
             switchViewStatus(status_not_enought_score);
         }
+    }
+
+    /**
+     * **********万普广告回调**********
+     */
+    @Override
+    public void getUpdatePoints(String s, int i) {
+        leftTimes = i;
+        closeMyDialog();
+        setStatus();
+    }
+
+    @Override
+    public void getUpdatePointsFailed(String s) {
+
     }
 }

@@ -3,7 +3,7 @@ package com.seo.app.task;
 import java.util.List;
 
 import com.seo.constant.RequestConstant.RequestTag;
-import com.seo.hiwifi.Gl;
+import com.seo.wifikey.Gl;
 import com.seo.model.request.RequestFactory;
 import com.seo.model.request.RequestManager;
 import com.seo.model.request.RequestManager.ResponseHandler;

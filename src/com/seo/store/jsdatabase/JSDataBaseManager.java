@@ -6,7 +6,7 @@ import java.util.HashSet;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
 
-import com.seo.hiwifi.Gl;
+import com.seo.wifikey.Gl;
 import com.seo.store.jsdatabase.base.AbstractDatabaseHelper;
 import com.seo.store.jsdatabase.tables.DownloadList;
 import com.seo.store.jsdatabase.tables.JavaScriptMapTable;

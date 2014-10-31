@@ -9,8 +9,8 @@ package com.seo.constant;
 import java.io.Serializable;
 import java.net.URI;
 
-import com.seo.hiwifi.Gl;
 import com.seo.support.http.RequestParams;
+import com.seo.wifikey.Gl;
 
 /**
  * http 请求管理类

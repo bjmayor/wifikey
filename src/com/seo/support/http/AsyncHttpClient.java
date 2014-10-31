@@ -23,7 +23,7 @@ import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.seo.hiwifi.Gl;
+import com.seo.wifikey.Gl;
 import com.seo.model.ClientInfo;
 
 import org.apache.http.Header;

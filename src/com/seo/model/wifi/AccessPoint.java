@@ -25,7 +25,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 
 import com.seo.app.utils.RegUtil;
-import com.seo.hiwifi.Gl;
+import com.seo.wifikey.Gl;
 import com.seo.model.log.LogUtil;
 import com.seo.model.speedtest.WebPageTester;
 import com.seo.model.speedtest.WebPageTester.WebpageTestAction;

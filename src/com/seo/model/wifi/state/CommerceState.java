@@ -12,7 +12,7 @@ import android.os.Bundle;
 import com.seo.app.services.DaemonService;
 import com.seo.constant.ReleaseConstant;
 import com.seo.constant.RequestConstant.RequestTag;
-import com.seo.hiwifi.Gl;
+import com.seo.wifikey.Gl;
 import com.seo.model.request.RequestFactory;
 import com.seo.model.request.RequestManager.ResponseHandler;
 import com.seo.model.request.ServerResponseParser;

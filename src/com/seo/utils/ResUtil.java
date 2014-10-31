@@ -7,7 +7,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.NinePatch;
 import android.graphics.drawable.Drawable;
 
-import com.seo.hiwifi.Gl;
+import com.seo.wifikey.Gl;
 
 public class ResUtil {
 	

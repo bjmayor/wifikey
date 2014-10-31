@@ -6,8 +6,8 @@ import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.os.Message;
 
-import com.seo.hiwifi.Gl;
-import com.seo.hiwifi.Gl.GlConf;
+import com.seo.wifikey.Gl;
+import com.seo.wifikey.Gl.GlConf;
 import com.seo.model.log.HWFLog;
 import com.seo.model.log.LogUtil;
 import com.seo.support.http.AsyncHttpResponseHandler;

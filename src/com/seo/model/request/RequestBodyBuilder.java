@@ -11,7 +11,7 @@ import org.json.JSONObject;
 
 import android.annotation.SuppressLint;
 
-import com.seo.hiwifi.Gl;
+import com.seo.wifikey.Gl;
 import com.seo.model.wifi.AccessPoint;
 import com.seo.model.wifi.WifiAdmin;
 import com.seo.store.AccessPointModel;

@@ -8,7 +8,7 @@ import android.content.Intent;
 import android.widget.RemoteViews;
 
 import com.seo.app.services.DaemonService;
-import com.seo.hiwifi.Gl;
+import com.seo.wifikey.Gl;
 import com.seo.model.ClientInfo;
 import com.seo.wifikey.R;
 

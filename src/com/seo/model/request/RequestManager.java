@@ -23,7 +23,7 @@ import android.os.Looper;
 import com.seo.constant.ReleaseConstant;
 import com.seo.constant.RequestConstant;
 import com.seo.constant.RequestConstant.RequestTag;
-import com.seo.hiwifi.Gl;
+import com.seo.wifikey.Gl;
 import com.seo.model.log.HWFLog;
 import com.seo.model.log.LogUtil;
 import com.seo.model.request.RequestManager.ResponseHandler.Code;

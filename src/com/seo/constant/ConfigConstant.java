@@ -10,7 +10,7 @@ import java.io.File;
 
 import android.os.Environment;
 
-import com.seo.hiwifi.Gl;
+import com.seo.wifikey.Gl;
 
 /**
  * @author shunping.liu@hiwifi.tw
@@ -202,4 +202,9 @@ public class ConfigConstant {
 	public static final int PUSH_DOMAIN_SCORE_MIN = 0;
 
 	public static final String KEY_BAIDUMAP = "R133KR7GeZNupLlBR4698Duc";
+    public static final String WX_KEY = "wx375ab23ce2dc8ca1";
+    public static final String WX_SECRET = "7798140c598c17a897b78dac78380331";
+    public static final String QQ_APPID = "100424468";
+    public static final String QQ_SECRET = "c7394704798a158208a74ab60104f0ba";
+    public static final String WP_APPID = "1477ffcec00db92a7a1c7c5c404fb68b";//万普广告
 }

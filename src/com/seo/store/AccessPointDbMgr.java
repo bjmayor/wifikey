@@ -9,7 +9,7 @@ import java.util.Set;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.seo.hiwifi.Gl;
+import com.seo.wifikey.Gl;
 import com.seo.model.log.HWFLog;
 import com.seo.model.wifi.AccessPoint;
 import com.seo.store.jsdatabase.base.Table;

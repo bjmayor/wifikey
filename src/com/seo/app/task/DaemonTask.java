@@ -1,6 +1,6 @@
 package com.seo.app.task;
 
-import com.seo.hiwifi.Gl;
+import com.seo.wifikey.Gl;
 import com.seo.model.log.HWFLog;
 
 /**

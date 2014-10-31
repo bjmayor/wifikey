@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.seo.activity.protalpage.JSTestActivity;
-import com.seo.hiwifi.Gl;
+import com.seo.wifikey.Gl;
 import com.seo.model.wifi.AccessPoint;
 import com.seo.model.wifi.WifiAdmin;
 

@@ -5,7 +5,7 @@ import org.json.JSONObject;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.seo.hiwifi.Gl;
+import com.seo.wifikey.Gl;
 import com.seo.store.jsdatabase.base.Table;
 
 public class MobileInfoDbMgr implements Table {
