@@ -444,7 +444,7 @@ public class CheckPasswordActivity extends BaseActivity implements
                 closePage();
                 break;
             case R.id.btn_share_to_friends:
-                showShareByWp();
+                showShare();
                 break;
 
 
