@@ -4,19 +4,25 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
 
 import com.seo.activity.base.BaseActivity;
 import com.seo.activity.wifi.WiFiOperateActivity;
+import com.seo.constant.ConfigConstant;
+import com.seo.constant.ReleaseConstant;
 import com.seo.model.ClientInfo;
 import com.seo.model.wifi.WifiAdmin;
 import com.seo.utils.ImageUtil;
 import com.seo.wifikey.R;
 
+import net.youmi.android.AdManager;
+import net.youmi.android.offers.OffersManager;
 
-public class SplashActiviy extends BaseActivity  {
+
+public class SplashActiviy extends BaseActivity {
 
     private boolean hasUpgrate = false;
     private boolean isFirstOpen;
@@ -26,6 +32,15 @@ public class SplashActiviy extends BaseActivity  {
     @Override
     protected void onClickEvent(View paramView) {
 
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (ReleaseConstant.getAdPlatform() == ReleaseConstant.ADPLATFORM.ADPLATFORM_YOUMI) {
+            AdManager.getInstance(this).init(ConfigConstant.YOUMI_PUBLISH_ID, ConfigConstant.YOUMI_APP_SECRET, false);
+            OffersManager.getInstance(this).onAppLaunch();
+        }
     }
 
     @Override
@@ -85,7 +100,6 @@ public class SplashActiviy extends BaseActivity  {
         }, 3000);
 
     }
-
 
 
     private boolean destroyed = false;

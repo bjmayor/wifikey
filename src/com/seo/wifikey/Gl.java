@@ -43,6 +43,8 @@ import com.seo.utils.DeviceUtil;
 import com.seo.utils.ResUtil;
 import com.umeng.analytics.MobclickAgent;
 
+import net.youmi.android.offers.OffersManager;
+
 import org.apache.http.NoHttpResponseException;
 import org.json.JSONObject;
 import org.xmlpull.v1.XmlPullParser;
@@ -57,6 +59,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 import cn.waps.AppConnect;
 
@@ -117,7 +120,10 @@ public final class Gl extends Application {
         if (ReleaseConstant.getAdPlatform() == ReleaseConstant.ADPLATFORM.ADPLATFORM_WANPU) {
             AppConnect.getInstance(this).close();
 
+        } else if (ReleaseConstant.getAdPlatform() == ReleaseConstant.ADPLATFORM.ADPLATFORM_YOUMI) {
+            OffersManager.getInstance(this).onAppExit();
         }
+
         unregisterReceiver(hiwifiBroadcastReceiver);
         super.onTerminate();
     }
@@ -364,6 +370,8 @@ public final class Gl extends Application {
         private static final String AP_KEY_PING_EXPECTCONTENT = "ap_key_ping_expectcontent";
         public static final String DEFAULT_PING_URL = "http://m.baidu.com";
         public static final String DEFAULT_PING_EXPECTCONTENT = "030173";
+        public static final String AP_KEY_ADSETED = "AP_KEY_ADSETED";
+        public static final String AP_KEY_AD_PLATFORM = "AP_KEY_AD_PLATFORM";
 
         private static SharedPreferences spPreferences = null;
 
@@ -384,6 +392,27 @@ public final class Gl extends Application {
             Editor editor = sp().edit();
             editor.putInt(SPEED_TEST_TIMEOUT, timeout);
             editor.apply();
+        }
+
+        public static boolean isAdSetted() {
+            return sp().getBoolean(AP_KEY_ADSETED, false);
+        }
+
+        public static void setApKeyAdPlatform(ReleaseConstant.ADPLATFORM platform) {
+            Editor editor = sp().edit();
+            editor.putBoolean(AP_KEY_ADSETED, true);
+            editor.putInt(AP_KEY_AD_PLATFORM, platform.ordinal());
+            editor.commit();
+        }
+
+        public static ReleaseConstant.ADPLATFORM getAdPlatForm() {
+            ReleaseConstant.ADPLATFORM adplatform = ReleaseConstant.ADPLATFORM.ADPLATFORM_YOUMI;
+            try {
+                adplatform = ReleaseConstant.ADPLATFORM.valueOf(sp().getInt(AP_KEY_AD_PLATFORM, 0));
+            } catch (Exception e) {
+                adplatform = ReleaseConstant.ADPLATFORM.ADPLATFORM_YOUMI;
+            }
+            return adplatform;
         }
 
         public static void setSpeedTestUrls(ArrayList<String> urls) {

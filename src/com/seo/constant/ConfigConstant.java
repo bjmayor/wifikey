@@ -207,4 +207,8 @@ public class ConfigConstant {
     public static final String QQ_APPID = "100424468";
     public static final String QQ_SECRET = "c7394704798a158208a74ab60104f0ba";
     public static final String WP_APPID = "1477ffcec00db92a7a1c7c5c404fb68b";//万普广告
+
+    public static final String YOUMI_PUBLISH_ID = "4eebc47b5b78f4f6";
+    public static final String YOUMI_APP_SECRET = "dc0dc86429d6034c";
+
 }

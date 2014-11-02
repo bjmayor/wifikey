@@ -1,5 +1,6 @@
 package com.seo.activity.wifi;
 
+import java.lang.annotation.ElementType;
 import java.math.BigDecimal;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -45,6 +46,9 @@ import com.seo.model.wifi.WifiAdmin;
 import com.seo.utils.ViewUtil;
 import com.seo.wifikey.R;
 import com.umeng.analytics.MobclickAgent;
+
+import net.youmi.android.offers.OffersManager;
+import net.youmi.android.offers.PointsManager;
 
 import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.onekeyshare.OnekeyShare;
@@ -347,8 +351,12 @@ public class CheckPasswordActivity extends BaseActivity implements
         if (ReleaseConstant.getAdPlatform() == ReleaseConstant.ADPLATFORM.ADPLATFORM_YJF) {
             ScoreWallSDK.getInstance(CheckPasswordActivity.this).getScore(
                     CheckPasswordActivity.this, CheckPasswordActivity.this);
-        } else {
+        } else if (ReleaseConstant.getAdPlatform() == ReleaseConstant.ADPLATFORM.ADPLATFORM_WANPU) {
             AppConnect.getInstance(this).getPoints(this);
+        } else {
+            int myPointBalance = PointsManager.getInstance(this).queryPoints();
+            leftTimes = myPointBalance;
+            setStatus();
         }
 
 
@@ -358,8 +366,10 @@ public class CheckPasswordActivity extends BaseActivity implements
         if (ReleaseConstant.getAdPlatform() == ReleaseConstant.ADPLATFORM.ADPLATFORM_YJF) {
             ScoreWallSDK.getInstance(CheckPasswordActivity.this).consumeScore(
                     CheckPasswordActivity.this, CheckPasswordActivity.this, SCORE_PER_VIEW);
-        } else {
+        } else if (ReleaseConstant.getAdPlatform() == ReleaseConstant.ADPLATFORM.ADPLATFORM_WANPU) {
             AppConnect.getInstance(this).spendPoints(SCORE_PER_VIEW, this);
+        } else {
+            PointsManager.getInstance(this).spendPoints(SCORE_PER_VIEW);
         }
 
     }
@@ -396,8 +406,18 @@ public class CheckPasswordActivity extends BaseActivity implements
                 if (ReleaseConstant.getAdPlatform() == ReleaseConstant.ADPLATFORM.ADPLATFORM_YJF) {
                     ScoreWallSDK.getInstance(CheckPasswordActivity.this)
                             .showScoreWall();
-                } else {
+                } else if (ReleaseConstant.getAdPlatform() == ReleaseConstant.ADPLATFORM.ADPLATFORM_WANPU) {
+
+                    AppConnect.getInstance(this).setOffersCloseListener(new AppListener() {
+                        @Override
+                        public void onOffersClose() {
+                            AppConnect.getInstance(CheckPasswordActivity.this).close();
+                            requestServerRemainChance();
+                        }
+                    });
                     AppConnect.getInstance(this).showOffers(this);
+                } else {
+                    OffersManager.getInstance(this).showOffersWall();
                 }
 
                 break;
@@ -613,6 +633,7 @@ public class CheckPasswordActivity extends BaseActivity implements
      */
     @Override
     public void getUpdatePoints(String s, int i) {
+        LogUtil.e(TAG, s + ";i=" + i);
         leftTimes = i;
         closeMyDialog();
         setStatus();

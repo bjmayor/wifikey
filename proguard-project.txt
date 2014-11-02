@@ -5,6 +5,7 @@
 -dontpreverify
 -ignorewarnings
 -dontwarn cn.waps.**
+-dontwarn net.youmi.android.**
 
 -keep public class * extends android.app.Activity
 -keep public class * extends android.app.Application
@@ -94,7 +95,9 @@
 -keep class android.taobao.** {*; }
 -keep public class cn.waps.** {*;}
 -keep public interface cn.waps.** {*;}
-
+-keep class net.youmi.android.** {
+    *;
+}
 -keep public class com.seo.wifikey.R$*{
     *;
 }

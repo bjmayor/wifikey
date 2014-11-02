@@ -86,6 +86,7 @@
     <orderEntry type="library" exported="" name="libammsdk" level="project" />
     <orderEntry type="library" exported="" name="AppOffer_2.3.1" level="project" />
     <orderEntry type="library" exported="" name="GetuiSdk-2.2.1.0" level="project" />
+    <orderEntry type="library" exported="" name="YoumiSdk_v4.10_2014-09-25_offers" level="project" />
     <orderEntry type="library" exported="" name="ShareSDK-Wechat-Moments-2.4.2" level="project" />
     <orderEntry type="library" exported="" name="GetuiExt-1.2.2" level="project" />
     <orderEntry type="library" exported="" name="httpmime-4.2.3" level="project" />
