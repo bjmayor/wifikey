@@ -1,0 +1,132 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/setting_background_color"
+    tools:context="com.seo.activity.AppRecommendActivity$PlaceholderFragment">
+
+    <LinearLayout
+        android:id="@+id/ll_recommend_by_wanpu"
+        style="@style/setting_item_clicked"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/setting_item_text"
+            android:layout_width="@dimen/width_zero"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/recommend_by_wanpu" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:drawableRight="@drawable/bar_right_arrow"
+            android:gravity="center_vertical"
+            android:textColor="@color/text_color_gray" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_recommend_by_youmi"
+        style="@style/setting_item_clicked"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/setting_item_text"
+            android:layout_width="@dimen/width_zero"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/recommend_by_youmi" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:drawableRight="@drawable/bar_right_arrow"
+            android:gravity="center_vertical"
+            android:textColor="@color/text_color_gray" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_recommend_by_yjf"
+        style="@style/setting_item_clicked"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/setting_item_text"
+            android:layout_width="@dimen/width_zero"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/recommend_by_yjf" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:drawableRight="@drawable/bar_right_arrow"
+            android:gravity="center_vertical"
+            android:textColor="@color/text_color_gray" />
+    </LinearLayout>
+
+
+
+    <!-- 入口布局 -->
+    <RelativeLayout
+        android:id="@+id/rlayout1"
+        android:layout_width="40dp"
+        android:layout_height="70dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true" >
+
+        <!-- 入口点击图标 -->
+        <ImageView
+            android:id="@+id/imageview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="5dp"
+            android:scaleType="fitXY" />
+
+        <!-- 入口文字 -->
+        <TextView
+            android:id="@+id/textview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginRight="5dp"
+            android:textSize="12sp"
+            android:textColor="#000"/>
+
+        <!-- 新推广提示布局 -->
+        <RelativeLayout
+            android:id="@+id/newtip_area"
+            android:layout_width="28dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:gravity="right" >
+
+            <ImageView
+                android:id="@+id/newtip_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:id="@+id/newtip_tv"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:paddingBottom="4dp"
+                android:textColor="#ffffff"
+                android:textSize="8sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

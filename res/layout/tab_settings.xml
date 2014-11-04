@@ -102,7 +102,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_app_recommend"
+                android:id="@+id/ll_app_share"
                 style="@style/setting_item_clicked"
                 android:layout_width="match_parent"
                 android:orientation="horizontal">
@@ -123,6 +123,28 @@
                     android:gravity="center_vertical"
                     android:drawableRight="@drawable/bar_right_arrow"
                      />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_app_recommend"
+                style="@style/setting_item_clicked"
+                android:layout_width="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/setting_item_text"
+                    android:layout_width="@dimen/width_zero"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/app_recommends" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/text_color_gray"
+                    android:gravity="center_vertical"
+                    android:drawableRight="@drawable/bar_right_arrow"
+                    />
             </LinearLayout>
 
 

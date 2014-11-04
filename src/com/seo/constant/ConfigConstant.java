@@ -23,7 +23,6 @@ public class ConfigConstant {
 	public static final String ENCODING_8859_1 = "8859_1";
 	public static final String ENCODING_UTF_8 = "utf-8";
 
-	public static final String HIWIFI_ADMIN_PACKAGE = "com.hiwifi";
 
 	public static int SCORE = 0;
 	public static final int REQUEST_LOGIN_CODE = 0x200;

@@ -75,7 +75,6 @@
     <orderEntry type="library" exported="" name="umeng-fb-v4.3.2" level="project" />
     <orderEntry type="library" exported="" name="ShareSDK-Core-2.4.2" level="project" />
     <orderEntry type="library" exported="" name="yjfsdk_00" level="project" />
-    <orderEntry type="library" exported="" name="appcompat-v7-19.1.0" level="project" />
     <orderEntry type="library" exported="" name="umeng-update-v2.4.2" level="project" />
     <orderEntry type="library" exported="" name="mframework" level="project" />
     <orderEntry type="library" exported="" name="ShareSDK-QQ-2.4.2" level="project" />
@@ -86,6 +85,7 @@
     <orderEntry type="library" exported="" name="libammsdk" level="project" />
     <orderEntry type="library" exported="" name="AppOffer_2.3.1" level="project" />
     <orderEntry type="library" exported="" name="GetuiSdk-2.2.1.0" level="project" />
+    <orderEntry type="library" exported="" name="appcompat-v7-20.0.0" level="project" />
     <orderEntry type="library" exported="" name="YoumiSdk_v4.10_2014-09-25_offers" level="project" />
     <orderEntry type="library" exported="" name="ShareSDK-Wechat-Moments-2.4.2" level="project" />
     <orderEntry type="library" exported="" name="GetuiExt-1.2.2" level="project" />

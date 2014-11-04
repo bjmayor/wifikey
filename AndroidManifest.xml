@@ -2,35 +2,33 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.seo.wifikey"
     android:installLocation="auto"
-    android:versionCode="010700"
-    android:versionName="1.07">
-
+    android:versionCode="010200"
+    android:versionName="1.02" >
 
     <!-- ShareSdk permission -->
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
 
-
     <!-- 震动 -->
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <!-- 使用网络功能所需权限 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <!-- SDK离线地图和cache功能需要读写外部存储器 -->
-    <uses-permission android:name="android.permission.WRITE_SETTINGS"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <!-- 获取设置信息和详情页直接拨打电话需要以下权限 -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
-    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <!-- 使用定位功能所需权限,demo已集成百度定位SDK,不使用定位功能可去掉以下6项 -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
-    <permission android:name="android.permission.BAIDU_LOCATION_SERVICE"></permission>
+    <permission android:name="android.permission.BAIDU_LOCATION_SERVICE" />
 
-    <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_GPS" />
 
     <uses-feature android:name="android.hardware.wifi" />
@@ -75,11 +73,11 @@
 
     <permission
         android:name="getui.permission.GetuiService"
-        android:protectionLevel="normal"></permission>
+        android:protectionLevel="normal" />
 
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"></uses-permission>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <!-- 允许应用读取低级别的系统日志文件 -->
-    <uses-permission android:name="android.permission.READ_LOGS"></uses-permission>
+    <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <supports-screens
@@ -96,12 +94,12 @@
     <!-- <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" /> -->
 
     <application
-        android:name="com.seo.wifikey.Gl"
+        android:name=".Gl"
         android:allowBackup="true"
         android:icon="@drawable/hiwifi_launcher"
         android:label="@string/app_name"
         android:screenOrientation="portrait"
-        android:theme="@style/ActivityTheme">
+        android:theme="@style/ActivityTheme" >
         >
         <!--
         <meta-data
@@ -111,8 +109,7 @@
         -->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="R133KR7GeZNupLlBR4698Duc"></meta-data>
-
+            android:value="R133KR7GeZNupLlBR4698Duc" />
 
         <service
             android:name="com.seo.app.services.DaemonService"
@@ -121,10 +118,10 @@
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
-            android:process=":remote"></service>
+            android:process=":remote" />
 
-        <receiver android:name="com.seo.app.receiver.GetSMSReceiver">
-            <intent-filter android:priority="1024">
+        <receiver android:name="com.seo.app.receiver.GetSMSReceiver" >
+            <intent-filter android:priority="1024" >
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
@@ -133,7 +130,7 @@
             android:name="com.seo.activity.CommonWebviewActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan" />
 
         <!--
         <service
@@ -165,7 +162,7 @@
         <!-- 配置第三方Receiver -->
         <receiver
             android:name="com.seo.app.receiver.GeTuiBroadcastReceiver"
-            android:exported="false">
+            android:exported="false" >
             <intent-filter>
                 <action android:name="com.igexin.sdk.action.6rIksTq4Qm8KRtq1kNyxY1" />
             </intent-filter>
@@ -176,9 +173,9 @@
             android:name="com.igexin.sdk.PushService"
             android:exported="true"
             android:label="NotificationCenter"
-            android:process=":pushservice"></service>
+            android:process=":pushservice" />
 
-        <receiver android:name="com.igexin.sdk.PushReceiver">
+        <receiver android:name="com.igexin.sdk.PushReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
@@ -193,13 +190,13 @@
             android:exported="false"
             android:process=":pushservice"
             android:taskAffinity="com.igexin.sdk.PushActivityTask"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <service
             android:name="com.igexin.download.DownloadService"
             android:process=":pushservice" />
 
-        <receiver android:name="com.igexin.download.DownloadReceiver">
+        <receiver android:name="com.igexin.download.DownloadReceiver" >
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
@@ -222,7 +219,7 @@
 
         <receiver
             android:name="com.igexin.getuiext.service.PayloadReceiver"
-            android:exported="false">
+            android:exported="false" >
             <intent-filter>
 
                 <!-- 这个com.igexin.sdk.action.7fjUl2Z3LH6xYy7NQK4ni4固定，不能修改 -->
@@ -242,19 +239,19 @@
 
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="542c0899fd98c5483b034f96"></meta-data>
+            android:value="542c0899fd98c5483b034f96" />
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="xiaomi" />
+            android:value="mumayi" />
         <!-- 正式版用release 开发版用develope -->
-        <!--万普-->
+        <!-- 万普 -->
         <meta-data
             android:name="APP_ID"
             android:value="1477ffcec00db92a7a1c7c5c404fb68b" />
         <meta-data
             android:name="APP_PID"
             android:value="default" />
-        <!--有米-->
+        <!-- 有米 -->
         <meta-data
             android:name="YOUMI_CHANNEL"
             android:value="default" >
@@ -262,12 +259,12 @@
         <!-- 下载服务 -->
         <service
             android:name="com.umeng.update.net.DownloadingService"
-            android:process=":DownloadingService"></service>
+            android:process=":DownloadingService" />
 
         <activity
             android:name="com.umeng.update.UpdateDialogActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
             android:name="com.umeng.fb.ConversationActivity"
             android:theme="@android:style/Theme.NoTitleBar" />
@@ -290,52 +287,48 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:windowSoftInputMode="stateHidden|adjustResize">
+            android:windowSoftInputMode="stateHidden|adjustResize" >
             <intent-filter>
                 <data android:scheme="tencent100371282" />
+
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".wxapi.WXEntryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
         <activity
             android:name="com.seo.activity.protalpage.JSTestActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.seo.activity.test.TestCenterActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.seo.activity.test.UrlTestActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.seo.activity.wifi.FindWIFIActivity"
             android:hardwareAccelerated="true"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"></activity>
-
-
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.seo.activity.setting.TermsOfServiceActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.seo.activity.setting.AboutAppActivity"
-            android:screenOrientation="portrait"></activity>
-
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.seo.activity.UpgradeAppActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
 
         <provider
             android:name="com.seo.downloadproviders.downloads.DownloadProvider"
@@ -345,7 +338,7 @@
 
         <receiver
             android:name="com.seo.downloadproviders.downloads.DownloadReceiver"
-            android:exported="false">
+            android:exported="false" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
@@ -356,8 +349,7 @@
             android:name="com.seo.activity.MainTabActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustNothing">
-
+            android:windowSoftInputMode="adjustNothing" >
             <intent-filter>
                 <action android:name="android.settings.WIFI_SETTINGS" />
                 <action android:name="android.net.wifi.PICK_WIFI_NETWORK" />
@@ -371,7 +363,7 @@
             android:name="com.seo.activity.TutorialActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustNothing">
+            android:windowSoftInputMode="adjustNothing" >
 
             <!--
             <intent-filter>
@@ -381,21 +373,19 @@
             </intent-filter>
             -->
         </activity>
-
         <activity
             android:name="com.seo.activity.wifi.CheckPasswordActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.seo.activity.wifi.WiFiOperateActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.seo.activity.FeedbackActivity"
-            android:screenOrientation="portrait"></activity>
-
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.seo.activity.SplashActiviy"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -404,12 +394,12 @@
         </activity>
         <activity
             android:name="com.seo.activity.PortalPageActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
 
         <!-- 注册积分墙、推荐墙Activity（开发者勾选了积分墙或推荐墙广告形式则必填） -->
         <activity
             android:name="org.adver.score.sdk.view.WallActivity"
-            android:configChanges="keyboardHidden|orientation"></activity>
+            android:configChanges="keyboardHidden|orientation" />
         <activity
             android:name="org.adver.score.sdk.view.DetailActivity"
             android:configChanges="keyboardHidden|orientation" />
@@ -417,25 +407,49 @@
         <activity
             android:name="org.adver.score.sdk.view.WebActivity"
             android:configChanges="keyboardHidden|orientation" />
-
         <activity
             android:name="net.youmi.android.AdBrowser"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-            android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
 
         <service
             android:name="net.youmi.android.AdService"
-            android:exported="false"></service>
+            android:exported="false" />
         <service
             android:name="net.youmi.android.ExpService"
-            android:exported="false"></service>
+            android:exported="false" />
 
-        <receiver android:name="net.youmi.android.AdReceiver">
+        <receiver android:name="net.youmi.android.AdReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
+
                 <data android:scheme="package" />
             </intent-filter>
         </receiver>
+
+        <activity
+            android:name="com.seo.activity.AppRecommendActivity"
+            android:label="@string/title_activity_app_recommend" >
+        </activity>
+        <!-- 下载服务 -->
+        <service    android:name="com.taobao.munion.base.download.DownloadingService"
+            android:exported="true"
+            android:process=":DownloadingService" >
+
+        </service>
+        <!-- 应用详情页 -->
+        <activity
+            android:name="com.taobao.newxp.view.UMDetail"
+            android:configChanges="keyboard|orientation"
+            android:launchMode="standard"
+            android:screenOrientation="portrait" />
+        <!-- 推广墙 -->
+        <activity
+            android:name="com.taobao.newxp.view.handler.umwall.AlimamaWall"
+            android:configChanges="keyboard|orientation"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

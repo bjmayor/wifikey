@@ -146,6 +146,11 @@ public class SettingFragment extends Fragment implements OnClickListener,
                 break;
 
             case R.id.ll_app_recommend:
+                intent.setClass(getActivity(), AppRecommendActivity.class);
+                getActivity().startActivity(intent);
+                break;
+
+            case R.id.ll_app_share:
                 showShare();
                 break;
 
