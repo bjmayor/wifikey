@@ -12,8 +12,13 @@ import android.view.ViewGroup;
 import android.os.Build;
 
 import com.seo.activity.base.BaseActivity;
+import com.seo.constant.ConfigConstant;
 import com.seo.constant.ReleaseConstant;
 import com.seo.wifikey.R;
+import com.taobao.newxp.common.AlimmContext;
+import com.taobao.newxp.common.ExchangeConstants;
+import com.taobao.newxp.controller.ExchangeDataService;
+import com.taobao.newxp.view.ExchangeViewManager;
 
 import net.youmi.android.offers.OffersManager;
 
@@ -107,6 +112,16 @@ public class AppRecommendActivity extends BaseActivity {
             rootView.findViewById(R.id.ll_recommend_by_yjf).setOnClickListener(this);
             rootView.findViewById(R.id.ll_recommend_by_youmi).setOnClickListener(this);
             return rootView;
+        }
+
+        @Override
+        public void onActivityCreated(Bundle savedInstanceState) {
+            super.onActivityCreated(savedInstanceState);
+            AlimmContext.getAliContext().init(getActivity());//必须保证这段代码最先执行
+            View view = getActivity().findViewById(R.id.rlayout1);
+            new ExchangeViewManager(getActivity(), new ExchangeDataService(ConfigConstant.SLOT_ID))
+                    .addView(ExchangeConstants.type_list_curtain, view);
+
         }
 
         @Override

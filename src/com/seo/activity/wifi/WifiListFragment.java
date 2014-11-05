@@ -931,10 +931,6 @@ public class WifiListFragment extends WifiFragment implements
 		}
 		listAdapter.setScanList(mDisplayedList);
 		mListView.setAdapter(listAdapter);
-        AlimmContext.getAliContext().init(getActivity());//必须保证这段代码最先执行
-        View view = getActivity().findViewById(R.id.rlayout1);
-        new ExchangeViewManager(getActivity(), new ExchangeDataService(ConfigConstant.SLOT_ID))
-                .addView(ExchangeConstants.type_list_curtain, view);
 
 		resetCurrentConfig();
 		mHandler.sendEmptyMessage(DisplayListChangeHandler.msg_init_wifi_status);
