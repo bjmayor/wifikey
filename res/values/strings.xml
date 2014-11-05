@@ -20,7 +20,7 @@
     <!-- hehehe -->
     <string name="title_box">百宝箱</string>
     <string name="title_discover">发现</string>
-    <string name="app_name">WiFi联网神器</string>
+    <string name="app_name">快用WiFi神器</string>
     <string name="action_settings_next">下一步</string>
     <string name="action_settings">settings</string>
     <string name="action_settings_logout">注销</string>
@@ -139,7 +139,7 @@
 
     <!-- nofitication -->
     <string name="notification_wifi_open_helper">未开启WiFi</string>
-    <string name="notification_wifi_connect_show">WiFi联网神器 已帮您连接到</string>
+    <string name="notification_wifi_connect_show">快用WiFi神器 已帮您连接到</string>
     <string name="notification_wifi_no_connected">未连接WiFi</string>
     <string name="notification_wifi_open">打开WiFi</string>
 
@@ -306,8 +306,8 @@
     <string name="title_activity_reset_password">ResetPasswordActivity</string>
     <!-- 2.0 -->
 
-    <string name="share_moments_content">上可以下载最新版的WiFi联网神器，50,000,000免费WiFi任你连</string>
-    <string name="share_qq_moments_content">上wifikey.sinaapp.com/可以下载最新版的WiFi联网神器，50,000,000免费WiFi任你连</string>
+    <string name="share_moments_content">上可以下载最新版的快用WiFi神器，50,000,000免费WiFi任你连</string>
+    <string name="share_qq_moments_content">上wifikey.sinaapp.com/可以下载最新版的快用WiFi神器，50,000,000免费WiFi任你连</string>
     <!-- error info -->
     <string name="empty_username">用户名为空</string>
     <string name="empty_pass">密码为空</string>
@@ -334,8 +334,8 @@
     <string name="service_deal_title">服务协议</string>
     <string name="update_app">开始升级</string>
     <string name="un_update_app">暂不更新</string>
-    <string name="app_have_update">WiFi联网神器有更新了</string>
-    <string name="about_hiwifi_title">关于WiFi联网神器</string>
+    <string name="app_have_update">快用WiFi神器有更新了</string>
+    <string name="about_hiwifi_title">关于快用WiFi神器</string>
     <string name="about_version">版本介绍</string>
     <string name="about_offi_website">访问官网</string>
     <string name="drawer_open">打开抽屉</string>
