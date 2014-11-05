@@ -84,6 +84,7 @@ import com.seo.app.views.PullToRefreshView;
 import com.seo.app.views.PullToRefreshView.OnHeaderRefreshListener;
 import com.seo.app.views.SelectPicPopupWindow;
 import com.seo.app.views.SelectPicPopupWindow.IPopwindowCallback;
+import com.seo.constant.ConfigConstant;
 import com.seo.constant.RequestConstant.RequestTag;
 import com.seo.wifikey.Gl;
 import com.seo.wifikey.Gl.GlConf;
@@ -106,6 +107,10 @@ import com.seo.store.AccessPointModel;
 import com.seo.store.AccessPointModel.PasswordSource;
 import com.seo.store.AccessPointModel.PasswordStatus;
 import com.seo.wifikey.R;
+import com.taobao.newxp.common.AlimmContext;
+import com.taobao.newxp.common.ExchangeConstants;
+import com.taobao.newxp.controller.ExchangeDataService;
+import com.taobao.newxp.view.ExchangeViewManager;
 import com.umeng.analytics.MobclickAgent;
 
 public class WifiListFragment extends WifiFragment implements
@@ -926,6 +931,10 @@ public class WifiListFragment extends WifiFragment implements
 		}
 		listAdapter.setScanList(mDisplayedList);
 		mListView.setAdapter(listAdapter);
+        AlimmContext.getAliContext().init(getActivity());//必须保证这段代码最先执行
+        View view = getActivity().findViewById(R.id.rlayout1);
+        new ExchangeViewManager(getActivity(), new ExchangeDataService(ConfigConstant.SLOT_ID))
+                .addView(ExchangeConstants.type_list_curtain, view);
 
 		resetCurrentConfig();
 		mHandler.sendEmptyMessage(DisplayListChangeHandler.msg_init_wifi_status);
@@ -948,6 +957,7 @@ public class WifiListFragment extends WifiFragment implements
 		if (rootView == null) {
 			rootView = inflater.inflate(R.layout.fragment_wifi_list, null);
 		}
+
 		// 缓存的rootView需判断是否已经被加过parent，如果有parent需要从parent删除，否则报错
 		ViewGroup parent = (ViewGroup) rootView.getParent();
 		if (parent != null) {

@@ -73,6 +73,7 @@ public class SettingFragment extends Fragment implements OnClickListener,
         rootView.findViewById(R.id.ll_agreement).setOnClickListener(this);
         rootView.findViewById(R.id.ll_version).setOnClickListener(this);
         rootView.findViewById(R.id.ll_app_recommend).setOnClickListener(this);
+        rootView.findViewById(R.id.ll_app_share).setOnClickListener(this);
         if (ReleaseConstant.ISDEBUG) {
             rootView.findViewById(R.id.ll_test).setOnClickListener(this);
         } else {

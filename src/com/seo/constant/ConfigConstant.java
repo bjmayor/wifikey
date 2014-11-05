@@ -209,5 +209,6 @@ public class ConfigConstant {
 
     public static final String YOUMI_PUBLISH_ID = "4eebc47b5b78f4f6";
     public static final String YOUMI_APP_SECRET = "dc0dc86429d6034c";
+    public static final String SLOT_ID = "63377";
 
 }

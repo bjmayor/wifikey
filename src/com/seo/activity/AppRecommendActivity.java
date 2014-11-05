@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 
+import com.seo.activity.base.BaseActivity;
 import com.seo.constant.ReleaseConstant;
 import com.seo.wifikey.R;
 
@@ -22,7 +23,7 @@ import org.adver.score.scorewall.ScoreWallSDK;
 import cn.waps.AppConnect;
 import cn.waps.AppListener;
 
-public class AppRecommendActivity extends ActionBarActivity {
+public class AppRecommendActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,34 @@ public class AppRecommendActivity extends ActionBarActivity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+        getActionBar().show();
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    protected void onClickEvent(View paramView) {
+
+    }
+
+    @Override
+    protected void findViewById() {
+
+    }
+
+    @Override
+    protected void loadViewLayout() {
+
+    }
+
+    @Override
+    protected void processLogic() {
+
+    }
+
+    @Override
+    protected void setListener() {
+
     }
 
 
@@ -49,10 +78,17 @@ public class AppRecommendActivity extends ActionBarActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+        switch (id)
+        {
+            case android.R.id.home:
+                finish();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void updateView() {
+
     }
 
     /**
