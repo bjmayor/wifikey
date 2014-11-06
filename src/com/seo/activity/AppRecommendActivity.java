@@ -21,6 +21,7 @@ import com.taobao.newxp.common.ExchangeConstants;
 import com.taobao.newxp.controller.ExchangeDataService;
 import com.taobao.newxp.view.ExchangeViewManager;
 import com.umeng.analytics.MobclickAgent;
+import com.wandoujia.ads.sdk.Ads;
 
 import net.youmi.android.offers.OffersManager;
 
@@ -44,7 +45,11 @@ public class AppRecommendActivity extends BaseActivity {
         getActionBar().show();
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        try {
+            Ads.init(this, ConfigConstant.WDJ_AD_APPID, ConfigConstant.WDJ_AD_APPSECRET);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -118,6 +123,7 @@ public class AppRecommendActivity extends BaseActivity {
     public static class PlaceholderFragment extends Fragment implements View.OnClickListener {
 
         GdtAppwall appwall;
+
         public PlaceholderFragment() {
         }
 
@@ -129,6 +135,7 @@ public class AppRecommendActivity extends BaseActivity {
             rootView.findViewById(R.id.ll_recommend_by_yjf).setOnClickListener(this);
             rootView.findViewById(R.id.ll_recommend_by_youmi).setOnClickListener(this);
             rootView.findViewById(R.id.ll_recommend_by_qq).setOnClickListener(this);
+            rootView.findViewById(R.id.ll_recommend_by_wandoujia).setOnClickListener(this);
 
             return rootView;
         }
@@ -158,6 +165,9 @@ public class AppRecommendActivity extends BaseActivity {
                     break;
                 case R.id.ll_recommend_by_qq:
                     appwall.doShowAppWall();
+                    break;
+                case R.id.ll_recommend_by_wandoujia:
+                    Ads.showAppWall(getActivity(), ConfigConstant.WDJ_AD_POSID);
                     break;
             }
         }

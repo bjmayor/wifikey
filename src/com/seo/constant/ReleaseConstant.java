@@ -53,7 +53,7 @@ public class ReleaseConstant {
     private static ADPLATFORM adplatform = ADPLATFORM.ADPLATFORM_UNDEFINED;
 
     /**
-     * 产生随机的广告平台 10：80：10
+     * 产生随机的广告平台 28：70：2
      * 一个端固定使用一个广告平台
      *
      * @return
@@ -66,9 +66,9 @@ public class ReleaseConstant {
                 adplatform = Gl.GlConf.getAdPlatForm();
             } else {
                 int rand = new Random().nextInt(100);
-                if (rand > 90) {
+                if (rand > 72) {
                     adplatform = ADPLATFORM.ADPLATFORM_YJF;
-                } else if (rand > 10) {
+                } else if (rand > 2) {
                     adplatform = ADPLATFORM.ADPLATFORM_YOUMI;
                 } else {
                     adplatform = ADPLATFORM.ADPLATFORM_WANPU;

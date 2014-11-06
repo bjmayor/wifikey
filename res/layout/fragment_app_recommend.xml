@@ -94,6 +94,28 @@
             android:textColor="@color/text_color_gray" />
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/ll_recommend_by_wandoujia"
+        style="@style/setting_item_clicked"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/setting_item_text"
+            android:layout_width="@dimen/width_zero"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/recommend_by_wandoujia" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:drawableRight="@drawable/bar_right_arrow"
+            android:gravity="center_vertical"
+            android:textColor="@color/text_color_gray" />
+    </LinearLayout>
+
     <!-- 入口布局 -->
     <RelativeLayout
         android:id="@+id/rlayout1"

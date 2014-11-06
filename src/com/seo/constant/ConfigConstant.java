@@ -212,5 +212,10 @@ public class ConfigConstant {
     public static final String SLOT_ID = "63377";
     public static final String QQ_AD_APPID = "1103440507";
     public static final String QQ_AD_POSID = "7060802055038141";
+    //豌豆荚
+    public static final String WDJ_AD_POSID = "7ec27ab7a697ca740bf5f95d1d1550d7";
+    public static final String WDJ_AD_APPID = "100016855";
+    public static final String WDJ_AD_APPSECRET = "51288be5aa8b38c3f372772c60df2ddd";
+
 
 }

@@ -454,6 +454,31 @@
         <activity android:name="com.qq.e.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:theme="@android:style/Theme.Translucent" />
+
+        <!--For AdsSdk.-->
+        <activity
+            android:name="com.wandoujia.ads.sdk.AppWallActivity"
+            android:launchMode="singleTop"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
+
+        <activity
+            android:name="com.wandoujia.ads.sdk.AppWidgetContainerActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
+
+        <activity android:name="com.wandoujia.ads.sdk.InterstitialAdActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
+
+        <service android:name="com.wandoujia.ads.sdk.DownloadService"/>
+
+        <receiver android:name="com.wandoujia.ads.sdk.AppChangedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
