@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 
+import com.qq.e.appwall.GdtAppwall;
 import com.seo.activity.base.BaseActivity;
 import com.seo.constant.ConfigConstant;
 import com.seo.constant.ReleaseConstant;
@@ -19,6 +20,7 @@ import com.taobao.newxp.common.AlimmContext;
 import com.taobao.newxp.common.ExchangeConstants;
 import com.taobao.newxp.controller.ExchangeDataService;
 import com.taobao.newxp.view.ExchangeViewManager;
+import com.umeng.analytics.MobclickAgent;
 
 import net.youmi.android.offers.OffersManager;
 
@@ -42,11 +44,26 @@ public class AppRecommendActivity extends BaseActivity {
         getActionBar().show();
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
     @Override
     protected void onClickEvent(View paramView) {
 
+    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);          //统计时长
+    }
+
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
     }
 
     @Override
@@ -83,8 +100,7 @@ public class AppRecommendActivity extends BaseActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        switch (id)
-        {
+        switch (id) {
             case android.R.id.home:
                 finish();
         }
@@ -101,6 +117,7 @@ public class AppRecommendActivity extends BaseActivity {
      */
     public static class PlaceholderFragment extends Fragment implements View.OnClickListener {
 
+        GdtAppwall appwall;
         public PlaceholderFragment() {
         }
 
@@ -111,6 +128,8 @@ public class AppRecommendActivity extends BaseActivity {
             rootView.findViewById(R.id.ll_recommend_by_wanpu).setOnClickListener(this);
             rootView.findViewById(R.id.ll_recommend_by_yjf).setOnClickListener(this);
             rootView.findViewById(R.id.ll_recommend_by_youmi).setOnClickListener(this);
+            rootView.findViewById(R.id.ll_recommend_by_qq).setOnClickListener(this);
+
             return rootView;
         }
 
@@ -121,6 +140,7 @@ public class AppRecommendActivity extends BaseActivity {
             View view = getActivity().findViewById(R.id.rlayout1);
             new ExchangeViewManager(getActivity(), new ExchangeDataService(ConfigConstant.SLOT_ID))
                     .addView(ExchangeConstants.type_list_curtain, view);
+            appwall = new GdtAppwall(getActivity(), ConfigConstant.QQ_AD_APPID, ConfigConstant.QQ_AD_POSID, false);
 
         }
 
@@ -135,6 +155,9 @@ public class AppRecommendActivity extends BaseActivity {
                     break;
                 case R.id.ll_recommend_by_youmi:
                     OffersManager.getInstance(getActivity()).showOffersWall();
+                    break;
+                case R.id.ll_recommend_by_qq:
+                    appwall.doShowAppWall();
                     break;
             }
         }

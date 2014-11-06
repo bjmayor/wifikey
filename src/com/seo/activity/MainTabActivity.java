@@ -41,9 +41,9 @@ public class MainTabActivity extends ActionBarActivity implements
         if (ReleaseConstant.getAdPlatform() == ReleaseConstant.ADPLATFORM.ADPLATFORM_WANPU) {
             AppConnect.getInstance(this);
         }
+        AppConnect.getInstance(this).initUninstallAd(this);
         if (ReleaseConstant.getAdPlatform() == ReleaseConstant.ADPLATFORM.ADPLATFORM_WANPU) {
             AppConnect.getInstance(this).setWeixinAppId(ConfigConstant.WX_KEY, this);
-            AppConnect.getInstance(this).initUninstallAd(this);
         }
         if (savedInstanceState == null) {
             FragmentTransaction transaction = getSupportFragmentManager()

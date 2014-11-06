@@ -24,6 +24,7 @@ dependencies {
     compile files('libs/locate_2.1.2.jar')
     compile files('libs/alimama_feed.jar')
     compile files('libs/alimama_banner.jar')
+    compile files('libs/gdtmob_release_4.2.462.jar')
 }
 
 task copyNativeLibs(type: Copy) {
