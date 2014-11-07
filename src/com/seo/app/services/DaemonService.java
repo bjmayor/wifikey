@@ -256,7 +256,7 @@ public class DaemonService extends Service {
 
         @Override
         public void onSupStatusChange(SupplicantState newState, int error) {
-            HWFLog.e(TAG, "onSupStatusChange:"+newState);
+            HWFLog.e(TAG, "onSupStatusChange:" + newState);
             mHandler.removeMessages(msg_sup_status_change);
             Message msg = mHandler.obtainMessage(msg_sup_status_change,
                     new Object[]{newState, error});
@@ -284,7 +284,11 @@ public class DaemonService extends Service {
             long currentTime = System.currentTimeMillis();
             if (wifiDealedLatestTime < 0
                     || currentTime - wifiDealedLatestTime > PERIODTIME) {
-                saveAptoLocal();
+                try {
+                    saveAptoLocal();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 threadPool.submit(new AutoChooseRunnable());
             }
         }
@@ -412,13 +416,15 @@ public class DaemonService extends Service {
         tester.start_test(1000);
     }
 
-    private void saveAptoLocal() {
+    private void saveAptoLocal() throws Exception {
         List<AccessPoint> list = WifiAdmin.sharedInstance().getAccessPoints();
         if (list != null && list.size() > 0) {
             SaveAptoLocalRunnable runnable = new SaveAptoLocalRunnable(
                     list.iterator());
             threadPool.submit(runnable);
         }
+
+
     }
 
     public class SaveAptoLocalRunnable implements Runnable {
@@ -456,8 +462,7 @@ public class DaemonService extends Service {
                 notificationUtil.showOpenWifiHelper();
             }
         }
-        if (notificationUtil.isNotifyEnabled())
-        {
+        if (notificationUtil.isNotifyEnabled()) {
             startForeground(notificationUtil.getNotificationId(),
                     notificationUtil.getNotification());
         }
@@ -769,7 +774,6 @@ public class DaemonService extends Service {
             }
         }
     }
-
 
 
 }
