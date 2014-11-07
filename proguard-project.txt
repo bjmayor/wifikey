@@ -105,3 +105,8 @@
 -keepattributes Signature
 -keep class com.wandoujia.ads.sdk.** { *; }
 -dontwarn com.wandoujia.ads.sdk.**
+
+-keep class com.qq.e.** {
+public protected *; }
+-keep class com.tencent.gdt.**{ public protected *;
+}
