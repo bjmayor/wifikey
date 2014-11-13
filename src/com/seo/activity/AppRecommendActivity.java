@@ -44,7 +44,7 @@ public class AppRecommendActivity extends BaseActivity {
         }
         getActionBar().show();
         getActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getActionBar().setDisplayShowHomeEnabled(false);
         try {
             Ads.init(this, ConfigConstant.WDJ_AD_APPID, ConfigConstant.WDJ_AD_APPSECRET);
         } catch (Exception e) {
