@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="selected_view" type="id"/>
-    
+    <item name="nav_left_btn" type="id" />
+    <item name="nav_right_btn" type="id" />
 </resources>

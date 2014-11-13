@@ -13,6 +13,7 @@ import android.os.Build;
 
 import com.qq.e.appwall.GdtAppwall;
 import com.seo.activity.base.BaseActivity;
+import com.seo.app.views.UINavigationView;
 import com.seo.constant.ConfigConstant;
 import com.seo.constant.ReleaseConstant;
 import com.seo.wifikey.R;
@@ -42,9 +43,7 @@ public class AppRecommendActivity extends BaseActivity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
-        getActionBar().show();
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-        getActionBar().setDisplayShowHomeEnabled(false);
+
         try {
             Ads.init(this, ConfigConstant.WDJ_AD_APPID, ConfigConstant.WDJ_AD_APPSECRET);
         } catch (Exception e) {
@@ -123,6 +122,7 @@ public class AppRecommendActivity extends BaseActivity {
     public static class PlaceholderFragment extends Fragment implements View.OnClickListener {
 
         GdtAppwall appwall;
+        private UINavigationView navigationView;
 
         public PlaceholderFragment() {
         }
@@ -136,7 +136,8 @@ public class AppRecommendActivity extends BaseActivity {
             rootView.findViewById(R.id.ll_recommend_by_youmi).setOnClickListener(this);
             rootView.findViewById(R.id.ll_recommend_by_qq).setOnClickListener(this);
             rootView.findViewById(R.id.ll_recommend_by_wandoujia).setOnClickListener(this);
-
+            navigationView = (UINavigationView) rootView.findViewById(R.id.nav);
+            navigationView.getLeftButton().setOnClickListener(this);
             return rootView;
         }
 
@@ -154,6 +155,9 @@ public class AppRecommendActivity extends BaseActivity {
         @Override
         public void onClick(View view) {
             switch (view.getId()) {
+                case R.id.nav_left_btn:
+                    getActivity().finish();
+                    break;
                 case R.id.ll_recommend_by_wanpu:
                     AppConnect.getInstance(getActivity()).showOffers(getActivity());
                     break;
