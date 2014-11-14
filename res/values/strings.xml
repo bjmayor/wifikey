@@ -34,6 +34,7 @@
 
     <!-- copyright -->
     <string name="copyright">演道工作室 Copyright © 2012-2014</string>
+    <string name="office_qq">官方QQ群：397770679</string>
     <string name="rights">All Rights Reserved.</string>
     <!-- wifi status -->
     <string name="netcard_connecting">网卡正在打开</string>
