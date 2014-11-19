@@ -395,17 +395,7 @@
             android:name="com.seo.activity.PortalPageActivity"
             android:screenOrientation="portrait" />
 
-        <!-- 注册积分墙、推荐墙Activity（开发者勾选了积分墙或推荐墙广告形式则必填） -->
-        <activity
-            android:name="org.adver.score.sdk.view.WallActivity"
-            android:configChanges="keyboardHidden|orientation" />
-        <activity
-            android:name="org.adver.score.sdk.view.DetailActivity"
-            android:configChanges="keyboardHidden|orientation" />
-        <!-- 注册网页Activity -->
-        <activity
-            android:name="org.adver.score.sdk.view.WebActivity"
-            android:configChanges="keyboardHidden|orientation" />
+
         <activity
             android:name="net.youmi.android.AdBrowser"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"

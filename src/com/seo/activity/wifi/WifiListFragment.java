@@ -767,7 +767,7 @@ public class WifiListFragment extends WifiFragment implements
                         if (mDisplayedList != null) {
                             mDisplayedList.remove(mConnectedAccessPoint);
                             LogUtil.d("Tag:", "remove");
-                            if (!isPause && actiontype == actiontypeInit) {
+                            if (!isPause && actiontype == actiontypeInit && mConnectedAccessPoint!=null) {
                                 mConnectedAccessPoint.onDetailedStateChanged(
                                         DetailedState.CONNECTED, mDisplayedList);
                             }

@@ -7,15 +7,6 @@
     android:background="@color/setting_background_color"
     tools:context="com.seo.activity.AppRecommendActivity$PlaceholderFragment">
 
-    <com.seo.app.views.UINavigationView
-        android:id="@+id/nav"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/nav_height"
-        android:background="@color/nav_background_color"
-        app:left_drawable="@drawable/icon_back"
-        app:tv_title="@string/people_recommend" >
-    </com.seo.app.views.UINavigationView>
-
     <LinearLayout
         android:id="@+id/ll_recommend_by_wanpu"
         style="@style/setting_item_clicked"
@@ -50,28 +41,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/recommend_by_youmi" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:drawableRight="@drawable/bar_right_arrow"
-            android:gravity="center_vertical"
-            android:textColor="@color/text_color_gray" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/ll_recommend_by_yjf"
-        style="@style/setting_item_clicked"
-        android:layout_width="match_parent"
-        android:orientation="horizontal">
-
-        <TextView
-            style="@style/setting_item_text"
-            android:layout_width="@dimen/width_zero"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/recommend_by_yjf" />
 
         <TextView
             android:layout_width="wrap_content"

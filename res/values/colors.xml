@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <drawable name="nav_bar_main_color">#54B144</drawable>
+    <drawable name="white">#FFFFFF</drawable>
+    <drawable name="text_color_gray">#999999</drawable>
+
+
     <color name="list_item_title">#fff</color>
     <color name="list_background">#303030</color>
     <color name="list_background_pressed">#992416</color>
@@ -28,13 +33,13 @@
     <color name="setting_detail">#2374b1</color>
 
     <!-- nav bar -->
-    <color name="nav_bar_main_color">#00AEFB</color>
+    <color name="nav_bar_main_color">#54B144</color>
     <color name="nav_bar_main_dark_color">#0085D5</color>
     <!-- tab bar -->
     <color name="tab_bar_main_color">#262C35</color>
     <!-- content -->
-    <color name="content_bg_color">#EEEEEE</color>
-    <color name="content_border_color">#DDDDDD</color>
+    <color name="content_bg_color">#FBFCF9</color>
+    <color name="content_border_color">#E5E5E5</color>
     <color name="text_gray_color">#999999</color>
     <color name="wifilist_item_action">#DEE2E7</color>
 
@@ -119,7 +124,7 @@
     <color name="tab_text_unactive">#ffffff</color>
 
     <!-- nav -->
-    <color name="nav_background_color">#323440</color>
+    <color name="nav_background_color">@color/nav_bar_main_color</color>
     <color name="nav_title_color">#ffffff</color>
 
     <!-- settings -->

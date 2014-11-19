@@ -26,11 +26,8 @@ import com.wandoujia.ads.sdk.Ads;
 
 import net.youmi.android.offers.OffersManager;
 
-import org.adver.score.recommendwall.RecommendWallSDK;
-import org.adver.score.scorewall.ScoreWallSDK;
 
 import cn.waps.AppConnect;
-import cn.waps.AppListener;
 
 public class AppRecommendActivity extends BaseActivity {
 
@@ -122,7 +119,6 @@ public class AppRecommendActivity extends BaseActivity {
     public static class PlaceholderFragment extends Fragment implements View.OnClickListener {
 
         GdtAppwall appwall;
-        private UINavigationView navigationView;
 
         public PlaceholderFragment() {
         }
@@ -132,12 +128,9 @@ public class AppRecommendActivity extends BaseActivity {
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_app_recommend, container, false);
             rootView.findViewById(R.id.ll_recommend_by_wanpu).setOnClickListener(this);
-            rootView.findViewById(R.id.ll_recommend_by_yjf).setOnClickListener(this);
             rootView.findViewById(R.id.ll_recommend_by_youmi).setOnClickListener(this);
             rootView.findViewById(R.id.ll_recommend_by_qq).setOnClickListener(this);
             rootView.findViewById(R.id.ll_recommend_by_wandoujia).setOnClickListener(this);
-            navigationView = (UINavigationView) rootView.findViewById(R.id.nav);
-            navigationView.getLeftButton().setOnClickListener(this);
             return rootView;
         }
 
@@ -155,14 +148,8 @@ public class AppRecommendActivity extends BaseActivity {
         @Override
         public void onClick(View view) {
             switch (view.getId()) {
-                case R.id.nav_left_btn:
-                    getActivity().finish();
-                    break;
                 case R.id.ll_recommend_by_wanpu:
                     AppConnect.getInstance(getActivity()).showOffers(getActivity());
-                    break;
-                case R.id.ll_recommend_by_yjf:
-                    RecommendWallSDK.getInstance(getActivity()).showRecommendWall();
                     break;
                 case R.id.ll_recommend_by_youmi:
                     OffersManager.getInstance(getActivity()).showOffersWall();

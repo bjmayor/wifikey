@@ -13,19 +13,7 @@ dependencies {
     compile('com.android.support:appcompat-v7:20.+') {
         exclude module: 'support-v4'
     }
-    compile files('libs/AppOffer_2.3.1.jar')
-    compile files('libs/libammsdk.jar')
-    compile files('libs/YoumiSdk_v4.10_2014-09-25_offers.jar')
-    compile files('libs/alimama_core.jar')
-    compile files('libs/alimama_core_h5.jar')
-    compile files('libs/alimama_core_native.jar')
-    compile files('libs/alimama_handler.jar')
-    compile files('libs/alimama_interstitial.jar')
-    compile files('libs/locate_2.1.2.jar')
-    compile files('libs/alimama_feed.jar')
-    compile files('libs/alimama_banner.jar')
-    compile files('libs/gdtmob_release_4.2.462.jar')
-    compile files('libs/wandoujia-ads.jar')
+
 }
 
 task copyNativeLibs(type: Copy) {

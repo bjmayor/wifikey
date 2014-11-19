@@ -47,17 +47,8 @@ public abstract class BaseActivity extends ActionBarActivity implements
 		if (bar != null) {
 			bar.setDisplayHomeAsUpEnabled(true);
 		}
-		// HiwifiApplication.context = this;
-		// HiwifiApplication hiwifiApplication =
-		// HiwifiApplication.getInstance();
-		// hiwifiApplication.getActivities().add(this);
-		// loginData = getSharedPreferences("loginData", 0); // 保存登陆信息
-		// versionData = getSharedPreferences("versionData", 0);
-		// qiutTimeData = getSharedPreferences("qiutTimeData1", 0);
-		// pushData = getSharedPreferences("pushData", 0);
-		// upgradeData = getSharedPreferences("upgrade", 0);
+
 		initialize();
-		getActionBar().hide();
 	}
 
 	private void initialize() {

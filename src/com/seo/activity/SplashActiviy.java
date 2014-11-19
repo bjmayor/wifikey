@@ -1,11 +1,13 @@
 package com.seo.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.ActionBarActivity;
 import android.view.KeyEvent;
 import android.view.View;
 
@@ -16,13 +18,14 @@ import com.seo.constant.ReleaseConstant;
 import com.seo.model.ClientInfo;
 import com.seo.model.wifi.WifiAdmin;
 import com.seo.utils.ImageUtil;
+import com.seo.utils.ViewUtil;
 import com.seo.wifikey.R;
 
 import net.youmi.android.AdManager;
 import net.youmi.android.offers.OffersManager;
 
 
-public class SplashActiviy extends BaseActivity {
+public class SplashActiviy extends ActionBarActivity {
 
     private boolean hasUpgrate = false;
     private boolean isFirstOpen;
@@ -30,54 +33,22 @@ public class SplashActiviy extends BaseActivity {
     // private boolean loadedAdImge = false;
 
     @Override
-    protected void onClickEvent(View paramView) {
-
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_splash);
+        isFirstOpen = ClientInfo.shareInstance().isFirstStarted();
         if (ReleaseConstant.getAdPlatform() == ReleaseConstant.ADPLATFORM.ADPLATFORM_YOUMI) {
             AdManager.getInstance(this).init(ConfigConstant.YOUMI_PUBLISH_ID, ConfigConstant.YOUMI_APP_SECRET, false);
             OffersManager.getInstance(this).onAppLaunch();
         }
-    }
-
-    @Override
-    protected void findViewById() {
-        // initView();
-        isFirstOpen = ClientInfo.shareInstance().isFirstStarted();
-    }
-
-    private void initView() {
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(),
                 R.drawable.startup_map);
-        Bitmap adaptiveW = ImageUtil.adaptiveW(bitmap, screenWidth);
+        Bitmap adaptiveW = ImageUtil.adaptiveW(bitmap, ViewUtil.getScreenWidth());
         BitmapDrawable d = new BitmapDrawable(adaptiveW);
-
-    }
-
-    @Override
-    protected void loadViewLayout() {
-        setContentView(R.layout.activity_splash);
-    }
-
-    @Override
-    protected void processLogic() {
         postDelay();
-
-
-        // if (DiscoverItem.showAdImage
-        // && !TextUtils.isEmpty(DiscoverItem.showedImageUrl)) {
-        // loadAdImage();
-        // }
+        getActionBar().hide();
     }
 
-
-    @Override
-    protected void setListener() {
-
-    }
 
     // 延迟启动
     private void postDelay() {
@@ -112,11 +83,6 @@ public class SplashActiviy extends BaseActivity {
         super.onDestroy();
     }
 
-    @Override
-    protected void updateView() {
-        // TODO Auto-generated method stub
-
-    }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {

@@ -29,6 +29,8 @@
                     android:layout_width="@dimen/width_zero"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:drawableLeft="@drawable/keyshare"
+                    android:drawablePadding="@dimen/drawable_padding"
                     android:text="自动分享WiFi密码" />
 
                 <com.seo.app.views.SwitchButton
@@ -49,6 +51,8 @@
                     android:layout_width="@dimen/width_zero"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:drawableLeft="@drawable/key_backup_to_server"
+                    android:drawablePadding="@dimen/drawable_padding"
                     android:text="自动备份WiFi密码" />
 
                 <com.seo.app.views.SwitchButton
@@ -70,6 +74,8 @@
                     android:layout_width="@dimen/width_zero"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:drawableLeft="@drawable/notice_bell"
+                    android:drawablePadding="@dimen/drawable_padding"
                     android:text="通知栏开关" />
 
                 <com.seo.app.views.SwitchButton
@@ -92,6 +98,8 @@
                     android:layout_width="@dimen/width_zero"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:drawableLeft="@drawable/feedback_icon"
+                    android:drawablePadding="@dimen/drawable_padding"
                     android:text="建议反馈" />
 
                 <ImageView
@@ -111,6 +119,8 @@
                     android:layout_width="@dimen/width_zero"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:drawableLeft="@drawable/share_icon"
+                    android:drawablePadding="@dimen/drawable_padding"
                     android:text="@string/share_to_friends" />
 
                 <TextView
@@ -134,6 +144,8 @@
                     android:layout_width="@dimen/width_zero"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:drawableLeft="@drawable/feature_star"
+                    android:drawablePadding="@dimen/drawable_padding"
                     android:text="@string/app_recommends" />
 
                 <TextView
@@ -159,6 +171,8 @@
                     android:layout_width="@dimen/width_zero"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:drawableLeft="@drawable/term_icon"
+                    android:drawablePadding="@dimen/drawable_padding"
                     android:text="服务协议" />
 
                 <ImageView
@@ -178,6 +192,8 @@
                     android:layout_width="@dimen/width_zero"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:drawableLeft="@drawable/version_icon"
+                    android:drawablePadding="@dimen/drawable_padding"
                     android:text="关于" />
 
                 <ImageView
@@ -196,6 +212,8 @@
                     style="@style/setting_item_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/key_backup_to_server"
+                    android:drawablePadding="@dimen/drawable_padding"
                     android:text="APP版本" />
 
                 <TextView

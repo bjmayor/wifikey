@@ -5,8 +5,6 @@ import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import org.adver.score.scorewall.ScoreWallSDK;
-import org.adver.score.sdk.widget.UpdateScordNotifier;
 
 import android.content.Intent;
 import android.net.NetworkInfo;
@@ -61,7 +59,7 @@ import cn.waps.UpdatePointsNotifier;
 
 
 public class CheckPasswordActivity extends BaseActivity implements
-        OnClickListener, UpdateScordNotifier, UpdatePointsNotifier, PlatformActionListener {
+        OnClickListener, UpdatePointsNotifier, PlatformActionListener {
 
     private LinearLayout unloginView, loginedView, showPwdView, shareContainer;
     private ImageView backWifilist, stateImage;
@@ -592,42 +590,6 @@ public class CheckPasswordActivity extends BaseActivity implements
         setStatus();
     }
 
-    /**
-     * **********易积分广告回调**********
-     */
-    @Override
-    public void updateScoreFailed(int arg0, int arg1, String arg2) {
-        closeMyDialog();
-    }
-
-    /**
-     * 积分回调
-     *
-     * @param arg0 接口类型
-     * @param arg1 当前可用积分
-     * @param arg2 当前增加/减少的积分数
-     * @param arg3 积分单位
-     */
-    @Override
-    public void updateScoreSuccess(int arg0, int arg1, int arg2, String arg3) {
-        LogUtil.e("updateScoreSuccess", "arg0:" + arg0 + " arg1:" + arg1 + " arg2:" + arg2 + " arg3:" + arg3);
-        switch (arg0) {
-            case 1:// 查询
-                leftTimes = arg1;
-                break;
-            case 2:// 消费
-
-                break;
-            case 3:// 增加
-
-                break;
-
-            default:
-                break;
-        }
-        closeMyDialog();
-        setStatus();
-    }
 
     private void setStatus() {
         setRemainChance();
@@ -658,17 +620,37 @@ public class CheckPasswordActivity extends BaseActivity implements
     @Override
     public void onComplete(Platform platform, int i, HashMap<String, Object> stringObjectHashMap) {
         LogUtil.e(platform.getName(), i + "---" + stringObjectHashMap);
-        Toast.makeText(this, "分享成功，+2次查看机会", Toast.LENGTH_SHORT).show();
         leftTimes += SCORE_PER_VIEW * 2;
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(CheckPasswordActivity.this, "分享成功，+2次查看机会", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
+
 
     @Override
     public void onError(Platform platform, int i, Throwable throwable) {
-        Toast.makeText(this, "分享失败", Toast.LENGTH_SHORT).show();
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+
+                Toast.makeText(CheckPasswordActivity.this, "分享失败", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
     public void onCancel(Platform platform, int i) {
-        Toast.makeText(this, "取消分享", Toast.LENGTH_SHORT).show();
+
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(CheckPasswordActivity.this, "取消分享", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 }

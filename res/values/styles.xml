@@ -217,12 +217,22 @@
         <item name="android:drawableRight">@drawable/checkswitch</item>
     </style>
 
-    <style name="ActivityTheme" mce_bogus="1" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+    <style name="ActivityTheme" mce_bogus="3" parent="@style/Theme.AppCompat.Light.DarkActionBar">
         <item name="android:windowAnimationStyle">@style/AnimationActivitys</item>
-        <item name="android:orientation">vertical</item>
+        <item name="android:orientation">horizontal</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:colorBackgroundCacheHint">@null</item>
         <item name="android:windowIsTranslucent">true</item>
+        <item name="android:actionBarTabStyle">@style/actionbarTabStyle</item>
+        <item name="android:actionBarTabTextStyle">@style/actionbarTabTextStyle</item>
+    </style>
+
+    <style name="actionbarTabStyle" parent="android:style/Widget.Holo.Light.ActionBar.TabView">
+        <item name="android:background">@drawable/actionbar_tab_bg</item>
+    </style>
+
+    <style name="actionbarTabTextStyle" parent="android:style/Widget.Holo.Light.ActionBar.TabText">
+        <item name="android:textColor">@drawable/actionbar_tab_text_color</item>
     </style>
 
     <style name="AnimationActivity" mce_bogus="1">

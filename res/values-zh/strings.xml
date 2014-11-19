@@ -1,5 +1,8 @@
 <resources>
 
     <string name="UMAppUpdate">应用更新</string>
+    <string name="free_wifi">免费WiFi</string>
+    <string name="discover">发现</string>
+    <string name="setting">设置</string>
 
 </resources>
