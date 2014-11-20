@@ -31,7 +31,7 @@ public class MainTabActivity extends ActionBarActivity {
         AppConnect.getInstance(this);
         AppConnect.getInstance(this).initUninstallAd(this);
         AppConnect.getInstance(this).setWeixinAppId(ConfigConstant.WX_KEY, this);
-
+        AppConnect.getInstance(Gl.Ct()).initAdInfo();
         actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         actionBar.setBackgroundDrawable(Gl.Ct().getResources().getDrawable(R.color.nav_background_color));
@@ -42,7 +42,7 @@ public class MainTabActivity extends ActionBarActivity {
         ActionBar.Tab tabSetting = actionBar.newTab().setText(R.string.setting);
 
         Fragment fragmentHome = new WifiListFragment();
-        Fragment fragmentDiscover = new AppRecommendActivity.PlaceholderFragment();
+        Fragment fragmentDiscover = new MyAppFragment();
         Fragment fragmentSetting = new SettingFragment();
 
         tabHome.setTabListener(new MyTabListener(fragmentHome));

@@ -3,7 +3,7 @@
     package="com.seo.wifikey"
     android:installLocation="auto"
     android:versionCode="11000"
-    android:versionName="1.10">
+    android:versionName="1.10" >
 
     <!-- ShareSdk permission -->
     <uses-permission android:name="android.permission.GET_TASKS" />
@@ -94,12 +94,12 @@
     <!-- <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" /> -->
 
     <application
-        android:name="com.seo.wifikey.Gl"
+        android:name=".Gl"
         android:allowBackup="true"
         android:icon="@drawable/hiwifi_launcher"
         android:label="@string/app_name"
         android:screenOrientation="portrait"
-        android:theme="@style/ActivityTheme">
+        android:theme="@style/ActivityTheme" >
         >
         <!--
         <meta-data
@@ -120,8 +120,8 @@
             android:enabled="true"
             android:process=":remote" />
 
-        <receiver android:name="com.seo.app.receiver.GetSMSReceiver">
-            <intent-filter android:priority="1024">
+        <receiver android:name="com.seo.app.receiver.GetSMSReceiver" >
+            <intent-filter android:priority="1024" >
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
@@ -162,7 +162,7 @@
         <!-- 配置第三方Receiver -->
         <receiver
             android:name="com.seo.app.receiver.GeTuiBroadcastReceiver"
-            android:exported="false">
+            android:exported="false" >
             <intent-filter>
                 <action android:name="com.igexin.sdk.action.6rIksTq4Qm8KRtq1kNyxY1" />
             </intent-filter>
@@ -175,7 +175,7 @@
             android:label="NotificationCenter"
             android:process=":pushservice" />
 
-        <receiver android:name="com.igexin.sdk.PushReceiver">
+        <receiver android:name="com.igexin.sdk.PushReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
@@ -196,7 +196,7 @@
             android:name="com.igexin.download.DownloadService"
             android:process=":pushservice" />
 
-        <receiver android:name="com.igexin.download.DownloadReceiver">
+        <receiver android:name="com.igexin.download.DownloadReceiver" >
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
@@ -219,7 +219,7 @@
 
         <receiver
             android:name="com.igexin.getuiext.service.PayloadReceiver"
-            android:exported="false">
+            android:exported="false" >
             <intent-filter>
 
                 <!-- 这个com.igexin.sdk.action.7fjUl2Z3LH6xYy7NQK4ni4固定，不能修改 -->
@@ -254,7 +254,7 @@
         <!-- 有米 -->
         <meta-data
             android:name="YOUMI_CHANNEL"
-            android:value="default"></meta-data>
+            android:value="default" />
         <!-- 下载服务 -->
         <service
             android:name="com.umeng.update.net.DownloadingService"
@@ -286,7 +286,7 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:windowSoftInputMode="stateHidden|adjustResize">
+            android:windowSoftInputMode="stateHidden|adjustResize" >
             <intent-filter>
                 <data android:scheme="tencent100371282" />
 
@@ -337,7 +337,7 @@
 
         <receiver
             android:name="com.seo.downloadproviders.downloads.DownloadReceiver"
-            android:exported="false">
+            android:exported="false" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
@@ -348,7 +348,7 @@
             android:name="com.seo.activity.MainTabActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustNothing">
+            android:windowSoftInputMode="adjustNothing" >
             <intent-filter>
                 <action android:name="android.settings.WIFI_SETTINGS" />
                 <action android:name="android.net.wifi.PICK_WIFI_NETWORK" />
@@ -362,7 +362,7 @@
             android:name="com.seo.activity.TutorialActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustNothing">
+            android:windowSoftInputMode="adjustNothing" >
 
             <!--
             <intent-filter>
@@ -384,7 +384,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.seo.activity.SplashActiviy"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -394,8 +394,6 @@
         <activity
             android:name="com.seo.activity.PortalPageActivity"
             android:screenOrientation="portrait" />
-
-
         <activity
             android:name="net.youmi.android.AdBrowser"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
@@ -408,7 +406,7 @@
             android:name="net.youmi.android.ExpService"
             android:exported="false" />
 
-        <receiver android:name="net.youmi.android.AdReceiver">
+        <receiver android:name="net.youmi.android.AdReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
 
@@ -418,13 +416,12 @@
 
         <activity
             android:name="com.seo.activity.AppRecommendActivity"
-            android:label="@string/title_activity_app_recommend"></activity>
+            android:label="@string/title_activity_app_recommend" />
         <!-- 下载服务 -->
         <service
             android:name="com.taobao.munion.base.download.DownloadingService"
             android:exported="true"
-            android:process=":DownloadingService">
-
+            android:process=":DownloadingService" >
         </service>
         <!-- 应用详情页 -->
         <activity
@@ -439,25 +436,25 @@
             android:hardwareAccelerated="true"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
+
         <service
             android:name="com.qq.e.comm.DownloadService"
             android:exported="false" />
+
         <activity
             android:name="com.qq.e.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:theme="@android:style/Theme.Translucent" />
 
-        <!--For AdsSdk.-->
+        <!-- For AdsSdk. -->
         <activity
             android:name="com.wandoujia.ads.sdk.AppWallActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:launchMode="singleTop" />
-
         <activity
             android:name="com.wandoujia.ads.sdk.AppWidgetContainerActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
         <activity
             android:name="com.wandoujia.ads.sdk.InterstitialAdActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -465,13 +462,18 @@
 
         <service android:name="com.wandoujia.ads.sdk.DownloadService" />
 
-        <receiver android:name="com.wandoujia.ads.sdk.AppChangedReceiver">
+        <receiver android:name="com.wandoujia.ads.sdk.AppChangedReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
 
                 <data android:scheme="package" />
             </intent-filter>
         </receiver>
+
+        <activity
+            android:name="com.seo.activity.MyAppActivity"
+            android:label="@string/title_activity_my_app" >
+        </activity>
     </application>
 
 </manifest>
