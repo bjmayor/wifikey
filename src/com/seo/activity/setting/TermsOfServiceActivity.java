@@ -8,18 +8,13 @@ import com.seo.wifikey.R;
 
 public class TermsOfServiceActivity extends BaseActivity{
 
-	private UINavigationView nav;
-	
+
 	@Override
 	protected void onClickEvent(View paramView) {
-		if(paramView == nav.getLeftButton()){
-			this.finish();
-		}
 	}
 
 	@Override
 	protected void findViewById() {
-		nav = (UINavigationView) findViewById(R.id.nav);
 	}
 
 	@Override
@@ -34,7 +29,6 @@ public class TermsOfServiceActivity extends BaseActivity{
 
 	@Override
 	protected void setListener() {
-		nav.getLeftButton().setOnClickListener(this);
 	}
 
 	@Override

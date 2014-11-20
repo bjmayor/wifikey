@@ -51,7 +51,7 @@ public class MainTabActivity extends ActionBarActivity {
 
         actionBar.addTab(tabHome);
         actionBar.addTab(tabDiscover);
-        actionBar.addTab(tabSetting, true);
+        actionBar.addTab(tabSetting);
 
 //        YjfSDK.getInstance(this, this).initInstance("72860", "EMI373QQVGBD2XHY9M24O3T30YTXIXHP81", "82214", Gl.getChannel());
 

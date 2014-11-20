@@ -321,12 +321,15 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.seo.activity.setting.TermsOfServiceActivity"
+            android:label="服务协议"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.seo.activity.setting.AboutAppActivity"
+            android:label="关于快用WiFi神器"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.seo.activity.UpgradeAppActivity"
+            android:label="升级App"
             android:screenOrientation="portrait" />
 
         <provider
@@ -375,12 +378,15 @@
         <activity
             android:name="com.seo.activity.wifi.CheckPasswordActivity"
             android:launchMode="singleTop"
+            android:label="查看密码"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.seo.activity.wifi.WiFiOperateActivity"
+            android:label="WiFi开关"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.seo.activity.FeedbackActivity"
+            android:label="用户反馈"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.seo.activity.SplashActiviy"
@@ -470,10 +476,7 @@
             </intent-filter>
         </receiver>
 
-        <activity
-            android:name="com.seo.activity.MyAppActivity"
-            android:label="@string/title_activity_my_app" >
-        </activity>
+
     </application>
 
 </manifest>

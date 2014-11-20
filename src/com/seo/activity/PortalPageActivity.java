@@ -22,7 +22,6 @@ import com.seo.wifikey.R;
 
 public class PortalPageActivity extends BaseActivity {
 	public static boolean is_open = false;
-	private UINavigationView nav;
 	private final String URL = "http://www.baidu.com";
 	private MockRedirectWebView webview;
 
@@ -32,17 +31,12 @@ public class PortalPageActivity extends BaseActivity {
 
 	@Override
 	protected void findViewById() {
-		nav = (UINavigationView) findViewById(R.id.nav);
 		webview = (MockRedirectWebView) findViewById(R.id.webview);
 		Intent i = getIntent();
 		if (i != null) {
 			String ssid = getIntent().getStringExtra("ssid");
 			String title1 = i.getStringExtra("title");
-			if (!TextUtils.isEmpty(title1)) {
-				nav.setTitle(title1);
-			} else if (!TextUtils.isEmpty(ssid)) {
-				nav.setTitle(ssid);
-			}
+				setTitle(title1);
 		}
 		webview.loadUrl(URL);
 	}
@@ -59,13 +53,6 @@ public class PortalPageActivity extends BaseActivity {
 
 	@Override
 	protected void setListener() {
-		nav.getLeftButton().setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				finish();
-			}
-		});
 		webview.setWebViewClient(new WebViewClient(){
 			@Override
 			public void onPageStarted(WebView view, String url, Bitmap favicon) {

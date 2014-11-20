@@ -7,6 +7,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.seo.activity.base.BaseActivity;
 import com.seo.app.views.UINavigationView;
 import com.seo.model.ClientInfo;
 import com.seo.wifikey.R;
@@ -26,14 +28,13 @@ import com.umeng.fb.model.DevReply;
 import com.umeng.fb.model.Reply;
 import com.umeng.fb.model.UserInfo;
 
-public class FeedbackActivity extends Activity {
+public class FeedbackActivity extends BaseActivity {
 
 	private Button submit;
 	private EditText content;
 	private EditText contact;
 	private FeedbackAgent agent;
 	private Conversation defaultConversation;
-	private UINavigationView navigationView;
 	private InputMethodManager im;
 
 	@Override
@@ -41,26 +42,42 @@ public class FeedbackActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_feedback);
-		getActionBar().hide();
 		agent = new FeedbackAgent(this);
-		im = (InputMethodManager) getSystemService("input_method");
+		im = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+
 		initView();
 	}
 
-	private void initView() {
+    @Override
+    protected void onClickEvent(View paramView) {
+
+    }
+
+    @Override
+    protected void findViewById() {
+
+    }
+
+    @Override
+    protected void loadViewLayout() {
+
+    }
+
+    @Override
+    protected void processLogic() {
+
+    }
+
+    @Override
+    protected void setListener() {
+
+    }
+
+    private void initView() {
 		contact = (EditText) findViewById(R.id.contact_info);
 		content = (EditText) findViewById(R.id.feedback_content);
 		content.requestFocus();
 		submit = (Button) findViewById(R.id.submit_feedback);
-		navigationView = (UINavigationView) findViewById(R.id.nav);
-		navigationView.getLeftButton().setOnClickListener(
-				new OnClickListener() {
-
-					@Override
-					public void onClick(View v) {
-						finish();
-					}
-				});
 		submit.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -85,7 +102,7 @@ public class FeedbackActivity extends Activity {
 		String userContact = contact.getText().toString().trim();
 		String errorInfo = content.getText().toString().trim();
 		if (TextUtils.isEmpty(errorInfo)) {
-			Toast.makeText(this, "请填写反馈信息", 0).show();
+			Toast.makeText(this, "请填写反馈信息", Toast.LENGTH_SHORT).show();
 			return;
 		}
 //		if (TextUtils.isEmpty(userContact)) {
@@ -111,7 +128,7 @@ public class FeedbackActivity extends Activity {
 			ClientInfo.shareInstance().setUserContact(userContact);
 		}
 		sync();
-		Toast.makeText(this, "提交成功", 0).show();
+		Toast.makeText(this, "提交成功", Toast.LENGTH_SHORT).show();
 		this.finish();
 	}
 
@@ -153,7 +170,7 @@ public class FeedbackActivity extends Activity {
 	}
 	
 	@Override
-	protected void onResume() {
+	public void onResume() {
 		super.onResume();
 		MobclickAgent.onPageStart(this.getClass().getSimpleName()); //统计页面
 		MobclickAgent.onResume(this);          //统计时长
@@ -162,10 +179,15 @@ public class FeedbackActivity extends Activity {
 	}
 	
 	@Override
-	protected void onPause() {
+    public void onPause() {
 		super.onPause();
 		MobclickAgent.onPageEnd(this.getClass().getSimpleName());
 		MobclickAgent.onPause(this);
 	}
+
+    @Override
+    protected void updateView() {
+
+    }
 
 }

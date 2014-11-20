@@ -51,9 +51,6 @@ public class AboutAppActivity extends BaseActivity {
 
     @Override
     protected void processLogic() {
-        getActionBar().setDisplayShowHomeEnabled(false);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-        getActionBar().setDisplayUseLogoEnabled(false);
     }
 
     @Override

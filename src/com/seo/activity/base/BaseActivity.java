@@ -17,6 +17,8 @@ import android.widget.TextView;
 import com.seo.app.views.LoadingDialogFragment;
 import com.seo.model.log.LogUtil;
 import com.seo.utils.ViewUtil;
+import com.seo.wifikey.Gl;
+import com.seo.wifikey.R;
 import com.umeng.analytics.MobclickAgent;
 
 
@@ -43,11 +45,11 @@ public abstract class BaseActivity extends ActionBarActivity implements
 			LogUtil.d("nott->", "smart");
 			screenHeight -= 120;
 		}
-		ActionBar bar = getSupportActionBar();
-		if (bar != null) {
-			bar.setDisplayHomeAsUpEnabled(true);
-		}
-
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(Gl.Ct().getResources().getDrawable(R.color.nav_background_color));
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setHomeAsUpIndicator(R.drawable.icon_back);
+        actionBar.setDisplayHomeAsUpEnabled(true);
 		initialize();
 	}
 

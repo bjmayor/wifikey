@@ -140,37 +140,9 @@ public class CommonWebviewActivity extends BaseActivity implements
         // }
         // });
         shadow = (RelativeLayout) findViewById(R.id.shadow);
-        navigation = (UINavigationView) findViewById(R.id.nav);
-        initLeftButton();
     }
 
-    private void initLeftButton() {
-        if ("AdvertisementActivity".equals(from)) {
-            navigation.getLeftButton().setBackgroundResource(
-                    R.drawable.icon_back_exit);
-            Drawable drawable = getResources().getDrawable(
-                    R.drawable.icon_back_exit);
-            navigation.getLeftButton().getLayoutParams().width = drawable
-                    .getMinimumWidth();
-            navigation.getLeftButton().getLayoutParams().height = drawable
-                    .getMinimumHeight();
-        }
-        navigation.getLeftButton().setOnClickListener(new OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-                if ("AdvertisementActivity".equals(from)) {
-                    Intent intent = new Intent();
-                    intent.setClass(CommonWebviewActivity.this,
-                            MainTabActivity.class);
-                    startActivity(intent);
-                    finish();
-                } else {
-                    finish();
-                }
-            }
-        });
-    }
 
 
     @Override
@@ -182,13 +154,11 @@ public class CommonWebviewActivity extends BaseActivity implements
     protected void processLogic() {
 
         mWebView.loadUrl(url);
-        setTitle();
     }
 
     private Bundle resultBundle = null;
     private Intent resultIntent = null;
     private int logoHeight;
-    private UINavigationView navigation;
 
     @Override
     protected void setListener() {
@@ -429,13 +399,7 @@ public class CommonWebviewActivity extends BaseActivity implements
 
     }
 
-    private void setTitle() {
-        navigation.setTitle(title);
-    }
 
-    private void setTitle(String title) {
-        navigation.setTitle(title);
-    }
 
     private PopupWindow popupWindow;
     private RelativeLayout shadow;

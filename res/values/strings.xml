@@ -344,7 +344,7 @@
     <string name="about_offi_website">访问官网</string>
     <string name="drawer_open">打开抽屉</string>
     <string name="drawer_close">关闭抽屉</string>
-    <string name="title_activity_app_recommend">AppRecommendActivity</string>
+    <string name="title_activity_app_recommend">大家推荐</string>
     <string name="title_activity_my_app">MyAppActivity</string>
 
 </resources>
