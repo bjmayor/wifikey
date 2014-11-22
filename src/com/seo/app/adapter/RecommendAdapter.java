@@ -54,7 +54,12 @@ public class RecommendAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return mData.size();
+        if (mData != null) {
+
+            return mData.size();
+        } else {
+            return 0;
+        }
     }
 
     @Override
@@ -101,7 +106,7 @@ public class RecommendAdapter extends BaseAdapter {
             appName.setText(item.getAdName());
             appIcon.setImageBitmap(item.getAdIcon());
             appDescription.setText(item.getAdText());
-            appSize.setText(item.getFilesize()+"M");
+            appSize.setText(item.getFilesize() + "M");
             appProvider.setText("--" + item.getProvider());
         }
 
