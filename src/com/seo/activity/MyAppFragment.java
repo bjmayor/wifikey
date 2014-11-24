@@ -17,6 +17,8 @@ import com.seo.app.adapter.RecommendAdapter;
 import com.seo.wifikey.Gl;
 import com.seo.wifikey.R;
 
+import net.youmi.android.diy.DiyManager;
+
 import java.util.List;
 
 import cn.waps.AdInfo;

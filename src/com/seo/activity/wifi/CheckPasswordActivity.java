@@ -411,22 +411,6 @@ public class CheckPasswordActivity extends BaseActivity implements
         switch (v.getId()) {
             case R.id.login:
                 // 引导赚取积分
-//                if (ReleaseConstant.getAdPlatform() == ReleaseConstant.ADPLATFORM.ADPLATFORM_YJF) {
-//                    ScoreWallSDK.getInstance(CheckPasswordActivity.this)
-//                            .showScoreWall();
-//                } else if (ReleaseConstant.getAdPlatform() == ReleaseConstant.ADPLATFORM.ADPLATFORM_WANPU) {
-//
-//                    AppConnect.getInstance(this).setOffersCloseListener(new AppListener() {
-//                        @Override
-//                        public void onOffersClose() {
-//                            AppConnect.getInstance(CheckPasswordActivity.this).close();
-//                            requestServerRemainChance();
-//                        }
-//                    });
-//                    AppConnect.getInstance(this).showOffers(this);
-//                } else {
-//                    OffersManager.getInstance(this).showOffersWall();
-//                }
                 showShare();
 
                 break;

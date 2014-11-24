@@ -346,5 +346,9 @@
     <string name="drawer_close">关闭抽屉</string>
     <string name="title_activity_app_recommend">大家推荐</string>
     <string name="title_activity_my_app">MyAppActivity</string>
+    <string name="UMAppUpdate">应用更新</string>
+    <string name="free_wifi">免费WiFi</string>
+    <string name="discover">发现</string>
+
 
 </resources>

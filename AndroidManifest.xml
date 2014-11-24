@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.seo.wifikey"
     android:installLocation="auto"
-    android:versionCode="11000"
-    android:versionName="1.10" >
+    android:versionCode="11100"
+    android:versionName="1.11" >
 
     <!-- ShareSdk permission -->
     <uses-permission android:name="android.permission.GET_TASKS" />
@@ -37,7 +37,7 @@
     <!-- 以下为必须的权限 -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="getui.permission.GetuiService" />
+    <uses-permission android:name="com.seo.getui.permission.GetuiService" />
 
     <!-- 打开网络 -->
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
@@ -72,7 +72,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <permission
-        android:name="getui.permission.GetuiService"
+        android:name="com.seo.getui.permission.GetuiService"
         android:protectionLevel="normal" />
 
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
@@ -94,7 +94,7 @@
     <!-- <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" /> -->
 
     <application
-        android:name=".Gl"
+        android:name="com.seo.wifikey.Gl"
         android:allowBackup="true"
         android:icon="@drawable/hiwifi_launcher"
         android:label="@string/app_name"
@@ -242,7 +242,7 @@
             android:value="542c0899fd98c5483b034f96" />
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="mumayi" />
+            android:value="others" />
         <!-- 正式版用release 开发版用develope -->
         <!-- 万普 -->
         <meta-data

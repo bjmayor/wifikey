@@ -2,7 +2,10 @@ package com.seo.activity;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 
@@ -21,8 +24,16 @@ import cn.waps.AppConnect;
  * @packagename com.hiwifi.activity
  * @projectname hiwifi1.0.1
  */
-public class MainTabActivity extends ActionBarActivity {
+public class MainTabActivity extends ActionBarActivity implements ActionBar.TabListener {
     ActionBar actionBar;
+    private ViewPager mViewPager;
+    private ViewPagerAdapter mViewPagerAdapter;
+    private static final int TAB_INDEX_ONE = 0;
+    private static final int TAB_INDEX_TWO = 1;
+    private static final int TAB_INDEX_THREE = 2;
+    private Fragment fragmentHome = new WifiListFragment();
+    private Fragment fragmentDiscover = new MyAppFragment();
+    private Fragment fragmentSetting = new SettingFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,30 +42,68 @@ public class MainTabActivity extends ActionBarActivity {
         AppConnect.getInstance(this);
         AppConnect.getInstance(this).initUninstallAd(this);
         AppConnect.getInstance(this).setWeixinAppId(ConfigConstant.WX_KEY, this);
-        AppConnect.getInstance(Gl.Ct()).initAdInfo();
+
+
+
+        setUpActionBar();
+//        YjfSDK.getInstance(this, this).initInstance("72860", "EMI373QQVGBD2XHY9M24O3T30YTXIXHP81", "82214", Gl.getChannel());
+        setUpViewPager();
+        setUpTabs();
+    }
+
+    private void setUpActionBar() {
         actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         actionBar.setBackgroundDrawable(Gl.Ct().getResources().getDrawable(R.color.nav_background_color));
         actionBar.setLogo(R.drawable.logo_header);
         actionBar.setDisplayUseLogoEnabled(true);
+    }
+
+    private void setUpTabs() {
         ActionBar.Tab tabHome = actionBar.newTab().setText(R.string.free_wifi);
         ActionBar.Tab tabDiscover = actionBar.newTab().setText(R.string.discover);
         ActionBar.Tab tabSetting = actionBar.newTab().setText(R.string.setting);
 
-        Fragment fragmentHome = new WifiListFragment();
-        Fragment fragmentDiscover = new MyAppFragment();
-        Fragment fragmentSetting = new SettingFragment();
 
-        tabHome.setTabListener(new MyTabListener(fragmentHome));
-        tabDiscover.setTabListener(new MyTabListener(fragmentDiscover));
-        tabSetting.setTabListener(new MyTabListener(fragmentSetting));
+        tabHome.setTabListener(this);
+        tabDiscover.setTabListener(this);
+        tabSetting.setTabListener(this);
 
         actionBar.addTab(tabHome);
         actionBar.addTab(tabDiscover);
         actionBar.addTab(tabSetting);
+    }
 
-//        YjfSDK.getInstance(this, this).initInstance("72860", "EMI373QQVGBD2XHY9M24O3T30YTXIXHP81", "82214", Gl.getChannel());
+    private void setUpViewPager() {
+        mViewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
 
+        mViewPager = (ViewPager) findViewById(R.id.pager);
+        mViewPager.setAdapter(mViewPagerAdapter);
+        mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+            @Override
+            public void onPageSelected(int position) {
+                final ActionBar actionBar = getSupportActionBar();
+                actionBar.setSelectedNavigationItem(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                switch (state) {
+                    case ViewPager.SCROLL_STATE_IDLE:
+                        //TODO
+                        break;
+                    case ViewPager.SCROLL_STATE_DRAGGING:
+                        //TODO
+                        break;
+                    case ViewPager.SCROLL_STATE_SETTLING:
+                        //TODO
+                        break;
+                    default:
+                        //TODO
+                        break;
+                }
+            }
+        });
     }
 
 
@@ -81,27 +130,43 @@ public class MainTabActivity extends ActionBarActivity {
         super.onBackPressed();
     }
 
+    @Override
+    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+        mViewPager.setCurrentItem(tab.getPosition());
+    }
 
-    public class MyTabListener implements ActionBar.TabListener {
-        private Fragment fragment;
+    @Override
+    public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
 
-        public MyTabListener(Fragment fragment) {
-            this.fragment = fragment;
+    }
+
+    @Override
+    public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+
+    }
+
+
+    public class ViewPagerAdapter extends FragmentPagerAdapter {
+        public ViewPagerAdapter(FragmentManager fm) {
+            super(fm);
         }
 
         @Override
-        public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-            fragmentTransaction.replace(R.id.fl_content, this.fragment, null);
+        public Fragment getItem(int i) {
+            switch (i) {
+                case TAB_INDEX_ONE:
+                    return fragmentHome;
+                case TAB_INDEX_TWO:
+                    return fragmentDiscover;
+                case TAB_INDEX_THREE:
+                    return fragmentSetting;
+            }
+            throw new IllegalStateException("No fragment at position " + i);
         }
 
         @Override
-        public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-
-        }
-
-        @Override
-        public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-
+        public int getCount() {
+            return 3;
         }
     }
 }

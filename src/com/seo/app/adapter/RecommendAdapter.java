@@ -55,7 +55,6 @@ public class RecommendAdapter extends BaseAdapter {
     @Override
     public int getCount() {
         if (mData != null) {
-
             return mData.size();
         } else {
             return 0;
