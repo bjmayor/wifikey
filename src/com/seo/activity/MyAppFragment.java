@@ -1,6 +1,8 @@
 package com.seo.activity;
 
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
+import android.preference.DialogPreference;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -14,6 +16,7 @@ import android.widget.ListView;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.seo.app.adapter.RecommendAdapter;
+import com.seo.app.views.CustomDialog;
 import com.seo.wifikey.Gl;
 import com.seo.wifikey.R;
 
@@ -66,6 +69,21 @@ public class MyAppFragment extends Fragment implements AdapterView.OnItemClickLi
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 //        AppConnect.getInstance(getActivity()).clickAd(getActivity(), recommendAdapter.getItem(i).getAdId());
-        AppConnect.getInstance(getActivity()).downloadAd(getActivity(), recommendAdapter.getItem(i).getAdId());
+        CustomDialog dialog = new CustomDialog.Builder(getActivity()).setMessage(recommendAdapter.getItem(i).getAdText()+",是否下载？")
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        AppConnect.getInstance(getActivity()).downloadAd(getActivity(), recommendAdapter.getItem(i).getAdId());
+                    }
+                })
+                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                })
+                .create();
+        dialog.show();
+
     }
 }

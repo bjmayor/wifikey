@@ -19,10 +19,13 @@ import com.seo.model.ClientInfo;
 import com.seo.model.wifi.WifiAdmin;
 import com.seo.utils.ImageUtil;
 import com.seo.utils.ViewUtil;
+import com.seo.wifikey.Gl;
 import com.seo.wifikey.R;
 
 import net.youmi.android.AdManager;
 import net.youmi.android.offers.OffersManager;
+
+import cn.waps.AppConnect;
 
 
 public class SplashActiviy extends ActionBarActivity {
@@ -35,6 +38,7 @@ public class SplashActiviy extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_splash);
         isFirstOpen = ClientInfo.shareInstance().isFirstStarted();
         if (ReleaseConstant.getAdPlatform() == ReleaseConstant.ADPLATFORM.ADPLATFORM_YOUMI) {
@@ -52,6 +56,7 @@ public class SplashActiviy extends ActionBarActivity {
 
     // 延迟启动
     private void postDelay() {
+
         new Handler(getMainLooper()).postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -69,7 +74,7 @@ public class SplashActiviy extends ActionBarActivity {
 
             }
         }, 3000);
-
+        AppConnect.getInstance(Gl.Ct()).initAdInfo();
     }
 
 
