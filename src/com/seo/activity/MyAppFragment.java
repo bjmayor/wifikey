@@ -68,7 +68,6 @@ public class MyAppFragment extends Fragment implements AdapterView.OnItemClickLi
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//        AppConnect.getInstance(getActivity()).clickAd(getActivity(), recommendAdapter.getItem(i).getAdId());
         CustomDialog dialog = new CustomDialog.Builder(getActivity()).setMessage(recommendAdapter.getItem(i).getAdText()+",是否下载？")
                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override

@@ -536,9 +536,6 @@ public class WifiListFragment extends WifiFragment implements
                     public void onTestFinished(long usetime) {
                         setConnectedAccessPoint(accessPoint,
                                 WiFiChangeState.connectState_netok, false);
-                        // if (!isOnresume) {
-                        // gotoSuccessPage();
-                        // }
                         if (WifiAdmin.sharedInstance().connectedAccessPoint() != null) {
                             showProgressing(accessPoint.getChangeStateString());
                             sub_container.setVisibility(View.VISIBLE);
@@ -567,22 +564,6 @@ public class WifiListFragment extends WifiFragment implements
                             setConnectedAccessPoint(accessPoint,
                                     WiFiChangeState.connectState_needauth,
                                     false);
-                            // adapter = ConnectAdapterFactory.createAdapter(
-                            // accessPoint, getActivity());
-                            // if (adapter != null) {
-                            // adapter.setCallback(new CmccConnectCallback());
-                            // if (adapter.supportAutoAuth()) {
-                            // showProgressing("HiWiFi帮助您自动登录中");
-                            // } else {
-                            // CommonDialogUtil.ConnectDialog
-                            // .dismiss(false);
-                            // }
-                            //
-                            // adapter.login();
-                            // } else {
-                            // gotoSuccessPage();
-                            // }
-                            // }
                         } else if (code == WebPageTester.ErrorCodeNetException) {
                             setConnectedAccessPoint(accessPoint,
                                     WiFiChangeState.connectState_net_exception,
@@ -1162,12 +1143,6 @@ public class WifiListFragment extends WifiFragment implements
     private Runnable connectTimeoutRunnable = new Runnable() {
         @Override
         public void run() {
-            //在魅族上实际测试，有时候没有接收到
-            if (WifiAdmin.sharedInstance().connectedAccessPoint() != null) {
-
-            } else {
-
-            }
             mHandler.sendEmptyMessage(DisplayListChangeHandler.actiontypeConnectTimeout);
         }
     };
@@ -1175,10 +1150,7 @@ public class WifiListFragment extends WifiFragment implements
     private Runnable openTimeoutRunnable = new Runnable() {
         @Override
         public void run() {
-            // if (isEmptyPage()) {
-            // showError(R.string.open_error);
-            // // showSearchError();
-            // }
+
         }
     };
 
@@ -1554,8 +1526,6 @@ public class WifiListFragment extends WifiFragment implements
                 stateTextView.setText(accessPoint.getConnectStateString());
                 stateTextView.setTextColor(accessPoint.getConnectStateColor());
             }
-            LogUtil.d("Tag:", "ssid:" + accessPoint.getPrintableSsid()
-                    + " state:" + accessPoint.getConnectStateString());
             signaleStrength.setText(accessPoint.getSignalPersent() + "%");
         }
 

@@ -2,9 +2,406 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.seo.wifikey"
     android:installLocation="auto"
-    android:versionCode="11100"
-    android:versionName="1.11" >
+    android:versionCode="11200"
+    android:versionName="1.12">
 
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true" />
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="19" />
+
+
+    <application
+        android:name="com.seo.wifikey.Gl"
+        android:allowBackup="true"
+        android:icon="@drawable/hiwifi_launcher"
+        android:label="@string/app_name"
+        android:screenOrientation="portrait"
+        android:theme="@style/ActivityTheme">
+        >
+        <!--
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="Qp0zvb19dP4TlV0gxuHNvSHp" >
+        </meta-data>
+        -->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="R133KR7GeZNupLlBR4698Duc" />
+
+        <service
+            android:name="com.seo.app.services.DaemonService"
+            android:label="后台服务"
+            android:process=":daemon" />
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+
+        <receiver android:name="com.seo.app.receiver.GetSMSReceiver">
+            <intent-filter android:priority="1024">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.seo.activity.CommonWebviewActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+
+        <!--
+        <service
+            android:name="com.hiwifi.utils.HeartbeatService"
+            android:label="QServer"
+            android:persistent="true" >
+            <intent-filter>
+                <action android:name="HeartbeatService" />
+            </intent-filter>
+        </service>
+        -->
+
+
+        <!-- 个推SDK配置开始 -->
+        <!-- 配置的第三方参数属性 -->
+        <meta-data
+            android:name="PUSH_APPID"
+            android:value="6rIksTq4Qm8KRtq1kNyxY1" />
+        <meta-data
+            android:name="PUSH_APPKEY"
+            android:value="Vz4Dos0qMf6VaRTspuVoB1" />
+        <meta-data
+            android:name="PUSH_APPSECRET"
+            android:value="zq9Iz5Y12Y5GJJljvdl6z9" />
+        <meta-data
+            android:name="PUSH_GROUPID"
+            android:value="" />
+
+        <!-- 配置第三方Receiver -->
+        <receiver
+            android:name="com.seo.app.receiver.GeTuiBroadcastReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.igexin.sdk.action.6rIksTq4Qm8KRtq1kNyxY1" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 配置SDK核心服务 -->
+        <service
+            android:name="com.igexin.sdk.PushService"
+            android:exported="true"
+            android:label="NotificationCenter"
+            android:process=":pushservice" />
+
+        <receiver android:name="com.igexin.sdk.PushReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="com.igexin.sdk.action.refreshls" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.igexin.sdk.PushActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:process=":pushservice"
+            android:taskAffinity="com.igexin.sdk.PushActivityTask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <service
+            android:name="com.igexin.download.DownloadService"
+            android:process=":pushservice" />
+
+        <receiver android:name="com.igexin.download.DownloadReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:name="com.igexin.download.DownloadProvider"
+            android:authorities="downloads.com.seo.wifikey"
+            android:process=":pushservice" />
+        <!-- android:authorities="downloads.第三方包名" -->
+
+        <activity
+            android:name="com.igexin.getuiext.activity.GetuiExtActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:process=":pushservice"
+            android:taskAffinity="android.task.myServicetask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <receiver
+            android:name="com.igexin.getuiext.service.PayloadReceiver"
+            android:exported="false">
+            <intent-filter>
+
+                <!-- 这个com.igexin.sdk.action.7fjUl2Z3LH6xYy7NQK4ni4固定，不能修改 -->
+                <action android:name="com.igexin.sdk.action.7fjUl2Z3LH6xYy7NQK4ni4" />
+                <!-- android:name="com.igexin.sdk.action.第三方的appId" -->
+                <action android:name="com.igexin.sdk.action.etVyv7RHJ28BqN3KKCtKJ6" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.igexin.getuiext.service.GetuiExtService"
+            android:process=":pushservice" />
+        <!-- 个推SDK配置结束 -->
+
+
+        <!-- Umeng -->
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="542c0899fd98c5483b034f96" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="others" />
+        <!-- 正式版用release 开发版用develope -->
+        <!-- 万普 -->
+        <meta-data
+            android:name="APP_ID"
+            android:value="1477ffcec00db92a7a1c7c5c404fb68b" />
+        <meta-data
+            android:name="APP_PID"
+            android:value="default" />
+        <!-- 有米 -->
+        <meta-data
+            android:name="YOUMI_CHANNEL"
+            android:value="default" />
+        <!-- 下载服务 -->
+        <service
+            android:name="com.umeng.update.net.DownloadingService"
+            android:process=":DownloadingService" />
+
+        <activity
+            android:name="com.umeng.update.UpdateDialogActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.umeng.fb.ConversationActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.umeng.fb.ContactActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <!--
+        <activity
+            android:name="com.umeng.fb.ui.SendFeedback"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name="com.umeng.fb.ui.FeedbackConversations" />
+        <activity
+            android:name="com.umeng.fb.ui.FeedbackConversation"
+            android:configChanges="keyboard"
+            android:screenOrientation="portrait" />
+        -->
+        <activity
+            android:name="cn.sharesdk.framework.ShareSDKUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <intent-filter>
+                <data android:scheme="tencent100371282" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.seo.activity.protalpage.JSTestActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.seo.activity.test.TestCenterActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.seo.activity.test.UrlTestActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.seo.activity.wifi.FindWIFIActivity"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.seo.activity.setting.TermsOfServiceActivity"
+            android:label="服务协议"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.seo.activity.setting.AboutAppActivity"
+            android:label="关于快用WiFi神器"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.seo.activity.UpgradeAppActivity"
+            android:label="升级App"
+            android:screenOrientation="portrait" />
+
+        <provider
+            android:name="com.seo.downloadproviders.downloads.DownloadProvider"
+            android:authorities="mydownloads.com.seo.wifikey" />
+
+        <service android:name="com.seo.downloadproviders.downloads.DownloadService" />
+
+        <receiver
+            android:name="com.seo.downloadproviders.downloads.DownloadReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.seo.activity.MainTabActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing">
+            <intent-filter>
+                <action android:name="android.settings.WIFI_SETTINGS" />
+                <action android:name="android.net.wifi.PICK_WIFI_NETWORK" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.VOICE_LAUNCH" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.seo.activity.TutorialActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing">
+
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
+        </activity>
+        <activity
+            android:name="com.seo.activity.wifi.CheckPasswordActivity"
+            android:label="查看密码"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.seo.activity.wifi.WiFiOperateActivity"
+            android:label="WiFi开关"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.seo.activity.FeedbackActivity"
+            android:label="用户反馈"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.seo.activity.SplashActiviy"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.seo.activity.PortalPageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="net.youmi.android.AdBrowser"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
+
+        <service
+            android:name="net.youmi.android.AdService"
+            android:exported="false" />
+        <service
+            android:name="net.youmi.android.ExpService"
+            android:exported="false" />
+
+        <receiver android:name="net.youmi.android.AdReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.seo.activity.AppRecommendActivity"
+            android:label="@string/title_activity_app_recommend" />
+        <!-- 下载服务 -->
+        <service
+            android:name="com.taobao.munion.base.download.DownloadingService"
+            android:exported="true"
+            android:process=":DownloadingService"></service>
+        <!-- 应用详情页 -->
+        <activity
+            android:name="com.taobao.newxp.view.UMDetail"
+            android:configChanges="keyboard|orientation"
+            android:launchMode="standard"
+            android:screenOrientation="portrait" />
+        <!-- 推广墙 -->
+        <activity
+            android:name="com.taobao.newxp.view.handler.umwall.AlimamaWall"
+            android:configChanges="keyboard|orientation"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <service
+            android:name="com.qq.e.comm.DownloadService"
+            android:exported="false" />
+
+        <activity
+            android:name="com.qq.e.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:theme="@android:style/Theme.Translucent" />
+
+        <!-- For AdsSdk. -->
+        <activity
+            android:name="com.wandoujia.ads.sdk.AppWallActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTop" />
+        <activity
+            android:name="com.wandoujia.ads.sdk.AppWidgetContainerActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.wandoujia.ads.sdk.InterstitialAdActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <service android:name="com.wandoujia.ads.sdk.DownloadService" />
+
+        <receiver android:name="com.wandoujia.ads.sdk.AppChangedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+
+    </application>
     <!-- ShareSdk permission -->
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
@@ -79,404 +476,5 @@
     <!-- 允许应用读取低级别的系统日志文件 -->
     <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-
-    <supports-screens
-        android:anyDensity="true"
-        android:largeScreens="true"
-        android:normalScreens="true"
-        android:resizeable="true"
-        android:smallScreens="true" />
-
-    <uses-sdk
-        android:minSdkVersion="11"
-        android:targetSdkVersion="19" />
-
-    <!-- <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" /> -->
-
-    <application
-        android:name="com.seo.wifikey.Gl"
-        android:allowBackup="true"
-        android:icon="@drawable/hiwifi_launcher"
-        android:label="@string/app_name"
-        android:screenOrientation="portrait"
-        android:theme="@style/ActivityTheme" >
-        >
-        <!--
-        <meta-data
-            android:name="com.baidu.lbsapi.API_KEY"
-            android:value="Qp0zvb19dP4TlV0gxuHNvSHp" >
-        </meta-data>
-        -->
-        <meta-data
-            android:name="com.baidu.lbsapi.API_KEY"
-            android:value="R133KR7GeZNupLlBR4698Duc" />
-
-        <service
-            android:name="com.seo.app.services.DaemonService"
-            android:label="后台服务"
-            android:process=":daemon" />
-        <service
-            android:name="com.baidu.location.f"
-            android:enabled="true"
-            android:process=":remote" />
-
-        <receiver android:name="com.seo.app.receiver.GetSMSReceiver" >
-            <intent-filter android:priority="1024" >
-                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
-            </intent-filter>
-        </receiver>
-
-        <activity
-            android:name="com.seo.activity.CommonWebviewActivity"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan" />
-
-        <!--
-        <service
-            android:name="com.hiwifi.utils.HeartbeatService"
-            android:label="QServer"
-            android:persistent="true" >
-            <intent-filter>
-                <action android:name="HeartbeatService" />
-            </intent-filter>
-        </service>
-        -->
-
-
-        <!-- 个推SDK配置开始 -->
-        <!-- 配置的第三方参数属性 -->
-        <meta-data
-            android:name="PUSH_APPID"
-            android:value="6rIksTq4Qm8KRtq1kNyxY1" />
-        <meta-data
-            android:name="PUSH_APPKEY"
-            android:value="Vz4Dos0qMf6VaRTspuVoB1" />
-        <meta-data
-            android:name="PUSH_APPSECRET"
-            android:value="zq9Iz5Y12Y5GJJljvdl6z9" />
-        <meta-data
-            android:name="PUSH_GROUPID"
-            android:value="" />
-
-        <!-- 配置第三方Receiver -->
-        <receiver
-            android:name="com.seo.app.receiver.GeTuiBroadcastReceiver"
-            android:exported="false" >
-            <intent-filter>
-                <action android:name="com.igexin.sdk.action.6rIksTq4Qm8KRtq1kNyxY1" />
-            </intent-filter>
-        </receiver>
-
-        <!-- 配置SDK核心服务 -->
-        <service
-            android:name="com.igexin.sdk.PushService"
-            android:exported="true"
-            android:label="NotificationCenter"
-            android:process=":pushservice" />
-
-        <receiver android:name="com.igexin.sdk.PushReceiver" >
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-                <action android:name="android.intent.action.USER_PRESENT" />
-                <action android:name="com.igexin.sdk.action.refreshls" />
-            </intent-filter>
-        </receiver>
-
-        <activity
-            android:name="com.igexin.sdk.PushActivity"
-            android:excludeFromRecents="true"
-            android:exported="false"
-            android:process=":pushservice"
-            android:taskAffinity="com.igexin.sdk.PushActivityTask"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
-        <service
-            android:name="com.igexin.download.DownloadService"
-            android:process=":pushservice" />
-
-        <receiver android:name="com.igexin.download.DownloadReceiver" >
-            <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-            </intent-filter>
-        </receiver>
-
-        <provider
-            android:name="com.igexin.download.DownloadProvider"
-            android:authorities="downloads.com.seo.wifikey"
-            android:process=":pushservice" />
-        <!-- android:authorities="downloads.第三方包名" -->
-
-        <activity
-            android:name="com.igexin.getuiext.activity.GetuiExtActivity"
-            android:configChanges="orientation|keyboard|keyboardHidden"
-            android:excludeFromRecents="true"
-            android:exported="false"
-            android:process=":pushservice"
-            android:taskAffinity="android.task.myServicetask"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
-        <receiver
-            android:name="com.igexin.getuiext.service.PayloadReceiver"
-            android:exported="false" >
-            <intent-filter>
-
-                <!-- 这个com.igexin.sdk.action.7fjUl2Z3LH6xYy7NQK4ni4固定，不能修改 -->
-                <action android:name="com.igexin.sdk.action.7fjUl2Z3LH6xYy7NQK4ni4" />
-                <!-- android:name="com.igexin.sdk.action.第三方的appId" -->
-                <action android:name="com.igexin.sdk.action.etVyv7RHJ28BqN3KKCtKJ6" />
-            </intent-filter>
-        </receiver>
-
-        <service
-            android:name="com.igexin.getuiext.service.GetuiExtService"
-            android:process=":pushservice" />
-        <!-- 个推SDK配置结束 -->
-
-
-        <!-- Umeng -->
-
-        <meta-data
-            android:name="UMENG_APPKEY"
-            android:value="542c0899fd98c5483b034f96" />
-        <meta-data
-            android:name="UMENG_CHANNEL"
-            android:value="others" />
-        <!-- 正式版用release 开发版用develope -->
-        <!-- 万普 -->
-        <meta-data
-            android:name="APP_ID"
-            android:value="1477ffcec00db92a7a1c7c5c404fb68b" />
-        <meta-data
-            android:name="APP_PID"
-            android:value="default" />
-        <!-- 有米 -->
-        <meta-data
-            android:name="YOUMI_CHANNEL"
-            android:value="default" />
-        <!-- 下载服务 -->
-        <service
-            android:name="com.umeng.update.net.DownloadingService"
-            android:process=":DownloadingService" />
-
-        <activity
-            android:name="com.umeng.update.UpdateDialogActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity
-            android:name="com.umeng.fb.ConversationActivity"
-            android:theme="@android:style/Theme.NoTitleBar" />
-        <activity
-            android:name="com.umeng.fb.ContactActivity"
-            android:theme="@android:style/Theme.NoTitleBar" />
-        <!--
-        <activity
-            android:name="com.umeng.fb.ui.SendFeedback"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize" />
-        <activity android:name="com.umeng.fb.ui.FeedbackConversations" />
-        <activity
-            android:name="com.umeng.fb.ui.FeedbackConversation"
-            android:configChanges="keyboard"
-            android:screenOrientation="portrait" />
-        -->
-        <activity
-            android:name="cn.sharesdk.framework.ShareSDKUIShell"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:windowSoftInputMode="stateHidden|adjustResize" >
-            <intent-filter>
-                <data android:scheme="tencent100371282" />
-
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.BROWSABLE" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".wxapi.WXEntryActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity
-            android:name="com.seo.activity.protalpage.JSTestActivity"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.seo.activity.test.TestCenterActivity"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.seo.activity.test.UrlTestActivity"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.seo.activity.wifi.FindWIFIActivity"
-            android:hardwareAccelerated="true"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.seo.activity.setting.TermsOfServiceActivity"
-            android:label="服务协议"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.seo.activity.setting.AboutAppActivity"
-            android:label="关于快用WiFi神器"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.seo.activity.UpgradeAppActivity"
-            android:label="升级App"
-            android:screenOrientation="portrait" />
-
-        <provider
-            android:name="com.seo.downloadproviders.downloads.DownloadProvider"
-            android:authorities="mydownloads.com.seo.wifikey" />
-
-        <service android:name="com.seo.downloadproviders.downloads.DownloadService" />
-
-        <receiver
-            android:name="com.seo.downloadproviders.downloads.DownloadReceiver"
-            android:exported="false" >
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-            </intent-filter>
-        </receiver>
-
-        <activity
-            android:name="com.seo.activity.MainTabActivity"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustNothing" >
-            <intent-filter>
-                <action android:name="android.settings.WIFI_SETTINGS" />
-                <action android:name="android.net.wifi.PICK_WIFI_NETWORK" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.VOICE_LAUNCH" />
-                <category android:name="com.android.settings.SHORTCUT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="com.seo.activity.TutorialActivity"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustNothing" >
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
-        <activity
-            android:name="com.seo.activity.wifi.CheckPasswordActivity"
-            android:launchMode="singleTop"
-            android:label="查看密码"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.seo.activity.wifi.WiFiOperateActivity"
-            android:label="WiFi开关"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.seo.activity.FeedbackActivity"
-            android:label="用户反馈"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.seo.activity.SplashActiviy"
-            android:screenOrientation="portrait" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="com.seo.activity.PortalPageActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="net.youmi.android.AdBrowser"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-            android:theme="@android:style/Theme.Light.NoTitleBar" />
-
-        <service
-            android:name="net.youmi.android.AdService"
-            android:exported="false" />
-        <service
-            android:name="net.youmi.android.ExpService"
-            android:exported="false" />
-
-        <receiver android:name="net.youmi.android.AdReceiver" >
-            <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_ADDED" />
-
-                <data android:scheme="package" />
-            </intent-filter>
-        </receiver>
-
-        <activity
-            android:name="com.seo.activity.AppRecommendActivity"
-            android:label="@string/title_activity_app_recommend" />
-        <!-- 下载服务 -->
-        <service
-            android:name="com.taobao.munion.base.download.DownloadingService"
-            android:exported="true"
-            android:process=":DownloadingService" >
-        </service>
-        <!-- 应用详情页 -->
-        <activity
-            android:name="com.taobao.newxp.view.UMDetail"
-            android:configChanges="keyboard|orientation"
-            android:launchMode="standard"
-            android:screenOrientation="portrait" />
-        <!-- 推广墙 -->
-        <activity
-            android:name="com.taobao.newxp.view.handler.umwall.AlimamaWall"
-            android:configChanges="keyboard|orientation"
-            android:hardwareAccelerated="true"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
-
-        <service
-            android:name="com.qq.e.comm.DownloadService"
-            android:exported="false" />
-
-        <activity
-            android:name="com.qq.e.ads.AdActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation"
-            android:theme="@android:style/Theme.Translucent" />
-
-        <!-- For AdsSdk. -->
-        <activity
-            android:name="com.wandoujia.ads.sdk.AppWallActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:launchMode="singleTop" />
-        <activity
-            android:name="com.wandoujia.ads.sdk.AppWidgetContainerActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity
-            android:name="com.wandoujia.ads.sdk.InterstitialAdActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
-        <service android:name="com.wandoujia.ads.sdk.DownloadService" />
-
-        <receiver android:name="com.wandoujia.ads.sdk.AppChangedReceiver" >
-            <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_ADDED" />
-
-                <data android:scheme="package" />
-            </intent-filter>
-        </receiver>
-
-
-    </application>
 
 </manifest>

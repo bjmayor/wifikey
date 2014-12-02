@@ -207,11 +207,9 @@ public final class Gl extends Application {
                         if ("key".equals(nodeName)) {
                             key = pullParser.nextText();
                             value = "";
-                            LogUtil.d("key:", key);
                         }
                         if ("string".equals(nodeName)) {
                             value = pullParser.nextText();
-                            LogUtil.d("value:", value);
                         }
                         if (!key.equals("") && !value.equals("")) {
                             errorMap.put(key, value);

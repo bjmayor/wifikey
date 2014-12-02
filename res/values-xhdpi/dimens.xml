@@ -61,7 +61,14 @@
     <dimen name="text_size_main">12dp</dimen>
     <dimen name="text_size_big">14dp</dimen>
     <dimen name="text_size_bigest">18dp</dimen>
-    <dimen name="text_size_small">10dp</dimen>
+    <dimen name="text_size_small">10dp</dimen>
+
+
+
+
+
+
+
     -->
 
     <dimen name="setting_size">18dp</dimen>
@@ -107,7 +114,12 @@
     <dimen name="quit_btn_size">14dp</dimen>
     <dimen name="quit_margin">18dp</dimen>
     <dimen name="quit_bg_margin">45dp</dimen>
-    <dimen name="quit_btn_height">30dp</dimen>
+    <dimen name="quit_btn_height">30dp</dimen>
+
+
+
+
+
     -->
     <!-- success online -->
     <dimen name="tab_item_size">12dp</dimen>
@@ -155,7 +167,7 @@
     <dimen name="menu_font_size">15sp</dimen>
     <dimen name="nav_title_text_size">25sp</dimen>
     <dimen name="nav_btn_text_size">10sp</dimen>
-    <dimen name="common_radius">90dp</dimen>
+    <dimen name="common_radius">20dp</dimen>
 
     <!-- Setting -->
     <dimen name="setting_list_height">45dp</dimen>
