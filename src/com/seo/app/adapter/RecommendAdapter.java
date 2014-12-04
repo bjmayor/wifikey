@@ -18,6 +18,7 @@ import com.seo.wifikey.R;
 import java.util.List;
 
 import cn.waps.AdInfo;
+import cn.waps.AppConnect;
 
 /*
 String adId = adInfo.getAdId(); //广告 id
@@ -86,28 +87,34 @@ public class RecommendAdapter extends BaseAdapter {
         return convertView;
     }
 
-    static class ViewHolder {
+    static class ViewHolder implements View.OnClickListener {
         ImageView appIcon;
         TextView appName;
         TextView appDescription;
         TextView appSize;
-        TextView appProvider;
+        ImageView downloadIcon;
+        AdInfo item;
 
         public ViewHolder(View rootView) {
             appIcon = (ImageView) rootView.findViewById(R.id.app_icon);
+            downloadIcon = (ImageView) rootView.findViewById(R.id.iv_download);
             appName = (TextView) rootView.findViewById(R.id.app_name);
             appDescription = (TextView) rootView.findViewById(R.id.app_description);
             appSize = (TextView) rootView.findViewById(R.id.app_size);
-            appProvider = (TextView) rootView.findViewById(R.id.app_provider);
+            downloadIcon.setOnClickListener(this);
         }
 
         public void configByItem(AdInfo item) {
+            this.item = item;
             appName.setText(item.getAdName());
             appIcon.setImageBitmap(item.getAdIcon());
             appDescription.setText(item.getAdText());
             appSize.setText(item.getFilesize() + "M");
-            appProvider.setText("--" + item.getProvider());
         }
 
+        @Override
+        public void onClick(View view) {
+            AppConnect.getInstance(view.getContext()).downloadAd(view.getContext(), this.item.getAdId());
+        }
     }
 }

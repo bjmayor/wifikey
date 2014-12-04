@@ -54,15 +54,7 @@
                     android:text="10M"
                     android:textColor="@color/text_color_gray" />
 
-                <TextView
-                    android:id="@+id/app_provider"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:paddingTop="@dimen/box_minHeight"
-                    android:singleLine="true"
-                    android:text="test"
-                    android:textColor="@color/text_color_gray" />
+
             </LinearLayout>
 
 
@@ -78,8 +70,12 @@
         </LinearLayout>
 
         <ImageView
+            android:id="@+id/iv_download"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="50dp"
+            android:minHeight="50dp"
+            android:scaleType="centerInside"
             android:layout_gravity="right|center_vertical"
             android:src="@drawable/selector_img_download" />
     </LinearLayout>
