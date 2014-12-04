@@ -24,6 +24,7 @@ import com.seo.constant.ConfigConstant;
 import com.seo.constant.ReleaseConstant;
 import com.seo.constant.RequestConstant;
 import com.seo.model.ClientInfo;
+import com.seo.utils.ResUtil;
 import com.seo.wifikey.Gl;
 import com.seo.wifikey.R;
 import com.umeng.analytics.MobclickAgent;
@@ -215,7 +216,7 @@ public class SettingFragment extends Fragment implements OnClickListener,
         // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间使用
         oks.setTitle(getString(R.string.share));
         // text是分享文本，所有平台都需要这个字段
-        oks.setText("在外面也能连上免费wifi了，#快用WiFi神器#还行！我真是一会儿都离不开网啊，推荐你也试试：" + RequestConstant.getUrl(RequestConstant.RequestTag.URL_APP_DOWNLOAD));
+        oks.setText("在外面也能连上免费wifi了，#" + ResUtil.getStringById(R.string.app_name) + "#还行！我真是一会儿都离不开网啊，推荐你也试试：" + RequestConstant.getUrl(RequestConstant.RequestTag.URL_APP_DOWNLOAD));
         // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
 //        oks.setImagePath("/sdcard/test.jpg");
         // url仅在微信（包括好友和朋友圈）中使用
@@ -231,7 +232,7 @@ public class SettingFragment extends Fragment implements OnClickListener,
             public void onShare(Platform platform, Platform.ShareParams paramsToShare) {
                 if (SinaWeibo.NAME.equals(platform.getName())
                         || WechatMoments.NAME.equals(platform.getName())) {
-                    paramsToShare.setText("在外面也能连上免费wifi了，#快用WiFi神器#还行！我真是一会儿都离不开网啊，推荐大家也试试：" + RequestConstant.getUrl(RequestConstant.RequestTag.URL_APP_DOWNLOAD));
+                    paramsToShare.setText("在外面也能连上免费wifi了，#" + ResUtil.getStringById(R.string.app_name) + "#还行！我真是一会儿都离不开网啊，推荐大家也试试：" + RequestConstant.getUrl(RequestConstant.RequestTag.URL_APP_DOWNLOAD));
                 }
             }
         });
