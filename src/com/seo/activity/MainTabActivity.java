@@ -9,6 +9,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 
+import com.eadver.offer.recommendwall.RecommendAdListSDK;
+import com.eadver.offer.sdk.YjfSDK;
 import com.seo.activity.wifi.WifiListFragment;
 import com.seo.constant.ConfigConstant;
 import com.seo.wifikey.Gl;
@@ -43,10 +45,11 @@ public class MainTabActivity extends ActionBarActivity implements ActionBar.TabL
         AppConnect.getInstance(this).initUninstallAd(this);
         AppConnect.getInstance(this).setWeixinAppId(ConfigConstant.WX_KEY, this);
 
-
+        YjfSDK.getInstance(this, null).initInstance(ConfigConstant.YJF_APP_ID,
+                ConfigConstant.YJF_APP_KEY,
+                ConfigConstant.YJF_DEV_ID, Gl.getChannel());
 
         setUpActionBar();
-//        YjfSDK.getInstance(this, this).initInstance("72860", "EMI373QQVGBD2XHY9M24O3T30YTXIXHP81", "82214", Gl.getChannel());
         setUpViewPager();
         setUpTabs();
     }
@@ -128,6 +131,8 @@ public class MainTabActivity extends ActionBarActivity implements ActionBar.TabL
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        RecommendAdListSDK.getInstance(this).onDestroy();
+        YjfSDK.getInstance(this,null).recordAppClose();
     }
 
     @Override

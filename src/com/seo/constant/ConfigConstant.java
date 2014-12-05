@@ -217,5 +217,10 @@ public class ConfigConstant {
     public static final String WDJ_AD_APPID = "100016857";
     public static final String WDJ_AD_APPSECRET = "074a255046be6e2c1f83a0574bfbf392";
 
+    //易积分
+    public static final String YJF_APP_ID = "72860";
+    public static final String YJF_APP_KEY = "EMI373QQVGBD2XHY9M24O3T30YTXIXHP81";
+    public static final String YJF_DEV_ID = "82214";
+
 
 }

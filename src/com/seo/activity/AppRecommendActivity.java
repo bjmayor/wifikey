@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 
+import com.eadver.offer.recommendwall.RecommendWallSDK;
 import com.qq.e.appwall.GdtAppwall;
 import com.seo.activity.base.BaseActivity;
 import com.seo.app.views.UINavigationView;
@@ -131,6 +132,7 @@ public class AppRecommendActivity extends BaseActivity {
             rootView.findViewById(R.id.ll_recommend_by_youmi).setOnClickListener(this);
             rootView.findViewById(R.id.ll_recommend_by_qq).setOnClickListener(this);
             rootView.findViewById(R.id.ll_recommend_by_wandoujia).setOnClickListener(this);
+            rootView.findViewById(R.id.ll_recommend_by_yjf).setOnClickListener(this);
             return rootView;
         }
 
@@ -159,6 +161,9 @@ public class AppRecommendActivity extends BaseActivity {
                     break;
                 case R.id.ll_recommend_by_wandoujia:
                     Ads.showAppWall(getActivity(), ConfigConstant.WDJ_AD_POSID);
+                    break;
+                case R.id.ll_recommend_by_yjf:
+                    RecommendWallSDK.getInstance(getActivity()).showRecommendWall();
                     break;
             }
         }

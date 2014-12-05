@@ -399,6 +399,19 @@
                 <data android:scheme="package" />
             </intent-filter>
         </receiver>
+        <activity
+            android:name="com.eadver.offer.sdk.view.WallActivity"
+            android:configChanges="keyboardHidden|orientation"
+            >
+        </activity>
+
+        <activity
+            android:name="com.eadver.offer.sdk.view.DetailActivity"
+            android:configChanges="keyboardHidden|orientation" />
+        <!-- 注册网页Activity -->
+        <activity
+            android:name="com.eadver.offer.sdk.view.WebActivity"
+            android:configChanges="keyboardHidden|orientation" />
 
 
     </application>
