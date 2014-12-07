@@ -17,6 +17,7 @@ import com.seo.activity.base.BaseActivity;
 import com.seo.app.views.UINavigationView;
 import com.seo.constant.ConfigConstant;
 import com.seo.constant.ReleaseConstant;
+import com.seo.model.StatEvent;
 import com.seo.wifikey.R;
 import com.taobao.newxp.common.AlimmContext;
 import com.taobao.newxp.common.ExchangeConstants;
@@ -152,18 +153,23 @@ public class AppRecommendActivity extends BaseActivity {
             switch (view.getId()) {
                 case R.id.ll_recommend_by_wanpu:
                     AppConnect.getInstance(getActivity()).showOffers(getActivity());
+                    MobclickAgent.onEvent(getActivity(), StatEvent.CLICK_EVT_AD_PLATFORM, ReleaseConstant.ADPLATFORM.ADPLATFORM_WANPU.toString());
                     break;
                 case R.id.ll_recommend_by_youmi:
                     OffersManager.getInstance(getActivity()).showOffersWall();
+                    MobclickAgent.onEvent(getActivity(), StatEvent.CLICK_EVT_AD_PLATFORM, ReleaseConstant.ADPLATFORM.ADPLATFORM_YOUMI.toString());
                     break;
                 case R.id.ll_recommend_by_qq:
                     appwall.doShowAppWall();
+                    MobclickAgent.onEvent(getActivity(), StatEvent.CLICK_EVT_AD_PLATFORM, ReleaseConstant.ADPLATFORM.ADPLATFORM_QQ.toString());
                     break;
                 case R.id.ll_recommend_by_wandoujia:
                     Ads.showAppWall(getActivity(), ConfigConstant.WDJ_AD_POSID);
+                    MobclickAgent.onEvent(getActivity(), StatEvent.CLICK_EVT_AD_PLATFORM, ReleaseConstant.ADPLATFORM.ADPLATFORM_WANDOUJIA.toString());
                     break;
                 case R.id.ll_recommend_by_yjf:
                     RecommendWallSDK.getInstance(getActivity()).showRecommendWall();
+                    MobclickAgent.onEvent(getActivity(), StatEvent.CLICK_EVT_AD_PLATFORM, ReleaseConstant.ADPLATFORM.ADPLATFORM_YJF.toString());
                     break;
             }
         }
