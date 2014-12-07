@@ -32,7 +32,10 @@ public class ReleaseConstant {
         ADPLATFORM_UNDEFINED,//未定义
         ADPLATFORM_WANPU,//万普
         ADPLATFORM_YOUMI,//有米
-        ADPLATFORM_YJF;//意积分
+        ADPLATFORM_YJF,//意积分
+        ADPLATFORM_WANDOUJIA,//豌豆荚
+        ADPLATFORM_QQ,//qq
+        ADPLATFORM_TANX;//tanx移动
 
         public static ADPLATFORM valueOf(int value) {
             switch (value) {
@@ -48,12 +51,34 @@ public class ReleaseConstant {
                     return ADPLATFORM_YOUMI;
             }
         }
+
+        @Override
+        public String toString() {
+            switch (this) {
+                case ADPLATFORM_UNDEFINED:
+                    return "undefine";
+                case ADPLATFORM_WANPU:
+                    return "wanpu";
+                case ADPLATFORM_YOUMI:
+                    return "youmi";
+                case ADPLATFORM_YJF:
+                    return "yjf";
+                case ADPLATFORM_QQ:
+                    return "qq";
+                case ADPLATFORM_WANDOUJIA:
+                    return "wandoujia";
+                case ADPLATFORM_TANX:
+                    return "tanx";
+                default:
+                    return "undefine";
+            }
+        }
     }
 
     private static ADPLATFORM adplatform = ADPLATFORM.ADPLATFORM_UNDEFINED;
 
     /**
-     * 产生随机的广告平台 28：70：2
+     * 产生随机的广告平台 90：10 = 有米:万普
      * 一个端固定使用一个广告平台
      *
      * @return
@@ -66,9 +91,7 @@ public class ReleaseConstant {
                 adplatform = Gl.GlConf.getAdPlatForm();
             } else {
                 int rand = new Random().nextInt(100);
-                if (rand > 72) {
-                    adplatform = ADPLATFORM.ADPLATFORM_YJF;
-                } else if (rand > 2) {
+                if (rand > 10) {
                     adplatform = ADPLATFORM.ADPLATFORM_YOUMI;
                 } else {
                     adplatform = ADPLATFORM.ADPLATFORM_WANPU;

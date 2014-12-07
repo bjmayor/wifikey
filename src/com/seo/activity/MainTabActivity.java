@@ -1,18 +1,26 @@
 package com.seo.activity;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 
 import com.eadver.offer.recommendwall.RecommendAdListSDK;
 import com.eadver.offer.sdk.YjfSDK;
+import com.eadver.offer.sdk.widget.UpdateScordNotifier;
 import com.seo.activity.wifi.WifiListFragment;
 import com.seo.constant.ConfigConstant;
+import com.seo.constant.ReleaseConstant;
 import com.seo.wifikey.Gl;
 import com.seo.wifikey.R;
 import com.umeng.analytics.MobclickAgent;
@@ -26,21 +34,44 @@ import cn.waps.AppConnect;
  * @packagename com.hiwifi.activity
  * @projectname hiwifi1.0.1
  */
-public class MainTabActivity extends ActionBarActivity implements ActionBar.TabListener {
+public class MainTabActivity extends ActionBarActivity implements UpdateScordNotifier {
     ActionBar actionBar;
-    private ViewPager mViewPager;
-    private ViewPagerAdapter mViewPagerAdapter;
-    private static final int TAB_INDEX_ONE = 0;
-    private static final int TAB_INDEX_TWO = 1;
-    private static final int TAB_INDEX_THREE = 2;
-    private Fragment fragmentHome = new WifiListFragment();
-    private Fragment fragmentDiscover = new MyAppFragment();
-    private Fragment fragmentSetting = new SettingFragment();
+    private DrawerLayout mDrawerLayout;
+    private ActionBarDrawerToggle mDrawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_tab_layout);
+        if (ReleaseConstant.getAdPlatform() == ReleaseConstant.ADPLATFORM.ADPLATFORM_WANPU) {
+            AppConnect.getInstance(this);
+        }
+        AppConnect.getInstance(this).initUninstallAd(this);
+        if (ReleaseConstant.getAdPlatform() == ReleaseConstant.ADPLATFORM.ADPLATFORM_WANPU) {
+            AppConnect.getInstance(this).setWeixinAppId(ConfigConstant.WX_KEY, this);
+        }
+        if (savedInstanceState == null) {
+            FragmentTransaction transaction = getSupportFragmentManager()
+                    .beginTransaction();
+            transaction.add(R.id.left_drawer, new SettingFragment());
+            transaction.add(R.id.content_frame, new WifiListFragment());
+            transaction.commit();
+        }
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
+                R.drawable.menu_bg, R.string.drawer_open, R.string.drawer_close) {
+
+            /** Called when a drawer has settled in a completely closed state. */
+            public void onDrawerClosed(View view) {
+                mMenu.findItem(R.id.action_refresh).setVisible(true);
+            }
+
+            /** Called when a drawer has settled in a completely open state. */
+            public void onDrawerOpened(View drawerView) {
+                mMenu.findItem(R.id.action_refresh).setVisible(false);
+            }
+        };
+        mDrawerLayout.setDrawerListener(mDrawerToggle);
         AppConnect.getInstance(this);
         AppConnect.getInstance(this).initUninstallAd(this);
         AppConnect.getInstance(this).setWeixinAppId(ConfigConstant.WX_KEY, this);
@@ -50,63 +81,61 @@ public class MainTabActivity extends ActionBarActivity implements ActionBar.TabL
                 ConfigConstant.YJF_DEV_ID, Gl.getChannel());
 
         setUpActionBar();
-        setUpViewPager();
-        setUpTabs();
+
     }
 
     private void setUpActionBar() {
         actionBar = getSupportActionBar();
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-        actionBar.setBackgroundDrawable(Gl.Ct().getResources().getDrawable(R.color.nav_background_color));
-        actionBar.setLogo(R.drawable.logo_header);
-        actionBar.setDisplayUseLogoEnabled(true);
+//        actionBar.setBackgroundDrawable(Gl.Ct().getResources().getDrawable(R.color.nav_background_color));
+//        actionBar.setLogo(R.drawable.logo_header);
+//        actionBar.setDisplayUseLogoEnabled(true);
+        actionBar.setHomeButtonEnabled(true);
     }
 
-    private void setUpTabs() {
-        ActionBar.Tab tabHome = actionBar.newTab().setText(R.string.free_wifi);
-        ActionBar.Tab tabDiscover = actionBar.newTab().setText(R.string.discover);
-        ActionBar.Tab tabSetting = actionBar.newTab().setText(R.string.setting);
-
-
-        tabHome.setTabListener(this);
-        tabDiscover.setTabListener(this);
-        tabSetting.setTabListener(this);
-
-        actionBar.addTab(tabHome);
-        actionBar.addTab(tabDiscover);
-        actionBar.addTab(tabSetting);
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        mMenu = menu;
+        return super.onCreateOptionsMenu(menu);
     }
 
-    private void setUpViewPager() {
-        mViewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+    Menu mMenu;
 
-        mViewPager = (ViewPager) findViewById(R.id.pager);
-        mViewPager.setAdapter(mViewPagerAdapter);
-        mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
-            @Override
-            public void onPageSelected(int position) {
-                final ActionBar actionBar = getSupportActionBar();
-                actionBar.setSelectedNavigationItem(position);
-            }
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        // If the nav drawer is open, hide action items related to the content
+        // view
+        return super.onPrepareOptionsMenu(menu);
+    }
 
-            @Override
-            public void onPageScrollStateChanged(int state) {
-                switch (state) {
-                    case ViewPager.SCROLL_STATE_IDLE:
-                        //TODO
-                        break;
-                    case ViewPager.SCROLL_STATE_DRAGGING:
-                        //TODO
-                        break;
-                    case ViewPager.SCROLL_STATE_SETTLING:
-                        //TODO
-                        break;
-                    default:
-                        //TODO
-                        break;
-                }
-            }
-        });
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        // Sync the toggle state after onRestoreInstanceState has occurred.
+        mDrawerToggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        mDrawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Pass the event to ActionBarDrawerToggle, if it returns
+        // true, then it has handled the app icon touch event
+        switch (item.getItemId()) {
+            case R.id.action_refresh:
+                WifiListFragment.instance.clickToRefresh();
+                break;
+        }
+        if (mDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        // Handle your other action bar items...
+
+        return super.onOptionsItemSelected(item);
     }
 
 
@@ -132,46 +161,17 @@ public class MainTabActivity extends ActionBarActivity implements ActionBar.TabL
     public void onBackPressed() {
         super.onBackPressed();
         RecommendAdListSDK.getInstance(this).onDestroy();
-        YjfSDK.getInstance(this,null).recordAppClose();
+        YjfSDK.getInstance(this, null).recordAppClose();
     }
 
-    @Override
-    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-        mViewPager.setCurrentItem(tab.getPosition());
-    }
 
     @Override
-    public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+    public void updateScoreSuccess(int i, int i2, int i3, String s) {
 
     }
 
     @Override
-    public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+    public void updateScoreFailed(int i, int i2, String s) {
 
-    }
-
-
-    public class ViewPagerAdapter extends FragmentPagerAdapter {
-        public ViewPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int i) {
-            switch (i) {
-                case TAB_INDEX_ONE:
-                    return fragmentHome;
-                case TAB_INDEX_TWO:
-                    return fragmentDiscover;
-                case TAB_INDEX_THREE:
-                    return fragmentSetting;
-            }
-            throw new IllegalStateException("No fragment at position " + i);
-        }
-
-        @Override
-        public int getCount() {
-            return 3;
-        }
     }
 }

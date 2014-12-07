@@ -30,12 +30,18 @@ import com.seo.wifikey.R;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.update.UmengUpdateAgent;
 
+import net.youmi.android.offers.PointsManager;
+
+import java.util.HashMap;
+
 import cn.sharesdk.framework.Platform;
+import cn.sharesdk.framework.PlatformActionListener;
 import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.onekeyshare.OnekeyShare;
 import cn.sharesdk.onekeyshare.ShareContentCustomizeCallback;
 import cn.sharesdk.sina.weibo.SinaWeibo;
 import cn.sharesdk.wechat.moments.WechatMoments;
+import cn.waps.AppConnect;
 
 
 /**
@@ -45,7 +51,7 @@ import cn.sharesdk.wechat.moments.WechatMoments;
  * @projectname hiwifi1.0.1
  */
 public class SettingFragment extends Fragment implements OnClickListener,
-        OnItemClickListener, OnCheckedChangeListener {
+        OnItemClickListener, OnCheckedChangeListener, PlatformActionListener {
 
     TextView versionTextView;
     ImageView appNewImageView;
@@ -236,7 +242,28 @@ public class SettingFragment extends Fragment implements OnClickListener,
                 }
             }
         });
+        oks.setCallback(this);
         // 启动分享GUI
         oks.show(getActivity());
+    }
+
+    @Override
+    public void onComplete(Platform platform, int i, HashMap<String, Object> stringObjectHashMap) {
+        if (ReleaseConstant.getAdPlatform() == ReleaseConstant.ADPLATFORM.ADPLATFORM_YOUMI) {
+            PointsManager.getInstance(getActivity()).awardPoints(ConfigConstant.AWARD_SCORE_BY_SHARE);
+        } else if (ReleaseConstant.getAdPlatform() == ReleaseConstant.ADPLATFORM.ADPLATFORM_WANPU) {
+            AppConnect.getInstance(getActivity()).awardPoints(ConfigConstant.AWARD_SCORE_BY_SHARE);
+        }
+        Toast.makeText(getActivity(), "奖励" + ConfigConstant.AWARD_SCORE_BY_SHARE + "积分", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onError(Platform platform, int i, Throwable throwable) {
+
+    }
+
+    @Override
+    public void onCancel(Platform platform, int i) {
+
     }
 }

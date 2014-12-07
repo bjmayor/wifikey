@@ -321,8 +321,9 @@
     <!-- check wdp text -->
     <string name="check_text_check_pwd">查看密码</string>
     <string name="check_text_check_premise">该功能需要查看资格</string>
-    <string name="check_text_user_login">分享后查看密码</string>
+    <string name="check_text_user_login">获取资格</string>
     <string name="check_text_title_save">安全连接，可查看密码</string>
+    <string name="no_password_can_see">本地密码，无法查看</string>
     <string name="check_text_check">点击查看</string>
     <string name="check_text_wpd">密码</string>
     <string name="check_text_share_title">分享给身边的iPhone好友，\n让他们也能免费上网吧！</string>
