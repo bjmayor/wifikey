@@ -80,24 +80,25 @@ public class ReleaseConstant {
     /**
      * 产生随机的广告平台 90：10 = 有米:万普
      * 一个端固定使用一个广告平台
+     * changed 只使用有米平台
      *
      * @return
      */
     public static ADPLATFORM getAdPlatform() {
-        if (adplatform != ADPLATFORM.ADPLATFORM_UNDEFINED) {
-            return adplatform;
-        } else {
-            if (Gl.GlConf.isAdSetted()) {
-                adplatform = Gl.GlConf.getAdPlatForm();
-            } else {
-                int rand = new Random().nextInt(100);
-                if (rand > 10) {
-                    adplatform = ADPLATFORM.ADPLATFORM_YOUMI;
-                } else {
-                    adplatform = ADPLATFORM.ADPLATFORM_WANPU;
-                }
-            }
-        }
+//        if (adplatform != ADPLATFORM.ADPLATFORM_UNDEFINED) {
+//            return adplatform;
+//        } else {
+//            if (Gl.GlConf.isAdSetted()) {
+//                adplatform = Gl.GlConf.getAdPlatForm();
+//            } else {
+//                int rand = new Random().nextInt(100);
+//                if (rand > 10) {
+        adplatform = ADPLATFORM.ADPLATFORM_YOUMI;
+//                } else {
+//                    adplatform = ADPLATFORM.ADPLATFORM_WANPU;
+//                }
+//            }
+//        }
         return adplatform;
     }
 }

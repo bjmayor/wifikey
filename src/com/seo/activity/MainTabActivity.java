@@ -47,9 +47,6 @@ public class MainTabActivity extends ActionBarActivity implements UpdateScordNot
             AppConnect.getInstance(this);
         }
         AppConnect.getInstance(this).initUninstallAd(this);
-        if (ReleaseConstant.getAdPlatform() == ReleaseConstant.ADPLATFORM.ADPLATFORM_WANPU) {
-            AppConnect.getInstance(this).setWeixinAppId(ConfigConstant.WX_KEY, this);
-        }
         if (savedInstanceState == null) {
             FragmentTransaction transaction = getSupportFragmentManager()
                     .beginTransaction();
@@ -74,7 +71,6 @@ public class MainTabActivity extends ActionBarActivity implements UpdateScordNot
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         AppConnect.getInstance(this);
         AppConnect.getInstance(this).initUninstallAd(this);
-        AppConnect.getInstance(this).setWeixinAppId(ConfigConstant.WX_KEY, this);
 
         YjfSDK.getInstance(this, null).initInstance(ConfigConstant.YJF_APP_ID,
                 ConfigConstant.YJF_APP_KEY,

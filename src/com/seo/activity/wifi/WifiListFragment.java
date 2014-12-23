@@ -748,7 +748,7 @@ public class WifiListFragment extends WifiFragment implements
                         if (mDisplayedList != null) {
                             mDisplayedList.remove(mConnectedAccessPoint);
                             LogUtil.d("Tag:", "remove");
-                            if (!isPause && actiontype == actiontypeInit && mConnectedAccessPoint!=null) {
+                            if (!isPause && actiontype == actiontypeInit && mConnectedAccessPoint != null) {
                                 mConnectedAccessPoint.onDetailedStateChanged(
                                         DetailedState.CONNECTED, mDisplayedList);
                             }
@@ -1979,10 +1979,9 @@ public class WifiListFragment extends WifiFragment implements
                     closeInputPop();
                     break;
                 case R.id.connected_wifi:
-                    // TODO 是否要判断已经连上网
                     if (mConnectedAccessPoint != null
                             && mConnectedAccessPoint.isConnected()) {
-                        if (mConnectedAccessPoint.isShowPortal()) {
+                        if (mConnectedAccessPoint.isShowPortal() && !mConnectedAccessPoint.hasPassword()) {
                             enterPortal(mConnectedAccessPoint);
                         } else {
                             MobclickAgent.onEvent(

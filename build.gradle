@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.12.+'
+        classpath 'com.android.tools.build:gradle:1.0.0'
     }
 }
 apply plugin: 'android'
@@ -14,11 +14,10 @@ dependencies {
         exclude module: 'support-v4'
     }
 }
-
 task copyNativeLibs(type: Copy) {
     from fileTree(dir: 'libs', include: 'armeabi/*.so') into 'build/lib'
 }
-tasks.withType(Compile) {
+tasks.withType(JavaCompile) {
     compileTask -> compileTask.dependsOn copyNativeLibs
 }
 clean.dependsOn 'cleanCopyNativeLibs'
@@ -63,7 +62,8 @@ android {
     buildTypes {
         release {
             signingConfig signingConfigs.release
-            runProguard true
+            minifyEnabled true
+            shrinkResources true
             proguardFile 'proguard-project.txt'
         }
     }
