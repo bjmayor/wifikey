@@ -185,6 +185,7 @@ public class RequestConstant implements Serializable {
         private RequestTag tag;
         private URI requestURI;
         private RequestParams params;
+        private int httpCode = 200;
 
         public RequestIdentify(RequestTag tag) {
             this.tag = tag;
@@ -212,6 +213,14 @@ public class RequestConstant implements Serializable {
 
         public RequestParams getParams() {
             return this.params;
+        }
+
+        public int getHttpCode() {
+            return httpCode;
+        }
+
+        public void setHttpCode(int httpCode) {
+            this.httpCode = httpCode;
         }
 
         @Override

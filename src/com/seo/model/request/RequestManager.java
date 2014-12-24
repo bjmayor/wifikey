@@ -188,14 +188,16 @@ public class RequestManager {
     }
 
 
-    private static void doGet(final RequestConstant.RequestIdentify identify, RequestParams params,
+    private static void doGet(final RequestConstant.RequestIdentify identify, final RequestParams params,
                               final ResponseHandler responseHandler) {
         getHttpClient().get(RequestConstant.getUrl(identify.getTag()), params,
                 new JsonHttpResponseHandler() {
+                    private long startTime;
 
                     @Override
                     public void onStart() {
                         super.onStart();
+                        startTime = System.currentTimeMillis();
                         identify.setURI(getRequestURI());
                         responseHandler.onStart(identify, ResponseHandler.Code.ok);
                     }
@@ -204,6 +206,8 @@ public class RequestManager {
                     public void onSuccess(int statusCode, Header[] headers,
                                           JSONObject response) {
                         super.onSuccess(statusCode, headers, response);
+                        identify.setHttpCode(statusCode);
+                        showRequestDebugInfo(identify, params, response, startTime, null);
                         if (statusCode == HttpStatus.SC_OK) {
                             responseHandler.onSuccess(identify,
                                     new ServerResponseParser(response));
@@ -213,6 +217,8 @@ public class RequestManager {
                     public void onSuccess(int statusCode, Header[] headers,
                                           JSONArray response) {
                         super.onSuccess(statusCode, headers, response);
+                        identify.setHttpCode(statusCode);
+                        showRequestDebugInfo(identify, params, response, startTime, null);
                         if (statusCode == HttpStatus.SC_OK) {
                             JSONObject object = new JSONObject();
                             try {
@@ -232,6 +238,8 @@ public class RequestManager {
                                           String responseString, Throwable throwable) {
                         super.onFailure(statusCode, headers, responseString,
                                 throwable);
+                        identify.setHttpCode(statusCode);
+                        showRequestDebugInfo(identify, params, responseString, startTime, throwable);
                         responseHandler.onFailure(identify, throwable);
                     }
 
@@ -240,6 +248,8 @@ public class RequestManager {
                                           Throwable throwable, JSONArray errorResponse) {
                         super.onFailure(statusCode, headers, throwable,
                                 errorResponse);
+                        identify.setHttpCode(statusCode);
+                        showRequestDebugInfo(identify, params, errorResponse, startTime, throwable);
                         responseHandler.onFailure(identify, throwable);
                     }
 
@@ -248,12 +258,20 @@ public class RequestManager {
                                           Throwable throwable, JSONObject errorResponse) {
                         super.onFailure(statusCode, headers, throwable,
                                 errorResponse);
+                        identify.setHttpCode(statusCode);
+                        showRequestDebugInfo(identify, params, errorResponse, startTime, throwable);
                         responseHandler.onFailure(identify, throwable);
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        responseHandler.onFinish(identify);
+                        super.onFinish();
                     }
                 });
     }
 
-    private static void doPost(final RequestConstant.RequestIdentify identify, RequestParams params,
+    private static void doPost(final RequestConstant.RequestIdentify identify, final RequestParams params,
                                final ResponseHandler responseHandler) {
 //		System.out.println("url:"+RequestConstant.getUrl(tag));
         getHttpClient().post(RequestConstant.getUrl(identify.getTag()), params,
@@ -274,13 +292,8 @@ public class RequestManager {
                     public void onSuccess(int statusCode, Header[] headers,
                                           JSONObject response) {
                         super.onSuccess(statusCode, headers, response);
-                        if (ReleaseConstant.ISDEBUG) {
-                            LogUtil.e(
-                                    TAG,
-                                    identify
-                                            + "use time:"
-                                            + (System.currentTimeMillis() - startTime));
-                        }
+                        identify.setHttpCode(statusCode);
+                        showRequestDebugInfo(identify, params, response, startTime, null);
                         if (statusCode == HttpStatus.SC_OK) {
                             responseHandler.onSuccess(identify,
                                     new ServerResponseParser(response));
@@ -290,6 +303,8 @@ public class RequestManager {
                     public void onSuccess(int statusCode, Header[] headers,
                                           JSONArray response) {
                         super.onSuccess(statusCode, headers, response);
+                        identify.setHttpCode(statusCode);
+                        showRequestDebugInfo(identify, params, response, startTime, null);
                         if (statusCode == HttpStatus.SC_OK) {
                             JSONObject object = new JSONObject();
                             try {
@@ -309,13 +324,8 @@ public class RequestManager {
                                           String responseString, Throwable throwable) {
                         super.onFailure(statusCode, headers, responseString,
                                 throwable);
-                        if (ReleaseConstant.ISDEBUG) {
-                            LogUtil.d(
-                                    TAG,
-                                    identify
-                                            + "use time:"
-                                            + (System.currentTimeMillis() - startTime));
-                        }
+                        identify.setHttpCode(statusCode);
+                        showRequestDebugInfo(identify, params, responseString, startTime, throwable);
                         responseHandler.onFailure(identify, throwable);
                     }
 
@@ -324,13 +334,8 @@ public class RequestManager {
                                           Throwable throwable, JSONArray errorResponse) {
                         super.onFailure(statusCode, headers, throwable,
                                 errorResponse);
-                        if (ReleaseConstant.ISDEBUG) {
-                            LogUtil.d(
-                                    TAG,
-                                    identify
-                                            + "use time:"
-                                            + (System.currentTimeMillis() - startTime));
-                        }
+                        identify.setHttpCode(statusCode);
+                        showRequestDebugInfo(identify, params, errorResponse, startTime, throwable);
                         responseHandler.onFailure(identify, throwable);
                     }
 
@@ -339,13 +344,8 @@ public class RequestManager {
                                           Throwable throwable, JSONObject errorResponse) {
                         super.onFailure(statusCode, headers, throwable,
                                 errorResponse);
-                        if (ReleaseConstant.ISDEBUG) {
-                            LogUtil.d(
-                                    TAG,
-                                    identify
-                                            + "use time:"
-                                            + (System.currentTimeMillis() - startTime));
-                        }
+                        identify.setHttpCode(statusCode);
+                        showRequestDebugInfo(identify, params, errorResponse, startTime, throwable);
                         responseHandler.onFailure(identify, throwable);
                     }
 
@@ -366,7 +366,7 @@ public class RequestManager {
 
 
     private static void doPost(Context context, final RequestConstant.RequestIdentify identify,
-                               HttpEntity entity, String contentType,
+                               final HttpEntity entity, String contentType,
                                final ResponseHandler responseHandler) {
 
         getHttpClient().post(context, RequestConstant.getUrl(identify.getTag()), entity,
@@ -387,13 +387,8 @@ public class RequestManager {
                     public void onSuccess(int statusCode, Header[] headers,
                                           JSONObject response) {
                         super.onSuccess(statusCode, headers, response);
-                        if (ReleaseConstant.ISDEBUG) {
-                            LogUtil.e(
-                                    TAG,
-                                    identify
-                                            + "use time:"
-                                            + (System.currentTimeMillis() - startTime));
-                        }
+                        identify.setHttpCode(statusCode);
+                        showRequestDebugInfo(identify, entity, response, startTime, null);
                         if (statusCode == HttpStatus.SC_OK) {
                             responseHandler.onSuccess(identify,
                                     new ServerResponseParser(response));
@@ -403,6 +398,8 @@ public class RequestManager {
                     public void onSuccess(int statusCode, Header[] headers,
                                           JSONArray response) {
                         super.onSuccess(statusCode, headers, response);
+                        identify.setHttpCode(statusCode);
+                        showRequestDebugInfo(identify, entity, response, startTime, null);
                         if (statusCode == HttpStatus.SC_OK) {
                             JSONObject object = new JSONObject();
                             try {
@@ -422,13 +419,8 @@ public class RequestManager {
                                           String responseString, Throwable throwable) {
                         super.onFailure(statusCode, headers, responseString,
                                 throwable);
-                        if (ReleaseConstant.ISDEBUG) {
-                            LogUtil.d(
-                                    TAG,
-                                    identify
-                                            + "use time:"
-                                            + (System.currentTimeMillis() - startTime));
-                        }
+                        identify.setHttpCode(statusCode);
+                        showRequestDebugInfo(identify, entity, responseString, startTime, throwable);
                         responseHandler.onFailure(identify, throwable);
                     }
 
@@ -437,13 +429,8 @@ public class RequestManager {
                                           Throwable throwable, JSONArray errorResponse) {
                         super.onFailure(statusCode, headers, throwable,
                                 errorResponse);
-                        if (ReleaseConstant.ISDEBUG) {
-                            LogUtil.d(
-                                    TAG,
-                                    identify
-                                            + "use time:"
-                                            + (System.currentTimeMillis() - startTime));
-                        }
+                        identify.setHttpCode(statusCode);
+                        showRequestDebugInfo(identify, entity, errorResponse, startTime, throwable);
                         responseHandler.onFailure(identify, throwable);
                     }
 
@@ -452,13 +439,8 @@ public class RequestManager {
                                           Throwable throwable, JSONObject errorResponse) {
                         super.onFailure(statusCode, headers, throwable,
                                 errorResponse);
-                        if (ReleaseConstant.ISDEBUG) {
-                            LogUtil.d(
-                                    TAG,
-                                    identify
-                                            + "use time:"
-                                            + (System.currentTimeMillis() - startTime));
-                        }
+                        identify.setHttpCode(statusCode);
+                        showRequestDebugInfo(identify, entity, errorResponse, startTime, throwable);
                         responseHandler.onFailure(identify, throwable);
                     }
 
@@ -469,6 +451,24 @@ public class RequestManager {
                         super.onFinish();
                     }
                 });
+    }
+
+    public static void showRequestDebugInfo(RequestConstant.RequestIdentify identify, Object requestBody, Object response, long startTime, Throwable throwable) {
+        if (ReleaseConstant.ISDEBUG) {
+            StringBuffer buffer = new StringBuffer();
+            buffer.append((identify != null ? identify.toString() : ""));
+            buffer.append("\r\n" + "---------requestBody---------\r\n");
+            buffer.append(requestBody != null ? requestBody.toString() : "no body");
+            buffer.append("\r\n---------response http code--------\r\n");
+            buffer.append(identify.getHttpCode());
+            buffer.append("\r\n---------response--------\r\n");
+            buffer.append(response != null ? response.toString() : "no response" + "\r\n");
+            if (throwable != null) {
+                buffer.append("throwabel:\r\n" + throwable.toString() + "\r\n");
+            }
+            buffer.append("usetime:" + (System.currentTimeMillis() - startTime));
+            LogUtil.w(TAG, buffer.toString());
+        }
     }
 
     public static void cancelRequest(Context context) {
