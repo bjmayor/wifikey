@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 
 import org.json.JSONObject;
 
-import com.seo.constant.RequestConstant.RequestTag;
+import com.seo.constant.RequestConstant;
 import com.seo.model.request.ResponseParserInterface;
 import com.seo.model.request.ServerResponseParser;
 
@@ -90,14 +90,14 @@ public class AccountModel implements ResponseParserInterface {
 	}
 
 	@Override
-	public void parse(RequestTag tag, ServerResponseParser parser) {
+	public void parse(RequestConstant.RequestIdentify identify, ServerResponseParser parser) {
 		JSONObject response = parser.originResponse;
 
 		try {
 			this.username = response.getString("a");
 			this.setPassword(response.getString("p"));
 			this.aid = response.getInt("aid");
-			this.specialID = Integer.parseInt(tag.getParams().get("type"));
+			this.specialID = Integer.parseInt(identify.getParams().get("type"));
 			SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			long time = sf.parse(response.getString("e")).getTime();
 			this.validTime = time;

@@ -12,7 +12,7 @@ import java.util.UUID;
 import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 
-import com.seo.constant.RequestConstant.RequestTag;
+import com.seo.constant.RequestConstant;
 import com.seo.model.request.ResponseParserInterface;
 import com.seo.model.request.ServerResponseParser;
 import com.seo.model.request.ServerResponseParser.ServerCode;
@@ -198,9 +198,9 @@ public class ClientInfo implements ResponseParserInterface {
 	}
 
 	@Override
-	public void parse(RequestTag tag, ServerResponseParser parser) {
+	public void parse(RequestConstant.RequestIdentify identify, ServerResponseParser parser) {
 		if (parser.code == ServerCode.OK.value()) {
-			switch (tag) {
+			switch (identify.getTag()) {
 			default:
 				break;
 			}

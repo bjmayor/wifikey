@@ -6,6 +6,7 @@
  */
 package com.seo.model.request;
 
+import com.seo.constant.RequestConstant;
 import com.seo.constant.RequestConstant.RequestTag;
 
 /**
@@ -13,5 +14,5 @@ import com.seo.constant.RequestConstant.RequestTag;
  *
  */
 public interface ResponseParserInterface {
-	public  void parse(RequestTag tag, ServerResponseParser parser);
+	public  void parse(RequestConstant.RequestIdentify identify, ServerResponseParser parser);
 }

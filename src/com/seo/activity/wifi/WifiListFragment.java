@@ -84,8 +84,7 @@ import com.seo.app.views.PullToRefreshView;
 import com.seo.app.views.PullToRefreshView.OnHeaderRefreshListener;
 import com.seo.app.views.SelectPicPopupWindow;
 import com.seo.app.views.SelectPicPopupWindow.IPopwindowCallback;
-import com.seo.constant.ConfigConstant;
-import com.seo.constant.RequestConstant.RequestTag;
+import com.seo.constant.RequestConstant;
 import com.seo.wifikey.Gl;
 import com.seo.wifikey.Gl.GlConf;
 import com.seo.model.log.HWFLog;
@@ -107,10 +106,6 @@ import com.seo.store.AccessPointModel;
 import com.seo.store.AccessPointModel.PasswordSource;
 import com.seo.store.AccessPointModel.PasswordStatus;
 import com.seo.wifikey.R;
-import com.taobao.newxp.common.AlimmContext;
-import com.taobao.newxp.common.ExchangeConstants;
-import com.taobao.newxp.controller.ExchangeDataService;
-import com.taobao.newxp.view.ExchangeViewManager;
 import com.umeng.analytics.MobclickAgent;
 
 public class WifiListFragment extends WifiFragment implements
@@ -2234,7 +2229,7 @@ public class WifiListFragment extends WifiFragment implements
     }
 
     @Override
-    public void onStart(RequestTag tag, Code code) {
+    public void onStart(RequestConstant.RequestIdentify identify, Code code) {
         if (code != Code.ok) {
             MobclickAgent.onEvent(getActivity(), "stat_getpwd_stats",
                     Gl.Ct().getResources().getString(R.string.stat_boolean_no));
@@ -2248,7 +2243,7 @@ public class WifiListFragment extends WifiFragment implements
     }
 
     @Override
-    public void onSuccess(RequestTag tag, ServerResponseParser responseParser) {
+    public void onSuccess(RequestConstant.RequestIdentify identify, ServerResponseParser responseParser) {
         JSONArray response = null;
         int count = 0;
         if (responseParser.originResponse != null) {
@@ -2330,12 +2325,12 @@ public class WifiListFragment extends WifiFragment implements
     }
 
     @Override
-    public void onFailure(RequestTag tag, Throwable error) {
+    public void onFailure(RequestConstant.RequestIdentify identify, Throwable error) {
         refresh.onHeaderRefreshComplete(new Date().toLocaleString());
     }
 
     @Override
-    public void onFinish(RequestTag tag) {
+    public void onFinish(RequestConstant.RequestIdentify identify) {
     }
 
     public void getCurrentTraffic() {

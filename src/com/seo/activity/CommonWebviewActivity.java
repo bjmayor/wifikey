@@ -7,7 +7,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,7 +15,6 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.CookieManager;
@@ -31,8 +29,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 import com.seo.activity.base.BaseActivity;
-import com.seo.app.views.UINavigationView;
-import com.seo.constant.RequestConstant.RequestTag;
+import com.seo.constant.RequestConstant;
 import com.seo.model.request.RequestManager.ResponseHandler;
 import com.seo.model.request.ServerResponseParser;
 import com.seo.support.http.AsyncHttpClient;
@@ -331,12 +328,12 @@ public class CommonWebviewActivity extends BaseActivity implements
     }
 
     @Override
-    public void onStart(RequestTag tag, Code code) {
+    public void onStart(RequestConstant.RequestIdentify identify, Code code) {
 
     }
 
     @Override
-    public void onSuccess(RequestTag tag, ServerResponseParser responseParser) {
+    public void onSuccess(RequestConstant.RequestIdentify identify, ServerResponseParser responseParser) {
         try {
             final String logo = responseParser.originResponse.optString("logo",
                     "");
@@ -389,13 +386,13 @@ public class CommonWebviewActivity extends BaseActivity implements
     }
 
     @Override
-    public void onFailure(RequestTag tag, Throwable error) {
+    public void onFailure(RequestConstant.RequestIdentify identify, Throwable error) {
         closeMyDialog();
         CommonWebviewActivity.this.finish();
     }
 
     @Override
-    public void onFinish(RequestTag tag) {
+    public void onFinish(RequestConstant.RequestIdentify identify) {
 
     }
 

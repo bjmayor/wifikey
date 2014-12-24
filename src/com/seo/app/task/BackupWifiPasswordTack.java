@@ -8,6 +8,7 @@ import org.json.JSONException;
 import android.content.Context;
 import android.content.Intent;
 
+import com.seo.constant.RequestConstant;
 import com.seo.constant.RequestConstant.RequestTag;
 import com.seo.wifikey.Gl;
 import com.seo.model.request.RequestFactory;
@@ -22,12 +23,12 @@ public class BackupWifiPasswordTack {
 	{
 
 		@Override
-		public void onStart(RequestTag tag, Code code) {
+		public void onStart(RequestConstant.RequestIdentify identify, Code code) {
 			
 		}
 
 		@Override
-		public void onSuccess(RequestTag tag,
+		public void onSuccess(RequestConstant.RequestIdentify identify,
 				ServerResponseParser responseParser) {
 			if (responseParser!=null) {
 				JSONArray response;
@@ -50,12 +51,12 @@ public class BackupWifiPasswordTack {
 		}
 
 		@Override
-		public void onFailure(RequestTag tag, Throwable error) {
+		public void onFailure(RequestConstant.RequestIdentify identify, Throwable error) {
 			
 		}
 
 		@Override
-		public void onFinish(RequestTag tag) {
+		public void onFinish(RequestConstant.RequestIdentify identify) {
 			
 		}
 		

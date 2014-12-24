@@ -11,6 +11,7 @@ import android.os.Bundle;
 
 import com.seo.app.services.DaemonService;
 import com.seo.constant.ReleaseConstant;
+import com.seo.constant.RequestConstant;
 import com.seo.constant.RequestConstant.RequestTag;
 import com.seo.wifikey.Gl;
 import com.seo.model.request.RequestFactory;
@@ -123,31 +124,31 @@ public class CommerceState {
 	public static ResponseHandler handler = new ResponseHandler() {
 
 		@Override
-		public void onStart(RequestTag tag, Code code) {
+		public void onStart(RequestConstant.RequestIdentify identify, Code code) {
 
 		}
 
 		@Override
-		public void onSuccess(RequestTag tag,
+		public void onSuccess(RequestConstant.RequestIdentify identify,
 				ServerResponseParser responseParser) {
 			if (responseParser.code == ServerCode.OK.value()) {
 
-				if (tag == RequestTag.HIWIFI_OPONE_GET) {
+				if (identify.getTag() == RequestTag.HIWIFI_OPONE_GET) {
 					Account account = new Account();
 					try {
 						if (responseParser.code == ServerCode.OK.value()) {
 							AccountModel model = AccountModel.instance();
-							model.parse(tag, responseParser);
+							model.parse(identify, responseParser);
 							account = new Account(model);
 							accountHashMap.put(type2Key(Type.valueOf(Integer
-									.parseInt(tag.getParams().get("type")))),
+									.parseInt(identify.getParams().get("type")))),
 									account);
 						}
 
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
-				} else if (tag == RequestTag.HIWIFI_OPLOG_SEND) {
+				} else if (identify.getTag() == RequestTag.HIWIFI_OPLOG_SEND) {
 					try {
 						if (!responseParser.originResponse.isNull("rtime")) {
 							sendBroadcast(CommerceState.ACTION_LOGIN,
@@ -161,18 +162,18 @@ public class CommerceState {
 		}
 
 		@Override
-		public void onFailure(RequestTag tag, Throwable error) {
-			if (tag == RequestTag.HIWIFI_OPLOG_SEND) {
+		public void onFailure(RequestConstant.RequestIdentify identify, Throwable error) {
+			if (identify.getTag() == RequestTag.HIWIFI_OPLOG_SEND) {
 				RequestModel model = new RequestModel();
 				model.requestid = RequestModel.RequestID_CMCCLOG;
-				model.setParams(tag.getParams().toString(), false);
+				model.setParams(identify.getParams().toString(), false);
 				model.add();
 			}
 
 		}
 
 		@Override
-		public void onFinish(RequestTag tag) {
+		public void onFinish(RequestConstant.RequestIdentify identify) {
 
 		}
 

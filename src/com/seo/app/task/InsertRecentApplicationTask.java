@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import android.content.Context;
 
 import com.seo.app.utils.RecentApplicatonUtil;
-import com.seo.constant.RequestConstant.RequestTag;
+import com.seo.constant.RequestConstant;
 import com.seo.wifikey.Gl;
 import com.seo.model.request.RequestFactory;
 import com.seo.model.request.RequestManager;
@@ -46,9 +46,9 @@ public class InsertRecentApplicationTask extends DaemonTask implements
 	}
 
 	@Override
-	public void onStart(RequestTag tag, Code code) {
+	public void onStart(RequestConstant.RequestIdentify identify, Code code) {
 		if (code != Code.ok) {
-			switch (tag) {
+			switch (identify.getTag()) {
 			case HIWIFI_ALLAPP_SEND:
 				MobclickAgent
 						.onEvent(Gl.Ct(), "stat_upload_app", code.getMsg());
@@ -61,8 +61,8 @@ public class InsertRecentApplicationTask extends DaemonTask implements
 	}
 
 	@Override
-	public void onSuccess(RequestTag tag, ServerResponseParser responseParser) {
-		switch (tag) {
+	public void onSuccess(RequestConstant.RequestIdentify identify, ServerResponseParser responseParser) {
+		switch (identify.getTag()) {
 		case HIWIFI_ALLAPP_SEND:
 			MobclickAgent.onEvent(Gl.Ct(), "stat_upload_app", "success");
 			break;
@@ -73,8 +73,8 @@ public class InsertRecentApplicationTask extends DaemonTask implements
 	}
 
 	@Override
-	public void onFailure(RequestTag tag, Throwable error) {
-		switch (tag) {
+	public void onFailure(RequestConstant.RequestIdentify identify, Throwable error) {
+		switch (identify.getTag()) {
 		case HIWIFI_ALLAPP_SEND:
 			MobclickAgent.onEvent(Gl.Ct(), "stat_upload_app",
 					error != null ? error.getMessage() : "unkown");
@@ -86,7 +86,7 @@ public class InsertRecentApplicationTask extends DaemonTask implements
 	}
 
 	@Override
-	public void onFinish(RequestTag tag) {
+	public void onFinish(RequestConstant.RequestIdentify identify) {
 
 	}
 }

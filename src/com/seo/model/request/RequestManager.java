@@ -22,7 +22,6 @@ import android.os.Looper;
 
 import com.seo.constant.ReleaseConstant;
 import com.seo.constant.RequestConstant;
-import com.seo.constant.RequestConstant.RequestTag;
 import com.seo.wifikey.Gl;
 import com.seo.model.log.HWFLog;
 import com.seo.model.log.LogUtil;
@@ -60,14 +59,14 @@ public class RequestManager {
             }
         }
 
-        public void onStart(RequestTag tag, Code code);
+        public void onStart(RequestConstant.RequestIdentify identify, Code code);
 
-        public void onSuccess(RequestTag tag,
+        public void onSuccess(RequestConstant.RequestIdentify identify,
                               ServerResponseParser responseParser);
 
-        public void onFailure(RequestTag tag, Throwable error);
+        public void onFailure(RequestConstant.RequestIdentify identify, Throwable error);
 
-        public void onFinish(RequestTag tag);
+        public void onFinish(RequestConstant.RequestIdentify identify);
     }
 
     private static final String TAG = "RequestManager";
@@ -144,44 +143,44 @@ public class RequestManager {
     }
 
     /**
+     * @param context
      * @param tag
      * @param params
-     * @param context
      * @return
      * @description 请求的唯一入口，不可在其它地方使用async等框架发请求
      */
-    public static boolean requestByTag(Context context, RequestTag tag,
+    public static boolean requestByTag(Context context, RequestConstant.RequestTag tag,
                                        RequestParams params, final ResponseHandler responseHandler) {
-        if (!canRequest(tag, params, responseHandler)) {
+        if (params == null) {
+            params = new RequestParams();
+        }
+        if (tag.getType() == RequestConstant.TAG_TYPE_TWX
+                || tag.getType() == RequestConstant.TAG_TYPE_M) {
+        }
+        RequestConstant.RequestIdentify identify = new RequestConstant.RequestIdentify(tag);
+        identify.setParams(params);
+
+        if (!canRequest(identify, params, responseHandler)) {
             return false;
         } else {
-            if (params == null) {
-                params = new RequestParams();
-            }
-            if (tag.getType() == RequestConstant.TAG_TYPE_TWX
-                    || tag.getType() == RequestConstant.TAG_TYPE_M) {
-            }
-            tag.setParams(params);
-            if (ReleaseConstant.ISDEBUG) {
-                HWFLog.e(TAG, params.toString());
-            }
+
             if (tag.getMethod().equals(RequestConstant.GET)) {
-                doGet(tag, params, responseHandler);
+                doGet(identify, params, responseHandler);
             } else if (tag.getMethod().equals(RequestConstant.POST)) {
 
-                doPost(tag, params, responseHandler);
+                doPost(identify, params, responseHandler);
             } else if (tag.getMethod().equals(RequestConstant.JSON)) {
                 try {
-                    doPost(context, tag,
+                    doPost(context, identify,
                             new StringEntity(params.get(key_json)),
                             RequestConstant.ContentType.JSON.toString(),
                             responseHandler);
                 } catch (UnsupportedEncodingException e) {
-                    responseHandler.onStart(tag, Code.errorUnkown);
+                    responseHandler.onStart(identify, Code.errorUnkown);
                     return false;
                 }
             } else if (tag.getMethod().equals(RequestConstant.BINARY)) {
-                doPost(tag, params, responseHandler);
+                doPost(identify, params, responseHandler);
             }
             return true;
         }
@@ -189,16 +188,16 @@ public class RequestManager {
     }
 
 
-    private static void doGet(final RequestTag tag, RequestParams params,
+    private static void doGet(final RequestConstant.RequestIdentify identify, RequestParams params,
                               final ResponseHandler responseHandler) {
-        getHttpClient().get(RequestConstant.getUrl(tag), params,
+        getHttpClient().get(RequestConstant.getUrl(identify.getTag()), params,
                 new JsonHttpResponseHandler() {
 
                     @Override
                     public void onStart() {
                         super.onStart();
-                        tag.setURI(getRequestURI());
-                        responseHandler.onStart(tag, ResponseHandler.Code.ok);
+                        identify.setURI(getRequestURI());
+                        responseHandler.onStart(identify, ResponseHandler.Code.ok);
                     }
 
                     @Override
@@ -206,7 +205,7 @@ public class RequestManager {
                                           JSONObject response) {
                         super.onSuccess(statusCode, headers, response);
                         if (statusCode == HttpStatus.SC_OK) {
-                            responseHandler.onSuccess(tag,
+                            responseHandler.onSuccess(identify,
                                     new ServerResponseParser(response));
                         }
                     }
@@ -223,7 +222,7 @@ public class RequestManager {
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
-                            responseHandler.onSuccess(tag,
+                            responseHandler.onSuccess(identify,
                                     new ServerResponseParser(object));
                         }
                     }
@@ -233,7 +232,7 @@ public class RequestManager {
                                           String responseString, Throwable throwable) {
                         super.onFailure(statusCode, headers, responseString,
                                 throwable);
-                        responseHandler.onFailure(tag, throwable);
+                        responseHandler.onFailure(identify, throwable);
                     }
 
                     @Override
@@ -241,7 +240,7 @@ public class RequestManager {
                                           Throwable throwable, JSONArray errorResponse) {
                         super.onFailure(statusCode, headers, throwable,
                                 errorResponse);
-                        responseHandler.onFailure(tag, throwable);
+                        responseHandler.onFailure(identify, throwable);
                     }
 
                     @Override
@@ -249,15 +248,15 @@ public class RequestManager {
                                           Throwable throwable, JSONObject errorResponse) {
                         super.onFailure(statusCode, headers, throwable,
                                 errorResponse);
-                        responseHandler.onFailure(tag, throwable);
+                        responseHandler.onFailure(identify, throwable);
                     }
                 });
     }
 
-    private static void doPost(final RequestTag tag, RequestParams params,
+    private static void doPost(final RequestConstant.RequestIdentify identify, RequestParams params,
                                final ResponseHandler responseHandler) {
 //		System.out.println("url:"+RequestConstant.getUrl(tag));
-        getHttpClient().post(RequestConstant.getUrl(tag), params,
+        getHttpClient().post(RequestConstant.getUrl(identify.getTag()), params,
                 new JsonHttpResponseHandler() {
                     long startTime = 0;
 
@@ -267,8 +266,8 @@ public class RequestManager {
                         if (ReleaseConstant.ISDEBUG) {
                             startTime = System.currentTimeMillis();
                         }
-                        tag.setURI(getRequestURI());
-                        responseHandler.onStart(tag, Code.ok);
+                        identify.setURI(getRequestURI());
+                        responseHandler.onStart(identify, Code.ok);
                     }
 
                     @Override
@@ -278,12 +277,12 @@ public class RequestManager {
                         if (ReleaseConstant.ISDEBUG) {
                             LogUtil.e(
                                     TAG,
-                                    tag
+                                    identify
                                             + "use time:"
                                             + (System.currentTimeMillis() - startTime));
                         }
                         if (statusCode == HttpStatus.SC_OK) {
-                            responseHandler.onSuccess(tag,
+                            responseHandler.onSuccess(identify,
                                     new ServerResponseParser(response));
                         }
                     }
@@ -300,7 +299,7 @@ public class RequestManager {
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
-                            responseHandler.onSuccess(tag,
+                            responseHandler.onSuccess(identify,
                                     new ServerResponseParser(object));
                         }
                     }
@@ -313,11 +312,11 @@ public class RequestManager {
                         if (ReleaseConstant.ISDEBUG) {
                             LogUtil.d(
                                     TAG,
-                                    tag
+                                    identify
                                             + "use time:"
                                             + (System.currentTimeMillis() - startTime));
                         }
-                        responseHandler.onFailure(tag, throwable);
+                        responseHandler.onFailure(identify, throwable);
                     }
 
                     @Override
@@ -328,11 +327,11 @@ public class RequestManager {
                         if (ReleaseConstant.ISDEBUG) {
                             LogUtil.d(
                                     TAG,
-                                    tag
+                                    identify
                                             + "use time:"
                                             + (System.currentTimeMillis() - startTime));
                         }
-                        responseHandler.onFailure(tag, throwable);
+                        responseHandler.onFailure(identify, throwable);
                     }
 
                     @Override
@@ -343,11 +342,11 @@ public class RequestManager {
                         if (ReleaseConstant.ISDEBUG) {
                             LogUtil.d(
                                     TAG,
-                                    tag
+                                    identify
                                             + "use time:"
                                             + (System.currentTimeMillis() - startTime));
                         }
-                        responseHandler.onFailure(tag, throwable);
+                        responseHandler.onFailure(identify, throwable);
                     }
 
                     @Override
@@ -359,18 +358,18 @@ public class RequestManager {
 
                     @Override
                     public void onFinish() {
-                        responseHandler.onFinish(tag);
+                        responseHandler.onFinish(identify);
                         super.onFinish();
                     }
                 });
     }
 
 
-    private static void doPost(Context context, final RequestTag tag,
+    private static void doPost(Context context, final RequestConstant.RequestIdentify identify,
                                HttpEntity entity, String contentType,
                                final ResponseHandler responseHandler) {
 
-        getHttpClient().post(context, RequestConstant.getUrl(tag), entity,
+        getHttpClient().post(context, RequestConstant.getUrl(identify.getTag()), entity,
                 contentType, new JsonHttpResponseHandler() {
                     long startTime = 0;
 
@@ -380,8 +379,8 @@ public class RequestManager {
                         if (ReleaseConstant.ISDEBUG) {
                             startTime = System.currentTimeMillis();
                         }
-                        tag.setURI(getRequestURI());
-                        responseHandler.onStart(tag, Code.ok);
+                        identify.setURI(getRequestURI());
+                        responseHandler.onStart(identify, Code.ok);
                     }
 
                     @Override
@@ -391,12 +390,12 @@ public class RequestManager {
                         if (ReleaseConstant.ISDEBUG) {
                             LogUtil.e(
                                     TAG,
-                                    tag
+                                    identify
                                             + "use time:"
                                             + (System.currentTimeMillis() - startTime));
                         }
                         if (statusCode == HttpStatus.SC_OK) {
-                            responseHandler.onSuccess(tag,
+                            responseHandler.onSuccess(identify,
                                     new ServerResponseParser(response));
                         }
                     }
@@ -413,7 +412,7 @@ public class RequestManager {
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
-                            responseHandler.onSuccess(tag,
+                            responseHandler.onSuccess(identify,
                                     new ServerResponseParser(object));
                         }
                     }
@@ -426,11 +425,11 @@ public class RequestManager {
                         if (ReleaseConstant.ISDEBUG) {
                             LogUtil.d(
                                     TAG,
-                                    tag
+                                    identify
                                             + "use time:"
                                             + (System.currentTimeMillis() - startTime));
                         }
-                        responseHandler.onFailure(tag, throwable);
+                        responseHandler.onFailure(identify, throwable);
                     }
 
                     @Override
@@ -441,11 +440,11 @@ public class RequestManager {
                         if (ReleaseConstant.ISDEBUG) {
                             LogUtil.d(
                                     TAG,
-                                    tag
+                                    identify
                                             + "use time:"
                                             + (System.currentTimeMillis() - startTime));
                         }
-                        responseHandler.onFailure(tag, throwable);
+                        responseHandler.onFailure(identify, throwable);
                     }
 
                     @Override
@@ -456,17 +455,17 @@ public class RequestManager {
                         if (ReleaseConstant.ISDEBUG) {
                             LogUtil.d(
                                     TAG,
-                                    tag
+                                    identify
                                             + "use time:"
                                             + (System.currentTimeMillis() - startTime));
                         }
-                        responseHandler.onFailure(tag, throwable);
+                        responseHandler.onFailure(identify, throwable);
                     }
 
                     @Override
                     public void onFinish() {
                         // TODO Auto-generated method stub
-                        responseHandler.onFinish(tag);
+                        responseHandler.onFinish(identify);
                         super.onFinish();
                     }
                 });
@@ -476,16 +475,16 @@ public class RequestManager {
         getHttpClient().cancelRequests(context, true);
     }
 
-    public static boolean canRequest(RequestTag tag, RequestParams params,
+    public static boolean canRequest(RequestConstant.RequestIdentify identify, RequestParams params,
                                      ResponseHandler responseHandler) {
         if (!NetWorkConnectivity.hasNetwork(Gl.Ct())) {
-            responseHandler.onStart(tag, Code.errorNoNetwork);
+            responseHandler.onStart(identify, Code.errorNoNetwork);
             return false;
         }
-        if (tag.getType() != RequestConstant.TAG_TYPE_USER
-                && tag.getType() != RequestConstant.TAG_TYPE_WEB
-                && tag.getType() != RequestConstant.TAG_TYPE_HWF_S
-                && tag.getType() != RequestConstant.TAG_TYPE_HWF
+        if (identify.getTag().getType() != RequestConstant.TAG_TYPE_USER
+                && identify.getTag().getType() != RequestConstant.TAG_TYPE_WEB
+                && identify.getTag().getType() != RequestConstant.TAG_TYPE_HWF_S
+                && identify.getTag().getType() != RequestConstant.TAG_TYPE_HWF
                 ) {
         }
 

@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.seo.constant.RequestConstant;
 import com.seo.constant.RequestConstant.RequestTag;
 import com.seo.model.log.LogUtil;
 import com.seo.model.request.RequestFactory;
@@ -130,12 +131,12 @@ public class UrlTestActivity extends FragmentActivity {
 		}
 
 		@Override
-		public void onSuccess(RequestTag tag,
+		public void onSuccess(RequestConstant.RequestIdentify identify,
 				ServerResponseParser responseParser) {
 			resultView.setText(responseParser.originResponse.toString());
-			LogUtil.e(TAG, tag + "");
+			LogUtil.e(TAG, identify + "");
 			LogUtil.e(TAG, responseParser.originResponse.toString());
-			LogUtil.e(TAG, tag.getUri().toString());
+			LogUtil.e(TAG, identify.getUri().toString());
 			// if (tag == RequestTag.URL_USER_LOGIN) {
 			// User.shareInstance().onLogin(
 			// responseParser.originResponse.optString("uid", "0"),
@@ -154,21 +155,21 @@ public class UrlTestActivity extends FragmentActivity {
 		}
 
 		@Override
-		public void onFailure(RequestTag tag, Throwable error) {
-			LogUtil.e(TAG, tag + "");
+		public void onFailure(RequestConstant.RequestIdentify identify, Throwable error) {
+			LogUtil.e(TAG, identify + "");
 			try {
 				LogUtil.e(TAG, error != null ? error.getMessage() : "");
 			} catch (Exception e) {
 			}
 			try {
-				LogUtil.e(TAG, tag.getUri().toURL().toString());
+				LogUtil.e(TAG, identify.getUri().toURL().toString());
 			} catch (MalformedURLException e) {
 				e.printStackTrace();
 			}
 		}
 
 		@Override
-		public void onFinish(RequestTag tag) {
+		public void onFinish(RequestConstant.RequestIdentify identify) {
 			if (getActivity() != null) {
 				Toast.makeText(getActivity(), "请求结束", Toast.LENGTH_SHORT)
 						.show();
@@ -176,7 +177,7 @@ public class UrlTestActivity extends FragmentActivity {
 		}
 
 		@Override
-		public void onStart(RequestTag tag, Code code) {
+		public void onStart(RequestConstant.RequestIdentify identify, Code code) {
 			if (code == Code.ok) {
 				Toast.makeText(getActivity(), "正在请求，请稍后", Toast.LENGTH_SHORT)
 						.show();

@@ -146,13 +146,11 @@ public class RequestConstant implements Serializable {
         HIWIFI_DISCOVER_LIST_GET("/hiwififree/find/pagelist", TAG_TYPE_HWF), // 获取发现页列表
         URL_NONE("", "", ""), HIWIFI_CHECK_APP_UPGRADE(
                 "/router.php?m=json&a=check_android_upgrade", TAG_TYPE_APP),;// /
-        // TODO 缺流量统计和设备列表
         private String url;
         private String tagType;
         private String method;
         private boolean needLogin;
-        private URI requestURI;
-        private RequestParams params;
+
 
         private RequestTag(String url, String tagType) {
             this.url = url;
@@ -176,8 +174,36 @@ public class RequestConstant implements Serializable {
             return method;
         }
 
+
+        public String value() {
+            return url;
+        }
+
+    }
+
+    public static  class RequestIdentify {
+        private RequestTag tag;
+        private URI requestURI;
+        private RequestParams params;
+
+        public RequestIdentify(RequestTag tag) {
+            this.tag = tag;
+        }
+
+        public RequestTag getTag() {
+            return tag;
+        }
+
+        public void setTag(RequestTag tag) {
+            this.tag = tag;
+        }
+
         public void setURI(URI uri) {
             this.requestURI = uri;
+        }
+
+        public URI getUri() {
+            return this.requestURI;
         }
 
         public void setParams(RequestParams params) {
@@ -192,19 +218,10 @@ public class RequestConstant implements Serializable {
         public String toString() {
             return String.format(
                     "tag:{url:%s,type:%s,method:%s,URI:%s, params:%s}",
-                    this.url, this.tagType, this.method,
+                    this.tag.url, this.tag.tagType, this.tag.method,
                     this.requestURI != null ? this.requestURI.toString()
                             : "not set", this.params != null ? this.params.toString() : "no params");
         }
-
-        public URI getUri() {
-            return this.requestURI;
-        }
-
-        public String value() {
-            return url;
-        }
-
     }
 
 }

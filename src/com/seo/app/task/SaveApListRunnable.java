@@ -2,7 +2,7 @@ package com.seo.app.task;
 
 import java.util.List;
 
-import com.seo.constant.RequestConstant.RequestTag;
+import com.seo.constant.RequestConstant;
 import com.seo.wifikey.Gl;
 import com.seo.model.request.RequestFactory;
 import com.seo.model.request.RequestManager;
@@ -36,13 +36,13 @@ public class SaveApListRunnable extends DaemonTask implements ResponseHandler {
 	}
 
 	@Override
-	public void onStart(RequestTag tag, Code code) {
+	public void onStart(RequestConstant.RequestIdentify identify, Code code) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void onSuccess(RequestTag tag, ServerResponseParser responseParser) {
+	public void onSuccess(RequestConstant.RequestIdentify identify, ServerResponseParser responseParser) {
 		try {
 			if (responseParser.code == 0) {
 				for (AccessPointModel model : listToUpload) {
@@ -56,12 +56,12 @@ public class SaveApListRunnable extends DaemonTask implements ResponseHandler {
 	}
 
 	@Override
-	public void onFailure(RequestTag tag, Throwable error) {
+	public void onFailure(RequestConstant.RequestIdentify identify, Throwable error) {
 
 	}
 
 	@Override
-	public void onFinish(RequestTag tag) {
+	public void onFinish(RequestConstant.RequestIdentify identify) {
 
 	}
 

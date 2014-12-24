@@ -4,7 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.seo.constant.RequestConstant.RequestTag;
+import com.seo.constant.RequestConstant;
 import com.seo.wifikey.Gl;
 import com.seo.model.log.HWFLog;
 import com.seo.model.request.RequestFactory;
@@ -57,12 +57,12 @@ public class BackupRunnable extends DaemonTask implements ResponseHandler {
 	}
 
 	@Override
-	public void onStart(RequestTag tag, Code code) {
+	public void onStart(RequestConstant.RequestIdentify identify, Code code) {
 
 	}
 
 	@Override
-	public void onSuccess(RequestTag tag, ServerResponseParser responseParser) {
+	public void onSuccess(RequestConstant.RequestIdentify identify, ServerResponseParser responseParser) {
 		if (responseParser != null) {
 			JSONArray response;
 			try {
@@ -78,12 +78,12 @@ public class BackupRunnable extends DaemonTask implements ResponseHandler {
 	}
 
 	@Override
-	public void onFailure(RequestTag tag, Throwable error) {
+	public void onFailure(RequestConstant.RequestIdentify identify, Throwable error) {
 
 	}
 
 	@Override
-	public void onFinish(RequestTag tag) {
+	public void onFinish(RequestConstant.RequestIdentify identify) {
 
 	}
 
