@@ -1812,13 +1812,24 @@ public class WifiListFragment extends WifiFragment implements
             if (mAttempAccessPoint.needPassword()) {
                 ret = mWifiAdmin.addConfigedNetwork(this.mAttempAccessPoint);
                 if (mAttempAccessPoint.isConfiged()) {
-                    MobclickAgent
-                            .onEvent(
-                                    getActivity(),
-                                    "stat_wifi_password_type",
-                                    Gl.Ct().getResources()
-                                            .getString(
-                                                    R.string.stat_wifi_password_type_is_stored));
+                    if (mAttempAccessPoint.getDataModel().getPasswordType() == PasswordSource.PasswordSourceRemote.ordinal()) {
+                        MobclickAgent
+                                .onEvent(
+                                        getActivity(),
+                                        "stat_wifi_password_type",
+                                        Gl.Ct().getResources()
+                                                .getString(
+                                                        R.string.stat_wifi_password_type_is_useserver));
+                    } else {
+                        MobclickAgent
+                                .onEvent(
+                                        getActivity(),
+                                        "stat_wifi_password_type",
+                                        Gl.Ct().getResources()
+                                                .getString(
+                                                        R.string.stat_wifi_password_type_is_stored));
+                    }
+
                 }
 
                 HWFLog.e(TAG, "已经连接过，直接连接");
