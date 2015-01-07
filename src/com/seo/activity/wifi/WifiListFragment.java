@@ -787,6 +787,9 @@ public class WifiListFragment extends WifiFragment implements
                                 .getDataModel()
                                 .setPasswordStatus(
                                         PasswordStatus.PasswordStatusValid).sync();
+                        if (mConnectedAccessPoint.getDataModel().getPasswordType() == PasswordSource.PasswordSourceRemote.ordinal()) {
+                            MobclickAgent.onEvent(Gl.Ct(), "server_password_status", "密码正确，成功连接");
+                        }
                         mAttempAccessPoint.onDetailedStateChanged(
                                 DetailedState.CONNECTED, mDisplayedList);
                     }
@@ -816,6 +819,9 @@ public class WifiListFragment extends WifiFragment implements
                         if (!mDisplayedList.contains(mConnectedAccessPoint)) {
                             mDisplayedList.add(0, mConnectedAccessPoint);
                         }
+                        if (mConnectedAccessPoint.getDataModel().getPasswordType() == PasswordSource.PasswordSourceRemote.ordinal()) {
+                            MobclickAgent.onEvent(Gl.Ct(), "server_password_status", "连接超时");
+                        }
                         setConnectedAccessPoint(null,
                                 WiFiChangeState.connectState_net_exception, true);
                         showAnimation(mConnectedAccessPoint);
@@ -829,6 +835,9 @@ public class WifiListFragment extends WifiFragment implements
                                 .setPasswordStatus(
                                         PasswordStatus.PasswordStatusInvalid)
                                 .sync();
+                        if (mConnectedAccessPoint.getDataModel().getPasswordType() == PasswordSource.PasswordSourceRemote.ordinal()) {
+                            MobclickAgent.onEvent(Gl.Ct(), "server_password_status", "密码错误");
+                        }
                         if (mConnectedAccessPoint.isDotxType()) {
                             mConnectedAccessPoint
                                     .setConnectState(WifiConnectState.connectState_needUserCount);
@@ -838,8 +847,6 @@ public class WifiListFragment extends WifiFragment implements
                                         .setConnectState(WifiConnectState.connectState_needpassword);
                             }
                         }
-                        // 删除数据库数据
-                        mConnectedAccessPoint.getDataModel().resetAp();
                         if (!mDisplayedList.contains(mConnectedAccessPoint)) {
                             mDisplayedList.add(0, mConnectedAccessPoint);
                         }

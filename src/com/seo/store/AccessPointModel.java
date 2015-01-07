@@ -59,7 +59,11 @@ public class AccessPointModel extends Observable implements Serializable,
 		return "";
 	}
 
-	public AccessPointModel() {
+    public int getPasswordType() {
+        return passwordType;
+    }
+
+    public AccessPointModel() {
 		super();
 	}
 
@@ -158,9 +162,6 @@ public class AccessPointModel extends Observable implements Serializable,
 		return this.userName;
 	}
 
-	public void resetAp() {
-		setUserCount("", "", false, PasswordSource.PasswordSourceLocal);
-	}
 
 	@Override
 	public void run() {
