@@ -3,11 +3,8 @@ package com.seo.app.services;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Timer;
-import java.util.TimerTask;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
-import org.json.JSONException;
 
 import android.annotation.SuppressLint;
 import android.app.Service;
@@ -37,12 +34,8 @@ import com.seo.app.task.SaveApListRunnable;
 import com.seo.app.task.SaveCmccLogRunnable;
 import com.seo.app.task.UpdateConfRunnable;
 import com.seo.app.task.WifiConfigToDBRunnable;
-import com.seo.constant.ReleaseConstant;
-import com.seo.constant.RequestConstant.RequestTag;
 import com.seo.wifikey.Gl;
 import com.seo.model.log.HWFLog;
-import com.seo.model.request.RequestManager.ResponseHandler;
-import com.seo.model.request.ServerResponseParser;
 import com.seo.model.speedtest.WebPageTester;
 import com.seo.model.speedtest.WebPageTester.WebpageTestAction;
 import com.seo.model.wifi.AccessPoint;
@@ -51,7 +44,6 @@ import com.seo.model.wifi.adapter.CMCCConnectAdapter;
 import com.seo.model.wifi.adapter.ChinanetConnectAdapter;
 import com.seo.model.wifi.adapter.ConnectAdapter;
 import com.seo.model.wifi.state.Account;
-import com.seo.model.wifi.state.CommerceState;
 import com.seo.store.AccessPointModel;
 import com.seo.utils.NetWorkConnectivity;
 
@@ -312,7 +304,7 @@ public class DaemonService extends Service {
         mHandler.removeCallbacks(pingRunnable);
         WebPageTester tester = new WebPageTester(new WebpageTestAction() {
             @Override
-            public void webpage_finish_download(long avgTime) {
+            public void webpageFinishDownload(long avgTime) {
                 AccessPoint accessPoint = WifiAdmin.sharedInstance()
                         .connectedAccessPoint();
                 if (accessPoint != null) {
@@ -332,7 +324,7 @@ public class DaemonService extends Service {
             }
 
             @Override
-            public void webpage_error_download(int errorCode, String message) {
+            public void webpageErrorDownload(int errorCode, String message) {
                 mHandler.postDelayed(pingRunnable, 5000);
                 AccessPoint accessPoint = WifiAdmin.sharedInstance()
                         .connectedAccessPoint();
@@ -359,7 +351,7 @@ public class DaemonService extends Service {
             }
 
         });
-        tester.start_test(1000);
+        tester.startTest(1000);
     }
 
     private synchronized void startCmccTimer() {
@@ -371,7 +363,7 @@ public class DaemonService extends Service {
         }
         WebPageTester tester = new WebPageTester(new WebpageTestAction() {
             @Override
-            public void webpage_finish_download(long avgTime) {
+            public void webpageFinishDownload(long avgTime) {
                 testFinished = true;
                 AccessPoint accessPoint = WifiAdmin.sharedInstance()
                         .connectedAccessPoint();
@@ -392,7 +384,7 @@ public class DaemonService extends Service {
             }
 
             @Override
-            public void webpage_error_download(int errorCode, String message) {
+            public void webpageErrorDownload(int errorCode, String message) {
                 testFinished = true;
                 AccessPoint accessPoint = WifiAdmin.sharedInstance()
                         .connectedAccessPoint();
@@ -413,7 +405,7 @@ public class DaemonService extends Service {
                 }
             }
         });
-        tester.start_test(1000);
+        tester.startTest(1000);
     }
 
     private void saveAptoLocal() throws Exception {

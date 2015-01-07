@@ -158,7 +158,7 @@ public class AccessPoint extends Observable implements Parcelable, Observer {
 		mWebpageTester = new WebPageTester(new WebpageTestAction() {
 
 			@Override
-			public void webpage_finish_download(final long time) {
+			public void webpageFinishDownload(final long time) {
 				// hasWebTested = true;
 				CMCCConnectAdapter.setLoginStatus(true);
 				netTime = time;
@@ -173,8 +173,8 @@ public class AccessPoint extends Observable implements Parcelable, Observer {
 			}
 
 			@Override
-			public void webpage_error_download(final int errorCode,
-					final String message) {
+			public void webpageErrorDownload(final int errorCode,
+                                             final String message) {
 				// hasWebTested = false;
 				if(errorCode == WebPageTester.ErrorCodeCaptured){
 					getDataModel().setIsPortal(true);
@@ -189,12 +189,12 @@ public class AccessPoint extends Observable implements Parcelable, Observer {
 				});
 			}
 		});
-		mWebpageTester.start_test(timeout);
+		mWebpageTester.startTest(timeout);
 	}
 
 	public void stopWebTest(){
 		if(mWebpageTester!=null){
-			mWebpageTester.stop_test();
+			mWebpageTester.stopTest();
 		}
 	}
 	public synchronized final Boolean hasWebTested() {

@@ -42,11 +42,11 @@ public class WebPageTester implements Runnable {
                     case msg_error_download:
                         LogUtil.d("failure:", "msg_error_download");
 
-                        listener.webpage_error_download(errorCode, message);
+                        listener.webpageErrorDownload(errorCode, message);
                         break;
                     case msg_ok:
                         errorCode = 0;
-                        listener.webpage_finish_download(time);
+                        listener.webpageFinishDownload(time);
                         break;
                     default:
                         break;
@@ -79,7 +79,7 @@ public class WebPageTester implements Runnable {
 
     SyncHttpClient client = new SyncHttpClient();
 
-    private String loadPate(String urlStr) {
+    private String loadPage(String urlStr) {
         long startTime = System.currentTimeMillis();
         client.setTimeout(this.timeout);
         client.setEnableRedirects(false);
@@ -93,7 +93,7 @@ public class WebPageTester implements Runnable {
                     buffer.append(new String(responseBody));
                     if (!buffer.toString().trim()
                             .contains(webTestExpectContent)) {
-                        setError(ErrorCodeCaptured, "captured");
+                        setError(ErrorCodeCaptured, "no matched content");
                         // handler.sendEmptyMessage(msg_error_download);
                     }
                 }
@@ -151,7 +151,7 @@ public class WebPageTester implements Runnable {
         if (isSendMessage) {
             message = msg;
             errorCode = code;
-            HWFLog.d(TAG, errorCode + ":" + message);
+            HWFLog.e(TAG, errorCode + ":" + message);
             is_running = false;
             handler.sendEmptyMessage(msg_error_download);
         }
@@ -161,7 +161,7 @@ public class WebPageTester implements Runnable {
     public void run() {
         long total_time = 0;
         if (is_running && webTestUrl != null) {
-            loadPate(webTestUrl);
+            loadPage(webTestUrl);
             total_time += time;
         }
         if (is_running && isSendMessage) {
@@ -170,13 +170,13 @@ public class WebPageTester implements Runnable {
         }
     }
 
-    public void stop_test() {
+    public void stopTest() {
         is_running = false;
         client.cancelRequests(Gl.Ct(), true);
         isSendMessage = false;
     }
 
-    public boolean start_test(long time_overflow_in_million_second) {
+    public boolean startTest(long time_overflow_in_million_second) {
         boolean ret = true;
         this.timeout = (int) time_overflow_in_million_second;
         if (ret) {
@@ -187,8 +187,8 @@ public class WebPageTester implements Runnable {
     }
 
     public interface WebpageTestAction {
-        public void webpage_error_download(int errorCode, String message);
+        public void webpageErrorDownload(int errorCode, String message);
 
-        public void webpage_finish_download(long avgTime);
+        public void webpageFinishDownload(long avgTime);
     }
 }
