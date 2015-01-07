@@ -45,6 +45,7 @@ public class WebPageTester implements Runnable {
                         listener.webpage_error_download(errorCode, message);
                         break;
                     case msg_ok:
+                        errorCode = 0;
                         listener.webpage_finish_download(time);
                         break;
                     default:
