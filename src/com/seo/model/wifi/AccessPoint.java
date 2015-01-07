@@ -253,7 +253,7 @@ public class AccessPoint extends Observable implements Parcelable, Observer {
 							 * connectState_net_exception,
 							 */
 		/* connectState_netok, connectState_connected */, connectState_canconnect, connectState_needpassword,
-		/* connectState_connectfailedPasswordError, */connectState_needUserCount, connectState_local_restore, connectState_unlock, connectState_chinaUnicom, connectState_chinaNet, connectState_chinaCmcc, connectState_chinaCmcc_edu, connectState_chinaCmcc_auto, connectState_portal
+		/* connectState_connectfailedPasswordError, */connectState_needUserCount, connectState_local_store, connectState_unlock, connectState_chinaUnicom, connectState_chinaNet, connectState_chinaCmcc, connectState_chinaCmcc_edu, connectState_chinaCmcc_auto, connectState_portal
 	}
 
 	public static enum WiFiChangeState {
@@ -737,7 +737,7 @@ public class AccessPoint extends Observable implements Parcelable, Observer {
 		if (needPassword()) {
 			if (connectState == WifiConnectState.connectState_unlock) {
 				drawable = R.drawable.key_icon_blue;
-			} else if (connectState == WifiConnectState.connectState_local_restore) {
+			} else if (connectState == WifiConnectState.connectState_local_store) {
 				return null;
 			}else{
 				if (isSpecialNet()) {
@@ -812,7 +812,7 @@ public class AccessPoint extends Observable implements Parcelable, Observer {
 					if (hasRemotePassword()) {
 						setConnectState(WifiConnectState.connectState_unlock);
 					} else {
-						setConnectState(WifiConnectState.connectState_local_restore);
+						setConnectState(WifiConnectState.connectState_local_store);
 						LogUtil.d("Tag:", "系统" + getPrintableSsid());
 					}
 				} else {
@@ -837,7 +837,7 @@ public class AccessPoint extends Observable implements Parcelable, Observer {
 				if (hasRemotePassword()) {
 					setConnectState(WifiConnectState.connectState_unlock);
 				} else if (hasUserCount()) {
-					setConnectState(WifiConnectState.connectState_local_restore);
+					setConnectState(WifiConnectState.connectState_local_store);
 				} else {
 					setConnectState(WifiConnectState.connectState_needUserCount);
 				}
@@ -848,7 +848,7 @@ public class AccessPoint extends Observable implements Parcelable, Observer {
 			} else {
 				if (needPassword()) {
 					if (hasPassword()) {
-						setConnectState(WifiConnectState.connectState_local_restore);
+						setConnectState(WifiConnectState.connectState_local_store);
 						LogUtil.d("Tag:", "非系统" + getPrintableSsid());
 					} else {
 						setConnectState(WifiConnectState.connectState_needpassword);
@@ -862,7 +862,7 @@ public class AccessPoint extends Observable implements Parcelable, Observer {
 
 	public Boolean isFree() {
 		return (this.connectState == WifiConnectState.connectState_canconnect
-				|| this.connectState == WifiConnectState.connectState_local_restore || this.connectState == WifiConnectState.connectState_unlock)
+				|| this.connectState == WifiConnectState.connectState_local_store || this.connectState == WifiConnectState.connectState_unlock)
 				&& !isSpecialNet();
 	}
 
@@ -918,7 +918,7 @@ public class AccessPoint extends Observable implements Parcelable, Observer {
 			isConnected = false;
 			if (connectState == WifiConnectState.connectState_needUserCount
 					|| connectState == WifiConnectState.connectState_needpassword) {
-				connectState = WifiConnectState.connectState_local_restore;
+				connectState = WifiConnectState.connectState_local_store;
 			}
 			break;
 		case connectState_netok:
@@ -988,7 +988,7 @@ public class AccessPoint extends Observable implements Parcelable, Observer {
 	public synchronized final void setConnectState(WifiConnectState connectState) {
 		this.connectState = connectState;
 		switch (this.connectState) {
-		case connectState_local_restore:
+		case connectState_local_store:
 			connectStateString = Gl.Ct().getString(
 					R.string.wifi_state_localrestore);
 			connectStateColor = Gl.Ct().getResources()
@@ -1293,7 +1293,7 @@ public class AccessPoint extends Observable implements Parcelable, Observer {
 		// notifyObservers(this);
 	}
 
-	public int getSignalPersent() {
+	public int getSignalPercent() {
 		// -100 -55
 		// if (mScanResult != null) {
 		// int signalLevel = WifiManager.calculateSignalLevel(mScanResult.level,
@@ -1311,7 +1311,7 @@ public class AccessPoint extends Observable implements Parcelable, Observer {
 	}
 
 	public int calculateSignalLevel() {
-		double signalPersent = getSignalPersent();
+		double signalPersent = getSignalPercent();
 		return (int) Math.ceil(signalPersent / 20);
 	}
 

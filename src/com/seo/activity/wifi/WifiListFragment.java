@@ -406,7 +406,7 @@ public class WifiListFragment extends WifiFragment implements
                         if (mAttempAccessPoint != null) {
                             if (mAttempAccessPoint.needPassword()) {
                                 mAttempAccessPoint
-                                        .setConnectState(WifiConnectState.connectState_local_restore);
+                                        .setConnectState(WifiConnectState.connectState_local_store);
                             } else {
                                 mAttempAccessPoint
                                         .setConnectState(WifiConnectState.connectState_canconnect);
@@ -1169,7 +1169,7 @@ public class WifiListFragment extends WifiFragment implements
                                     .setConnectState(WifiConnectState.connectState_unlock);
                         } else {
                             mConnectedAccessPoint
-                                    .setConnectState(WifiConnectState.connectState_local_restore);
+                                    .setConnectState(WifiConnectState.connectState_local_store);
                         }
                     } else {
                         mConnectedAccessPoint
@@ -1521,7 +1521,7 @@ public class WifiListFragment extends WifiFragment implements
                 stateTextView.setText(accessPoint.getConnectStateString());
                 stateTextView.setTextColor(accessPoint.getConnectStateColor());
             }
-            signaleStrength.setText(accessPoint.getSignalPersent() + "%");
+            signaleStrength.setText(accessPoint.getSignalPercent() + "%");
         }
 
         @Override
@@ -1658,7 +1658,7 @@ public class WifiListFragment extends WifiFragment implements
         }
 
         public void setCurrentSignal(AccessPoint accessPoint) {
-            currentSignal.setText("信号 " + accessPoint.getSignalPersent() + "%");
+            currentSignal.setText("信号 " + accessPoint.getSignalPercent() + "%");
         }
 
         public void refreshTimerView() {
@@ -1933,13 +1933,11 @@ public class WifiListFragment extends WifiFragment implements
                 }
                 break;
                 case R.id.btn_password_connect:
-                    // TODO 表单验证
                     if (!isFormValid(mAttempAccessPoint)) {
                         return;
                     }
                     // 802.1x类型 输入username & password
                     if (mAttempAccessPoint.isDotxType()) {
-                        // TODO
                         mAttempAccessPoint.getDataModel().setUserCount(
                                 mPasswordDialogViewHolder.edit_username.getText()
                                         .toString(),

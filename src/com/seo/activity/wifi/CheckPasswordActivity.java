@@ -93,7 +93,7 @@ public class CheckPasswordActivity extends BaseActivity implements
             this.joinedBssid.setText(mAttempAccessPoint.getScanResult().SSID);
             this.joinedState
                     .setText(mAttempAccessPoint.getConnectStateString());
-            setSignal(mAttempAccessPoint.getSignalPersent());
+            setSignal(mAttempAccessPoint.getSignalPercent());
             this.stateImage.setImageDrawable(mAttempAccessPoint
                     .getChangeStateDrawable());
 
@@ -298,7 +298,7 @@ public class CheckPasswordActivity extends BaseActivity implements
                             .setText(mAttempAccessPoint.getScanResult().SSID);
                     joinedState.setText(mAttempAccessPoint
                             .getConnectStateString());
-                    setSignal(mAttempAccessPoint.getSignalPersent());
+                    setSignal(mAttempAccessPoint.getSignalPercent());
                     stateImage.setImageDrawable(mAttempAccessPoint
                             .getChangeStateDrawable());
                 } else {
