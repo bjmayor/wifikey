@@ -3,14 +3,9 @@ package com.seo.activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,13 +13,13 @@ import android.view.View;
 import com.eadver.offer.recommendwall.RecommendAdListSDK;
 import com.eadver.offer.sdk.YjfSDK;
 import com.eadver.offer.sdk.widget.UpdateScordNotifier;
+import com.seo.activity.base.BaseActivity;
 import com.seo.activity.wifi.WifiListFragment;
 import com.seo.constant.ConfigConstant;
 import com.seo.constant.ReleaseConstant;
 import com.seo.wifikey.Gl;
 import com.seo.wifikey.R;
 import com.umeng.analytics.MobclickAgent;
-
 
 import cn.waps.AppConnect;
 
@@ -34,7 +29,7 @@ import cn.waps.AppConnect;
  * @packagename com.hiwifi.activity
  * @projectname hiwifi1.0.1
  */
-public class MainTabActivity extends ActionBarActivity implements UpdateScordNotifier {
+public class MainTabActivity extends BaseActivity implements UpdateScordNotifier {
     ActionBar actionBar;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -77,6 +72,31 @@ public class MainTabActivity extends ActionBarActivity implements UpdateScordNot
                 ConfigConstant.YJF_DEV_ID, Gl.getChannel());
 
         setUpActionBar();
+
+    }
+
+    @Override
+    protected void onClickEvent(View paramView) {
+
+    }
+
+    @Override
+    protected void findViewById() {
+
+    }
+
+    @Override
+    protected void loadViewLayout() {
+
+    }
+
+    @Override
+    protected void processLogic() {
+
+    }
+
+    @Override
+    protected void setListener() {
 
     }
 
@@ -134,6 +154,11 @@ public class MainTabActivity extends ActionBarActivity implements UpdateScordNot
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void updateView() {
+
+    }
+
 
     @Override
     protected void onDestroy() {
@@ -142,13 +167,13 @@ public class MainTabActivity extends ActionBarActivity implements UpdateScordNot
 
 
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
         MobclickAgent.onResume(this);          //统计时长
     }
 
     @Override
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
         MobclickAgent.onPause(this);
     }

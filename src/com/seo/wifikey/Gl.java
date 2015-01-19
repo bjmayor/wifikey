@@ -21,9 +21,8 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.text.TextUtils;
 
-import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.eadver.offer.sdk.ui.ImageLoader;
+import com.jumper.ui.ui.AppControl;
 import com.seo.app.receiver.CmccStateBroadcastReceiver;
 import com.seo.app.receiver.HiwifiBroadcastReceiver;
 import com.seo.app.services.DaemonService;
@@ -59,7 +58,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ExecutionException;
 
 import cn.waps.AppConnect;
 
@@ -241,6 +239,15 @@ public final class Gl extends Application {
         } else {
             MobclickAgent.setCatchUncaughtExceptions(true);
         }
+
+        AppControl appControl = AppControl.getInstance();
+        appControl.init(this, ConfigConstant.SEVEN_APP_ID, Gl.getChannel(), ClientInfo.shareInstance().getClientId());
+        appControl.setScoreConfiguration(this, 0); //初始积分
+//        appControl.setAppListener(this, this);// 设置SDK广告监听,需要实现DevListener接口
+        appControl.setTestMode(this, true);// 设置是否是调试模式(true为调试模式，可显示日志 false关闭)
+        appControl.setDownToast(this, true);// 设置每次点击广告下载是否有提示 (true 打开 false关闭)
+
+
         try {
             versionCode = context.getPackageManager().getPackageInfo(
                     context.getPackageName(), 0).versionCode;
@@ -248,18 +255,6 @@ public final class Gl extends Application {
                     context.getPackageName(), 0).versionName;
             AppName = context.getResources().getString(R.string.app_name);
 
-            ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(
-                    sContext)
-                    .threadPoolSize(3)
-                    .threadPriority(Thread.NORM_PRIORITY - 2)
-                    .memoryCacheSize(1500000)
-                            // 1.5 Mb
-                    .denyCacheImageMultipleSizesInMemory()
-                    .discCacheFileNameGenerator(new Md5FileNameGenerator())
-                    .enableLogging() // Not necessary in common
-                    .build();
-            // Initialize ImageLoader with configuration.
-            ImageLoader.getInstance().init(config);
         } catch (NameNotFoundException e) {
             e.printStackTrace();
         }

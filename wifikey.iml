@@ -83,7 +83,6 @@
     <orderEntry type="library" exported="" name="umeng-analytics-v5.2.4" level="project" />
     <orderEntry type="library" exported="" name="alimama_core" level="project" />
     <orderEntry type="library" exported="" name="wandoujia-ads" level="project" />
-    <orderEntry type="library" exported="" name="universal-image-loader-1.8.4-with-sources" level="project" />
     <orderEntry type="library" exported="" name="locSDK_4.2" level="project" />
     <orderEntry type="library" exported="" name="locate_2.1.2" level="project" />
     <orderEntry type="library" exported="" name="AppOffer_2.3.1" level="project" />
@@ -100,6 +99,7 @@
     <orderEntry type="library" exported="" name="ShareSDK-Wechat-2.4.2" level="project" />
     <orderEntry type="library" exported="" name="libammsdk" level="project" />
     <orderEntry type="library" exported="" name="GetuiSdk-2.2.1.0" level="project" />
+    <orderEntry type="library" exported="" name="mmad" level="project" />
     <orderEntry type="library" exported="" name="GetuiExt-1.2.2" level="project" />
     <orderEntry type="library" exported="" name="httpmime-4.2.3" level="project" />
   </component>

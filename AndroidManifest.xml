@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.seo.wifikey"
     android:installLocation="auto"
-    android:versionCode="11400"
-    android:versionName="1.14">
+    android:versionCode="11500"
+    android:versionName="1.15">
 
 
     <supports-screens
@@ -38,8 +38,9 @@
 
         <service
             android:name="com.seo.app.services.DaemonService"
-            android:label="后台服务"
-            android:process=":daemon" />
+            android:label="后台服务" />
+
+        <!--android:process=":daemon"-->
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
@@ -399,11 +400,10 @@
                 <data android:scheme="package" />
             </intent-filter>
         </receiver>
+
         <activity
             android:name="com.eadver.offer.sdk.view.WallActivity"
-            android:configChanges="keyboardHidden|orientation"
-            >
-        </activity>
+            android:configChanges="keyboardHidden|orientation"></activity>
 
         <activity
             android:name="com.eadver.offer.sdk.view.DetailActivity"
@@ -413,6 +413,30 @@
             android:name="com.eadver.offer.sdk.view.WebActivity"
             android:configChanges="keyboardHidden|orientation" />
 
+        <!--第七传媒-->
+        <receiver
+            android:name="com.jumper.ui.util.DevInstallGetter"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.com.seo.wifikey"></action>
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.jumper.ui.ui.ScoreWallActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.jumper.ui.ui.ScoreDetailActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.jumper.ui.ui.ScoreDeepTaskActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"></activity>
+
+
+        <service android:name="com.sevensdk.ge.service.DownService"></service>
+        <service android:name="com.jumper.ui.util.DevJiFenService"></service>
 
     </application>
     <!-- ShareSdk permission -->

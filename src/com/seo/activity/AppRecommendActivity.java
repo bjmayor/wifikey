@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.os.Build;
 
 import com.eadver.offer.recommendwall.RecommendWallSDK;
+import com.jumper.ui.ui.AppControl;
 import com.qq.e.appwall.GdtAppwall;
 import com.seo.activity.base.BaseActivity;
 import com.seo.app.views.UINavigationView;
@@ -134,6 +135,7 @@ public class AppRecommendActivity extends BaseActivity {
             rootView.findViewById(R.id.ll_recommend_by_qq).setOnClickListener(this);
             rootView.findViewById(R.id.ll_recommend_by_wandoujia).setOnClickListener(this);
             rootView.findViewById(R.id.ll_recommend_by_yjf).setOnClickListener(this);
+            rootView.findViewById(R.id.ll_recommend_by_seven).setOnClickListener(this);
             return rootView;
         }
 
@@ -170,6 +172,10 @@ public class AppRecommendActivity extends BaseActivity {
                 case R.id.ll_recommend_by_yjf:
                     RecommendWallSDK.getInstance(getActivity()).showRecommendWall();
                     MobclickAgent.onEvent(getActivity(), StatEvent.CLICK_EVT_AD_PLATFORM, ReleaseConstant.ADPLATFORM.ADPLATFORM_YJF.toString());
+                    break;
+                case R.id.ll_recommend_by_seven:
+                    AppControl.getInstance().showPointOffer(getActivity(), false);
+                    MobclickAgent.onEvent(getActivity(), StatEvent.CLICK_EVT_AD_PLATFORM, ReleaseConstant.ADPLATFORM.ADPLATFORM_SEVEN.toString());
                     break;
             }
         }

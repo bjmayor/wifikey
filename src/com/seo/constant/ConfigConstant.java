@@ -229,6 +229,9 @@ public class ConfigConstant {
     public static final String YJF_APP_KEY = "EMI373QQVGBD2XHY9M24O3T30YTXIXHP81";
     public static final String YJF_DEV_ID = "82214";
 
+    public static final String SEVEN_APP_ID = "c3f2daad8d148e25OP+81sjefip9M+440irbzksf6wMenzJ4Qpx06zX+xpDMHkEcNg";
+
+
     public static final int SCORE_PER_VIEW = 10;
     public static final int AWARD_SCORE_BY_SHARE = SCORE_PER_VIEW * 2;
 }
