@@ -110,9 +110,3 @@
 public protected *; }
 -keep class com.tencent.gdt.**{ public protected *;
 }
-
--libraryjars libs/mmad.jar
--keep public class com.jumper.ui**{*;}
--keep public interface com.jumper.ui.** {*;}
--keep public class com.sevensdk.ge.** {*;}
--keep public class com.nostra13.universalimageloader.** {*;}

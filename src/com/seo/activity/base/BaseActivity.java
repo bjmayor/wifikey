@@ -145,7 +145,7 @@ public abstract class BaseActivity extends ActionBarActivity implements
 
 	/**
 	 * 处理点击事件
-	 *
+	 * 
 	 * @param paramView
 	 */
 	protected abstract void onClickEvent(View paramView);
@@ -224,31 +224,27 @@ public abstract class BaseActivity extends ActionBarActivity implements
 			@Override
 			public void run() {
 				synchronized (BaseActivity.this) {
-                    try {
-                        if (loadingDialogFragment != null) {
-                            if (loadingDialogFragment.isAdded()) {
-                                getFragmentManager().beginTransaction()
-                                        .show(loadingDialogFragment)
-                                        .commitAllowingStateLoss();
-                            } else {
-                                getFragmentManager().beginTransaction()
-                                        .remove(loadingDialogFragment)
-                                        .commitAllowingStateLoss();
-                                loadingDialogFragment = LoadingDialogFragment
-                                        .newInstance(message);
-                                getFragmentManager().beginTransaction()
-                                        .show(loadingDialogFragment)
-                                        .commitAllowingStateLoss();
-                            }
-                        } else {
-                            loadingDialogFragment = LoadingDialogFragment
-                                    .newInstance(message);
-                            loadingDialogFragment.show(getFragmentManager(), TAG);
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
+					if (loadingDialogFragment != null) {
+						if (loadingDialogFragment.isAdded()) {
+							getFragmentManager().beginTransaction()
+									.show(loadingDialogFragment)
+									.commitAllowingStateLoss();
+						} else {
+							getFragmentManager().beginTransaction()
+									.remove(loadingDialogFragment)
+									.commitAllowingStateLoss();
+							loadingDialogFragment = LoadingDialogFragment
+									.newInstance(message);
+							getFragmentManager().beginTransaction()
+									.show(loadingDialogFragment)
+									.commitAllowingStateLoss();
+						}
+					} else {
+						loadingDialogFragment = LoadingDialogFragment
+								.newInstance(message);
+						loadingDialogFragment.show(getFragmentManager(), TAG);
+					}
+				}
 
 			}
 		});
@@ -264,22 +260,18 @@ public abstract class BaseActivity extends ActionBarActivity implements
 			@Override
 			public void run() {
 				synchronized (BaseActivity.this) {
-                    try {
-                        if (loadingDialogFragment != null) {
-                            if (loadingDialogFragment.isAdded()) {
-                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1) {
-                                    loadingDialogFragment
-                                            .dismissAllowingStateLoss();
-                                } else {
-                                    loadingDialogFragment.dismiss();
-                                }
-                            }
-                            loadingDialogFragment = null;
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
+					if (loadingDialogFragment != null) {
+						if (loadingDialogFragment.isAdded()) {
+							if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1) {
+								loadingDialogFragment
+										.dismissAllowingStateLoss();
+							} else {
+								loadingDialogFragment.dismiss();
+							}
+						}
+						loadingDialogFragment = null;
+					}
+				}
 
 			}
 		});

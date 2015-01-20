@@ -33,7 +33,6 @@ public class ReleaseConstant {
         ADPLATFORM_WANPU,//万普
         ADPLATFORM_YOUMI,//有米
         ADPLATFORM_YJF,//意积分
-        ADPLATFORM_SEVEN,//第七传媒，木蚂蚁
         ADPLATFORM_WANDOUJIA,//豌豆荚
         ADPLATFORM_QQ,//qq
         ADPLATFORM_TANX;//tanx移动

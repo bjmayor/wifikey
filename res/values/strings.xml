@@ -13,7 +13,6 @@
     <string name="share_to_friends">分享给好友</string>
     <string name="app_recommends">大家推荐</string>
     <string name="recommend_by_yjf">易积分推荐</string>
-    <string name="recommend_by_seven">木蚂蚁推荐</string>
     <string name="recommend_by_wanpu">万普推荐</string>
     <string name="recommend_by_youmi">有米推荐</string>
     <string name="recommend_by_alibaba">阿里推荐</string>
@@ -35,7 +34,7 @@
     <string name="title_activity_message_acitivity">MessageAcitivity</string>
 
     <!-- copyright -->
-    <string name="copyright">演道工作室 Copyright © 2012-2015</string>
+    <string name="copyright">演道工作室 Copyright © 2012-2014</string>
     <string name="office_qq">官方QQ群：397770679</string>
     <string name="rights">All Rights Reserved.</string>
     <!-- wifi status -->

@@ -11,7 +11,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.KeyEvent;
 import android.view.View;
 
-import com.jumper.ui.ui.AppControl;
 import com.seo.activity.base.BaseActivity;
 import com.seo.activity.wifi.WiFiOperateActivity;
 import com.seo.constant.ConfigConstant;
@@ -52,8 +51,6 @@ public class SplashActiviy extends ActionBarActivity {
         BitmapDrawable d = new BitmapDrawable(adaptiveW);
         postDelay();
         getActionBar().hide();
-
-
     }
 
 
