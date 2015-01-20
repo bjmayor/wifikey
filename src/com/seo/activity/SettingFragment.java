@@ -16,6 +16,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.seo.activity.setting.AboutAppActivity;
+import com.seo.activity.setting.AppRecommendActivity;
+import com.seo.activity.setting.FeedbackActivity;
+import com.seo.activity.setting.RewardActivity;
 import com.seo.activity.setting.TermsOfServiceActivity;
 import com.seo.activity.test.TestCenterActivity;
 import com.seo.app.notification.NotificationUtil;
@@ -91,6 +94,7 @@ public class SettingFragment extends Fragment implements OnClickListener,
             rootView.findViewById(R.id.ll_test).setVisibility(View.GONE);
         }
         rootView.findViewById(R.id.feedback).setOnClickListener(this);
+        rootView.findViewById(R.id.ll_score_reward).setOnClickListener(this);
         return rootView;
     }
 
@@ -164,6 +168,11 @@ public class SettingFragment extends Fragment implements OnClickListener,
 
             case R.id.ll_app_share:
                 showShare();
+                break;
+
+            case R.id.ll_score_reward:
+                intent.setClass(getActivity(), RewardActivity.class);
+                getActivity().startActivity(intent);
                 break;
 
             case R.id.ll_test:

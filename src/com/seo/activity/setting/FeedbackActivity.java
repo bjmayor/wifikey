@@ -1,4 +1,4 @@
-package com.seo.activity;
+package com.seo.activity.setting;
 
 import java.util.HashMap;
 import java.util.List;
@@ -6,7 +6,6 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -18,7 +17,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.seo.activity.base.BaseActivity;
-import com.seo.app.views.UINavigationView;
 import com.seo.model.ClientInfo;
 import com.seo.wifikey.R;
 import com.umeng.analytics.MobclickAgent;

@@ -157,6 +157,30 @@
                     android:textColor="@color/text_color_gray" />
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/ll_score_reward"
+                style="@style/setting_item_clicked"
+                android:layout_width="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/setting_item_text"
+                    android:layout_width="@dimen/width_zero"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_gift"
+                    android:drawablePadding="@dimen/drawable_padding"
+                    android:text="@string/score_reward" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:drawableRight="@drawable/bar_right_arrow"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/text_color_gray" />
+            </LinearLayout>
+
 
             <LinearLayout
                 android:id="@+id/ll_agreement"

@@ -1,4 +1,4 @@
-package com.seo.activity;
+package com.seo.activity.setting;
 
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;

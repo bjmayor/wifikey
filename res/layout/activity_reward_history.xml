@@ -1,0 +1,27 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/setting_background_color"
+    tools:context="com.seo.activity.setting.RewardHistoryActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:text="@string/reward_history"
+        android:textColor="@color/major_color" />
+
+
+    <com.seo.app.views.PullToRefreshView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.seo.app.views.MyScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </com.seo.app.views.MyScrollView>
+    </com.seo.app.views.PullToRefreshView>
+
+</RelativeLayout>

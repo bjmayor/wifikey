@@ -12,6 +12,7 @@
     <string name="desc_list_item_icon">SlidingMenu</string>
     <string name="share_to_friends">分享给好友</string>
     <string name="app_recommends">大家推荐</string>
+    <string name="score_reward">积分兑换</string>
     <string name="recommend_by_yjf">易积分推荐</string>
     <string name="recommend_by_wanpu">万普推荐</string>
     <string name="recommend_by_youmi">有米推荐</string>
@@ -26,6 +27,7 @@
     <string name="app_name">快用WiFi神器</string>
     <string name="action_settings_next">下一步</string>
     <string name="action_settings">settings</string>
+    <string name="reward_history">兑换记录</string>
     <string name="action_settings_logout">注销</string>
     <string name="hello_world">Hello world!</string>
     <string name="moreTitle">more activity!</string>
@@ -351,6 +353,8 @@
     <string name="UMAppUpdate">应用更新</string>
     <string name="free_wifi">免费WiFi</string>
     <string name="discover">发现</string>
-
+    <string name="title_activity_reward">积分兑换</string>
+    <string name="title_activity_ali_account">兑换申请</string>
+    <string name="title_activity_reward_history">@string/reward_history</string>
 
 </resources>

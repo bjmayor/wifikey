@@ -1,0 +1,113 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/setting_background_color"
+    tools:context="com.seo.activity.setting.RewardActivity">
+
+    <TextView
+        android:id="@+id/tv_tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="17dp"
+        android:text="为了感谢大家对快用WiFi神器的支持，不定期地开启积分兑换，以回馈大家。\n说明:暂时只支持有米积分兑换。" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_tips"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="17dp"
+            android:paddingLeft="17dp"
+            android:text="有米积分：0"
+            android:textColor="@color/major_color" />
+
+        <LinearLayout
+            android:id="@+id/ll_score_3"
+            style="@style/setting_item_clicked"
+            android:layout_width="match_parent">
+
+            <TextView
+                style="@style/setting_item_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/bar_right_arrow"
+                android:gravity="center_vertical"
+                android:text="1000积分兑换3元支付宝" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_score_5"
+            style="@style/setting_item_clicked"
+            android:layout_width="match_parent">
+
+            <TextView
+                style="@style/setting_item_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/bar_right_arrow"
+                android:gravity="center_vertical"
+                android:text="2000积分兑换5元支付宝" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_score_10"
+            style="@style/setting_item_clicked"
+            android:layout_width="match_parent">
+
+            <TextView
+                style="@style/setting_item_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/bar_right_arrow"
+                android:gravity="center_vertical"
+                android:text="4000积分兑换10元支付宝" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_score_20"
+            style="@style/setting_item_clicked"
+            android:layout_width="match_parent">
+
+            <TextView
+                style="@style/setting_item_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/bar_right_arrow"
+                android:gravity="center_vertical"
+                android:text="8000积分兑换20元支付宝" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_score_50"
+            style="@style/setting_item_clicked"
+            android:layout_width="match_parent">
+
+            <TextView
+                style="@style/setting_item_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableRight="@drawable/bar_right_arrow"
+                android:gravity="center_vertical"
+                android:text="20000积分兑换50元支付宝" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_score_100"
+            style="@style/setting_item_clicked"
+            android:layout_width="match_parent">
+
+            <TextView
+                style="@style/setting_item_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableRight="@drawable/bar_right_arrow"
+                android:gravity="center_vertical"
+                android:text="40000积分兑换100元支付宝" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
