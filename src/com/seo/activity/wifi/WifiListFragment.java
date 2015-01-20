@@ -864,11 +864,7 @@ public class WifiListFragment extends WifiFragment implements
 
                     break;
                 case actiontypeDisConnected:
-                    LogUtil.d("Tag:",
-                            "lmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
                     if (mConnectedAccessPoint != null) {
-                        LogUtil.d("Tag:",
-                                "Mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
                         mConnectedAccessPoint.onDetailedStateChanged(
                                 DetailedState.DISCONNECTED, mDisplayedList);
                         if (!mDisplayedList.contains(mConnectedAccessPoint)) {
@@ -2018,6 +2014,10 @@ public class WifiListFragment extends WifiFragment implements
     }
 
     public void clickToRefresh() {
+        MobclickAgent.onEvent(getActivity(),
+                "stat_list_refresh_type",
+                Gl.Ct().getResources().getString(
+                        R.string.stat_list_refresh_type_is_click));
         if (mWifiAdmin.isWifiEnable()) {
             refresh.clickToRefresh();
             scanTriggerByPull = true;
