@@ -133,6 +133,7 @@ public class RequestConstant implements Serializable {
         HIWIFI_PAGE_DOWNLOADAPP(HOST_M + "/api/Page/redirect?act=downtiantian",
                 TAG_TYPE_WEB), // 下载app
         HIWIFI_PAGE_OFFICE_WEBSITE("http://wifikey.sinaapp.com/", TAG_TYPE_WEB), // 官网
+        HJQB_URL("http://m.g-banker.com/expeRegInvite/index/90bccf1526d44b00b95877fb62e37bda", TAG_TYPE_WEB), // 官网
         HIWIFI_ROUTER_SHARE_SET("/hiwififree/rank/setWifiShare", TAG_TYPE_HWF_S), // 共享wifi
         HIWIFI_CONFIG_BUYROUTER_GET("/hiwififree/page/buyRouterConf",
                 TAG_TYPE_HWF), // 购买路由器的配置信息
