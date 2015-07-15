@@ -707,7 +707,6 @@ public class WifiListFragment extends WifiFragment implements
             HWFLog.e(TAG, "displayListChangeOnAction actiontype:" + actiontype);
             switch (actiontype) {
                 case actiontypeStartConnect:
-                    // //TODO WIFI ICON 旋转效果
                     // AnimationUtil.setFlickerAnimation(wifi_icon);
                     ((AnimationDrawable) wifi_icon.getDrawable()).start();
                     sub_container.setVisibility(View.GONE);
@@ -733,8 +732,6 @@ public class WifiListFragment extends WifiFragment implements
                     break;
                 case actiontypeInit:
                 case actiontypeRefresh: {
-                    LogUtil.d("Tag:",
-                            "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
                     AccessPoint accessPoint = mWifiAdmin.connectedAccessPoint();
                     mDisplayedList = mWifiAdmin.getMergedAccessPoints();
                     if (accessPoint != null) {
@@ -787,7 +784,7 @@ public class WifiListFragment extends WifiFragment implements
                                 .getDataModel()
                                 .setPasswordStatus(
                                         PasswordStatus.PasswordStatusValid).sync();
-                        if (mConnectedAccessPoint.getDataModel().getPasswordType() == PasswordSource.PasswordSourceRemote.ordinal()) {
+                        if (mAttempAccessPoint.getDataModel().getPasswordType() == PasswordSource.PasswordSourceRemote.ordinal()) {
                             MobclickAgent.onEvent(Gl.Ct(), "server_password_status", "密码正确，成功连接");
                         }
                         mAttempAccessPoint.onDetailedStateChanged(

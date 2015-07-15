@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 /**
  * Created by maynard on 14-10-17.
  */
-public class WiFiLocalManager {
+public class WiFiLocalManager implements Runnable {
     private List read() throws Exception {
         List wifiInfos = new ArrayList();
         Process process = null;
@@ -74,31 +74,52 @@ public class WiFiLocalManager {
     }
 
     private static List<WifiInfo> sList = null;
+    private onListLoadListener listLoadListener;
+
+    public void load(onListLoadListener listLoadListener) {
+        this.listLoadListener = listLoadListener;
+        new Thread(this).start();
+    }
 
 
-    public static WifiInfo getWifiInfo(String ssid) {
-        if (sList == null) {
-            try {
-                sList = new WiFiLocalManager().read();
-            } catch (Exception e) {
-                e.printStackTrace();
-                return new WifiInfo();
-            }
-        }
+    public WifiInfo getWifiInfo(String ssid) {
+
         WifiInfo retInfo = new WifiInfo();
         retInfo.password = "没有找到密码";
+        if (sList == null) {
+            return null;
+        }
         for (WifiInfo info : sList) {
             if (info.ssid.equals(ssid)) {
                 retInfo = info;
                 break;
             }
         }
-        return  retInfo;
+        return retInfo;
+    }
+
+    @Override
+    public void run() {
+        if (sList == null) {
+            try {
+                sList = new WiFiLocalManager().read();
+            } catch (Exception e) {
+                sList = new ArrayList<WifiInfo>();
+            } finally {
+                this.listLoadListener.onWifiListLoaded();
+            }
+        } else {
+            this.listLoadListener.onWifiListLoaded();
+        }
     }
 
     public static class WifiInfo {
         public String ssid;
         public String password = "您的手机没有Root,无法查看";
+    }
+
+    public interface onListLoadListener {
+        public void onWifiListLoaded();
     }
 
 }

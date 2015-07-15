@@ -8,9 +8,9 @@ package com.seo.app.views;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
-import android.app.DialogFragment;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.Window;

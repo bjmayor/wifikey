@@ -6,6 +6,7 @@ import android.net.TrafficStats;
 import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.os.Bundle;
 import android.os.Handler;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -61,7 +62,7 @@ import cn.waps.UpdatePointsNotifier;
 
 
 public class CheckPasswordActivity extends BaseActivity implements
-        OnClickListener, UpdatePointsNotifier, PlatformActionListener {
+        OnClickListener, UpdatePointsNotifier, PlatformActionListener, WiFiLocalManager.onListLoadListener {
 
     private LinearLayout hasPasswordNoScore, hasPasswordHasScore, passwordHasShowed, noPasswordCansee, shareContainer;
     private ImageView backWifilist, stateImage;
@@ -72,19 +73,33 @@ public class CheckPasswordActivity extends BaseActivity implements
 
     private final int SET_TRAFFIC = 1;
     private final int REQUEST_LOGIN = 1001;
+    private final int MSG_LOADED_LIST = 2;
     private String wifiPwd = "";
+    private WiFiLocalManager wiFiLocalManager = new WiFiLocalManager();
 
     public final String APP_URL = "http://wifikey.sinaapp.com";
 
     private Handler handler = new Handler() {
         public void handleMessage(android.os.Message msg) {
-            if (msg.what == SET_TRAFFIC) {
-                setCurrentTracffic();
+            switch (msg.what) {
+                case SET_TRAFFIC:
+                    setCurrentTracffic();
+                    break;
+                case MSG_LOADED_LIST:
+                    setStatus();
+                    break;
             }
+
         }
 
         ;
     };
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        wiFiLocalManager.load(this);
+        super.onCreate(savedInstanceState);
+    }
 
     private void initView() {
 
@@ -425,8 +440,8 @@ public class CheckPasswordActivity extends BaseActivity implements
                         password.setText(wifiPwd);
                         shareTitleView.setVisibility(View.VISIBLE);
                         shareContainer.setVisibility(View.VISIBLE);
-                    } else {
-                        wifiPwd = WiFiLocalManager.getWifiInfo(mAttempAccessPoint.getPrintableSsid()).password;
+                    } else if (wiFiLocalManager.getWifiInfo(mAttempAccessPoint.getPrintableSsid()) != null) {
+                        wifiPwd = wiFiLocalManager.getWifiInfo(mAttempAccessPoint.getPrintableSsid()).password;
                     }
                     comsume();
                     if (!TextUtils.isEmpty(wifiPwd)) {
@@ -578,7 +593,9 @@ public class CheckPasswordActivity extends BaseActivity implements
         if (mAttempAccessPoint != null) {
             wifiPwd = mAttempAccessPoint.getDataModel().getPassword(false);
             if (TextUtils.isEmpty(wifiPwd) || wifiPwd.equals("*")) {
-                wifiPwd = WiFiLocalManager.getWifiInfo(mAttempAccessPoint.getPrintableSsid()).password;
+                if (wiFiLocalManager.getWifiInfo(mAttempAccessPoint.getPrintableSsid()) != null) {
+                    wifiPwd = wiFiLocalManager.getWifiInfo(mAttempAccessPoint.getPrintableSsid()).password;
+                }
             }
             if (TextUtils.isEmpty(wifiPwd)) {
                 switchViewStatus(status_no_password_can_show);
@@ -618,8 +635,8 @@ public class CheckPasswordActivity extends BaseActivity implements
         } else if (ReleaseConstant.getAdPlatform() == ReleaseConstant.ADPLATFORM.ADPLATFORM_WANPU) {
             AppConnect.getInstance(this).awardPoints(ConfigConstant.AWARD_SCORE_BY_SHARE);
         }
-        leftTimes+= ConfigConstant.AWARD_SCORE_BY_SHARE;
-        Toast.makeText(this, "奖励"+ConfigConstant.AWARD_SCORE_BY_SHARE+"积分", Toast.LENGTH_SHORT).show();
+        leftTimes += ConfigConstant.AWARD_SCORE_BY_SHARE;
+        Toast.makeText(this, "奖励" + ConfigConstant.AWARD_SCORE_BY_SHARE + "积分", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -630,5 +647,10 @@ public class CheckPasswordActivity extends BaseActivity implements
     @Override
     public void onCancel(Platform platform, int i) {
 
+    }
+
+    @Override
+    public void onWifiListLoaded() {
+        handler.sendEmptyMessage(MSG_LOADED_LIST);
     }
 }

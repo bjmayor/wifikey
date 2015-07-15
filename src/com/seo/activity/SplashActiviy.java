@@ -50,7 +50,7 @@ public class SplashActiviy extends ActionBarActivity {
         Bitmap adaptiveW = ImageUtil.adaptiveW(bitmap, ViewUtil.getScreenWidth());
         BitmapDrawable d = new BitmapDrawable(adaptiveW);
         postDelay();
-        getActionBar().hide();
+        getSupportActionBar().hide();
     }
 
 

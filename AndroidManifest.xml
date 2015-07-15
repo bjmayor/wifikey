@@ -2,11 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.seo.wifikey"
     android:installLocation="auto"
-    android:versionCode="11600"
-    android:versionName="1.16" >
+    android:versionCode="11700"
+    android:versionName="1.17" >
 
     <uses-sdk
-        android:minSdkVersion="11"
+        android:minSdkVersion="9"
         android:targetSdkVersion="19" />
 
     <supports-screens

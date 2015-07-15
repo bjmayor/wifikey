@@ -164,6 +164,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:visibility="gone"
                     style="@style/setting_item_text"
                     android:layout_width="@dimen/width_zero"
                     android:layout_height="wrap_content"

@@ -79,7 +79,7 @@ import java.net.URI;
  * </pre>
  */
 public abstract class AsyncHttpResponseHandler implements ResponseHandlerInterface {
-    private static final String LOG_TAG = "AsyncHttpResponseHandler";
+    private static final String LOG_TAG = "AsynResponseHandler";
 
     protected static final int SUCCESS_MESSAGE = 0;
     protected static final int FAILURE_MESSAGE = 1;
@@ -412,12 +412,15 @@ public abstract class AsyncHttpResponseHandler implements ResponseHandlerInterfa
                             sendProgressMessage(count, (int) (contentLength <= 0 ? 1 : contentLength));
                         }
                     } finally {
-                        AsyncHttpClient.silentCloseInputStream(instream);
+
                     }
                     responseBody = buffer.toByteArray();
                 } catch (OutOfMemoryError e) {
                     System.gc();
                     throw new IOException("File too large to fit into available memory");
+                }
+                finally {
+                    AsyncHttpClient.silentCloseInputStream(instream);
                 }
             }
         }

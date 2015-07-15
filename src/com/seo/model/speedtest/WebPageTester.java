@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.os.Message;
 
+import com.seo.support.http.AsyncHttpClient;
 import com.seo.wifikey.Gl;
 import com.seo.wifikey.Gl.GlConf;
 import com.seo.model.log.HWFLog;
@@ -14,6 +15,8 @@ import com.seo.support.http.AsyncHttpResponseHandler;
 import com.seo.support.http.SyncHttpClient;
 import com.seo.wifikey.R;
 import com.umeng.analytics.MobclickAgent;
+
+import java.util.EnumSet;
 
 public class WebPageTester implements Runnable {
     private final String TAG = this.getClass().getSimpleName();
@@ -77,15 +80,23 @@ public class WebPageTester implements Runnable {
         this.timeout = 5000;
     }
 
-    SyncHttpClient client = new SyncHttpClient();
+    AsyncHttpClient client = new AsyncHttpClient();
 
-    private String loadPage(String urlStr) {
-        long startTime = System.currentTimeMillis();
+
+    private void loadPage(String urlStr) {
+
         client.setTimeout(this.timeout);
         client.setEnableRedirects(false);
         final StringBuffer buffer = new StringBuffer();
-        Boolean isErrorBoolean = false;
         client.get(Gl.Ct(), urlStr, new AsyncHttpResponseHandler() {
+            long startTime = 0;
+
+            @Override
+            public void onStart() {
+                super.onStart();
+                startTime = System.currentTimeMillis();
+            }
+
             @Override
             public void onSuccess(int statusCode, Header[] headers,
                                   byte[] responseBody) {
@@ -94,10 +105,10 @@ public class WebPageTester implements Runnable {
                     if (!buffer.toString().trim()
                             .contains(webTestExpectContent)) {
                         setError(ErrorCodeCaptured, "no matched content");
-                        // handler.sendEmptyMessage(msg_error_download);
+                        return;
                     }
                 }
-
+                onFinish();
             }
 
             @Override
@@ -111,15 +122,23 @@ public class WebPageTester implements Runnable {
                     setError(ErrorCodeNetException, "net off");
                 } else {
                     if (statusCode == 0) {
-                        setError(ErrorCodeTimeout, "time out");
+                        setError(ErrorCodeTimeout, "time out or no network");
                         // handler.sendEmptyMessage(msg_error_download);
-                    }
-                    if (statusCode > 300 && statusCode < 400) {
+                    } else if (statusCode > 300 && statusCode < 400) {
                         setError(ErrorCodeCaptured, "3xx capture");
                         // handler.sendEmptyMessage(msg_error_download);
+                    } else {
+                        onFinish();
                     }
                 }
 
+            }
+
+            public void onFinish() {
+                if (is_running && isSendMessage) {
+                    time = System.currentTimeMillis() - startTime;
+                    handler.sendEmptyMessage(msg_ok);
+                }
             }
 
             private Boolean isHiwifi(String location) {
@@ -140,11 +159,6 @@ public class WebPageTester implements Runnable {
                 return locationString;
             }
         });
-        if (isErrorBoolean) {
-            is_running = false;
-        }
-        time = System.currentTimeMillis() - startTime;
-        return buffer.toString();
     }
 
     private void setError(int code, String msg) {
@@ -159,15 +173,10 @@ public class WebPageTester implements Runnable {
 
     @Override
     public void run() {
-        long total_time = 0;
         if (is_running && webTestUrl != null) {
             loadPage(webTestUrl);
-            total_time += time;
         }
-        if (is_running && isSendMessage) {
-            time = total_time;
-            handler.sendEmptyMessage(msg_ok);
-        }
+
     }
 
     public void stopTest() {
@@ -177,13 +186,13 @@ public class WebPageTester implements Runnable {
     }
 
     public boolean startTest(long time_overflow_in_million_second) {
-        boolean ret = true;
-        this.timeout = (int) time_overflow_in_million_second;
-        if (ret) {
-            is_running = true;
-            new Thread(this).start();
+        if (is_running) {
+            stopTest();
         }
-        return ret;
+        this.timeout = (int) time_overflow_in_million_second;
+        is_running = true;
+        run();
+        return true;
     }
 
     public interface WebpageTestAction {
