@@ -104,8 +104,6 @@ public class TestCenterActivity extends FragmentActivity {
         private List<Map<String, TestItem>> getData() {
             ArrayList<Map<String, TestItem>> list = new ArrayList<Map<String, TestItem>>();
 
-            list.add(makeItem("test_name", new TestItem("获取推荐app列表",
-                    RequestTag.HIWIFI_APP_RECOMMEND_GET, true)));
             list.add(makeItem("test_name", new TestItem("获取wifi密码",
                     RequestTag.HIWIFI_PWD_GET, true)));
             list.add(makeItem("test_name", new TestItem("获取运营商密码(deprecated)",
@@ -118,44 +116,21 @@ public class TestCenterActivity extends FragmentActivity {
                     RequestTag.HIWIFI_CONFIG_GET, true)));
             list.add(makeItem("test_name", new TestItem("备份wifi",
                     RequestTag.HIWIFI_MYAPLIST_SEND, true)));
-            list.add(makeItem("test_name", new TestItem("获取剩余时间(deprecated)",
-                    RequestTag.HIWIFI_TIME_GET, false)));
+
             list.add(makeItem("test_name", new TestItem("获取不自动连接的wifi列表",
                     RequestTag.HIWIFI_BLOCKEDWIFI_GET, true)));
-            list.add(makeItem("test_name", new TestItem(
-                    "获取各平台分享状态(deprecated)",
-                    RequestTag.HIWIFI_STATUS_SHAREDAPP_GET, false)));
-            list.add(makeItem("test_name", new TestItem("分享回调(deprecated)",
-                    RequestTag.HIWIFI_SHAREDAPP_REPORT, false)));
-            list.add(makeItem("test_name", new TestItem("购买极路由地址",
-                    RequestTag.HIWIFI_PAGE_BUYROUTER, true)));
-            list.add(makeItem("test_name", new TestItem(
-                    "共享路由器wifi页面(deprecated)",
-                    RequestTag.HIWIFI_PAGE_SHAREROUTER, false)));
-            list.add(makeItem("test_name", new TestItem("天天WiFi下载地址",
-                    RequestTag.HIWIFI_PAGE_DOWNLOADAPP, true)));
+
+
+
+
             list.add(makeItem("test_name", new TestItem("官方网站",
                     RequestTag.HIWIFI_PAGE_OFFICE_WEBSITE, true)));
-            list.add(makeItem("test_name", new TestItem(
-                    "共享路由器wifi(deprecated)",
-                    RequestTag.HIWIFI_ROUTER_SHARE_SET, false)));
-            list.add(makeItem("test_name", new TestItem(
-                    "购买极路由的页面配置信息(deprecated)",
-                    RequestTag.HIWIFI_CONFIG_BUYROUTER_GET, false)));
             list.add(makeItem("test_name", new TestItem("上报最近打开的app列表",
                     RequestTag.HIWIFI_RECENTAPP_SEND, true)));
             list.add(makeItem("test_name", new TestItem("上报用户安装的app列表",
                     RequestTag.HIWIFI_ALLAPP_SEND, true)));
-            list.add(makeItem("test_name", new TestItem("上报crash日志",
-                    RequestTag.HIWIFI_CRASH_SEND, true)));
-            list.add(makeItem("test_name", new TestItem("上报有portal的wifi",
-                    RequestTag.HIWIFI_PORTAL_SEND, false)));
-            list.add(makeItem("test_name", new TestItem("获取wifi密码查看次数",
-                    RequestTag.HIWIFI_PWD_VIEWTIMES_GET, false)));
-            list.add(makeItem("test_name", new TestItem("上报用户查看了密码",
-                    RequestTag.HIWIFI_PWD_VIEWD_SET, false)));
-            list.add(makeItem("test_name", new TestItem("发现页获取列表",
-                    RequestTag.HIWIFI_DISCOVER_LIST_GET, true)));
+
+
 
             return list;
         }
@@ -222,11 +197,8 @@ public class TestCenterActivity extends FragmentActivity {
                     titleTextView.setTextColor(getResources().getColor(
                             R.color.green));
                 }
-                if (testItem.tag.getType() == RequestConstant.TAG_TYPE_OPEN_CLIENT) {
-                    titleTextView.setText(testItem.name + "(openapi)");
-                } else {
-                    titleTextView.setText(testItem.name);
-                }
+
+                titleTextView.setText(testItem.name);
                 return itemView;
             }
 

@@ -108,18 +108,8 @@ public class UrlTestActivity extends FragmentActivity {
 				RequestFactory.getConfig(getActivity(), this);
 			} else if (tag == RequestTag.HIWIFI_MYAPLIST_SEND) {
 				RequestFactory.sendMyApList(getActivity(), this);
-			} else if (tag == RequestTag.HIWIFI_TIME_GET) {
-				Toast.makeText(getActivity(), "已废弃", Toast.LENGTH_SHORT).show();
 			} else if (tag == RequestTag.HIWIFI_BLOCKEDWIFI_GET) {
 				RequestFactory.getSSIDThanNotAutoConnected(getActivity(), this);
-			} else if (tag == RequestTag.HIWIFI_STATUS_SHAREDAPP_GET) {
-				Toast.makeText(getActivity(), "已废弃", Toast.LENGTH_SHORT).show();
-			} else if (tag == RequestTag.HIWIFI_SHAREDAPP_REPORT) {
-				Toast.makeText(getActivity(), "已废弃", Toast.LENGTH_SHORT).show();
-			} else if (tag == RequestTag.HIWIFI_ROUTER_SHARE_SET) {
-				Toast.makeText(getActivity(), "已废弃", Toast.LENGTH_SHORT).show();
-			} else if (tag == RequestTag.HIWIFI_CONFIG_BUYROUTER_GET) {
-				Toast.makeText(getActivity(), "已废弃", Toast.LENGTH_SHORT).show();
 			} else if (tag == RequestTag.HIWIFI_RECENTAPP_SEND) {
 				RequestFactory.sendRecentOpenedAppList(getActivity(), this);
 			} else if (tag == RequestTag.HIWIFI_ALLAPP_SEND) {

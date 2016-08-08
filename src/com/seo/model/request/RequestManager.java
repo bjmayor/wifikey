@@ -154,9 +154,7 @@ public class RequestManager {
         if (params == null) {
             params = new RequestParams();
         }
-        if (tag.getType() == RequestConstant.TAG_TYPE_TWX
-                || tag.getType() == RequestConstant.TAG_TYPE_M) {
-        }
+
         RequestConstant.RequestIdentify identify = new RequestConstant.RequestIdentify(tag);
         identify.setParams(params);
 
@@ -481,13 +479,6 @@ public class RequestManager {
             responseHandler.onStart(identify, Code.errorNoNetwork);
             return false;
         }
-        if (identify.getTag().getType() != RequestConstant.TAG_TYPE_USER
-                && identify.getTag().getType() != RequestConstant.TAG_TYPE_WEB
-                && identify.getTag().getType() != RequestConstant.TAG_TYPE_HWF_S
-                && identify.getTag().getType() != RequestConstant.TAG_TYPE_HWF
-                ) {
-        }
-
         return true;
     }
 }
