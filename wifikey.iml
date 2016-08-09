@@ -76,16 +76,13 @@
     <orderEntry type="library" exported="" name="ShareSDK-Wechat-Core-2.4.2" level="project" />
     <orderEntry type="library" exported="" name="servlet-api" level="project" />
     <orderEntry type="library" exported="" name="ShareSDK-Core-2.4.2" level="project" />
-    <orderEntry type="library" exported="" name="yjfsdk_00" level="project" />
     <orderEntry type="library" exported="" name="umeng-update-v2.4.2" level="project" />
     <orderEntry type="library" exported="" name="AppOffer_2.4.7" level="project" />
     <orderEntry type="library" exported="" name="mframework" level="project" />
     <orderEntry type="library" exported="" name="alimama_interstitial" level="project" />
     <orderEntry type="library" exported="" name="support-v4-20.0.0" level="project" />
-    <orderEntry type="library" exported="" name="YoumiSdk_v4.10_2014-09-25" level="project" />
     <orderEntry type="library" exported="" name="umeng-analytics-v5.2.4" level="project" />
     <orderEntry type="library" exported="" name="alimama_core" level="project" />
-    <orderEntry type="library" exported="" name="wandoujia-ads" level="project" />
     <orderEntry type="library" exported="" name="universal-image-loader-1.8.4-with-sources" level="project" />
     <orderEntry type="library" exported="" name="locSDK_4.2" level="project" />
     <orderEntry type="library" exported="" name="locate_2.1.2" level="project" />
@@ -93,6 +90,7 @@
     <orderEntry type="library" exported="" name="support-annotations-20.0.0" level="project" />
     <orderEntry type="library" exported="" name="alimama_core_h5" level="project" />
     <orderEntry type="library" exported="" name="ShareSDK-Wechat-Moments-2.4.2" level="project" />
+    <orderEntry type="library" exported="" name="YoumiSdk_v6.1.0_2016-02-26" level="project" />
     <orderEntry type="library" exported="" name="alimama_core_native" level="project" />
     <orderEntry type="library" exported="" name="ShareSDK-SinaWeibo-2.4.2" level="project" />
     <orderEntry type="library" exported="" name="umeng-fb-v4.3.2" level="project" />

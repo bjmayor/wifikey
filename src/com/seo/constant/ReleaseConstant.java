@@ -32,8 +32,6 @@ public class ReleaseConstant {
         ADPLATFORM_UNDEFINED,//未定义
         ADPLATFORM_WANPU,//万普
         ADPLATFORM_YOUMI,//有米
-        ADPLATFORM_YJF,//意积分
-        ADPLATFORM_WANDOUJIA,//豌豆荚
         ADPLATFORM_QQ,//qq
         ADPLATFORM_TANX;//tanx移动
 
@@ -45,8 +43,6 @@ public class ReleaseConstant {
                     return ADPLATFORM_WANPU;
                 case 2:
                     return ADPLATFORM_YOUMI;
-                case 3:
-                    return ADPLATFORM_YJF;
                 default:
                     return ADPLATFORM_YOUMI;
             }
@@ -61,12 +57,8 @@ public class ReleaseConstant {
                     return "wanpu";
                 case ADPLATFORM_YOUMI:
                     return "youmi";
-                case ADPLATFORM_YJF:
-                    return "yjf";
                 case ADPLATFORM_QQ:
                     return "qq";
-                case ADPLATFORM_WANDOUJIA:
-                    return "wandoujia";
                 case ADPLATFORM_TANX:
                     return "tanx";
                 default:

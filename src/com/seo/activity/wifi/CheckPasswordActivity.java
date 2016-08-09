@@ -347,8 +347,8 @@ public class CheckPasswordActivity extends BaseActivity implements
         if (ReleaseConstant.getAdPlatform() == ReleaseConstant.ADPLATFORM.ADPLATFORM_WANPU) {
             AppConnect.getInstance(this).getPoints(this);
         } else {
-            int myPointBalance = PointsManager.getInstance(this).queryPoints();
-            leftTimes = myPointBalance;
+            float myPointBalance = PointsManager.getInstance(this).queryPoints();
+            leftTimes = (int)myPointBalance;
             setStatus();
         }
 

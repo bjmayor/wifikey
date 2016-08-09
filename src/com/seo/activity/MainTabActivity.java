@@ -11,9 +11,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.eadver.offer.recommendwall.RecommendAdListSDK;
-import com.eadver.offer.sdk.YjfSDK;
-import com.eadver.offer.sdk.widget.UpdateScordNotifier;
 import com.seo.activity.base.BaseActivity;
 import com.seo.activity.wifi.WifiListFragment;
 import com.seo.constant.ConfigConstant;
@@ -30,7 +27,7 @@ import cn.waps.AppConnect;
  * @packagename com.hiwifi.activity
  * @projectname hiwifi1.0.1
  */
-public class MainTabActivity extends BaseActivity implements UpdateScordNotifier {
+public class MainTabActivity extends BaseActivity {
     ActionBar actionBar;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -68,9 +65,6 @@ public class MainTabActivity extends BaseActivity implements UpdateScordNotifier
         AppConnect.getInstance(this);
         AppConnect.getInstance(this).initUninstallAd(this);
 
-        YjfSDK.getInstance(this, null).initInstance(ConfigConstant.YJF_APP_ID,
-                ConfigConstant.YJF_APP_KEY,
-                ConfigConstant.YJF_DEV_ID, Gl.getChannel());
 
         setUpActionBar();
 
@@ -182,18 +176,7 @@ public class MainTabActivity extends BaseActivity implements UpdateScordNotifier
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        RecommendAdListSDK.getInstance(this).onDestroy();
-        YjfSDK.getInstance(this, null).recordAppClose();
     }
 
 
-    @Override
-    public void updateScoreSuccess(int i, int i2, int i3, String s) {
-
-    }
-
-    @Override
-    public void updateScoreFailed(int i, int i2, String s) {
-
-    }
 }
