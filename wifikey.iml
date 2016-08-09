@@ -88,6 +88,7 @@
     <orderEntry type="library" exported="" name="locate_2.1.2" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-20.0.0" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-20.0.0" level="project" />
+    <orderEntry type="library" exported="" name="GDTUnionSDK.4.8.530.min" level="project" />
     <orderEntry type="library" exported="" name="alimama_core_h5" level="project" />
     <orderEntry type="library" exported="" name="ShareSDK-Wechat-Moments-2.4.2" level="project" />
     <orderEntry type="library" exported="" name="YoumiSdk_v6.1.0_2016-02-26" level="project" />
@@ -96,7 +97,6 @@
     <orderEntry type="library" exported="" name="umeng-fb-v4.3.2" level="project" />
     <orderEntry type="library" exported="" name="ShareSDK-QQ-2.4.2" level="project" />
     <orderEntry type="library" exported="" name="alimama_handler" level="project" />
-    <orderEntry type="library" exported="" name="gdtmob_release_4.2.462" level="project" />
     <orderEntry type="library" exported="" name="ShareSDK-Wechat-2.4.2" level="project" />
     <orderEntry type="library" exported="" name="libammsdk" level="project" />
     <orderEntry type="library" exported="" name="GetuiSdk-2.2.1.0" level="project" />

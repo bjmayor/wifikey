@@ -8,16 +8,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.qq.e.appwall.GdtAppwall;
+import com.qq.e.ads.appwall.APPWall;
 import com.seo.activity.base.BaseActivity;
 import com.seo.constant.ConfigConstant;
 import com.seo.constant.ReleaseConstant;
 import com.seo.model.StatEvent;
 import com.seo.wifikey.R;
-import com.taobao.newxp.common.AlimmContext;
-import com.taobao.newxp.common.ExchangeConstants;
-import com.taobao.newxp.controller.ExchangeDataService;
-import com.taobao.newxp.view.ExchangeViewManager;
 import com.umeng.analytics.MobclickAgent;
 
 import net.youmi.android.offers.OffersManager;
@@ -107,7 +103,7 @@ public class AppRecommendActivity extends BaseActivity {
      */
     public static class PlaceholderFragment extends Fragment implements View.OnClickListener {
 
-        GdtAppwall appwall;
+        APPWall appwall;
 
         public PlaceholderFragment() {
         }
@@ -125,11 +121,8 @@ public class AppRecommendActivity extends BaseActivity {
         @Override
         public void onActivityCreated(Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
-            AlimmContext.getAliContext().init(getActivity());//必须保证这段代码最先执行
             View view = getActivity().findViewById(R.id.rlayout1);
-            new ExchangeViewManager(getActivity(), new ExchangeDataService(ConfigConstant.SLOT_ID))
-                    .addView(ExchangeConstants.type_list_curtain, view);
-            appwall = new GdtAppwall(getActivity(), ConfigConstant.QQ_AD_APPID, ConfigConstant.QQ_AD_POSID, false);
+            appwall = new APPWall(getActivity(), ConfigConstant.QQ_AD_APPID, ConfigConstant.QQ_AD_POSID);
 
         }
 

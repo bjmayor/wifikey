@@ -32,8 +32,7 @@ public class ReleaseConstant {
         ADPLATFORM_UNDEFINED,//未定义
         ADPLATFORM_WANPU,//万普
         ADPLATFORM_YOUMI,//有米
-        ADPLATFORM_QQ,//qq
-        ADPLATFORM_TANX;//tanx移动
+        ADPLATFORM_QQ;//qq
 
         public static ADPLATFORM valueOf(int value) {
             switch (value) {
@@ -59,8 +58,6 @@ public class ReleaseConstant {
                     return "youmi";
                 case ADPLATFORM_QQ:
                     return "qq";
-                case ADPLATFORM_TANX:
-                    return "tanx";
                 default:
                     return "undefine";
             }
