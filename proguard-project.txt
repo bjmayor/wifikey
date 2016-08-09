@@ -90,11 +90,13 @@
 
 -dontwarn android.taobao.**
 -dontwarn com.taobao.**
+-dontwarn cn.waps.**
 
 -keep class com.taobao.** {*; }
 -keep class android.taobao.** {*; }
 -keep public class cn.waps.** {*;}
 -keep public interface cn.waps.** {*;}
+
 -keep class net.youmi.android.** {
     *;
 }

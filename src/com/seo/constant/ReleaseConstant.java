@@ -23,7 +23,7 @@ public class ReleaseConstant {
         DebugLevelNone;
     }
 
-    public static DebugLevel debugLevel = DebugLevel.DebugLevelSDCard;
+    public static DebugLevel debugLevel = DebugLevel.DebugLevelConsole;
     public static final boolean ISDEBUG = false;
     //如果关闭，则不取密码，也不倒计时
     public static boolean isCommerceOpened = false;

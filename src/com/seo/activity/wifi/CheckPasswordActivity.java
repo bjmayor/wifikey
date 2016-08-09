@@ -57,11 +57,11 @@ import cn.sharesdk.sina.weibo.SinaWeibo;
 import cn.sharesdk.wechat.moments.WechatMoments;
 import cn.waps.AppConnect;
 import cn.waps.AppListener;
-import cn.waps.UpdatePointsNotifier;
+import cn.waps.UpdatePointsListener;
 
 
 public class CheckPasswordActivity extends BaseActivity implements
-        OnClickListener, UpdatePointsNotifier, PlatformActionListener {
+        OnClickListener, UpdatePointsListener, PlatformActionListener {
 
     private LinearLayout hasPasswordNoScore, hasPasswordHasScore, passwordHasShowed, noPasswordCansee, shareContainer;
     private ImageView backWifilist, stateImage;
