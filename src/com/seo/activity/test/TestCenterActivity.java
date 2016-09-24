@@ -124,7 +124,7 @@ public class TestCenterActivity extends FragmentActivity {
 
 
             list.add(makeItem("test_name", new TestItem("官方网站",
-                    RequestTag.HIWIFI_PAGE_OFFICE_WEBSITE, true)));
+                    RequestTag.APP_PAGE_OFFICE_WEBSITE, true)));
             list.add(makeItem("test_name", new TestItem("上报最近打开的app列表",
                     RequestTag.HIWIFI_RECENTAPP_SEND, true)));
             list.add(makeItem("test_name", new TestItem("上报用户安装的app列表",

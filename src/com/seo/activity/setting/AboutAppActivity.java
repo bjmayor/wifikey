@@ -1,14 +1,12 @@
 package com.seo.activity.setting;
 
 import android.content.Intent;
-import android.util.EventLogTags;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.seo.activity.CommonWebviewActivity;
 import com.seo.activity.base.BaseActivity;
-import com.seo.app.views.UINavigationView;
 import com.seo.constant.RequestConstant;
 import com.seo.constant.RequestConstant.RequestTag;
 import com.seo.wifikey.Gl;
@@ -27,7 +25,7 @@ public class AboutAppActivity extends BaseActivity {
                 website.putExtra("type", "webset");
                 website.putExtra("title", "官方网站");
                 website.putExtra("url", RequestConstant
-                        .getUrl(RequestTag.HIWIFI_PAGE_OFFICE_WEBSITE));
+                        .getUrl(RequestTag.APP_PAGE_OFFICE_WEBSITE));
                 startActivity(website);
                 break;
 

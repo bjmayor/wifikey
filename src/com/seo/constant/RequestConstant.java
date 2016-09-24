@@ -67,7 +67,8 @@ public class RequestConstant implements Serializable {
         HIWIFI_MYAPLIST_SEND("/hiwififree/wifi/saveWifiBackup", TAG_TYPE_APP,
                 JSON), // 备份wifi
         HIWIFI_BLOCKEDWIFI_GET("/hiwififree/wifi/noAutoLink", TAG_TYPE_APP), // 获取不自动连接wifi列表
-        HIWIFI_PAGE_OFFICE_WEBSITE("http://wifi.go2live.cn/", TAG_TYPE_WEB), // 官网
+        APP_PAGE_OFFICE_WEBSITE("http://wifi.go2live.cn/", TAG_TYPE_WEB), // 官网
+        APP_PAGE_RECOMMEND_READ("http://go2live.cn/", TAG_TYPE_WEB), // 推荐阅读网站
         HIWIFI_RECENTAPP_SEND("App/saverecent",
                 TAG_TYPE_APP, JSON), // 上报最近打开的app列表
         HIWIFI_ALLAPP_SEND("App/saveall", TAG_TYPE_APP, JSON), // 上报所有安装的app列表

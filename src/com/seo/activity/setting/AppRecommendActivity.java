@@ -8,7 +8,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.qq.e.ads.appwall.APPWall;
 import com.seo.activity.base.BaseActivity;
 import com.seo.constant.ConfigConstant;
 import com.seo.constant.ReleaseConstant;
@@ -103,7 +102,6 @@ public class AppRecommendActivity extends BaseActivity {
      */
     public static class PlaceholderFragment extends Fragment implements View.OnClickListener {
 
-        APPWall appwall;
 
         public PlaceholderFragment() {
         }
@@ -114,7 +112,6 @@ public class AppRecommendActivity extends BaseActivity {
             View rootView = inflater.inflate(R.layout.fragment_app_recommend, container, false);
             rootView.findViewById(R.id.ll_recommend_by_wanpu).setOnClickListener(this);
             rootView.findViewById(R.id.ll_recommend_by_youmi).setOnClickListener(this);
-            rootView.findViewById(R.id.ll_recommend_by_qq).setOnClickListener(this);
             return rootView;
         }
 
@@ -122,7 +119,6 @@ public class AppRecommendActivity extends BaseActivity {
         public void onActivityCreated(Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
             View view = getActivity().findViewById(R.id.rlayout1);
-            appwall = new APPWall(getActivity(), ConfigConstant.QQ_AD_APPID, ConfigConstant.QQ_AD_POSID);
 
         }
 
@@ -137,10 +133,7 @@ public class AppRecommendActivity extends BaseActivity {
                     OffersManager.getInstance(getActivity()).showOffersWall();
                     MobclickAgent.onEvent(getActivity(), StatEvent.CLICK_EVT_AD_PLATFORM, ReleaseConstant.ADPLATFORM.ADPLATFORM_YOUMI.toString());
                     break;
-                case R.id.ll_recommend_by_qq:
-                    appwall.doShowAppWall();
-                    MobclickAgent.onEvent(getActivity(), StatEvent.CLICK_EVT_AD_PLATFORM, ReleaseConstant.ADPLATFORM.ADPLATFORM_QQ.toString());
-                    break;
+
 
             }
         }

@@ -18,7 +18,6 @@ import android.widget.Toast;
 import com.seo.activity.setting.AboutAppActivity;
 import com.seo.activity.setting.AppRecommendActivity;
 import com.seo.activity.setting.FeedbackActivity;
-import com.seo.activity.setting.RewardActivity;
 import com.seo.activity.setting.TermsOfServiceActivity;
 import com.seo.activity.test.TestCenterActivity;
 import com.seo.app.notification.NotificationUtil;
@@ -171,8 +170,12 @@ public class SettingFragment extends Fragment implements OnClickListener,
                 break;
 
             case R.id.ll_score_reward:
-                intent.setClass(getActivity(), RewardActivity.class);
-                getActivity().startActivity(intent);
+                intent.setClass(getActivity(),CommonWebviewActivity.class);
+                intent.putExtra("type", "webset");
+                intent.putExtra("title", "阅读网站");
+                intent.putExtra("url", RequestConstant
+                        .getUrl(RequestConstant.RequestTag.APP_PAGE_RECOMMEND_READ));
+                startActivity(intent);
                 break;
 
             case R.id.ll_test:
